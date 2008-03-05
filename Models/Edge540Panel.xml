@@ -1,0 +1,314 @@
+<PropertyList>
+
+  <path>Edge540Panel.ac</path>
+
+  <panel>
+    <path>Aircraft/ZivkoEdge/Models/Edge540PanelHotspots.xml</path>
+    <bottom-left>
+      <x-m>0.0</x-m>
+      <y-m>-0.39918</y-m>
+      <z-m>-0.1</z-m>
+    </bottom-left>
+    <bottom-right>
+      <x-m>0.0</x-m>
+      <y-m>0.39918</y-m>
+      <z-m>-0.1</z-m>
+    </bottom-right>
+    <top-left>
+      <x-m>0.0</x-m>
+      <y-m>-0.39918</y-m>
+      <z-m>0.1</z-m>
+    </top-left>
+  </panel>
+
+  <model>
+    <path>Aircraft/ZivkoEdge/Models/TrimIndicator.xml</path>
+    <offsets>
+      <x-m>0.002</x-m>
+      <y-m>-0.265815</y-m>
+      <z-m>0.0202551</z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/ZivkoEdge/Models/Airspeed.xml</path>
+    <offsets>
+      <x-m>0.001</x-m>
+      <y-m>-0.1967</y-m>
+      <z-m>0.0366</z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/ZivkoEdge/Models/Altimeter.xml</path>
+    <offsets>
+      <x-m>0.001</x-m>
+      <y-m>-0.0867</y-m>
+      <z-m>0.0366</z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/ZivkoEdge/Models/Fuel.xml</path>
+    <offsets>
+      <x-m>0.001</x-m>
+      <y-m>0</y-m>
+      <z-m>0.0650</z-m>
+    </offsets>
+  </model>
+
+
+  <model>
+    <path>Aircraft/Instruments-3d/tach/tach.xml</path>
+    <offsets>
+      <x-m>0.001</x-m>
+      <y-m>0.0867</y-m>
+      <z-m>0.0366</z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/ZivkoEdge/Models/Manifold.xml</path>
+    <offsets>
+      <x-m>0.001</x-m>
+      <y-m>0.1967</y-m>
+      <z-m>0.0366</z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/ZivkoEdge/Models/EDM700.xml</path>
+    <offsets>
+      <x-m>0.001</x-m>
+      <y-m>0.2767</y-m>
+      <z-m>-0.0034</z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/ZivkoEdge/Models/MagnetoSwitch.xml</path>
+    <offsets>
+      <x-m>0.001</x-m>
+      <y-m>-0.2667</y-m>
+      <z-m>-0.0580</z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/ZivkoEdge/Models/Acceleration.xml</path>
+    <offsets>
+      <x-m>0.001</x-m>
+      <y-m>-0.1967</y-m>
+      <z-m>-0.0467</z-m>
+    </offsets>
+  </model>
+
+
+  <!-- com -->
+  <model>
+    <path>Aircraft/ZivkoEdge/Models/BeckerAR4201.xml</path>
+    <offsets>
+      <x-m>0.001</x-m>
+      <y-m>-0.0867</y-m>
+      <z-m>-0.0467</z-m>
+    </offsets>
+  </model>
+
+  <!-- com -->
+  <model>
+    <path>Aircraft/ZivkoEdge/Models/BeckerAR4201-1.xml</path>
+    <offsets>
+      <x-m>0.001</x-m>
+      <y-m>0</y-m>
+      <z-m>-0.0467</z-m>
+    </offsets>
+  </model>
+  <!-- transponder -->
+<!--
+  <model>
+    <path>Aircraft/ZivkoEdge/Models/BeckerAR4201.xml</path>
+    <offsets>
+      <x-m>0.001</x-m>
+      <y-m>0.0867</y-m>
+      <z-m>-0.0467</z-m>
+    </offsets>
+  </model>
+-->
+  <!-- oil pressure -->
+  <!-- oil temperature -->
+
+  <animation>
+    <type>rotate</type>
+    <object-name>TrimSwitch.Lever</object-name>
+    <property>controls/flight/elevator-trim-switch</property>
+    <factor>30</factor>
+    <center>
+      <x-m>0</x-m>
+      <y-m>-0.290482</y-m>
+      <z-m>0.0202506</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>MasterSwitch.Lever</object-name>
+    <property>controls/electric/battery-switch</property>
+    <factor>-60</factor>
+    <center>
+      <x-m>0</x-m>
+      <y-m>-0.320476</y-m>
+      <z-m>-0.0507311</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>AltSwitch.Lever</object-name>
+    <property>controls/electric/engine[0]/generator</property>
+    <factor>-60</factor>
+    <center>
+      <x-m>0</x-m>
+      <y-m>-0.300752</y-m>
+      <z-m>-0.0507311</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>SmokeSwitch.Lever</object-name>
+    <property>controls/electric/smoke-switch</property>
+    <factor>-60</factor>
+    <center>
+      <x-m>0</x-m>
+      <y-m>-0.141695</y-m>
+      <z-m>-0.0448206</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>CommSwitch.Lever</object-name>
+    <property>controls/electric/comm-select</property>
+    <factor>-60</factor>
+    <center>
+      <x-m>0</x-m>
+      <y-m>-0.0433204</y-m>
+      <z-m>-0.0448206</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>FuelSwitch.Lever</object-name>
+    <property>controls/electric/fuel-select</property>
+    <factor>-60</factor>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0.0424802</y-m>
+      <z-m>0.064974</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>Circuitbreaker1</object-name>
+    <property>controls/electric/circuitbreaker[0]</property>
+    <factor>-0.008</factor>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>Circuitbreaker2</object-name>
+    <property>controls/electric/circuitbreaker[1]</property>
+    <factor>-0.008</factor>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>Circuitbreaker3</object-name>
+    <property>controls/electric/circuitbreaker[2]</property>
+    <factor>-0.008</factor>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>Circuitbreaker4</object-name>
+    <property>controls/electric/circuitbreaker[3]</property>
+    <factor>-0.008</factor>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>Circuitbreaker5</object-name>
+    <property>controls/electric/circuitbreaker[4]</property>
+    <factor>-0.008</factor>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>Circuitbreaker6</object-name>
+    <property>controls/electric/circuitbreaker[5]</property>
+    <factor>-0.008</factor>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+</PropertyList>

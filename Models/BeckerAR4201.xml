@@ -1,0 +1,242 @@
+<?xml version = '1.0' encoding = 'UTF-8' ?>
+<PropertyList>
+
+  <path>BeckerAR4201.ac</path>
+
+  <panel>
+    <path>Aircraft/ZivkoEdge/Models/BeckerAR4201Panel.xml</path>
+    <bottom-left>
+      <x-m>0.00</x-m>
+      <y-m>-0.03</y-m>
+      <z-m>-0.03</z-m>
+    </bottom-left>
+    <bottom-right>
+      <x-m>0.00</x-m>
+      <y-m>0.03</y-m>
+      <z-m>-0.03</z-m>
+    </bottom-right>
+    <top-left>
+      <x-m>0.00</x-m>
+      <y-m>-0.03</y-m>
+      <z-m>0.03</z-m>
+    </top-left>
+  </panel>
+
+  <animation>
+    <type>noshadow</type>
+  </animation>
+
+  <animation>
+    <type>range</type>
+    <min-m>0</min-m>
+    <max-m>30</max-m>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>Switch1</object-name>
+    <property>instrumentation/comm[0]/sql-button</property>
+    <factor>-0.0010</factor>
+    <axis>
+      <x>1.0</x>
+      <y>0.0</y>
+      <z>0.0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>LeftKnob</object-name>
+    <property>instrumentation/comm[0]/volume</property>
+    <factor>270</factor>
+    <center>
+     <x-m>0</x-m>
+     <y-m>-0.0133929</y-m>
+     <z-m>-0.0162946</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>Display</object-name>
+    <condition>
+      <property>instrumentation/comm[0]/power</property>
+      <property>instrumentation/comm[0]/servicable</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>DigitA0</object-name>
+    <property>instrumentation/comm[0]/display/digit-a[0]</property>
+    <step>1</step>
+    <factor>0.1</factor>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>DigitA1</object-name>
+    <property>instrumentation/comm[0]/display/digit-a[1]</property>
+    <step>1</step>
+    <factor>0.1</factor>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>DigitA2</object-name>
+    <property>instrumentation/comm[0]/display/digit-a[2]</property>
+    <step>1</step>
+    <factor>0.1</factor>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>DigitA3</object-name>
+    <property>instrumentation/comm[0]/display/digit-a[3]</property>
+    <step>1</step>
+    <factor>0.1</factor>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>DigitA4</object-name>
+    <property>instrumentation/comm[0]/display/digit-a[4]</property>
+    <step>1</step>
+    <factor>0.1</factor>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>DigitA5</object-name>
+    <property>instrumentation/comm[0]/display/digit-a[5]</property>
+    <step>1</step>
+    <factor>0.1</factor>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>DigitB0</object-name>
+    <property>instrumentation/comm[0]/display/digit-b[0]</property>
+    <step>1</step>
+    <factor>0.1</factor>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>DigitB1</object-name>
+    <property>instrumentation/comm[0]/display/digit-b[1]</property>
+    <step>1</step>
+    <factor>0.1</factor>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>DigitB2</object-name>
+    <property>instrumentation/comm[0]/display/digit-b[2]</property>
+    <step>1</step>
+    <factor>0.1</factor>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>DigitB3</object-name>
+    <property>instrumentation/comm[0]/display/digit-b[3]</property>
+    <step>1</step>
+    <factor>0.1</factor>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>DigitB4</object-name>
+    <property>instrumentation/comm[0]/display/digit-b[4]</property>
+    <step>1</step>
+    <factor>0.1</factor>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>DigitB5</object-name>
+    <property>instrumentation/comm[0]/display/digit-b[5]</property>
+    <step>1</step>
+    <factor>0.1</factor>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>DigitB6</object-name>
+    <property>instrumentation/comm[0]/display/digit-b[6]</property>
+    <step>1</step>
+    <factor>0.1</factor>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+</PropertyList>

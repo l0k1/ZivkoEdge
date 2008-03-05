@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PropertyList>
+  <params>
+    <serviceable>instrumentation/comm[0]/serviceable</serviceable>
+    <sql-button>instrumentation/comm[0]/sql-button</sql-button>
+    <mde-button>instrumentation/comm[0]/mde-button</mde-button>
+    <sto-button>instrumentation/comm[0]/sto-button</sto-button>
+    <set-button>instrumentation/comm[0]/set-btn</set-button>
+    <volume>instrumentation/comm[0]/volume</volume>
+    <frq-standby>instrumentation/comm[0]/frequencies/standby-mhz</frq-standby>
+    <frq-selected>instrumentation/comm[0]/frequencies/selected-mhz</frq-selected>
+  </params>
+
+  <name>AR4201</name>
+  <background>Aircraft/ZivkoEdge/Models/transparent.rgb</background>
+  <w>600</w>
+  <h>600</h>
+  <instruments>
+    <instrument>
+      <name>panel hotspots</name>
+      <x>300</x>
+      <y>300</y>
+      <w>600</w>
+      <h>600</h>
+      <w-base>600</w-base>
+      <h-base>600</h-base>
+
+      <actions>
+
+        <!-- SQL Button -->
+        <action>
+          <name>SQLButton</name>
+          <button>0</button>
+          <x>-110</x>
+          <y>194</y>
+          <w>100</w>
+          <h>60</h>
+          <repeatable type="bool">false</repeatable>
+          <binding>
+            <command>property-assign</command>
+            <property alias="../../../../../../params/sql-button"/>
+            <value>true</value>
+          </binding>
+          <mod-up>
+            <binding>
+              <command>property-assign</command>
+              <property alias="../../../../../../../params/sql-button"/>
+              <value>false</value>
+            </binding>
+          </mod-up>
+        </action>
+
+        <!-- MDE Button -->
+        <action>
+          <name>MDEButton</name>
+          <button>0</button>
+          <x>10</x>
+          <y>194</y>
+          <w>100</w>
+          <h>60</h>
+          <repeatable type="bool">false</repeatable>
+          <binding>
+            <command>property-assign</command>
+            <property alias="../../../../../../params/mde-button"/>
+            <value>true</value>
+          </binding>
+          <mod-up>
+            <binding>
+              <command>property-assign</command>
+              <property alias="../../../../../../../params/mde-button"/>
+              <value>false</value>
+            </binding>
+          </mod-up>
+        </action>
+
+        <!-- STO Button -->
+        <action>
+          <name>STOButton</name>
+          <button>0</button>
+          <x>-263</x>
+          <y>-50</y>
+          <w>60</w>
+          <h>100</h>
+          <repeatable type="bool">false</repeatable>
+          <binding>
+            <command>property-assign</command>
+            <property>instrumentation/ar4201[0]/sto-button</property>
+            <property alias="../../../../../../params/sto-button"/>
+            <value>true</value>
+          </binding>
+          <mod-up>
+            <binding>
+              <command>property-assign</command>
+              <property alias="../../../../../../../params/sto-button"/>
+              <value>false</value>
+            </binding>
+          </mod-up>
+        </action>
+
+        <!-- SET Button -->
+        <action>
+          <name>SETButton</name>
+          <button>0</button>
+          <x>203</x>
+          <y>-50</y>
+          <w>60</w>
+          <h>100</h>
+          <repeatable type="bool">false</repeatable>
+          <binding>
+            <command>property-assign</command>
+            <property alias="../../../../../../params/set-button"/>
+            <value>true</value>
+          </binding>
+          <binding>
+            <command>property-swap</command>
+            <property alias="../../../../../../params/frq-selected"/>
+            <property alias="../../../../../../params/frq-standby"/>
+            <value>true</value>
+          </binding>
+          <mod-up>
+            <binding>
+              <command>property-assign</command>
+              <property alias="../../../../../../../params/set-button"/>
+              <value>false</value>
+            </binding>
+          </mod-up>
+        </action>
+
+        <!-- Volume Left-->
+        <action>
+          <name>VolumeLeft</name>
+          <button>0</button>
+          <x>-214</x>
+          <y>-243</y>
+          <w>80</w>
+          <h>160</h>
+          <repeatable type="bool">true</repeatable>
+          <binding>
+            <command>property-adjust</command>
+            <property alias="../../../../../../params/volume"/>
+            <step>-0.05</step>
+            <min>0.0</min>
+            <max>1.0</max>
+            <wrap>false</wrap>
+          </binding>
+        </action>
+
+        <!-- Volume Right-->
+        <action>
+          <name>VolumeRight</name>
+          <button>0</button>
+          <x>-134</x>
+          <y>-243</y>
+          <w>80</w>
+          <h>160</h>
+          <repeatable type="bool">true</repeatable>
+          <binding>
+            <command>property-adjust</command>
+            <property alias="../../../../../../params/volume"/>
+            <step>0.05</step>
+            <min>0.0</min>
+            <max>1.0</max>
+            <wrap>false</wrap>
+          </binding>
+        </action>
+
+        <!-- Frequency Left Small -->
+        <action>
+          <name>FrequncyLeftSmall</name>
+          <button>0</button>
+          <x>65</x>
+          <y>-243</y>
+          <w>80</w>
+          <h>160</h>
+          <repeatable type="bool">true</repeatable>
+          <binding>
+            <command>property-adjust</command>
+            <property alias="../../../../../../params/frq-standby"/>
+            <step>-0.025</step>
+            <min>118.0</min>
+            <max>140.0</max>
+            <wrap>true</wrap>
+          </binding>
+        </action>
+
+        <!-- Frequency Right Small -->
+        <action>
+          <name>FrequncyRightSmall</name>
+          <button>0</button>
+          <x>145</x>
+          <y>-243</y>
+          <w>80</w>
+          <h>160</h>
+          <repeatable type="bool">true</repeatable>
+          <binding>
+            <command>property-adjust</command>
+            <property alias="../../../../../../params/frq-standby"/>
+            <step>0.025</step>
+            <min>118.0</min>
+            <max>140.0</max>
+            <wrap>true</wrap>
+          </binding>
+        </action>
+
+        <!-- Frequency Left Huge -->
+        <action>
+          <name>FrequncyLeftHuge</name>
+          <button>1</button>
+          <x>65</x>
+          <y>-243</y>
+          <w>80</w>
+          <h>160</h>
+          <repeatable type="bool">true</repeatable>
+          <binding>
+            <command>property-adjust</command>
+            <property alias="../../../../../../params/frq-standby"/>
+            <step>-1</step>
+            <min>118.0</min>
+            <max>140.0</max>
+            <wrap>true</wrap>
+          </binding>
+        </action>
+
+        <!-- Frequency Right Huge -->
+        <action>
+          <name>FrequncyRightHuge</name>
+          <button>1</button>
+          <x>145</x>
+          <y>-243</y>
+          <w>80</w>
+          <h>160</h>
+          <repeatable type="bool">true</repeatable>
+          <binding>
+            <command>property-adjust</command>
+            <property alias="../../../../../../params/frq-standby"/>
+            <step>1</step>
+            <min>118.0</min>
+            <max>140.0</max>
+            <wrap>true</wrap>
+          </binding>
+        </action>
+
+      </actions>
+    </instrument>
+  </instruments>
+</PropertyList>

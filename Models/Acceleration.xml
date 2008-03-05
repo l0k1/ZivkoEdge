@@ -1,0 +1,51 @@
+<?xml version = '1.0' encoding = 'UTF-8' ?>
+<PropertyList>
+
+  <path>Acceleration.ac</path>
+
+  <animation>
+    <type>noshadow</type>
+  </animation>
+
+  <animation>
+    <type>range</type>
+    <min-m>0</min-m>
+    <max-m>30</max-m>
+  </animation>
+
+  <animation>
+    <type>range</type>
+    <object-name>Needle</object-name>
+    <min-m>0</min-m>
+    <max-m>3</max-m>
+  </animation>
+
+  <animation>
+    <type>range</type>
+    <object-name>Face</object-name>
+    <min-m>0</min-m>
+    <max-m>10</max-m>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>Needle</object-name>
+    <property>accelerations/pilot/z-accel-fps_sec</property>
+    <interpolation>
+      <entry>
+        <ind>159</ind>
+        <dep>-135</dep>
+      </entry>
+      <entry>
+        <ind>-318</ind>
+        <dep>200.25</dep>
+      </entry>
+    </interpolation>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+</PropertyList>

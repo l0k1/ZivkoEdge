@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<PropertyList>
+  <sim>
+    <author>Torsten Dreyer</author>
+    <description>Zivko EDGE 540</description>
+    <aircraft-version>0.1</aircraft-version>
+    <status>alpha</status>
+    <flight-model>jsb</flight-model>
+    <aero>ZivkoEdge540-jsbsim</aero>
+
+    <startup>
+      <splash-title>Zivko EDGE 540</splash-title>
+    </startup>
+    <model>
+      <path>Aircraft/ZivkoEdge/Models/ZivkoEdge540.xml</path>
+    </model>
+    <view n="0">
+      <name>Cockpit</name>
+      <type>lookfrom</type>
+      <internal type="bool">true</internal>
+      <config>
+        <x-offset-m type="double">0</x-offset-m>
+        <y-offset-m type="double">1.66</y-offset-m>
+        <z-offset-m type="double">1.36</z-offset-m>
+        <pitch-offset-deg>-9</pitch-offset-deg>
+        <default-field-of-view-deg type="double">65.0</default-field-of-view-deg>
+      </config>
+    </view>
+
+    <view n="100">
+      <name>Tail Camera View</name>
+      <type>lookfrom</type>
+      <internal archive="y">true</internal>
+      <config>
+        <from-model type="bool">true</from-model>
+        <from-model-idx type="int">0</from-model-idx>
+        <ground-level-nearplane-m type="double">0.01f</ground-level-nearplane-m>
+        <default-field-of-view-deg type="double">80</default-field-of-view-deg>
+        <pitch-offset-deg>-10</pitch-offset-deg>
+        <x-offset-m archive="y"> 0.000 </x-offset-m> <!--Right-->
+        <y-offset-m archive="y"> 2.590 </y-offset-m> <!--Up-->
+        <z-offset-m archive="y"> 3.670 </z-offset-m> <!--Back-->
+      </config>
+    </view>
+
+    <view n="101">
+      <name>Wing Camera View</name>
+      <type>lookfrom</type>
+      <internal archive="y">true</internal>
+      <config>
+        <from-model type="bool">true</from-model>
+        <from-model-idx type="int">0</from-model-idx>
+        <ground-level-nearplane-m type="double">0.01f</ground-level-nearplane-m>
+        <default-field-of-view-deg type="double">80</default-field-of-view-deg>
+        <heading-offset-deg>90</heading-offset-deg>
+        <x-offset-m archive="y"> 3.900 </x-offset-m> <!--Right-->
+        <y-offset-m archive="y"> 1.360 </y-offset-m> <!--Up-->
+        <z-offset-m archive="y"> 0.530 </z-offset-m> <!--Back-->
+      </config>
+    </view>
+
+  <sound>
+   <path>Aircraft/Generic/generic-sound.xml</path>
+  </sound>
+
+  <hud>
+    <enable3d>false</enable3d>
+  </hud>
+
+  <virtual-cockpit archive="y">true</virtual-cockpit>
+  <allow-toggle-cockpit>false</allow-toggle-cockpit>
+
+    <help>
+      <title>Zivko EDGE 540</title>
+      <key>
+        <name>O</name>
+        <desc>toggle smOke on</desc>
+      </key>
+    </help>
+  </sim>
+
+  <input>
+    <keyboard>
+      <key n="111">
+        <name>o</name>
+        <desc>Toggle smoke system</desc>
+        <binding>
+          <command>property-toggle</command>
+          <property>controls/electric/smoke-switch</property>
+        </binding>
+      </key>
+    </keyboard>
+  </input>
+
+  <nasal>
+    <Edge540>
+      <file>Aircraft/ZivkoEdge/Nasal/MagnetoSwitch.nas</file>
+      <file>Aircraft/ZivkoEdge/Nasal/EDM700.nas</file>
+      <file>Aircraft/ZivkoEdge/Nasal/BeckerAR4201.nas</file>
+      <file>Aircraft/ZivkoEdge/Nasal/Edge540.nas</file>
+    </Edge540>
+  </nasal>
+
+  <controls>
+    <gear>
+      <brake-parking>0</brake-parking>
+    </gear>
+
+    <engines>
+      <engine n="0">
+        <magnetos>3</magnetos>
+      </engine>
+    </engines>
+
+    <electric>
+      <battery-switch type="bool">1</battery-switch>
+      <engine n="0" type="bool">
+        <generator type="bool">1</generator>
+      </engine>
+      <circuitbreaker n="0" type="bool">1</circuitbreaker>
+      <circuitbreaker n="1" type="bool">1</circuitbreaker>
+      <circuitbreaker n="2" type="bool">1</circuitbreaker>
+      <circuitbreaker n="3" type="bool">1</circuitbreaker>
+      <circuitbreaker n="4" type="bool">1</circuitbreaker>
+      <circuitbreaker n="5" type="bool">1</circuitbreaker>
+    </electric>
+  </controls>
+
+  <engines>
+    <engine n="0">
+      <rpm>1000</rpm>
+    </engine>
+  </engines>
+
+  <instrumentation>
+    <edm700>
+        <servicable type="bool">1</servicable>
+        <!-- the interval between each cylinder scan -->
+        <scan-interval-sec>4</scan-interval-sec>
+
+        <!-- the interval for the timer function -->
+        <!-- <timer>0.25</timer> -->
+
+        <sensor>
+          <name>egt0</name>
+          <input>engines/engine[0]/egt-degf</input>
+          <lag>0.80</lag>
+          <noise>0</noise>
+          <drift>0</drift>
+          <bias>0</bias>
+          <scale>2.2</scale>
+        </sensor>
+        <sensor>
+          <name>egt1</name>
+          <input>engines/engine[0]/egt-degf</input>
+          <lag>0.7</lag>
+          <noise>0</noise>
+          <drift>0</drift>
+          <bias>0</bias>
+          <scale>2.2</scale>
+        </sensor>
+        <sensor>
+          <name>egt2</name>
+          <input>engines/engine[0]/egt-degf</input>
+          <lag>0.8</lag>
+          <noise>0</noise>
+          <drift>0</drift>
+          <bias>0</bias>
+          <scale>2.100</scale>
+        </sensor>
+        <sensor>
+          <name>egt3</name>
+          <input>engines/engine[0]/egt-degf</input>
+          <lag>0.9</lag>
+          <noise>0</noise>
+          <drift>0</drift>
+          <bias>0</bias>
+          <scale>2.15</scale>
+        </sensor>
+        <sensor>
+          <name>egt4</name>
+          <input>engines/engine[0]/egt-degf</input>
+          <lag>0.9</lag>
+          <noise>0</noise>
+          <drift>0</drift>
+          <bias>0</bias>
+          <scale>2.25</scale>
+        </sensor>
+        <sensor>
+          <name>egt5</name>
+          <input>engines/engine[0]/egt-degf</input>
+          <lag>0.5</lag>
+          <noise>0</noise>
+          <drift>0</drift>
+          <bias>0</bias>
+          <scale>2.18</scale>
+        </sensor>
+        <sensor>
+          <name>cht0</name>
+          <input>engines/engine[0]/cht-degf</input>
+          <lag>0</lag>
+          <noise>0</noise>
+          <drift>0</drift>
+          <bias>0</bias>
+          <scale>1.0</scale>
+        </sensor>
+        <sensor>
+          <name>cht1</name>
+          <input>engines/engine[0]/cht-degf</input>
+          <lag>0</lag>
+          <noise>0</noise>
+          <drift>0</drift>
+          <bias>0</bias>
+          <scale>1.020</scale>
+        </sensor>
+        <sensor>
+          <name>cht2</name>
+          <input>engines/engine[0]/cht-degf</input>
+          <lag>0</lag>
+          <noise>0</noise>
+          <drift>0</drift>
+          <bias>0</bias>
+          <scale>1.015</scale>
+        </sensor>
+        <sensor>
+          <name>cht3</name>
+          <input>engines/engine[0]/cht-degf</input>
+          <lag>0</lag>
+          <noise>0</noise>
+          <drift>0</drift>
+          <bias>0</bias>
+          <scale>0.993</scale>
+        </sensor>
+        <sensor>
+          <name>cht4</name>
+          <input>engines/engine[0]/cht-degf</input>
+          <lag>0</lag>
+          <noise>0</noise>
+          <drift>0</drift>
+          <bias>0</bias>
+          <scale>0.910</scale>
+        </sensor>
+        <sensor>
+          <name>cht5</name>
+          <input>engines/engine[0]/cht-degf</input>
+          <lag>0</lag>
+          <noise>0</noise>
+          <drift>0</drift>
+          <bias>0</bias>
+          <scale>1.030</scale>
+        </sensor>
+        <sensor>
+          <name>oil</name>
+          <input>engines/engine[0]/oil-temperature-degf</input>
+          <lag>0</lag>
+          <noise>0</noise>
+          <drift>0</drift>
+          <bias>0</bias>
+          <scale>1.000</scale>
+        </sensor>
+        <sensor>
+          <name>bat</name>
+          <input>systems/electrical/outputs/bus</input>
+          <lag>0</lag>
+          <noise>0</noise>
+          <drift>0</drift>
+          <bias>0</bias>
+          <scale>1.000</scale>
+        </sensor>
+        <sensor>
+          <name>oat</name>
+          <input>environment/temperature-degf</input>
+          <lag>0</lag>
+          <noise>0</noise>
+          <drift>0</drift>
+          <bias>0</bias>
+          <scale>1.000</scale>
+        </sensor>
+        <sensor>
+          <name>crb</name>
+          <input>environment/temperature-degf</input>
+          <lag>0</lag>
+          <noise>0</noise>
+          <drift>0</drift>
+          <bias>0</bias>
+          <scale>0.800</scale>
+        </sensor>
+    </edm700>
+
+    <comm n="0">
+      <servicable type="bool">1</servicable>
+    </comm>
+    <comm n="1">
+      <servicable type="bool">1</servicable>
+    </comm>
+
+    <fuel-indicator>
+      <servicable type="bool">1</servicable>
+    </fuel-indicator>
+
+  </instrumentation>
+</PropertyList>

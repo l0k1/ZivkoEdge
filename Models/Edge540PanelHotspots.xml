@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PropertyList>
+  <name>EDM700PanelHotspots</name>
+  <background>Aircraft/ZivkoEdge/Models/transparent.rgb</background>
+  <w>798</w>
+  <h>200</h>
+  <instruments>
+    <instrument>
+      <name>panel hotspots</name>
+      <x>399</x>
+      <y>100</y>
+      <w>798</w>
+      <h>200</h>
+      <w-base>798</w-base>
+      <h-base>200</h-base>
+
+      <actions>
+
+        <!-- TRIM DOWN -->
+        <action>
+          <name>TrimDown</name>
+          <button>0</button>
+          <x>-300</x>
+          <y>10</y>
+          <w>20</w>
+          <h>10</h>
+          <repeatable type="bool">true</repeatable>
+          <binding>
+            <command>property-adjust</command>
+            <property>controls/flight/elevator-trim</property>
+            <step>-0.01</step>
+            <min>-1</min>
+            <max>1</max>
+            <wrap>false</wrap>
+          </binding>
+          <binding>
+            <command>property-assign</command>
+            <property>controls/flight/elevator-trim-switch</property>
+            <value>1</value>
+          </binding>
+          <mod-up>
+            <binding>
+              <command>property-assign</command>
+              <property>controls/flight/elevator-trim-switch</property>
+              <value>0</value>
+            </binding>
+          </mod-up>
+        </action>
+
+        <!-- TRIM UP -->
+        <action>
+          <name>TrimUP</name>
+          <button>0</button>
+          <x>-300</x>
+          <y>20</y>
+          <w>20</w>
+          <h>10</h>
+          <repeatable type="bool">true</repeatable>
+          <binding>
+            <command>property-adjust</command>
+            <property>controls/flight/elevator-trim</property>
+            <step>0.01</step>
+            <min>-1</min>
+            <max>1</max>
+            <wrap>false</wrap>
+          </binding>
+          <binding>
+            <command>property-assign</command>
+            <property>controls/flight/elevator-trim-switch</property>
+            <value>-1</value>
+          </binding>
+          <mod-up>
+            <binding>
+              <command>property-assign</command>
+              <property>controls/flight/elevator-trim-switch</property>
+              <value>0</value>
+            </binding>
+          </mod-up>
+        </action>
+
+        <!-- Master -->
+        <action>
+          <name>Master</name>
+          <button>0</button>
+          <x>-330</x>
+          <y>-62</y>
+          <w>20</w>
+          <h>20</h>
+          <repeatable type="bool">false</repeatable>
+          <binding>
+            <command>property-toggle</command>
+            <property>controls/electric/battery-switch</property>
+          </binding>
+        </action>
+
+        <!-- Master -->
+        <action>
+          <name>Master</name>
+          <button>0</button>
+          <x>-310</x>
+          <y>-62</y>
+          <w>20</w>
+          <h>20</h>
+          <repeatable type="bool">false</repeatable>
+          <binding>
+            <command>property-toggle</command>
+            <property>controls/electric/engine[0]/generator</property>
+          </binding>
+        </action>
+
+        <!-- Smoke -->
+        <action>
+          <name>Smoke</name>
+          <button>0</button>
+          <x>-151</x>
+          <y>-54</y>
+          <w>20</w>
+          <h>20</h>
+          <repeatable type="bool">false</repeatable>
+          <binding>
+            <command>property-toggle</command>
+            <property>controls/electric/smoke-switch</property>
+          </binding>
+        </action>
+
+        <!-- CommSelect -->
+        <action>
+          <name>CommSelect</name>
+          <button>0</button>
+          <x>-53</x>
+          <y>-54</y>
+          <w>20</w>
+          <h>20</h>
+          <repeatable type="bool">false</repeatable>
+          <binding>
+            <command>property-toggle</command>
+            <property>controls/electric/comm-select</property>
+          </binding>
+        </action>
+
+        <!-- FuelGaugeSelect -->
+        <action>
+          <name>FuelGaugeSelect</name>
+          <button>0</button>
+          <x>32</x>
+          <y>55</y>
+          <w>20</w>
+          <h>20</h>
+          <repeatable type="bool">false</repeatable>
+          <binding>
+            <command>property-toggle</command>
+            <property>controls/electric/fuel-select</property>
+          </binding>
+        </action>
+
+        <!-- Circuitbreaker1 -->
+        <action>
+          <name>Circuitbreaker1</name>
+          <button>0</button>
+          <x>-327</x>
+          <y>-33</y>
+          <w>14</w>
+          <h>14</h>
+          <repeatable type="bool">false</repeatable>
+          <binding>
+            <command>property-toggle</command>
+            <property>controls/electric/circuitbreaker[0]</property>
+          </binding>
+        </action>
+
+        <!-- Circuitbreaker2 -->
+        <action>
+          <name>Circuitbreaker2</name>
+          <button>0</button>
+          <x>-312</x>
+          <y>-33</y>
+          <w>14</w>
+          <h>14</h>
+          <repeatable type="bool">false</repeatable>
+          <binding>
+            <command>property-toggle</command>
+            <property>controls/electric/circuitbreaker[1]</property>
+          </binding>
+        </action>
+
+        <!-- Circuitbreaker3 -->
+        <action>
+          <name>Circuitbreaker3</name>
+          <button>0</button>
+          <x>-297</x>
+          <y>-33</y>
+          <w>14</w>
+          <h>14</h>
+          <repeatable type="bool">false</repeatable>
+          <binding>
+            <command>property-toggle</command>
+            <property>controls/electric/circuitbreaker[2]</property>
+          </binding>
+        </action>
+
+        <!-- Circuitbreaker4 -->
+        <action>
+          <name>Circuitbreaker4</name>
+          <button>0</button>
+          <x>-282</x>
+          <y>-33</y>
+          <w>14</w>
+          <h>14</h>
+          <repeatable type="bool">false</repeatable>
+          <binding>
+            <command>property-toggle</command>
+            <property>controls/electric/circuitbreaker[3]</property>
+          </binding>
+        </action>
+
+        <!-- Circuitbreaker5 -->
+        <action>
+          <name>Circuitbreaker5</name>
+          <button>0</button>
+          <x>-267</x>
+          <y>-33</y>
+          <w>14</w>
+          <h>14</h>
+          <repeatable type="bool">false</repeatable>
+          <binding>
+            <command>property-toggle</command>
+            <property>controls/electric/circuitbreaker[4]</property>
+          </binding>
+        </action>
+
+        <!-- Circuitbreaker6 -->
+        <action>
+          <name>Circuitbreaker6</name>
+          <button>0</button>
+          <x>-252</x>
+          <y>-33</y>
+          <w>14</w>
+          <h>14</h>
+          <repeatable type="bool">false</repeatable>
+          <binding>
+            <command>property-toggle</command>
+            <property>controls/electric/circuitbreaker[5]</property>
+          </binding>
+        </action>
+
+      </actions>
+    </instrument>
+  </instruments>
+</PropertyList>
+

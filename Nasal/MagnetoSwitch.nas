@@ -3,7 +3,6 @@
 # maintainer: Torsten Dreyer, torsten (at) t3r (dot) de 
 ############################################################
 var switchPositionNode = props.globals.getNode( "controls/engines/engine[0]/magneto-switch-position", 1 );
-
 var magnetoListener = func {
   var magnetoNode = props.globals.getNode( "controls/engines/engine[0]/magnetos", 1 );
   var starter = props.globals.getNode( "controls/engines/engine[0]/starter", 1 ).getValue();
@@ -11,9 +10,8 @@ var magnetoListener = func {
   if( starter == nil )
     starter = 0;
 
-  if( starter != 0 ) {
+  if( starter != 0 )
     magnetoNode.setIntValue( 3 );
-  }
   
   switchPositionNode.setIntValue( magnetoNode.getValue() + starter );
 };

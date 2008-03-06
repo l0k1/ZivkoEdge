@@ -10,6 +10,7 @@
 
     <startup>
       <splash-title>Zivko EDGE 540</splash-title>
+            <splash-texture>Aircraft/ZivkoEdge/splash.rgb</splash-texture>
     </startup>
     <model>
       <path>Aircraft/ZivkoEdge/Models/ZivkoEdge540.xml</path>
@@ -51,10 +52,10 @@
         <from-model type="bool">true</from-model>
         <from-model-idx type="int">0</from-model-idx>
         <ground-level-nearplane-m type="double">0.01f</ground-level-nearplane-m>
-        <default-field-of-view-deg type="double">80</default-field-of-view-deg>
-        <heading-offset-deg>90</heading-offset-deg>
-        <x-offset-m archive="y"> 3.900 </x-offset-m> <!--Right-->
-        <y-offset-m archive="y"> 1.360 </y-offset-m> <!--Up-->
+        <default-field-of-view-deg type="double">100</default-field-of-view-deg>
+        <heading-offset-deg>-98</heading-offset-deg>
+        <x-offset-m archive="y"> -3.900 </x-offset-m> <!--Right-->
+        <y-offset-m archive="y"> 1.450 </y-offset-m> <!--Up-->
         <z-offset-m archive="y"> 0.530 </z-offset-m> <!--Back-->
       </config>
     </view>

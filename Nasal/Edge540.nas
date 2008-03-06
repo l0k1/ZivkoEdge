@@ -63,7 +63,6 @@ var update = func {
   settimer( update, 0.05 );
 }
 
-
 setlistener("sim/signals/fdm-initialized", func {
   var batterySwitchNode = props.globals.getNode( "controls/electric/battery-switch", 1 );
   append( logics, AND.new( "controls/electric/avi-power", [ batterySwitchNode, "controls/electric/circuitbreaker[0]" ] ) );
@@ -84,3 +83,29 @@ setlistener("sim/signals/fdm-initialized", func {
   update();
 });
 
+##############################
+# some life for the pilot
+##############################
+var PilotsLife = {};
+
+PilotsLife.new = func {
+  var obj = {};
+  obj.parents = [ PilotsLife ];
+
+  obj.look = 0;
+  aircraft.light.new( "sim/model/look-timer", [ 1, 4 ] ).switch(1);
+  obj.lookLeft = aircraft.door.new( "sim/model/pilot-view-heading", 0.5 );
+  setlistener( "sim/model/look-timer/state", func { obj.lookTimerHandler() }, 0, 0 );
+  return obj;
+}
+
+PilotsLife.lookTimerHandler = func {
+  var v = cmdarg().getValue();
+  if( v != 0 ) {
+    me.lookLeft.open();
+  } else {
+    me.lookLeft.close();
+  }
+}
+
+PilotsLife.new();

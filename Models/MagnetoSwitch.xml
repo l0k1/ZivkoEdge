@@ -3,6 +3,26 @@
 
   <path>MagnetoSwitch.ac</path>
 
+  <panel>
+    <path>Aircraft/ZivkoEdge/Models/MagnetoSwitchPanel.xml</path>
+    <bottom-left>
+      <x-m>0.0</x-m>
+      <y-m>-0.02</y-m>
+      <z-m>-0.02</z-m>
+    </bottom-left>
+    <bottom-right>
+      <x-m>0.0</x-m>
+      <y-m>0.02</y-m>
+      <z-m>-0.02</z-m>
+    </bottom-right>
+    <top-left>
+      <x-m>0.0</x-m>
+      <y-m>-0.02</y-m>
+      <z-m>0.02</z-m>
+    </top-left>
+  </panel>
+
+
   <animation>
     <type>noshadow</type>
   </animation>

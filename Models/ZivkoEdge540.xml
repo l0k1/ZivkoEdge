@@ -9,7 +9,7 @@
     <offsets>
       <x-m>0.86</x-m>
       <y-m>0.0</y-m>
-      <z-m>1.4107</z-m>
+      <z-m>1.42</z-m>
     </offsets>
   </model>
 
@@ -35,8 +35,76 @@
 
   <animation>
     <type>rotate</type>
+    <object-name>Helmet</object-name>
+    <property>sim/model/pilot-view-heading/position-norm</property>
+    <factor>60</factor>
+    <center>
+     <x-m>1.40627</x-m>
+     <y-m>0</y-m>
+     <z-m>1.60476</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>0.0</y>
+      <z>1.0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>Helmet</object-name>
+    <property>sim/model/pilot-view-pitch-norm</property>
+    <factor>15</factor>
+    <center>
+     <x-m>1.40627</x-m>
+     <y-m>0</y-m>
+     <z-m>1.60476</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>1.0</y>
+      <z>0.0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>Stick</object-name>
+    <property>controls/flight/elevator</property>
+    <factor>-11.25</factor>
+    <center>
+     <x-m>0.988169</x-m>
+     <y-m>0</y-m>
+     <z-m>0.770673</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>1.0</y>
+      <z>0.0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>Stick</object-name>
+    <property>controls/flight/aileron</property>
+    <factor>-11.25</factor>
+    <center>
+     <x-m>0.988169</x-m>
+     <y-m>0</y-m>
+     <z-m>0.770673</z-m>
+    </center>
+    <axis>
+      <x>1.0</x>
+      <y>0.0</y>
+      <z>0.0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
     <object-name>Rudder</object-name>
-    <property>/surface-positions/rudder-pos-norm</property>
+    <property>surface-positions/rudder-pos-norm</property>
     <factor>45.0</factor>
     <axis>
       <x1-m>3.998</x1-m>
@@ -51,7 +119,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Elevator.Left</object-name>
-    <property>/surface-positions/elevator-pos-norm</property>
+    <property>surface-positions/elevator-pos-norm</property>
     <factor>-19.5</factor>
     <axis>
       <x1-m>3.816</x1-m>
@@ -66,7 +134,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Elevator.Right</object-name>
-    <property>/surface-positions/elevator-pos-norm</property>
+    <property>surface-positions/elevator-pos-norm</property>
     <factor>19.5</factor>
     <axis>
       <x1-m>3.816</x1-m>
@@ -81,7 +149,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Aileron.Left</object-name>
-    <property>/surface-positions/left-aileron-pos-norm</property>
+    <property>surface-positions/left-aileron-pos-norm</property>
     <factor>-22.5</factor>
     <axis>
       <x1-m>1.23895</x1-m>
@@ -96,7 +164,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Aileron.Right</object-name>
-    <property>/surface-positions/right-aileron-pos-norm</property>
+    <property>surface-positions/right-aileron-pos-norm</property>
     <factor>-22.5</factor>
     <axis>
       <x1-m>1.23895</x1-m>
@@ -111,7 +179,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Gear.Left</object-name>
-    <property>/gear/gear[0]/compression-norm</property>
+    <property>gear/gear[0]/compression-norm</property>
     <factor>-30</factor>
     <axis>
       <x1-m>-0.04132</x1-m>
@@ -126,7 +194,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Gear.Right</object-name>
-    <property>/gear/gear[1]/compression-norm</property>
+    <property>gear/gear[1]/compression-norm</property>
     <factor>30</factor>
     <axis>
       <x1-m>-0.04132</x1-m>

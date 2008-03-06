@@ -359,15 +359,20 @@
           <table>
             <independentVar lookup="row">aero/alpha-rad</independentVar>
             <tableData>
-              -0.20 -0.750
-               0.00 0.250
-             0.18    1.400
-               0.60 0.710
+              -0.28 -1.12
+              -0.25 -1.34
+              -0.22 -1.40
+              -0.20 -1.34
+               0.00  0.00
+               0.20  1.34
+               0.22  1.40
+               0.25  1.34
+               0.28  1.12
             </tableData>
           </table>
       </product>
     </function>
-
+<!--
     <function name="aero/coefficient/CLde">
        <description>Lift_due_to_Elevator_Deflection</description>
        <product>
@@ -377,7 +382,7 @@
            <value>0.0</value>
        </product>
     </function>
-
+-->
   </axis>
 
   <axis name="DRAG">
@@ -419,34 +424,22 @@
             <independentVar lookup="row">aero/beta-rad</independentVar>
             <tableData>
               -1.57       1.930
-              -0.26    0.190
+              -0.26    0.250
                0.00       0.000
-               0.26    0.190
+               0.26    0.250
                1.57       1.930
             </tableData>
           </table>
        </product>
     </function>
-<!--
+
     <function name="aero/coefficient/CDde">
        <description>Drag_due_to_Elevator_Deflection</description>
        <product>
            <property>aero/qbar-psf</property>
            <property>metrics/Sw-sqft</property>
-           <table>
-            <independentVar lookup="row">fcs/elevator-pos-norm</independentVar>
-            <tableData>
-              -1.00       1.000
-              -0.75       0.5625
-              -0.50       0.250
-              -0.25       0.0625
-               0.00       0.000
-               0.25       0.0625
-               0.50       0.250
-               0.75       0.5625
-               1.00       1.000
-            </tableData>
-          </table>
+           <property>aero/cl-squared</property>
+           <value>0.04</value>
        </product>
     </function>
 -->

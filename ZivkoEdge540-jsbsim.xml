@@ -453,7 +453,7 @@
            <property>aero/qbar-psf</property>
            <property>metrics/Sw-sqft</property>
            <property>aero/beta-rad</property>
-           <value>-1</value>
+           <value>-2.2</value>
        </product>
     </function>
 

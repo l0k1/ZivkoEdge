@@ -27,6 +27,48 @@
         <default-field-of-view-deg type="double">65.0</default-field-of-view-deg>
       </config>
     </view>
+    <view n="1">
+      <config>
+        <target-x-offset-m archive="y" type="double">0</target-x-offset-m>
+        <target-y-offset-m archive="y" type="double">1.18</target-y-offset-m>
+        <target-z-offset-m archive="y" type="double">0.88</target-z-offset-m>
+      </config>
+    </view>
+    <view n="2">
+      <config>
+        <target-x-offset-m archive="y" type="double">0</target-x-offset-m>
+        <target-y-offset-m archive="y" type="double">1.18</target-y-offset-m>
+        <target-z-offset-m archive="y" type="double">0.88</target-z-offset-m>
+      </config>
+    </view>
+    <view n="3">
+      <config>
+        <target-x-offset-m archive="y" type="double">0</target-x-offset-m>
+        <target-y-offset-m archive="y" type="double">1.18</target-y-offset-m>
+        <target-z-offset-m archive="y" type="double">0.88</target-z-offset-m>
+      </config>
+    </view>
+    <view n="4">
+      <config>
+        <target-x-offset-m archive="y" type="double">0</target-x-offset-m>
+        <target-y-offset-m archive="y" type="double">1.18</target-y-offset-m>
+        <target-z-offset-m archive="y" type="double">0.88</target-z-offset-m>
+      </config>
+    </view>
+    <view n="5">
+      <config>
+        <target-x-offset-m archive="y" type="double">0</target-x-offset-m>
+        <target-y-offset-m archive="y" type="double">1.18</target-y-offset-m>
+        <target-z-offset-m archive="y" type="double">0.88</target-z-offset-m>
+      </config>
+    </view>
+    <view n="6">
+      <config>
+        <target-x-offset-m archive="y" type="double">0</target-x-offset-m>
+        <target-y-offset-m archive="y" type="double">1.18</target-y-offset-m>
+        <target-z-offset-m archive="y" type="double">0.88</target-z-offset-m>
+      </config>
+    </view>
 
     <view n="100">
       <name>Tail Camera View</name>

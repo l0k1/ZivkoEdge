@@ -95,12 +95,12 @@ PilotsLife.new = func {
   obj.look = 0;
   aircraft.light.new( "sim/model/look-timer", [ 1, 4 ] ).switch(1);
   obj.lookLeft = aircraft.door.new( "sim/model/pilot-view-heading", 0.5 );
-  setlistener( "sim/model/look-timer/state", func { obj.lookTimerHandler() }, 0, 0 );
+  setlistener( "sim/model/look-timer/state", func(n) { obj.lookTimerHandler(n) }, 0, 0 );
   return obj;
 }
 
-PilotsLife.lookTimerHandler = func {
-  var v = cmdarg().getValue();
+PilotsLife.lookTimerHandler = func(n) {
+  var v = n.getValue();
   if( v != 0 ) {
     me.lookLeft.open();
   } else {

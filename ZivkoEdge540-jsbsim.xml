@@ -62,8 +62,8 @@
      <y>-32.8</y>
      <z>0</z>
    </location>
-   <static_friction>  0.80 </static_friction>
-   <dynamic_friction> 0.50 </dynamic_friction>
+   <static_friction>  0.95 </static_friction>
+   <dynamic_friction> 0.80 </dynamic_friction>
    <rolling_friction> 0.02 </rolling_friction>
    <spring_coeff unit="LBS/FT">       2500.00 </spring_coeff>
    <damping_coeff unit="LBS/FT/SEC">   360.00 </damping_coeff>
@@ -78,8 +78,8 @@
      <y>32.8</y>
      <z>0</z>
    </location>
-   <static_friction>  0.80 </static_friction>
-   <dynamic_friction> 0.50 </dynamic_friction>
+   <static_friction>  0.95 </static_friction>
+   <dynamic_friction> 0.80 </dynamic_friction>
    <rolling_friction> 0.02 </rolling_friction>
    <spring_coeff unit="LBS/FT">       2500.00 </spring_coeff>
    <damping_coeff unit="LBS/FT/SEC">   360.00 </damping_coeff>
@@ -95,7 +95,7 @@
      <z> 27.5 </z>
    </location>
    <static_friction>  0.80 </static_friction>
-   <dynamic_friction> 0.50 </dynamic_friction>
+   <dynamic_friction> 0.70 </dynamic_friction>
    <rolling_friction> 0.02 </rolling_friction>
    <spring_coeff unit="LBS/FT">       800.00 </spring_coeff>
    <damping_coeff unit="LBS/FT/SEC">  040.00 </damping_coeff>

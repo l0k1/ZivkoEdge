@@ -3,6 +3,15 @@
 
   <path>ZivkoEdge540.ac</path>
 
+  <nasal>
+    <load>
+      var livery_update = aircraft.livery_update.new("Aircraft/ZivkoEdge/Models/Liveries");
+    </load>
+    <unload>
+      livery_update.stop();
+    </unload>
+  </nasal>
+
   <model>
     <path>Aircraft/ZivkoEdge/Models/Edge540Panel.xml</path>
     <name>HiResInstrumentPanel</name>
@@ -235,7 +244,28 @@
     </condition>
   </animation>
 
+  <animation>
+    <type>material</type>
+    <object-name>Wing</object-name>
+    <object-name>Fuselage</object-name>
+    <object-name>Stabilizer</object-name>
+    <object-name>Elevator.Left</object-name>
+    <object-name>Elevator.Right</object-name>
+    <object-name>Rudder</object-name>
+    <object-name>Fin</object-name>
+    <object-name>Aileron.Left</object-name>
+    <object-name>Aileron.Right</object-name>
+    <object-name>Spinner</object-name>
+    <object-name>Helmet</object-name>
+    <object-name>WheelFairing.Left</object-name>
+    <object-name>WheelFairing.Right</object-name>
+    <property-base>sim/model/livery</property-base>
+    <texture-prop>texture</texture-prop>
+    <texture>OpenSuse.rgb</texture>
+  </animation>
+
   <!--particle system-->
+<!--
   <particlesystem>
     <name>smoke-p</name>
     <texture>smoke.rgb</texture>
@@ -286,9 +316,9 @@
       </particles-per-sec>
     </counter>
 
-<!--
+<!- -
     <align>billboard</align>
--->
+- ->
 
     <particle>
       <start>
@@ -344,4 +374,5 @@
     </program>
 
   </particlesystem>
+-->
 </PropertyList>

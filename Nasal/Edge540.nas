@@ -80,6 +80,8 @@ setlistener("sim/signals/fdm-initialized", func {
 
   append( logics, AND.new( "controls/electric/smoke-pump", [ "controls/electric/smoke-power", "controls/electric/smoke-switch" ] ) );
 
+  aircraft.livery.init("Aircraft/ZivkoEdge/Models/Liveries");
+
   update();
 });
 

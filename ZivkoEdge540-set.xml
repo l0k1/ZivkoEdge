@@ -14,6 +14,9 @@
     </startup>
     <model>
       <path>Aircraft/ZivkoEdge/Models/ZivkoEdge540.xml</path>
+      <livery>
+        <file type="string"/>
+       </livery>
     </model>
     <view n="0">
       <name>Cockpit</name>
@@ -112,6 +115,22 @@
 
   <virtual-cockpit archive="y">true</virtual-cockpit>
   <allow-toggle-cockpit>false</allow-toggle-cockpit>
+
+    <menubar>
+     <default>
+      <menu n="100">
+       <label>ZivkoEdge</label>
+       <enabled type="bool">true</enabled>
+       <item>
+        <label>Select Livery</label>
+        <binding>
+         <command>nasal</command>
+         <script>aircraft.livery.dialog.toggle()</script>
+        </binding>
+       </item>
+      </menu>
+     </default>
+    </menubar>
 
     <help>
       <title>Zivko EDGE 540</title>

@@ -138,4 +138,34 @@
     </action>
   </animation>
 
+  <animation>
+    <type>pick</type>
+    <object-name>Knob</object-name>
+    <visible>true</visible>
+    <action>
+      <button>3</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>/instrumentation/altimeter/setting-inhg</property>
+        <step>0.01</step>
+        <min>28.37</min>
+        <max>31.3</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <action>
+      <button>4</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>/instrumentation/altimeter/setting-inhg</property>
+        <step>-0.01</step>
+        <min>28.37</min>
+        <max>31.3</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+  </animation>
+
 </PropertyList>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+ <sim>
+  <model>
+   <livery>
+    <name type="string">LinuxTag 2008</name>
+    <texture>Liveries/Sun_SC.rgb</texture>
+   </livery>
+  </model>
+ </sim>
+</PropertyList>

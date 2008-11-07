@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+ <sim>
+  <model>
+   <livery>
+    <name type="string">Red Hat</name>
+    <texture>Liveries/RedHat.rgb</texture>
+   </livery>
+  </model>
+ </sim>
+</PropertyList>

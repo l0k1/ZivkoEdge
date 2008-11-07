@@ -1,25 +1,6 @@
 <?xml version = '1.0' encoding = 'UTF-8' ?> <PropertyList> 
   <path>EDM700.ac</path>
   
-  <panel>
-    <path>Aircraft/ZivkoEdge/Models/EDM700Panel.xml</path>
-    <bottom-left>
-      <x-m>0.0</x-m>
-      <y-m>-0.03</y-m>
-      <z-m>-0.03</z-m>
-    </bottom-left>
-    <bottom-right>
-      <x-m>0.0</x-m>
-      <y-m>0.03</y-m>
-      <z-m>-0.03</z-m>
-    </bottom-right>
-    <top-left>
-      <x-m>0.0</x-m>
-      <y-m>-0.03</y-m>
-      <z-m>0.03</z-m>
-    </top-left>
-  </panel>
-
   <animation>
     <type>noshadow</type>
   </animation>
@@ -43,6 +24,30 @@
   </animation>
 
   <animation>
+    <type>pick</type>
+    <object-name>Knob.Left</object-name>
+    <object-name>Picker.Left</object-name>
+    <visible>true</visible>
+    <action>
+      <name>Step</name>
+      <button>0</button>
+      <repeatable>true</repeatable>
+      <binding>
+        <command>property-assign</command>
+        <property>instrumentation/edm700/step-button</property>
+        <value>1</value>
+      </binding>
+      <mod-up>
+        <binding>
+          <command>property-assign</command>
+          <property>instrumentation/edm700/step-button</property>
+          <value>0</value>
+        </binding>
+      </mod-up>
+    </action>
+  </animation>
+
+  <animation>
     <type>translate</type>
     <object-name>Knob.Right</object-name>
     <property>instrumentation/edm700/lf-button</property>
@@ -52,6 +57,30 @@
       <y>0.0</y>
       <z>0.0</z>
     </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>Knob.Right</object-name>
+    <object-name>Picker.Right</object-name>
+    <visible>true</visible>
+    <action>
+      <name>Step</name>
+      <button>0</button>
+      <repeatable>true</repeatable>
+      <binding>
+        <command>property-assign</command>
+        <property>instrumentation/edm700/lf-button</property>
+        <value>1</value>
+      </binding>
+      <mod-up>
+        <binding>
+          <command>property-assign</command>
+          <property>instrumentation/edm700/lf-button</property>
+          <value>0</value>
+        </binding>
+      </mod-up>
+    </action>
   </animation>
 
   <animation>

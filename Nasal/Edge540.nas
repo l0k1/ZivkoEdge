@@ -64,7 +64,7 @@ var update = func {
 }
 
 setlistener("sim/signals/fdm-initialized", func {
-  var batterySwitchNode = props.globals.getNode( "controls/electric/battery-switch", 1 );
+  var batterySwitchNode = props.globals.initNode( "controls/electric/battery-switch", 0, "BOOL" );
   append( logics, AND.new( "controls/electric/avi-power", [ batterySwitchNode, "controls/electric/circuitbreaker[0]" ] ) );
   append( logics, AND.new( "controls/electric/fuel-pump-power", [ batterySwitchNode, "controls/electric/circuitbreaker[1]" ] ) );
   append( logics, AND.new( "controls/electric/trim-power", [ batterySwitchNode, "controls/electric/circuitbreaker[2]" ] ) );
@@ -79,6 +79,8 @@ setlistener("sim/signals/fdm-initialized", func {
   append( logics, AND.new( "instrumentation/fuel-indicator/power", [ "controls/electric/gauge-power" ] ) );
 
   append( logics, AND.new( "controls/electric/smoke-pump", [ "controls/electric/smoke-power", "controls/electric/smoke-switch" ] ) );
+
+  props.globals.getNode( "controls/electric/smoke-pump" ).alias( "/sim/multiplay/generic/int[0]" );
 
   aircraft.livery.init("Aircraft/ZivkoEdge/Models/Liveries");
 

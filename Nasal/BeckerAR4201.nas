@@ -37,15 +37,11 @@ AR4201.new = func( rootNode ) {
 
   obj.selectedFrequencyNode = rootNode.getNode("frequencies").getNode("selected-mhz");
   obj.standbyFrequencyNode = rootNode.getNode("frequencies").getNode("standby-mhz");
-  obj.volumeNode = rootNode.getNode("volume", 1);
-  if( obj.volumeNode.getValue() == nil )
-    obj.volumeNode.setDoubleValue( 0.0 );
+  obj.volumeNode = rootNode.initNode("volume", 0.0 );
 
-  obj.powerSwitchNode = rootNode.getNode( "power-switch", 1 );
+  obj.powerSwitchNode = rootNode.initNode( "power-switch", 0, "BOOL" );
 
-  obj.modeNode  = rootNode.getNode( "mode", 1 );
-  if( obj.modeNode.getValue() == nil )
-    obj.modeNode.setIntValue( 1 );
+  obj.modeNode  = rootNode.initNode( "mode", 1, "INT" );
 
   setlistener( obj.selectedFrequencyNode, func { obj.frequencyListener() }, 0, 0 );
   setlistener( obj.standbyFrequencyNode, func { obj.frequencyListener() }, 1, 0 );
@@ -70,7 +66,7 @@ AR4201.setDigits = func( digitNodes, value ) {
   value = (int(value*10)+1)/10;
 
   foreach( digitNode; digitNodes ) {
-    digitNode.setIntValue( value / divisor );
+    digitNode.setIntValue( math.mod((value / divisor),10) );
     divisor *= 10;
   }
 }

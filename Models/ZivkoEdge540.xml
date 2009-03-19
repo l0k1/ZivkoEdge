@@ -26,7 +26,7 @@
     <path>Aircraft/ZivkoEdge/Models/SmokeTrail.xml</path>
     <name>SmokeTrail</name>
     <condition>
-      <property>controls/electric/smoke-switch</property>
+      <property>controls/electric/smoke-pump</property>
       <property>engines/engine[0]/running</property>
       <greater-than>
         <property>engines/engine[0]/rpm</property>

@@ -132,6 +132,12 @@
      </default>
     </menubar>
 
+    <multiplay>
+      <generic>
+        <int n="0" type="int">0</int> <!-- smoke switch -->
+      </generic>
+    </multiplay>
+
     <help>
       <title>Zivko EDGE 540</title>
       <key>

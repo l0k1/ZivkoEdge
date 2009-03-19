@@ -3,7 +3,7 @@
   <minmp unit="INHG">6.0</minmp>
   <maxmp unit="INHG">30.0</maxmp>
   <displacement unit="IN3">540</displacement>
-  <maxhp>312.00</maxhp>
+  <maxhp>340.00</maxhp>
   <cycles>2.0</cycles>
   <idlerpm>700.0</idlerpm>
   <maxthrottle>1.0</maxthrottle>

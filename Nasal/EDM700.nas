@@ -165,13 +165,8 @@ EDM700.new = func( rootNode ) {
   obj.rootNode = rootNode;
   obj.sensors = {};
 
-  obj.timerNode = rootNode.getNode( "timer", 1 );
-  if( obj.timerNode.getValue() == nil )
-    obj.timerNode.setDoubleValue( 0.25 );
-
-  obj.scanIntervalNode = rootNode.getNode( "scan-interval-sec", 1 );
-  if( obj.scanIntervalNode.getValue() == nil )
-    obj.scanIntervalNode.setDoubleValue( 4.0 );
+  obj.timerNode = rootNode.initNode( "timer", 0.25 );
+  obj.scanIntervalNode = rootNode.initNode( "scan-interval-sec", 4.0 );
 
   obj.stepButton = Button.new( rootNode.getNode( "step-button", 1 ), func { obj.step(arg); } );
   obj.lfButton = Button.new( rootNode.getNode( "lf-button", 1 ), func { obj.lf(arg); } );
@@ -180,9 +175,7 @@ EDM700.new = func( rootNode ) {
   obj.DISPLAY_EGT_MIN = obj.DISPLAY_EGT_MAX / 2.0;
   obj.DISPLAY_EGT_DELTA = obj.DISPLAY_EGT_MAX - obj.DISPLAY_EGT_MIN;
 
-  obj.displayModeNode = rootNode.getNode( "display-mode", 1 );
-  if( obj.displayModeNode.getValue() == nil )
-    obj.displayModeNode.setValue(DISPLAY_MODE_PERCENTAGE);
+  obj.displayModeNode = rootNode.initNode( "display-mode", DISPLAY_MODE_PERCENTAGE );
 
   if( obj.displayModeNode.getValue() == DISPLAY_MODE_PERCENTAGE ) {
     obj.rootNode.getNode( "display/norm", 1 ).setBoolValue( 0 );
@@ -210,8 +203,7 @@ EDM700.new = func( rootNode ) {
     leanfind : func { obj.leanfind() } 
   };
 
-  obj.currentColumnNode = obj.rootNode.getNode( "current-column", 1 );
-  obj.currentColumnNode.setIntValue( 0 );
+  obj.currentColumnNode = obj.rootNode.initNode( "current-column", 0, "INT" );
 
   obj.barNormalNodes = [
     obj.rootNode.getNode( "display/bar-norm[0]", 1 ),

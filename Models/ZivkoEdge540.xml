@@ -5,10 +5,18 @@
 
   <nasal>
     <load>
+      var self = cmdarg();
       var livery_update = aircraft.livery_update.new("Aircraft/ZivkoEdge/Models/Liveries");
+      var aliases = [];
+      var n = self.getNode( "controls/electric/smoke-pump", 1 );
+      var generic = self.getNode( "sim/multiplay/generic/int[0]", 1 );
+      n.alias( generic );
+      aliases.add( n );
     </load>
     <unload>
       livery_update.stop();
+      foreach( var a; aliases )
+        a.unalias();
     </unload>
   </nasal>
 
@@ -27,7 +35,6 @@
     <name>SmokeTrail</name>
     <condition>
       <property>controls/electric/smoke-pump</property>
-      <property>engines/engine[0]/running</property>
       <greater-than>
         <property>engines/engine[0]/rpm</property>
         <value>500</value>

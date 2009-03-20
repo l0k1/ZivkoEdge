@@ -439,10 +439,11 @@
            <property>aero/qbar-psf</property>
            <property>metrics/Sw-sqft</property>
            <property>aero/cl-squared</property>
+           <abs><property>fcs/elevator-pos-rad</property></abs>
            <value>0.04</value>
        </product>
     </function>
--->
+
   </axis>
 
   <axis name="SIDE">

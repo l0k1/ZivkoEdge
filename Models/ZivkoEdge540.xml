@@ -271,8 +271,18 @@
 
   <animation>
     <type>material</type>
-    <object-name>Wing</object-name>
     <object-name>Fuselage</object-name>
+    <object-name>Spinner</object-name>
+    <object-name>WheelFairing.Left</object-name>
+    <object-name>WheelFairing.Right</object-name>
+    <property-base>sim/model/livery</property-base>
+    <texture-prop>fuselage</texture-prop>
+    <texture>Liveries/Fuselage-OpenSuse.png</texture>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>Wing</object-name>
     <object-name>Stabilizer</object-name>
     <object-name>Elevator.Left</object-name>
     <object-name>Elevator.Right</object-name>
@@ -280,13 +290,9 @@
     <object-name>Fin</object-name>
     <object-name>Aileron.Left</object-name>
     <object-name>Aileron.Right</object-name>
-    <object-name>Spinner</object-name>
-    <object-name>Helmet</object-name>
-    <object-name>WheelFairing.Left</object-name>
-    <object-name>WheelFairing.Right</object-name>
     <property-base>sim/model/livery</property-base>
-    <texture-prop>texture</texture-prop>
-    <texture>OpenSuse.rgb</texture>
+    <texture-prop>wingtail</texture-prop>
+    <texture>Liveries/WingTail-OpenSuse.png</texture>
   </animation>
 
 </PropertyList>

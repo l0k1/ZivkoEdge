@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+ <sim>
+  <model>
+   <livery>
+    <name type="string">Red Bull N540PB</name>
+    <fuselage>Liveries/Fuselage-RedBull.png</fuselage>
+    <wingtail>Liveries/WingTail-RedBull.png</wingtail>
+   </livery>
+  </model>
+ </sim>
+</PropertyList>

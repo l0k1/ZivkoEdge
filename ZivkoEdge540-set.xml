@@ -210,148 +210,148 @@
         <!-- <timer>0.25</timer> -->
 
         <sensor>
-          <name>egt0</name>
-          <input>engines/engine[0]/egt-degf</input>
-          <lag>0.80</lag>
-          <noise>0</noise>
-          <drift>0</drift>
-          <bias>0</bias>
-          <scale>2.2</scale>
+          <name type="string">egt0</name>
+          <input type="string">engines/engine[0]/egt-degf</input>
+          <lag type="double">0.80</lag>
+          <noise type="double">0</noise>
+          <drift type="double">0</drift>
+          <bias type="double">0</bias>
+          <scale type="double">1.02</scale>
         </sensor>
         <sensor>
-          <name>egt1</name>
-          <input>engines/engine[0]/egt-degf</input>
-          <lag>0.7</lag>
-          <noise>0</noise>
-          <drift>0</drift>
-          <bias>0</bias>
-          <scale>2.2</scale>
+          <name type="string">egt1</name>
+          <input type="string">engines/engine[0]/egt-degf</input>
+          <lag type="double">0.7</lag>
+          <noise type="double">0</noise>
+          <drift type="double">0</drift>
+          <bias type="double">0</bias>
+          <scale type="double">1.015</scale>
         </sensor>
         <sensor>
-          <name>egt2</name>
-          <input>engines/engine[0]/egt-degf</input>
-          <lag>0.8</lag>
-          <noise>0</noise>
-          <drift>0</drift>
-          <bias>0</bias>
-          <scale>2.100</scale>
+          <name type="string">egt2</name>
+          <input type="string">engines/engine[0]/egt-degf</input>
+          <lag type="double">0.8</lag>
+          <noise type="double">0</noise>
+          <drift type="double">0</drift>
+          <bias type="double">0</bias>
+          <scale type="double">1.0</scale>
         </sensor>
         <sensor>
-          <name>egt3</name>
-          <input>engines/engine[0]/egt-degf</input>
-          <lag>0.9</lag>
-          <noise>0</noise>
-          <drift>0</drift>
-          <bias>0</bias>
-          <scale>2.15</scale>
+          <name type="string">egt3</name>
+          <input type="string">engines/engine[0]/egt-degf</input>
+          <lag type="double">0.9</lag>
+          <noise type="double">0</noise>
+          <drift type="double">0</drift>
+          <bias type="double">0</bias>
+          <scale type="double">1.01</scale>
         </sensor>
         <sensor>
-          <name>egt4</name>
-          <input>engines/engine[0]/egt-degf</input>
-          <lag>0.9</lag>
-          <noise>0</noise>
-          <drift>0</drift>
-          <bias>0</bias>
-          <scale>2.25</scale>
+          <name type="string">egt4</name>
+          <input type="string">engines/engine[0]/egt-degf</input>
+          <lag type="double">0.9</lag>
+          <noise type="double">0</noise>
+          <drift type="double">0</drift>
+          <bias type="double">0</bias>
+          <scale type="double">0.985</scale>
         </sensor>
         <sensor>
-          <name>egt5</name>
-          <input>engines/engine[0]/egt-degf</input>
-          <lag>0.5</lag>
-          <noise>0</noise>
-          <drift>0</drift>
-          <bias>0</bias>
-          <scale>2.18</scale>
+          <name type="string">egt5</name>
+          <input type="string">engines/engine[0]/egt-degf</input>
+          <lag type="double">0.5</lag>
+          <noise type="double">0</noise>
+          <drift type="double">0</drift>
+          <bias type="double">0</bias>
+          <scale type="double">0.990</scale>
         </sensor>
         <sensor>
-          <name>cht0</name>
-          <input>engines/engine[0]/cht-degf</input>
-          <lag>0</lag>
-          <noise>0</noise>
-          <drift>0</drift>
-          <bias>0</bias>
-          <scale>1.0</scale>
+          <name type="string">cht0</name>
+          <input type="string">engines/engine[0]/cht-degf</input>
+          <lag type="double">0</lag>
+          <noise type="double">0</noise>
+          <drift type="double">0</drift>
+          <bias type="double">0</bias>
+          <scale type="double">1.0</scale>
         </sensor>
         <sensor>
-          <name>cht1</name>
-          <input>engines/engine[0]/cht-degf</input>
-          <lag>0</lag>
-          <noise>0</noise>
-          <drift>0</drift>
-          <bias>0</bias>
-          <scale>1.020</scale>
+          <name type="string">cht1</name>
+          <input type="string">engines/engine[0]/cht-degf</input>
+          <lag type="double">0</lag>
+          <noise type="double">0</noise>
+          <drift type="double">0</drift>
+          <bias type="double">0</bias>
+          <scale type="double">1.020</scale>
         </sensor>
         <sensor>
-          <name>cht2</name>
-          <input>engines/engine[0]/cht-degf</input>
-          <lag>0</lag>
-          <noise>0</noise>
-          <drift>0</drift>
-          <bias>0</bias>
-          <scale>1.015</scale>
+          <name type="string">cht2</name>
+          <input type="string">engines/engine[0]/cht-degf</input>
+          <lag type="double">0</lag>
+          <noise type="double">0</noise>
+          <drift type="double">0</drift>
+          <bias type="double">0</bias>
+          <scale type="double">1.015</scale>
         </sensor>
         <sensor>
-          <name>cht3</name>
-          <input>engines/engine[0]/cht-degf</input>
-          <lag>0</lag>
-          <noise>0</noise>
-          <drift>0</drift>
-          <bias>0</bias>
-          <scale>0.993</scale>
+          <name type="string">cht3</name>
+          <input type="string">engines/engine[0]/cht-degf</input>
+          <lag type="double">0</lag>
+          <noise type="double">0</noise>
+          <drift type="double">0</drift>
+          <bias type="double">0</bias>
+          <scale type="double">0.993</scale>
         </sensor>
         <sensor>
-          <name>cht4</name>
-          <input>engines/engine[0]/cht-degf</input>
-          <lag>0</lag>
-          <noise>0</noise>
-          <drift>0</drift>
-          <bias>0</bias>
-          <scale>0.910</scale>
+          <name type="string">cht4</name>
+          <input type="string">engines/engine[0]/cht-degf</input>
+          <lag type="double">0</lag>
+          <noise type="double">0</noise>
+          <drift type="double">0</drift>
+          <bias type="double">0</bias>
+          <scale type="double">0.910</scale>
         </sensor>
         <sensor>
-          <name>cht5</name>
-          <input>engines/engine[0]/cht-degf</input>
-          <lag>0</lag>
-          <noise>0</noise>
-          <drift>0</drift>
-          <bias>0</bias>
-          <scale>1.030</scale>
+          <name type="string">cht5</name>
+          <input type="string">engines/engine[0]/cht-degf</input>
+          <lag type="double">0</lag>
+          <noise type="double">0</noise>
+          <drift type="double">0</drift>
+          <bias type="double">0</bias>
+          <scale type="double">1.030</scale>
         </sensor>
         <sensor>
-          <name>oil</name>
-          <input>engines/engine[0]/oil-temperature-degf</input>
-          <lag>0</lag>
-          <noise>0</noise>
-          <drift>0</drift>
-          <bias>0</bias>
-          <scale>1.000</scale>
+          <name type="string">oil</name>
+          <input type="string">engines/engine[0]/oil-temperature-degf</input>
+          <lag type="double">0</lag>
+          <noise type="double">0</noise>
+          <drift type="double">0</drift>
+          <bias type="double">0</bias>
+          <scale type="double">1.000</scale>
         </sensor>
         <sensor>
-          <name>bat</name>
-          <input>systems/electrical/outputs/bus</input>
-          <lag>0</lag>
-          <noise>0</noise>
-          <drift>0</drift>
-          <bias>0</bias>
-          <scale>1.000</scale>
+          <name type="string">bat</name>
+          <input type="string">systems/electrical/outputs/bus</input>
+          <lag type="double">0</lag>
+          <noise type="double">0</noise>
+          <drift type="double">0</drift>
+          <bias type="double">0</bias>
+          <scale type="double">1.000</scale>
         </sensor>
         <sensor>
-          <name>oat</name>
-          <input>environment/temperature-degf</input>
-          <lag>0</lag>
-          <noise>0</noise>
-          <drift>0</drift>
-          <bias>0</bias>
-          <scale>1.000</scale>
+          <name type="string">oat</name>
+          <input type="string">environment/temperature-degf</input>
+          <lag type="double">0</lag>
+          <noise type="double">0</noise>
+          <drift type="double">0</drift>
+          <bias type="double">0</bias>
+          <scale type="double">1.000</scale>
         </sensor>
         <sensor>
-          <name>crb</name>
-          <input>environment/temperature-degf</input>
-          <lag>0</lag>
-          <noise>0</noise>
-          <drift>0</drift>
-          <bias>0</bias>
-          <scale>0.800</scale>
+          <name type="string">crb</name>
+          <input type="string">environment/temperature-degf</input>
+          <lag type="double">0</lag>
+          <noise type="double">0</noise>
+          <drift type="double">0</drift>
+          <bias type="double">0</bias>
+          <scale type="double">0.800</scale>
         </sensor>
     </edm700>
 

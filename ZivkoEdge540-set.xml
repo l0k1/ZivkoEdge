@@ -25,9 +25,8 @@
       <config>
         <x-offset-m type="double">0</x-offset-m>
         <y-offset-m type="double">1.66</y-offset-m>
-        <z-offset-m type="double">1.36</z-offset-m>
+        <z-offset-m type="double">1.50</z-offset-m>
         <pitch-offset-deg>-9</pitch-offset-deg>
-        <default-field-of-view-deg type="double">65.0</default-field-of-view-deg>
       </config>
     </view>
     <view n="1">
@@ -193,6 +192,23 @@
       <circuitbreaker n="5" type="bool">1</circuitbreaker>
     </electric>
   </controls>
+
+  <consumables>
+    <fuel>
+      <tank n="0">
+        <level-gal_us>0.33</level-gal_us>
+        <capacity-gal_us>20.76</capacity-gal_us><!-- 78.6 Liter -->
+      </tank>
+      <tank n="1">
+        <level-gal_us>0.33</level-gal_us>
+        <capacity-gal_us>20.76</capacity-gal_us><!-- 78.6 Liter -->
+      </tank>
+      <tank n="2">
+        <level-gal_us>18.6</level-gal_us>
+        <capacity-gal_us>18.6</capacity-gal_us><!-- 70.4 Liter -->
+      </tank>
+    </fuel>
+  </consumables> 
 
   <engines>
     <engine n="0">

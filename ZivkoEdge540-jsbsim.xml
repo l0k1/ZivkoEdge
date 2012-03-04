@@ -500,7 +500,7 @@
     <function name="aero/coefficient/CLde">
        <description>Lift_due_to_Elevator_Deflection</description>
        <product>
-           <property>aero/qbar-psf</property>
+           <property>aero/function/qbar-induced-psf</property>
            <property>metrics/Sw-sqft</property>
            <property>fcs/elevator-pos-rad</property>
            <property>aero/function/cos-alpha</property>
@@ -621,16 +621,33 @@
     </function>
 
     <function name="aero/coefficient/Clp">
-       <description>Roll_moment_due_to_roll_rate</description>
+       <description>Roll moment due to roll rate extended to work at zero velocity</description>
        <product>
-           <property>aero/qbar-psf</property>
-           <property>metrics/Sw-sqft</property>
+        <value>-0.4</value> <!-- Clp -->
+        <property>velocities/p-aero-rad_sec</property>
+        <property>atmosphere/rho-slugs_ft3</property>
+        <property>metrics/Sw-sqft</property>
+        <property>metrics/bw-ft</property>
+        <property>metrics/bw-ft</property> <!-- b^2 -->
+        <value>0.0625</value> <!-- constant from function -->
+        <pow>
+         <sum>
+          <product>
            <property>metrics/bw-ft</property>
-           <property>aero/bi2vel</property>
+           <property>metrics/bw-ft</property> <!-- b^2 -->
            <property>velocities/p-aero-rad_sec</property>
-           <value>-0.4</value>
+           <property>velocities/p-aero-rad_sec</property><!-- Omega^2 -->
+          </product>
+          <product>
+           <property>velocities/u-aero-fps</property>
+           <property>velocities/u-aero-fps</property>
+           <value>16</value>
+          </product>
+         </sum>
+         <value>0.5</value>
+        </pow>
        </product>
-    </function>
+      </function>
 
     <function name="aero/coefficient/Clr">
        <description>Roll_moment_due_to_yaw_rate</description>
@@ -694,16 +711,33 @@
     </function>
 
     <function name="aero/coefficient/Cmq">
-       <description>Pitch_moment_due_to_pitch_rate</description>
+       <description>Pitch_moment_due_to_pitch_rate extended to work at zero velocity</description>
        <product>
-           <property>aero/qbar-psf</property>
-           <property>metrics/Sw-sqft</property>
+        <value>-1.446</value> <!-- CMAD -->
+        <property>velocities/q-aero-rad_sec</property>
+        <property>atmosphere/rho-slugs_ft3</property>
+        <property>metrics/Sw-sqft</property>
+        <property>metrics/cbarw-ft</property>
+        <property>metrics/cbarw-ft</property> <!-- b^2 -->
+        <value>0.0625</value> <!-- constant from function -->
+        <pow>
+         <sum>
+          <product>
            <property>metrics/cbarw-ft</property>
-           <property>aero/ci2vel</property>
+           <property>metrics/cbarw-ft</property> <!-- b^2 -->
            <property>velocities/q-aero-rad_sec</property>
-           <value>-12</value>
+           <property>velocities/q-aero-rad_sec</property><!-- Omega^2 -->
+          </product>
+          <product>
+           <property>velocities/u-aero-fps</property>
+           <property>velocities/u-aero-fps</property>
+           <value>16</value>
+          </product>
+         </sum>
+         <value>0.5</value>
+        </pow>
        </product>
-    </function>
+      </function>
 
     <function name="aero/coefficient/Cmadot">
        <description>Pitch_moment_due_to_alpha_rate</description>
@@ -733,22 +767,39 @@
     </function>
 
     <function name="aero/coefficient/Cnr">
-       <description>Yaw_moment_due_to_yaw_rate</description>
+       <description>Yaw_moment_due_to_yaw_rate extended to work at zero velocity</description>
        <product>
-           <property>aero/qbar-psf</property>
-           <property>metrics/Sw-sqft</property>
+        <value>-0.1411</value> <!-- CNR -->
+        <property>velocities/r-aero-rad_sec</property>
+        <property>atmosphere/rho-slugs_ft3</property>
+        <property>metrics/Sw-sqft</property>
+        <property>metrics/bw-ft</property>
+        <property>metrics/bw-ft</property> <!-- b^2 -->
+        <value>0.0625</value> <!-- constant from function -->
+        <pow>
+         <sum>
+          <product>
            <property>metrics/bw-ft</property>
-           <property>aero/bi2vel</property>
+           <property>metrics/bw-ft</property> <!-- b^2 -->
            <property>velocities/r-aero-rad_sec</property>
-           <value>-0.15</value>
+           <property>velocities/r-aero-rad_sec</property><!-- Omega^2 -->
+          </product>
+          <product>
+           <property>velocities/u-aero-fps</property>
+           <property>velocities/u-aero-fps</property>
+           <value>16</value>
+          </product>
+         </sum>
+         <value>0.5</value>
+        </pow>
        </product>
-    </function>
+      </function>
 
     <function name="aero/coefficient/Cndr">
        <description>Yaw_moment_due_to_rudder</description>
        <product>
            <property>aero/function/cos-alpha</property>
-           <property>aero/qbar-psf</property>
+           <property>aero/function/qbar-induced-psf</property>
            <property>metrics/Sw-sqft</property>
            <property>metrics/bw-ft</property>
            <property>fcs/rudder-pos-rad</property>

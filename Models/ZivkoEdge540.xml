@@ -241,6 +241,25 @@
   </animation>
 
   <animation>
+    <type>rotate</type>
+    <object-name>Tailwheel</object-name>
+    <object-name>TailwheelArm</object-name>
+    <object-name>TailwheelCarrier</object-name>
+    <property>gear/gear[2]/compression-ft</property>
+    <factor>24.4</factor>
+    <center>
+     <x-m>3.710</x-m>
+     <y-m>0</y-m>
+     <z-m>1.007</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>-1.0</y>
+      <z>0.0</z>
+    </axis>
+  </animation>
+
+  <animation>
     <type>spin</type>
     <object-name>Propeller</object-name>
     <object-name>Spinner</object-name>

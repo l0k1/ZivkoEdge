@@ -10,7 +10,7 @@
 
     <startup>
       <splash-title>Zivko EDGE 540</splash-title>
-            <splash-texture>Aircraft/ZivkoEdge/splash.rgb</splash-texture>
+      <splash-texture>Aircraft/ZivkoEdge/Edge.png</splash-texture>
     </startup>
     <model>
       <path>Aircraft/ZivkoEdge/Models/ZivkoEdge540.xml</path>

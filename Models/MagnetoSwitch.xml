@@ -35,13 +35,15 @@
       <repeatable type="bool">false</repeatable>
       <name>IncreaseMagnetos</name>
       <binding>
-        <command>property-adjust</command>
-        <property>controls/engines/engine[0]/magnetos</property>
-        <step>1</step>
-        <min>0</min>
-        <max>3</max>
-        <wrap>false</wrap>
+        <command>nasal</command>
+        <script>controls.stepMagnetos(1)</script>
       </binding>
+      <mod-up>
+        <binding>
+          <command>nasal</command>
+          <script>controls.stepMagnetos(0)</script>
+        </binding>
+      </mod-up> 
     </action>
   </animation>
 
@@ -54,13 +56,16 @@
       <repeatable type="bool">false</repeatable>
       <name>DecreaseMagnetos</name>
       <binding>
-        <command>property-adjust</command>
-        <property>controls/engines/engine[0]/magnetos</property>
-        <step>-1</step>
-        <min>0</min>
-        <max>3</max>
-        <wrap>false</wrap>
+        <command>nasal</command>
+        <script>controls.stepMagnetos(-1)</script>
       </binding>
+      <mod-up>
+        <binding>
+          <command>nasal</command>
+          <script>controls.stepMagnetos(0)</script>
+        </binding>
+      </mod-up> 
     </action>
   </animation>
+
 </PropertyList>

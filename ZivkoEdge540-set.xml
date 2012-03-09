@@ -175,7 +175,7 @@
 
     <engines>
       <engine n="0">
-        <magnetos>3</magnetos>
+        <magnetos>0</magnetos>
       </engine>
     </engines>
 
@@ -209,12 +209,6 @@
       </tank>
     </fuel>
   </consumables> 
-
-  <engines>
-    <engine n="0">
-      <rpm>1000</rpm>
-    </engine>
-  </engines>
 
   <instrumentation>
     <edm700>

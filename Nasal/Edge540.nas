@@ -113,3 +113,25 @@ PilotsLife.lookTimerHandler = func(n) {
 }
 
 PilotsLife.new();
+
+##############################
+# let the magneto switch also fire starter
+##############################
+controls.stepMagnetos = func(change) {
+    foreach(var e; controls.engines) {
+        if(e.selected.getValue()) {
+            var starter = 0;
+            if (change) {
+                var mag = e.controls.getNode("magnetos", 1);
+                var setting = mag.getValue() + change;
+                if(setting > 3){
+                   starter = 1;
+                   setting = 3;
+                }
+                mag.setIntValue(setting);
+            }
+            setprop("controls/engines/engine/starter", starter);
+            controls.startEngine(starter);
+        }
+    }
+} 

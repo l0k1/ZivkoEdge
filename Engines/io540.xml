@@ -30,5 +30,10 @@ Reference TCDS 1E4
   <cylinders> 6 </cylinders>
   <sparkfaildrop> 0.1 </sparkfaildrop> 
   <man-press-lag> 0.1 </man-press-lag> 
+
+  <volumetric-efficiency> 0.95 </volumetric-efficiency>
+ <!-- Defining <bsfc> over-rides the built-in horsepower calculations -->
+  <bsfc>  0.4 </bsfc>
+  
 </piston_engine>
 

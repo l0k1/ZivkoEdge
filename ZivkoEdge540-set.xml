@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <PropertyList>
   <sim>
-    <author>Torsten Dreyer</author>
+    <author>Torsten Dreyer (3D, FDM) Ron Jensen (FDM)</author>
     <description>Zivko EDGE 540</description>
-    <aircraft-version>0.1</aircraft-version>
-    <status>alpha</status>
+    <aircraft-version>0.2</aircraft-version>
+    <status>beta</status>
+    <rating>
+     <FDM type="int">4</FDM>
+     <systems type="int">2</systems>
+     <cockpit type="int">5</cockpit>
+     <model type="int">4</model>
+    </rating>
     <flight-model>jsb</flight-model>
     <aero>ZivkoEdge540-jsbsim</aero>
 

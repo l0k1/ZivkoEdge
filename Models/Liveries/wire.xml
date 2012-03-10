@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+ <sim>
+  <model>
+   <livery>
+    <name type="string">Wire Frame</name>
+    <fuselage>Liveries/Fuselage-wire.png</fuselage>
+    <wingtail>Liveries/WingTail-wire.png</wingtail>
+   </livery>
+  </model>
+ </sim>
+</PropertyList>

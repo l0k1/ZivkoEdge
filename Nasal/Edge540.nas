@@ -4,6 +4,15 @@
 ############################################################
 var propify = debug.propify;
 
+if( getprop("/sim/presets/onground") == 0 ) {
+  print("starting in air");
+  setprop("/sim/presets/running",1);
+  setprop("/controls/engines/engine[0]/magnetos", 3 );
+#  setprop("/controls/engines/engine[0]/throttle", 0.75 );
+  setprop("/controls/engines/engine[0]/propeller-pitch", 0.7 );
+  setprop("/controls/gear/brake-parking", 0 );
+}
+
 var Logic = {};
 
 Logic.new = func {

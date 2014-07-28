@@ -319,32 +319,23 @@
       <input>fcs/rudder-cmd-norm</input>
       <input>fcs/yaw-trim-cmd-norm</input>
       <clipto>
-        <min> -0.35 </min>
-        <max>  0.35 </max>
+        <min> -1.0 </min>
+        <max>  1.0 </max>
       </clipto>
+      <output>fcs/rudder-pos-norm</output>
    </summer>
 
-   <aerosurface_scale name="Rudder Control">
-      <input>fcs/rudder-command-sum</input>
-      <range>
-        <min> -0.35 </min>
-        <max>  0.35 </max>
-      </range>
-      <output>fcs/rudder-pos-rad</output>
-   </aerosurface_scale>
+   <pure_gain name="Rudder Position Degree">
+      <input>fcs/rudder-pos-norm</input>
+      <gain>30.0</gain>
+      <output>fcs/rudder-pos-deg</output>
+   </pure_gain>
 
-   <aerosurface_scale name="rudder normalization">
-      <input>fcs/rudder-pos-rad</input>
-      <domain>
-        <min> -0.35 </min>
-        <max>  0.35 </max>
-      </domain>
-      <range>
-        <min> -1 </min>
-        <max>  1 </max>
-      </range>
-      <output>fcs/rudder-pos-norm</output>
-   </aerosurface_scale>
+   <pure_gain name="Rudder Position Radians">
+      <input>fcs/rudder-pos-deg</input>
+      <gain>0.0174532925</gain>
+      <output>fcs/rudder-pos-rad</output>
+   </pure_gain>
 
   </channel>
 

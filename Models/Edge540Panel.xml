@@ -30,6 +30,15 @@
   </model>
 
   <model>
+    <path>Aircraft/ZivkoEdge/Models/LedStrip/LedStrip.xml</path>
+    <offsets>
+      <x-m>0.001</x-m>
+      <y-m>0</y-m>
+      <z-m>0.1050</z-m>
+    </offsets>
+  </model>
+
+  <model>
     <path>Aircraft/ZivkoEdge/Models/Fuel.xml</path>
     <offsets>
       <x-m>0.001</x-m>

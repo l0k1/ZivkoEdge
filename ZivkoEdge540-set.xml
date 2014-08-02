@@ -114,6 +114,14 @@
    <path>Aircraft/Generic/generic-sound.xml</path>
   </sound>
 
+  <systems>
+    <path>Aircraft/Generic/generic-systems.xml</path>
+    <property-rule n="101">
+      <name>Instrument-Filter</name>
+      <path>Aircraft/ZivkoEdge/Models/LedStrip/controller.xml</path>
+    </property-rule>
+  </systems>
+
   <hud>
     <enable3d>false</enable3d>
   </hud>
@@ -217,6 +225,14 @@
   </consumables> 
 
   <instrumentation>
+    <ledstrip>
+      <power type="bool">true</power>
+      <serviceable type="bool">true</serviceable>
+      <mode type="int">1</mode>
+      <linear type="bool">false</linear>
+      <test type="bool">false</test>
+    </ledstrip>
+
     <edm700>
         <servicable type="bool">1</servicable>
         <!-- the interval between each cylinder scan -->

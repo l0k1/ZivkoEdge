@@ -179,6 +179,7 @@
       <file>Aircraft/ZivkoEdge/Nasal/EDM700.nas</file>
       <file>Aircraft/ZivkoEdge/Nasal/BeckerAR4201.nas</file>
       <file>Aircraft/ZivkoEdge/Nasal/Edge540.nas</file>
+      <file>Aircraft/ZivkoEdge/Models/EFIS/EFIS.nas</file>
     </Edge540>
   </nasal>
 
@@ -232,6 +233,10 @@
       <linear type="bool">false</linear>
       <test type="bool">false</test>
     </ledstrip>
+
+    <efis>
+      <current-screen type="int">0</current-screen>
+    </efis>
 
     <edm700>
         <servicable type="bool">1</servicable>

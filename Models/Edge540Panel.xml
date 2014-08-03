@@ -24,10 +24,19 @@
     <path>Aircraft/ZivkoEdge/Models/Altimeter.xml</path>
     <offsets>
       <x-m>0.001</x-m>
-      <y-m>-0.0867</y-m>
+      <y-m>-0.10</y-m>
       <z-m>0.0366</z-m>
     </offsets>
   </model>
+
+  <model>
+    <path>Aircraft/ZivkoEdge/Models/EFIS/EFIS.xml</path>
+     <offsets>
+       <x-m>0.001</x-m>
+       <y-m>0</y-m>
+       <z-m>0.0450</z-m>
+     </offsets>
+   </model>
 
   <model>
     <path>Aircraft/ZivkoEdge/Models/LedStrip/LedStrip.xml</path>
@@ -39,20 +48,10 @@
   </model>
 
   <model>
-    <path>Aircraft/ZivkoEdge/Models/Fuel.xml</path>
-    <offsets>
-      <x-m>0.001</x-m>
-      <y-m>0</y-m>
-      <z-m>0.0650</z-m>
-    </offsets>
-  </model>
-
-
-  <model>
     <path>Aircraft/Instruments-3d/tach/tach.xml</path>
     <offsets>
       <x-m>0.001</x-m>
-      <y-m>0.0867</y-m>
+      <y-m>0.10</y-m>
       <z-m>0.0366</z-m>
     </offsets>
   </model>
@@ -65,6 +64,16 @@
       <z-m>0.0366</z-m>
     </offsets>
   </model>
+
+  <model>
+    <path>Aircraft/ZivkoEdge/Models/Fuel.xml</path>
+    <offsets>
+      <x-m>0.001</x-m>
+      <y-m>0.1967</y-m>
+      <z-m>-0.0467</z-m>
+    </offsets>
+  </model>
+
 
   <model>
     <path>Aircraft/ZivkoEdge/Models/EDM700.xml</path>
@@ -113,6 +122,7 @@
       <z-m>-0.0467</z-m>
     </offsets>
   </model>
+
   <!-- transponder -->
 <!--
   <model>
@@ -461,8 +471,8 @@
     <factor>-60</factor>
     <center>
       <x-m>0</x-m>
-      <y-m>0.0424802</y-m>
-      <z-m>0.064974</z-m>
+      <y-m>0.24</y-m>
+      <z-m>-0.0479745</z-m>
     </center>
     <axis>
       <x>0</x>

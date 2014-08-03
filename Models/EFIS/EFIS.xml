@@ -1,0 +1,34 @@
+<?xml version = '1.0' encoding = 'UTF-8' ?>
+<PropertyList>
+
+  <path>EFIS.ac</path>
+
+  <animation>
+    <type>noshadow</type>
+  </animation>
+
+  <animation>
+    <type>range</type>
+    <min-m>0</min-m>
+    <max-m>30</max-m>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>Knob</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>instrumentation/efis/current-screen</property>
+        <step type="int">1</step>
+        <max type="int">2</max>
+        <min type="int">0</min>
+        <wrap type="bool">true</wrap>
+      </binding>
+    </action>
+  </animation>
+
+</PropertyList>

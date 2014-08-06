@@ -88,7 +88,7 @@
     <object-name>Display</object-name>
     <condition>
       <property>instrumentation/edm700/power</property>
-      <property>instrumentation/edm700/servicable</property>
+      <property>instrumentation/edm700/serviceable</property>
     </condition>
   </animation>
 

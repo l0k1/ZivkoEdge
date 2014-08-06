@@ -43,7 +43,7 @@
   <animation>
     <type>rotate</type>
     <condition>
-      <property>instrumentation/fuel-indicator/servicable</property>
+      <property>instrumentation/fuel-indicator/serviceable</property>
       <property>instrumentation/fuel-indicator/power</property>
     </condition>
     <object-name>Needle.Left</object-name>
@@ -73,7 +73,7 @@
   <animation>
     <type>rotate</type>
     <condition>
-      <property>instrumentation/fuel-indicator/servicable</property>
+      <property>instrumentation/fuel-indicator/serviceable</property>
       <property>instrumentation/fuel-indicator/power</property>
     </condition>
     <object-name>Needle.Right</object-name>

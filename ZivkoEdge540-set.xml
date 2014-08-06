@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.s" encoding="UTF-8" standalone="no"?>
 <PropertyList>
   <sim>
     <author>Torsten Dreyer (3D, FDM) Ron Jensen (FDM)</author>
     <description>Zivko EDGE 540</description>
-    <aircraft-version>0.2</aircraft-version>
+    <aircraft-version>0.3</aircraft-version>
     <status>beta</status>
     <rating>
      <FDM type="int">4</FDM>
@@ -114,10 +114,14 @@
    <path>Aircraft/Generic/generic-sound.xml</path>
   </sound>
 
+  <instrumentation>
+    <path>Aircraft/ZivkoEdge/Systems/Edge540-instrumentation.xml</path>
+  </instrumentation>
+
   <systems>
-    <path>Aircraft/Generic/generic-systems.xml</path>
+    <path>Aircraft/ZivkoEdge/Systems/Edge540-systems.xml</path>
     <property-rule n="101">
-      <name>Instrument-Filter</name>
+      <name>RBAR EFIS/Peripheral Vision Indicator Controller</name>
       <path>Aircraft/ZivkoEdge/Models/LedStrip/controller.xml</path>
     </property-rule>
   </systems>
@@ -226,6 +230,7 @@
   </consumables> 
 
   <instrumentation>
+
     <ledstrip>
       <power type="bool">true</power>
       <serviceable type="bool">true</serviceable>
@@ -239,7 +244,7 @@
     </efis>
 
     <edm700>
-        <servicable type="bool">1</servicable>
+        <serviceable type="bool">1</serviceable>
         <!-- the interval between each cylinder scan -->
         <scan-interval-sec>4</scan-interval-sec>
 
@@ -393,15 +398,23 @@
     </edm700>
 
     <comm n="0">
-      <servicable type="bool">1</servicable>
+      <serviceable type="bool">1</serviceable>
     </comm>
     <comm n="1">
-      <servicable type="bool">1</servicable>
+      <serviceable type="bool">1</serviceable>
     </comm>
 
     <fuel-indicator>
-      <servicable type="bool">1</servicable>
+      <serviceable type="bool">1</serviceable>
     </fuel-indicator>
+
+    <altimeter n="0">
+      <serviceable type="bool">1</serviceable>
+    </altimeter>
+
+    <altimeter n="1">
+      <serviceable type="bool">1</serviceable>
+    </altimeter>
 
   </instrumentation>
 </PropertyList>

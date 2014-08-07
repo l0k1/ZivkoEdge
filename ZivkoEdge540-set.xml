@@ -405,16 +405,32 @@
     </comm>
 
     <fuel-indicator>
-      <serviceable type="bool">1</serviceable>
+      <serviceable type="bool">true</serviceable>
     </fuel-indicator>
 
     <altimeter n="0">
-      <serviceable type="bool">1</serviceable>
+      <serviceable type="bool">true</serviceable>
     </altimeter>
 
     <altimeter n="1">
-      <serviceable type="bool">1</serviceable>
+      <serviceable type="bool">true</serviceable>
     </altimeter>
+
+    <airspeed-indicator n="0">
+      <serviceable type="bool">true</serviceable>
+    </airspeed-indicator>
+
+    <airspeed-indicator n="1">
+      <serviceable type="bool">true</serviceable>
+    </airspeed-indicator>
+
+    <slip-skid-ball n="0">
+      <serviceable type="bool">true</serviceable>
+    </slip-skid-ball>
+
+    <slip-skid-ball n="1">
+      <serviceable type="bool">true</serviceable>
+    </slip-skid-ball>
 
   </instrumentation>
 </PropertyList>

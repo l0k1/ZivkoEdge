@@ -9,6 +9,14 @@
     <static-pressure>/systems/static/pressure-inhg</static-pressure>
   </airspeed-indicator>
 
+  <!-- EFIS airspeed indicator -->
+  <airspeed-indicator>
+    <name>airspeed-indicator</name>
+    <number>1</number>
+    <total-pressure>/systems/pitot/total-pressure-inhg</total-pressure>
+    <static-pressure>/systems/static/pressure-inhg</static-pressure>
+  </airspeed-indicator>
+
   <altimeter>
     <name>altimeter</name>
     <number>0</number>
@@ -59,6 +67,12 @@
   <slip-skid-ball>
     <name>slip-skid-ball</name>
     <number>0</number>
+  </slip-skid-ball>
+
+  <!-- EFIS slip/skid indicator -->
+  <slip-skid-ball>
+    <name>slip-skid-ball</name>
+    <number>1</number>
   </slip-skid-ball>
 
   <turn-indicator>

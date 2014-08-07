@@ -18,6 +18,9 @@
 var SCREEN_WIDTH = 1024;
 var SCREEN_HEIGHT = 768;
 
+var SCREEN_WIDTH_2 = SCREEN_WIDTH/2;
+var SCREEN_HEIGHT_2 = SCREEN_HEIGHT/2;
+
 #
 # Base "class" for all Screens
 var EFISScreen = {
@@ -34,64 +37,11 @@ var EFISScreen = {
     me.g.setVisible(b);
   },
 
-  update: func()
+  getRequiredElement: func( id )
   {
-  },
-};
-
-var PFD = {
-  new: func( c )
-  {
-    print("Creating Red Bull Air Race EFIS: PFD");
-
-    var m = { parents: [ PFD, EFISScreen.new(c) ] };
-
-    m.rollNode = props.globals.getNode("/orientation/roll-deg");
-    m.pitchNode = props.globals.getNode("/orientation/pitch-deg");
-    m.headingNode = props.globals.getNode("/orientation/heading-magnetic-deg");
-    m.accelNode = props.globals.getNode("/accelerations/pilot/z-accel-fps_sec");
-    m.kollsmannNode = props.globals.getNode("/instrumentation/altimeter[1]/setting-inhg");
-
-    var svgGroup = m.g.createChild("group", "svgfile");    
-    canvas.parsesvg(svgGroup, "/Aircraft/ZivkoEdge/Models/EFIS/PFD.svg");
-
-    m.horizonElement = m.g.getElementById( "Horizon" );
-    if( m.horizonElement == nil ) die("missing horizon");
-
-    m.horizonElement.updateCenter();
-    m.horizonRotate = m.horizonElement.createTransform();
-    m.horizonTranslate = m.horizonElement.createTransform();
-
-    m.compassElement = m.g.getElementById( "Compass" );
-    if( m.compassElement == nil ) die("missing compass");
-
-    m.compassElement.updateCenter();
-    m.compassTransform = m.compassElement.createTransform();
-
-    m.headingElement = m.g.getElementById("Heading" );
-    if( m.headingElement == nil ) die("missing heading");
-
-    m.headingElement
-       .setDrawMode(canvas.Text.TEXT)
-       .setFont("LiberationFonts/LiberationSans-Regular.ttf");
-
-    m.topRightFieldElement = m.g.getElementById("Field_TopRight" );
-    if( m.topRightFieldElement == nil ) die("missing top right field");
-
-    m.topRightFieldElement
-       .setDrawMode(canvas.Text.TEXT + canvas.Text.FILLEDBOUNDINGBOX)
-       .setColorFill(0,0,0,0)
-       .setFont("LiberationFonts/LiberationSans-Regular.ttf");
-
-    m.bottomRightFieldElement = m.g.getElementById("Field_BottomRight" );
-    if( m.bottomRightFieldElement == nil ) die("missing bottom right field");
-
-    m.bottomRightFieldElement
-       .setDrawMode(canvas.Text.TEXT + canvas.Text.FILLEDBOUNDINGBOX)
-       .setColorFill(0,0,0,0)
-       .setFont("LiberationFonts/LiberationSans-Regular.ttf");
-
-    return m;
+    var e = me.g.getElementById( id);
+    if( e == nil ) die(sprintf("missing mandatory element '%s'.",  id) );
+    return e;
   },
 
   getNotNullValue: func( n )
@@ -103,24 +53,174 @@ var PFD = {
 
   update: func()
   {
+  },
+};
+
+var PFD = {
+
+  new: func( c )
+  {
+    print("Creating Red Bull Air Race EFIS: PFD");
+
+    var m = { parents: [ PFD, EFISScreen.new(c) ] };
+
+    m.rollNode = props.globals.getNode("/orientation/roll-deg");
+    m.pitchNode = props.globals.getNode("/orientation/pitch-deg");
+#    m.pitchNode = props.globals.getNode("/a");
+    m.headingNode = props.globals.getNode("/orientation/heading-magnetic-deg");
+    m.accelNode = props.globals.getNode("/accelerations/pilot/z-accel-fps_sec");
+    m.kollsmannNode = props.globals.getNode("/instrumentation/altimeter[1]/setting-inhg");
+    m.altitudeNode = props.globals.getNode("/instrumentation/altimeter[1]/indicated-altitude-ft");
+    m.asiNode = props.globals.getNode("/instrumentation/airspeed-indicator[1]/indicated-speed-kt");
+    m.slipSkidNode = props.globals.getNode("/instrumentation/slip-skid-ball/indicated-slip-skid");
+
+    var svgGroup = m.g.createChild("group", "svgfile");    
+    canvas.parsesvg(svgGroup, "/Aircraft/ZivkoEdge/Models/EFIS/PFD.svg");
+
+    m.horizonElement = m.getRequiredElement("Horizon");
+    m.horizonElement.updateCenter();
+    m.horizonRotate = m.horizonElement.createTransform();
+    m.horizonTranslate = m.horizonElement.createTransform();
+
+    m.compassElement = m.getRequiredElement( "Compass" );
+    m.compassElement.updateCenter();
+    m.compassTransform = m.compassElement.createTransform();
+
+    m.headingElement = m.getRequiredElement( "Heading" );
+    m.headingElement
+       .setDrawMode(canvas.Text.TEXT)
+       .setFont("LiberationFonts/LiberationSans-Regular.ttf");
+
+    m.topRightFieldElement = m.getRequiredElement( "Field_TopRight" );
+
+    m.topRightFieldElement
+       .setDrawMode(canvas.Text.TEXT)
+       .setFont("LiberationFonts/LiberationSans-Regular.ttf");
+
+    m.bottomRightFieldElement = m.getRequiredElement("Field_BottomRight" );
+
+    m.bottomRightFieldElement
+       .setDrawMode(canvas.Text.TEXT)
+       .setFont("LiberationFonts/LiberationSans-Regular.ttf");
+
+    m.altimeterThousands = m.getRequiredElement("AltimeterThousands" );
+
+    m.altimeterThousands
+       .setDrawMode(canvas.Text.TEXT)
+       .setFont("LiberationFonts/LiberationMono-Regular.ttf");
+
+    m.altimeterHundrets = m.getRequiredElement("AltimeterHundrets" );
+
+    m.altimeterHundrets
+       .setDrawMode(canvas.Text.TEXT)
+       .setFont("LiberationFonts/LiberationMono-Regular.ttf");
+
+    m.altimeterLadderLabel = [];
+    for( var i = 0; i < 5; i+=1 ) {
+      append(m.altimeterLadderLabel, m.getRequiredElement("AltimeterLadderLabel" ~ i ));
+      m.altimeterLadderLabel[i] 
+        .setDrawMode(canvas.Text.TEXT)
+        .setFont("LiberationFonts/LiberationMono-Regular.ttf");
+    }
+
+    m.altimeterLadderLabels = m.getRequiredElement("AltimeterLadderLabels" );
+    m.altimeterLadderLabelsTranslate = m.altimeterLadderLabels.createTransform();
+
+    m.altimeterLadder = m.getRequiredElement("AltimeterLadder");
+    m.altimeterLadderTranslate = m.altimeterLadder.createTransform();
+
+    m.getRequiredElement("Altimeter")
+      .set("clip", "rect( 137,1024,639,860 )" );
+
+    m.asiDigits = m.getRequiredElement( "ASIDigits" );
+    m.asiDigits
+       .setDrawMode(canvas.Text.TEXT)
+       .setFont("LiberationFonts/LiberationMono-Regular.ttf");
+
+    m.asiLadderLabel = [];
+    for( var i = 0; i < 5; i+=1 ) {
+      append(m.asiLadderLabel, m.getRequiredElement("ASILadderLabel" ~ i ));
+      m.asiLadderLabel[i] 
+        .setDrawMode(canvas.Text.TEXT)
+        .setFont("LiberationFonts/LiberationMono-Regular.ttf");
+    }
+
+    m.asiLadderLabels = m.getRequiredElement("ASILadderLabels" );
+    m.asiLadderLabelsTranslate = m.asiLadderLabels.createTransform();
+
+    m.asiLadder = m.getRequiredElement("ASILadder");
+    m.asiLadderTranslate = m.asiLadder.createTransform();
+
+    m.getRequiredElement("ASI")
+      .set("clip", "rect( 137,165,639,0 )" );
+
+    m.slipSkidTranslate = m.getRequiredElement("SlipSkidBall").createTransform();
+    return m;
+  },
+
+  update: func()
+  {
+    var v = 0;
+
     var roll = me.getNotNullValue( me.rollNode );
     var pitch = me.getNotNullValue( me.pitchNode );
-    if( math.abs(roll) >= 90 )
-      pitch = -pitch;
 
-    var heading = me.getNotNullValue( me.headingNode );
-    var gLoad = int( -0.310810 * me.getNotNullValue( me.accelNode ) );
-
-    me.horizonRotate.setRotation( -roll * D2R, me.horizonElement.getCenter() );
     me.horizonTranslate.setTranslation( 0, pitch * 10 );
+    me.horizonRotate.setRotation( -roll * D2R, SCREEN_WIDTH_2, SCREEN_HEIGHT_2-pitch*10 );
 
-    me.compassTransform.setRotation( -heading * D2R, me.compassElement.getCenter() );
-    me.headingElement.setText( sprintf("%03d", math.round(heading)) );
-    me.topRightFieldElement.setText( sprintf("%+.1fG", gLoad/10) );
+    v = me.getNotNullValue( me.headingNode );
+    me.compassTransform.setRotation( -v * D2R, me.compassElement.getCenter() );
+    me.headingElement.setText( sprintf("%03d", math.round(v)) );
 
-    var inhg = me.getNotNullValue( me.kollsmannNode );
-    me.bottomRightFieldElement.setText( sprintf("%4.2f", inhg) );
+    v = int( -0.310810 * me.getNotNullValue( me.accelNode ) );
+    me.topRightFieldElement.setText( sprintf("%+.1fG", v/10) );
 
+    v = me.getNotNullValue( me.kollsmannNode );
+    me.bottomRightFieldElement.setText( sprintf("%4.2f", v) );
+
+    v = me.getNotNullValue( me.altitudeNode );
+    me.altimeterThousands.setText( sprintf("%2d", int(v/1000)) );
+    me.altimeterHundrets.setText( sprintf("%03d", math.abs(int(math.fmod(v,1000)))) );
+
+    me.altimeterLadderTranslate.setTranslation(0, 76 * math.fmod(v,100) / 100 );
+    me.altimeterLadderLabelsTranslate.setTranslation(0, 152 * math.fmod(v,200) / 200 );
+
+    # draw labels every 200ft
+    v = int(v/200)*2-4;
+    for( var i = 0; i < 5; i += 1 ) {
+      me.altimeterLadderLabel[i].setText(
+        # -400, -200, +0, +200, +400
+        sprintf("%2.1f", (v+i*2)/10 )
+      );
+    }
+
+    v = me.getNotNullValue( me.asiNode );
+    me.asiDigits.setText( v >= 1.0 ? sprintf("%3d", v ) : "---" ); 
+
+    me.asiLadderTranslate.setTranslation(0, 
+        v > 40 ?  38 * 8 + 76*math.fmod(v,10)/10 :
+                  38 * v / 5 );
+
+    me.asiLadderLabelsTranslate.setTranslation(0, 
+        v > 40 ?  38 * 8 + 152*math.fmod(v,20)/20 :
+                  38 * v / 5 );
+
+    # draw labels every 20kt
+    v = int(v/20)*20 - 40;
+    v = v < 0 ?  0 : v;
+
+    for( var i = 0; i < 5; i += 1 ) {
+      me.asiLadderLabel[i].setText(
+        sprintf("%3d", v+i*20 )
+      );
+    }
+
+    # returned value is approx angle in radians * 10
+    # convert to deg, max dev is 125px for 10 deg
+    # v * 5.729 * 125 / 10 = 71.6125
+    v = me.getNotNullValue( me.slipSkidNode ) * 71.6125;
+    v = v < -125 ? -125 : v > 125 ? 125 : v;
+    me.slipSkidTranslate.setTranslation( -v, 0 ); 
   },
 
 };
@@ -158,23 +258,21 @@ var PRD = {
     
 
     m.g.createChild("text", "line-title")
-       .setDrawMode(canvas.Text.TEXT + canvas.Text.FILLEDBOUNDINGBOX)
+       .setDrawMode(canvas.Text.TEXT)
        .setColor(0,0,0)
-       .setColorFill(0,0,0,0)
        .setAlignment("center-top")
        .setFont("LiberationFonts/LiberationMono-Regular.ttf")
-       .setFontSize(120, 2.0)
-       .setTranslation(SCREEN_WIDTH/2, 40)
+       .setFontSize(40, 1.0)
+       .setTranslation(SCREEN_WIDTH_2, 30)
        .setText("PRERACE DISPLAY");
 
     m.speedElement = m.g.createChild("text", "line-title")
-       .setDrawMode(canvas.Text.TEXT + canvas.Text.FILLEDBOUNDINGBOX)
+       .setDrawMode(canvas.Text.TEXT)
        .setColor(0,0,0)
-       .setColorFill(0,0,0,0)
-       .setAlignment("center-top")
+       .setAlignment("center-center")
        .setFont("LiberationFonts/LiberationMono-Regular.ttf")
-       .setFontSize(500, 1.5)
-       .setTranslation(SCREEN_WIDTH/2, 300)
+       .setFontSize(400, 1.5)
+       .setTranslation(SCREEN_WIDTH_2, SCREEN_HEIGHT_2)
        .setText("1");
 
     m.gsNode = props.globals.getNode("/velocities/groundspeed-kt");
@@ -186,6 +284,7 @@ var PRD = {
   {
     var speed = int(me.gsNode.getValue());
     if( speed == nil ) speed = int(0);
+    if( speed < 1 ) speed = 1;
 
     me.speedElement.setText(sprintf("%3d", speed));
 
@@ -209,24 +308,32 @@ var RD = {
 
     m.bg = m.g.rect( 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT );
 
-    m.gLoadElement = m.g.createChild("text", "line-title")
-       .setDrawMode(canvas.Text.TEXT + canvas.Text.FILLEDBOUNDINGBOX)
+    m.g.createChild("text", "line-title")
+       .setDrawMode(canvas.Text.TEXT)
        .setColor(0,0,0)
-       .setColorFill(0,0,0,0)
        .setAlignment("center-top")
        .setFont("LiberationFonts/LiberationMono-Regular.ttf")
-       .setFontSize(SCREEN_WIDTH/2, 1.5)
-       .setTranslation(SCREEN_WIDTH/2, 250)
+       .setFontSize(40, 1.0)
+       .setTranslation(SCREEN_WIDTH_2, 30)
+       .setText("RACE DISPLAY");
+
+
+    m.gLoadElement = m.g.createChild("text", "line-title")
+       .setDrawMode(canvas.Text.TEXT)
+       .setColor(0,0,0)
+       .setAlignment("center-center")
+       .setFont("LiberationFonts/LiberationMono-Regular.ttf")
+       .setFontSize(400, 1.5)
+       .setTranslation(SCREEN_WIDTH_2, SCREEN_HEIGHT_2)
        .setText("1.0");
 
     m.maxElement = m.g.createChild("text", "line-title")
-       .setDrawMode(canvas.Text.TEXT + canvas.Text.FILLEDBOUNDINGBOX)
+       .setDrawMode(canvas.Text.TEXT)
        .setColor(0,0,0)
-       .setColorFill(0,0,0,0)
-       .setAlignment("center-top")
+       .setAlignment("center-bottom")
        .setFont("LiberationFonts/LiberationMono-Bold.ttf")
        .setFontSize(120, 1.5)
-       .setTranslation(SCREEN_WIDTH/2, 850)
+       .setTranslation(SCREEN_WIDTH_2, SCREEN_HEIGHT-40)
        .setText("(10.1 -- 0.00s)");
 
     m.accelNode = props.globals.getNode("/accelerations/pilot/z-accel-fps_sec");

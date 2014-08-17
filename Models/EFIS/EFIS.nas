@@ -29,7 +29,27 @@ var EFISScreen = {
     var m = { parents: [EFISScreen] };
     m.g =  c.createGroup();
 
+    m.latitudeNode = props.globals.getNode("/position/latitude-deg");
+    m.longitudeNode = props.globals.getNode("/position/longitude-deg");
+    m.rollNode = props.globals.getNode("/orientation/roll-deg");
+    m.pitchNode = props.globals.getNode("/orientation/pitch-deg");
+    m.headingNode = props.globals.getNode("/orientation/heading-magnetic-deg");
+    m.accelNode = props.globals.getNode("/accelerations/pilot/z-accel-fps_sec");
+    m.kollsmannNode = props.globals.getNode("/instrumentation/altimeter[1]/setting-inhg");
+    m.altitudeNode = props.globals.getNode("/instrumentation/altimeter[1]/indicated-altitude-ft");
+    m.iasNode = props.globals.getNode("/instrumentation/airspeed-indicator[1]/indicated-speed-kt");
+    m.slipSkidNode = props.globals.getNode("/instrumentation/slip-skid-ball/indicated-slip-skid");
+    m.gsNode = props.globals.getNode("/velocities/groundspeed-kt");
+    m.elapsedNode = props.globals.getNode("/sim/time/elapsed-sec");
+    m.windDirNode = props.globals.getNode("/environment/wind-from-heading-deg");
+    m.windSpeedNode = props.globals.getNode("/environment/wind-speed-kt");
+
     return m;
+  },
+
+  getLedstripMode: func()
+  {
+    return 0;
   },
 
   setEnabled: func(b)
@@ -54,6 +74,7 @@ var EFISScreen = {
   update: func()
   {
   },
+
 };
 
 var PFD = {
@@ -63,16 +84,6 @@ var PFD = {
     print("Creating Red Bull Air Race EFIS: PFD");
 
     var m = { parents: [ PFD, EFISScreen.new(c) ] };
-
-    m.rollNode = props.globals.getNode("/orientation/roll-deg");
-    m.pitchNode = props.globals.getNode("/orientation/pitch-deg");
-#    m.pitchNode = props.globals.getNode("/a");
-    m.headingNode = props.globals.getNode("/orientation/heading-magnetic-deg");
-    m.accelNode = props.globals.getNode("/accelerations/pilot/z-accel-fps_sec");
-    m.kollsmannNode = props.globals.getNode("/instrumentation/altimeter[1]/setting-inhg");
-    m.altitudeNode = props.globals.getNode("/instrumentation/altimeter[1]/indicated-altitude-ft");
-    m.asiNode = props.globals.getNode("/instrumentation/airspeed-indicator[1]/indicated-speed-kt");
-    m.slipSkidNode = props.globals.getNode("/instrumentation/slip-skid-ball/indicated-slip-skid");
 
     var svgGroup = m.g.createChild("group", "svgfile");    
     canvas.parsesvg(svgGroup, "/Aircraft/ZivkoEdge/Models/EFIS/PFD.svg");
@@ -84,7 +95,7 @@ var PFD = {
 
     m.compassElement = m.getRequiredElement( "Compass" );
     m.compassElement.updateCenter();
-    m.compassTransform = m.compassElement.createTransform();
+    m.compassRotate = m.compassElement.createTransform();
 
     m.headingElement = m.getRequiredElement( "Heading" );
     m.headingElement
@@ -169,7 +180,7 @@ var PFD = {
     me.horizonRotate.setRotation( -roll * D2R, SCREEN_WIDTH_2, SCREEN_HEIGHT_2-pitch*10 );
 
     v = me.getNotNullValue( me.headingNode );
-    me.compassTransform.setRotation( -v * D2R, me.compassElement.getCenter() );
+    me.compassRotate.setRotation( -v * D2R, me.compassElement.getCenter() );
     me.headingElement.setText( sprintf("%03d", math.round(v)) );
 
     v = int( -0.310810 * me.getNotNullValue( me.accelNode ) );
@@ -194,7 +205,7 @@ var PFD = {
       );
     }
 
-    v = me.getNotNullValue( me.asiNode );
+    v = me.getNotNullValue( me.iasNode );
     me.asiDigits.setText( v >= 1.0 ? sprintf("%3d", v ) : "---" ); 
 
     me.asiLadderTranslate.setTranslation(0, 
@@ -231,9 +242,68 @@ var HSI = {
     print("Creating Red Bull Air Race EFIS: HSI");
     var m = { parents: [ HSI, EFISScreen.new(c) ] };
 
+    var svgGroup = m.g.createChild("group", "svgfile");    
+    canvas.parsesvg(svgGroup, "/Aircraft/ZivkoEdge/Models/EFIS/HSI.svg");
+
+    m.compassElement = m.getRequiredElement( "Compass" );
+    m.compassElement.updateCenter();
+    m.compassRotate = m.compassElement.createTransform();
+    m.headingElement = m.getRequiredElement( "Heading" );
+
+    m.latitudeElement = m.getRequiredElement("Latitude" );
+    m.longitudeElement = m.getRequiredElement("Longitude" );
+
+    m.iasElement = m.getRequiredElement("IAS" );
+    m.gsElement = m.getRequiredElement("GS" );
+    m.windElement = m.getRequiredElement("Wind" );
+
+    m.adfElement = m.getRequiredElement("VOR" );
+    m.vorElement = m.getRequiredElement("GreenArrow" );
+
+   m.adfElement.setVisible(0);
+   m.vorElement.setVisible(0);
 
     return m;
   },
+
+  formatDeg: func(isLongitude, v)
+  {
+    var NSEW = [ [ "N", "S" ], [ "E", "W" ] ];
+    var format = [ "%s %02d %04.2f", "%s %03d %04.2f" ];
+
+    var idx1 = isLongitude ? 1 : 0;
+    var idx2 = 0;
+    if( v < 0 ) {
+      idx2 = 1;
+      v = -v;
+    }
+    var deg = int(v);
+    var min = (v - deg) * 60;
+    return sprintf( format[idx1], NSEW[idx1][idx2], deg, min );
+  }, 
+
+  update: func()
+  {
+    var v = 0;
+
+    v = me.getNotNullValue( me.headingNode );
+    me.compassRotate.setRotation( -v * D2R, me.compassElement.getCenter() );
+    me.headingElement.setText( sprintf("%03d", math.round(v)) );
+
+    me.latitudeElement.setText( me.formatDeg( 0, me.getNotNullValue( me.latitudeNode ) ) );
+    me.longitudeElement.setText( me.formatDeg( 1, me.getNotNullValue( me.longitudeNode ) ) );
+
+    v = me.getNotNullValue( me.iasNode );
+    me.iasElement.setText( sprintf("%03d", v ) );
+
+    v = me.getNotNullValue( me.gsNode );
+    me.gsElement.setText( sprintf("%03d", v ) );
+
+    me.windElement.setText( sprintf("%02d/%02d", 
+      me.getNotNullValue( me.windDirNode ),
+      me.getNotNullValue( me.windSpeedNode ) ));
+
+  }
 
 };
 
@@ -275,7 +345,6 @@ var PRD = {
        .setTranslation(SCREEN_WIDTH_2, SCREEN_HEIGHT_2)
        .setText("1");
 
-    m.gsNode = props.globals.getNode("/velocities/groundspeed-kt");
 
     return m;
   },
@@ -295,6 +364,11 @@ var PRD = {
     } else {
       me.bg.setColorFill(1.0, 0.0, 0.0);
     }
+  },
+
+  getLedstripMode: func()
+  {
+    return 1;
   },
 
 };
@@ -336,8 +410,6 @@ var RD = {
        .setTranslation(SCREEN_WIDTH_2, SCREEN_HEIGHT-40)
        .setText("(10.1 -- 0.00s)");
 
-    m.accelNode = props.globals.getNode("/accelerations/pilot/z-accel-fps_sec");
-    m.elapsedNode = props.globals.getNode("/sim/time/elapsed-sec");
 
     m.maxG = int(10);
     m.maxGDuration = 0.0;
@@ -374,7 +446,12 @@ var RD = {
 
     me.gLoadElement.setText( sprintf("%3.1f", gLoad/10.0) );
     me.maxElement.setText( sprintf("(%3.1f -- %3.2f)", me.maxG/10.0, me.maxGDuration ) );
-  }
+  },
+
+  getLedstripMode: func()
+  {
+    return 2;
+  },
 
 };
 
@@ -410,16 +487,18 @@ var EFIS = {
     # The screens
     m.screens = [
       PFD.new( m.canvas ),
+      HSI.new( m.canvas ),
       PRD.new( m.canvas ),
       RD.new( m.canvas ),
     ];
+
+    m.currentScreen = 0;
+    m.ledStripModeNode = props.globals.getNode("/instrumentation/ledstrip/mode");
 
     setlistener("/instrumentation/efis/current-screen", func(n) { 
       m.changeScreen( n.getValue() ); 
     }, 1);
     
-    m.currentScreen = 0;
-
     return m;
   },
 
@@ -435,9 +514,12 @@ var EFIS = {
       me.screens[i].setEnabled( i == n );
     }
 
+    var ledstripMode = 0;
     if( n >= 0 and n < size(me.screens) ) {
       me.currentScreen = n;
+      ledstripMode = me.screens[n].getLedstripMode();
     }
+    me.ledStripModeNode.setIntValue( ledstripMode );
   },
 };
 

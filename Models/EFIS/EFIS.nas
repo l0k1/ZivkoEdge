@@ -115,7 +115,7 @@ var EFIS = {
     # The screens
     m.screens = [];
     foreach( var p; EFISplugins )
-      append( m.screens, p );
+      append( m.screens, p.new(m) );
 
     m.currentScreen = 0;
     m.ledStripModeNode = props.globals.getNode("/instrumentation/ledstrip/mode");

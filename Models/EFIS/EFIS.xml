@@ -15,7 +15,7 @@
 
   <animation>
     <type>pick</type>
-    <object-name>Knob</object-name>
+    <object-name>KnobUpper</object-name>
     <visible>true</visible>
     <action>
       <button>0</button>
@@ -24,11 +24,39 @@
         <command>property-adjust</command>
         <property>instrumentation/efis/current-screen</property>
         <step type="int">1</step>
-        <max type="int">5</max>
+        <max type="int">4</max>
         <min type="int">0</min>
         <wrap type="bool">true</wrap>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>EFIS-Knob-Upper</tooltip-id>
+        <label>Press for next screen (drag lower half to twist knob)</label>
+     </binding>
+   </hovered>
+
   </animation>
+
+  <animation>
+    <type>knob</type>
+    <object-name>KnobLower</object-name>
+    <visible>true</visible>
+    <action>
+      <binding>
+        <command>property-adjust</command>
+        <property>instrumentation/efis/knob-position</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>EFIS-Knob-Lower</tooltip-id>
+        <label>Drag left/right to twist knob (click upper half to press)</label>
+     </binding>
+   </hovered>
+  </animation>
+
 
 </PropertyList>

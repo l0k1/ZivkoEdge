@@ -4,11 +4,7 @@ var PFD = {
   {
     print(" * PFD");
 
-    var m = { parents: [ PFD, EFISScreen.new(efis) ] };
-
-    var svgGroup = m.g.createChild("group", "svgfile");    
-    canvas.parsesvg(svgGroup, "/Aircraft/ZivkoEdge/Models/EFIS/PFD.svg");
-
+    var m = { parents: [ PFD, EFISSVGScreen.new(efis, "PFD.svg" ) ] };
 
     m.g.getElementById( "HeadingBug" ).setCenter( m.g.getElementById("Compass").getCenter() );
 
@@ -199,6 +195,19 @@ var PFD = {
     v = v < 0 ?  0 : v;
     return sprintf("%3d", v+n*20 )
   },
+
+  getName: func()
+  {
+    return "pfd";
+  },
+
+  knobPositionChanged: func( n ) 
+  {
+    me.efis.writeSensor("headingBug", 
+      normalizePeriodic( 0, 360, me.efis.readSensor("headingBug") + n ) );
+  }
+
+
 };
 
 append( EFISplugins, PFD );

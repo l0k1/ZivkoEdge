@@ -1,11 +1,14 @@
+var normalizePeriodic = func( min, max, val )
+{
+ var range = max - min;
+ return val - range*geo.floor((val - min)/range);
+}
+
 var HSI = {
   new: func( efis )
   {
     print(" * HSI");
-    var m = { parents: [ HSI, EFISScreen.new(efis) ] };
-
-    var svgGroup = m.g.createChild("group", "svgfile");    
-    canvas.parsesvg(svgGroup, "/Aircraft/ZivkoEdge/Models/EFIS/HSI.svg");
+    var m = { parents: [ HSI, EFISSVGScreen.new(efis, "HSI.svg" ) ] };
 
     m.g.getElementById( "HeadingBug" ).setCenter( m.g.getElementById("Compass").getCenter() );
 
@@ -81,6 +84,17 @@ var HSI = {
     var min = (v - deg) * 60;
     return sprintf( format[idx1], NSEW[idx1][idx2], deg, min );
   }, 
+
+  getName: func()
+  {
+    return "hsi";
+  },
+
+  knobPositionChanged: func( n ) 
+  {
+    me.efis.writeSensor("headingBug", 
+      normalizePeriodic( 0, 360, me.efis.readSensor("headingBug") + n ) );
+  }
 
 };
 

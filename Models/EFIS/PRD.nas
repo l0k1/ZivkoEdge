@@ -51,6 +51,12 @@ var PRD = {
   {
     return 1;
   },
+
+  getName: func()
+  {
+    return "prd";
+  },
+
 };
 
 append( EFISplugins, PRD );

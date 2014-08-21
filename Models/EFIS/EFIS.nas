@@ -24,7 +24,8 @@ var SCREEN_HEIGHT_2 = SCREEN_HEIGHT/2;
 
 #
 # Base "class" for all Screens
-var EFISScreen = {
+var EFISScreen = 
+{
   new: func( efis ) 
   {
     var m = { parents: [EFISScreen] };
@@ -37,6 +38,11 @@ var EFISScreen = {
   getLedstripMode: func()
   {
     return 0;
+  },
+
+  getName: func()
+  {
+    return "unnamed";
   },
 
   setEnabled: func(b)
@@ -53,6 +59,24 @@ var EFISScreen = {
 
     foreach( var a; me.animations ) 
       a.apply(me);
+  },
+
+  knobPositionChanged: func( n ) 
+  {
+  }
+
+};
+
+var EFISSVGScreen = 
+{
+  new: func( efis, svgFile ) 
+  {
+    var m = { parents: [EFISSVGScreen, EFISScreen.new(efis)] };
+
+    canvas.parsesvg(m.g.createChild("group", "baseSVG"), 
+       "/Aircraft/ZivkoEdge/Models/EFIS/" ~ svgFile );
+
+    return m;
   },
 
 };
@@ -95,6 +119,11 @@ var EFIS = {
     return me.sensors[name].getValue();
   },
 
+  writeSensor: func(name,val)
+  {
+    me.sensors[name].setValue(val);
+  },
+
   new: func()
   {
     print("Creating Red Bull Air Race EFIS");
@@ -119,9 +148,14 @@ var EFIS = {
 
     m.currentScreen = 0;
     m.ledStripModeNode = props.globals.getNode("/instrumentation/ledstrip/mode");
+    m.screenName = props.globals.initNode("/instrumentation/efis/current-screen-name","", "STRING");
 
     setlistener("/instrumentation/efis/current-screen", func(n) { 
       m.changeScreen( n.getValue() ); 
+    }, 1);
+
+    setlistener("/instrumentation/efis/knob-position", func(n) { 
+      m.knobPositionChanged( n.getValue() ); 
     }, 1);
     
     return m;
@@ -131,6 +165,14 @@ var EFIS = {
   {
     me.screens[me.currentScreen].update();
     settimer(func me.update(), 0);
+  },
+
+  lastKnobPosition: 0,
+
+  knobPositionChanged: func( n ) {
+    var knobOffset = n - me.lastKnobPosition;
+    me.lastKnobPosition = n;
+    me.screens[ me.currentScreen ].knobPositionChanged( knobOffset );
   },
 
   changeScreen: func( n )
@@ -143,6 +185,9 @@ var EFIS = {
     if( n >= 0 and n < size(me.screens) ) {
       me.currentScreen = n;
       ledstripMode = me.screens[n].getLedstripMode();
+      me.screenName.setValue( me.screens[n].getName() );
+    } else {
+      me.screenName.setValue( "" );
     }
     me.ledStripModeNode.setIntValue( ledstripMode );
   },

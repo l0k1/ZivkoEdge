@@ -79,6 +79,11 @@ var RD = {
     return 2;
   },
 
+  getName: func()
+  {
+    return "rd";
+  },
+
 };
 
 append( EFISplugins, RD );

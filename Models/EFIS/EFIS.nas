@@ -63,7 +63,12 @@ var EFISScreen =
 
   knobPositionChanged: func( n ) 
   {
-  }
+  },
+
+  knobPressed: func( b ) 
+  {
+    return 0; # event not consumed
+  },
 
 };
 
@@ -150,14 +155,16 @@ var EFIS = {
     m.ledStripModeNode = props.globals.getNode("/instrumentation/ledstrip/mode");
     m.screenName = props.globals.initNode("/instrumentation/efis/current-screen-name","", "STRING");
 
-    setlistener("/instrumentation/efis/current-screen", func(n) { 
-      m.changeScreen( n.getValue() ); 
+    setlistener("/instrumentation/efis/knob-pressed", func(n) { 
+      m.knobPressed( n.getValue() ); 
     }, 1);
 
     setlistener("/instrumentation/efis/knob-position", func(n) { 
       m.knobPositionChanged( n.getValue() ); 
-    }, 1);
-    
+    }, 0);
+
+    m.changeScreen(0);
+
     return m;
   },
 
@@ -173,6 +180,19 @@ var EFIS = {
     var knobOffset = n - me.lastKnobPosition;
     me.lastKnobPosition = n;
     me.screens[ me.currentScreen ].knobPositionChanged( knobOffset );
+  },
+
+  knobPressed: func( b ) {
+    if( me.screens[ me.currentScreen ].knobPressed( b ) )
+      return; # screen has consumed the event
+
+    if( 0 == b ) return;
+
+    var n = me.currentScreen + 1;
+    if( n >= size(me.screens) )
+      n = 0;
+
+    me.changeScreen( n );
   },
 
   changeScreen: func( n )

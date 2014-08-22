@@ -21,13 +21,17 @@
       <button>0</button>
       <repeatable>false</repeatable>
       <binding>
-        <command>property-adjust</command>
-        <property>instrumentation/efis/current-screen</property>
-        <step type="int">1</step>
-        <max type="int">4</max>
-        <min type="int">0</min>
-        <wrap type="bool">true</wrap>
+        <command>property-assign</command>
+        <property>instrumentation/efis/knob-pressed</property>
+        <value type="bool">true</value>
       </binding>
+      <mod-up>
+        <binding>
+          <command>property-assign</command>
+          <property>instrumentation/efis/knob-pressed</property>
+          <value type="bool">false</value>
+        </binding>
+      </mod-up>
     </action>
     <hovered>
       <binding>

@@ -26,11 +26,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.734375"
-     inkscape:cx="512"
-     inkscape:cy="278.61768"
+     inkscape:zoom="4.0869565"
+     inkscape:cx="902.6117"
+     inkscape:cy="74.36236"
      inkscape:document-units="px"
-     inkscape:current-layer="ASI"
+     inkscape:current-layer="svg2"
      showgrid="false"
      inkscape:window-width="1236"
      inkscape:window-height="782"
@@ -113,85 +113,6 @@
        id="HeadingBug"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cccc" />
-  </g>
-  <g
-     inkscape:groupmode="layer"
-     id="FixedElements"
-     inkscape:label="FixedElements"
-     style="display:inline"
-     sodipodi:insensitive="true">
-    <path
-       id="AircraftSymbol"
-       style="fill:none;stroke:#ffffff;stroke-width:2.99999976;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       d="m 511.99994,311.00003 0,146.99988 M 438.5,384.5 l 147,0"
-       inkscape:connector-curvature="0" />
-    <path
-       id="TrajectoryMarker"
-       style="fill:none;stroke:#ffffff;stroke-width:2.99999976;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       d="M 512,310.34684 512,357.5 m 26.41013,27 47.17974,0 m -147.08987,-3e-5 47.11235,0 M 535.33221,384 c 0,12.88605 -10.44621,23.33226 -23.33225,23.33226 -12.88606,0 -23.33227,-10.44621 -23.33227,-23.33226 0,-12.88605 10.44621,-23.33226 23.33227,-23.33226 12.88604,0 23.33225,10.44621 23.33225,23.33226 z"
-       inkscape:connector-curvature="0" />
-    <g
-       id="HeadingIndicator">
-      <path
-         sodipodi:nodetypes="cccccc"
-         inkscape:connector-curvature="0"
-         id="rect4481"
-         d="m 451.08101,688.25052 60.91905,-20.17944 60.91906,20.17944 0,66.24948 -121.83812,0 z"
-         style="opacity:0.98999999;fill:none;stroke:#ffffff;stroke-width:5;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0" />
-      <text
-         xml:space="preserve"
-         style="font-size:58.44316483px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
-         x="512.08563"
-         y="735.15411"
-         id="Heading"
-         sodipodi:linespacing="100%"><tspan
-           sodipodi:role="line"
-           id="tspan4499"
-           x="512.08563"
-           y="735.15411"
-           transform="translate(0.24257198,0)">999</tspan></text>
-    </g>
-    <text
-       sodipodi:linespacing="100%"
-       id="Field_TopRight"
-       y="53.544361"
-       x="1030.0345"
-       style="font-size:60.76404575px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr;text-anchor:end;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
-       xml:space="preserve"
-       transform="scale(0.98702019,1.0131505)"><tspan
-         transform="translate(0.24257198,0)"
-         y="53.544361"
-         x="1030.0345"
-         id="tspan4507"
-         sodipodi:role="line">999</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:60.76404606px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr;text-anchor:end;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
-       x="1030.0345"
-       y="747.41956"
-       id="Field_BottomRight"
-       sodipodi:linespacing="100%"
-       transform="scale(0.98702018,1.0131505)"><tspan
-         sodipodi:role="line"
-         id="tspan4559"
-         x="1030.0345"
-         y="747.41956"
-         transform="translate(0.24257198,0)">999</tspan></text>
-    <path
-       style="opacity:0.98999999;fill:#ffffff;fill-opacity:1;stroke:none;display:inline"
-       d="m 537,41.638298 c 0,13.80712 -11.19288,25 -24.99999,25 -13.80712,0 -25.00001,-11.19288 -25.00001,-25 0,-13.807111 11.19289,-25 25.00001,-25 13.80711,0 24.99999,11.192889 24.99999,25 z"
-       id="SlipSkidBall"
-       inkscape:connector-curvature="0" />
-    <path
-       id="SlipSkidBallMarking"
-       style="fill:none;stroke:#edff6a;stroke-width:3;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       d="m 537,19.506649 0,46.986702 m -50,-46.986702 0,46.986702 M 587,30.500399 587,54 m 75,-34.493351 0,46.986702 M 437,30.500399 437,54 m -75,-34.493351 0,46.986702"
-       inkscape:connector-curvature="0" />
-    <path
-       style="opacity:0.98999999;fill:none;stroke:#000000;stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0"
-       d="m 0.49999997,0.49999303 1023.00000003,0 0,766.99999697 -1023.00000003,0 z"
-       id="rect4511"
-       inkscape:connector-curvature="0" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -397,5 +318,89 @@
          x="150.82758"
          id="tspan3870-7"
          sodipodi:role="line">000</tspan></text>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="FixedElements"
+     inkscape:label="FixedElements"
+     style="display:inline">
+    <path
+       id="AircraftSymbol"
+       style="fill:none;stroke:#ffffff;stroke-width:2.99999976;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 511.99994,311.00003 0,146.99988 M 438.5,384.5 l 147,0"
+       inkscape:connector-curvature="0" />
+    <path
+       id="TrajectoryMarker"
+       style="fill:none;stroke:#ffffff;stroke-width:2.99999976;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="M 512,310.34684 512,357.5 m 26.41013,27 47.17974,0 m -147.08987,-3e-5 47.11235,0 M 535.33221,384 c 0,12.88605 -10.44621,23.33226 -23.33225,23.33226 -12.88606,0 -23.33227,-10.44621 -23.33227,-23.33226 0,-12.88605 10.44621,-23.33226 23.33227,-23.33226 12.88604,0 23.33225,10.44621 23.33225,23.33226 z"
+       inkscape:connector-curvature="0" />
+    <g
+       id="HeadingIndicator">
+      <path
+         sodipodi:nodetypes="cccccc"
+         inkscape:connector-curvature="0"
+         id="rect4481"
+         d="m 451.08101,688.25052 60.91905,-20.17944 60.91906,20.17944 0,66.24948 -121.83812,0 z"
+         style="opacity:0.98999999;fill:none;stroke:#ffffff;stroke-width:5;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0" />
+      <text
+         xml:space="preserve"
+         style="font-size:58.44316483px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+         x="512.08563"
+         y="735.15411"
+         id="Heading"
+         sodipodi:linespacing="100%"><tspan
+           sodipodi:role="line"
+           id="tspan4499"
+           x="512.08563"
+           y="735.15411"
+           transform="translate(0.24257198,0)">999</tspan></text>
+    </g>
+    <text
+       sodipodi:linespacing="100%"
+       id="Field_TopRight"
+       y="53.544361"
+       x="1030.0345"
+       style="font-size:60.76404572px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:end;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+       xml:space="preserve"
+       transform="scale(0.98702019,1.0131505)"><tspan
+         transform="translate(0.24257198,0)"
+         y="53.544361"
+         x="1030.0345"
+         id="tspan4507"
+         sodipodi:role="line">999</tspan></text>
+    <path
+       inkscape:connector-curvature="0"
+       id="Field_BottomRight_Selector"
+       d="m 856.32213,709 135.07753,0 C 1015.0411,709 1019,718.40782 1019,730.09375 l 0,11.8125 C 1019,753.59218 1015.0411,763 991.39966,763 l -135.07753,0 c -23.64144,0 -25.08808,-9.40782 -25.08808,-21.09375 l 0,-11.8125 C 831.23405,718.40782 832.68069,709 856.32213,709 z"
+       style="opacity:0.98999999;fill:none;stroke:#d541c0;stroke-width:10;stroke-miterlimit:4;stroke-opacity:1"
+       sodipodi:nodetypes="sssssssss" />
+    <text
+       xml:space="preserve"
+       style="font-size:60.76404572px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:end;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+       x="1030.0345"
+       y="746.21204"
+       id="Field_BottomRight"
+       sodipodi:linespacing="100%"
+       transform="scale(0.98702019,1.0131505)"><tspan
+         sodipodi:role="line"
+         id="tspan4559"
+         x="1030.0345"
+         y="746.21204"
+         transform="translate(0.24257198,0)">99.99</tspan></text>
+    <path
+       style="opacity:0.98999999;fill:#ffffff;fill-opacity:1;stroke:none;display:inline"
+       d="m 537,41.638298 c 0,13.80712 -11.19288,25 -24.99999,25 -13.80712,0 -25.00001,-11.19288 -25.00001,-25 0,-13.807111 11.19289,-25 25.00001,-25 13.80711,0 24.99999,11.192889 24.99999,25 z"
+       id="SlipSkidBall"
+       inkscape:connector-curvature="0" />
+    <path
+       id="SlipSkidBallMarking"
+       style="fill:none;stroke:#edff6a;stroke-width:3;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 537,19.506649 0,46.986702 m -50,-46.986702 0,46.986702 M 587,30.500399 587,54 m 75,-34.493351 0,46.986702 M 437,30.500399 437,54 m -75,-34.493351 0,46.986702"
+       inkscape:connector-curvature="0" />
+    <path
+       style="opacity:0.98999999;fill:none;stroke:#000000;stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0"
+       d="m 0.49999997,0.49999303 1023.00000003,0 0,766.99999697 -1023.00000003,0 z"
+       id="rect4511"
+       inkscape:connector-curvature="0" />
   </g>
 </svg>

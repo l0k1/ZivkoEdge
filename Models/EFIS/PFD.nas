@@ -1,3 +1,53 @@
+var Dialog = 
+{
+  new: func( g )
+  {
+    var m = { parents: [ Dialog ] };
+
+    m.g = g;
+
+    m.animations = [
+      SelectAnimation.new( g, "Selector0", func(o) {
+        return o.focus == 0;
+      }),
+
+      SelectAnimation.new( g, "Selector1", func(o) {
+        return o.focus == 1;
+      }),
+    ];
+
+    return m;
+  },
+
+  init: func()
+  {
+    me.focus = 0;
+    me.applyAnimations();
+  },
+
+  applyAnimations: func()
+  {
+    foreach( var a; me.animations ) 
+      a.apply(me);
+  },
+
+  focus: 0,
+
+  knobPositionChanged: func( n ) 
+  {
+    me.focus += n;
+    if( me.focus >= 2 )
+      me.focus = 0;
+    me.applyAnimations();
+  },
+
+  knobPressed: func( b ) 
+  {
+    return me.focus;
+  },
+
+};
+
 var PFD = {
 
   new: func( efis )
@@ -6,9 +56,24 @@ var PFD = {
 
     var m = { parents: [ PFD, EFISSVGScreen.new(efis, "PFD.svg" ) ] };
 
+    m.overlay = m.g.createChild("group","overlaySVG");
+    canvas.parsesvg(m.overlay, 
+       "/Aircraft/ZivkoEdge/Models/EFIS/PFD-config.svg" );
+
     m.g.getElementById( "HeadingBug" ).setCenter( m.g.getElementById("Compass").getCenter() );
 
+    m.configScreen = Dialog.new(m.overlay);
+
+
     m.animations = [
+      SelectAnimation.new( m.overlay, nil, func(o) {
+        o.state == o.STATE_CONFIG;
+      }),
+
+      SelectAnimation.new( m.g, "Field_BottomRight_Selector", func(o) {
+        o.state == o.STATE_QNH;
+      }),
+
       TranslateAnimation.new( m.g, "Horizon", func(o) {
         return { 
           y: 10 * o.efis.readSensor( "pitch" ), 
@@ -201,13 +266,58 @@ var PFD = {
     return "pfd";
   },
 
+  STATE_NORMAL: 0,
+  STATE_CONFIG: 1,
+  STATE_QNH:    2,
+  state: 0,
+
   knobPositionChanged: func( n ) 
   {
-    me.efis.writeSensor("headingBug", 
-      normalizePeriodic( 0, 360, me.efis.readSensor("headingBug") + n ) );
-  }
+    if( me.state == me.STATE_NORMAL ) {
 
+      # knob rotation turns heading bug
+      me.efis.writeSensor("headingBug", 
+        normalizePeriodic( 0, 360, me.efis.readSensor("headingBug") + n ) );
 
+    } elsif( me.state == me.STATE_CONFIG ) {
+
+      # forward knob rotation to the config screen
+      me.configScreen.knobPositionChanged( n );
+
+    } elsif( me.state == me.STATE_QNH ) {
+      # knob rotation changes kollsmann
+      me.efis.writeSensor("kollsmann", 
+          me.efis.readSensor("kollsmann") + n * 0.01 );
+    }
+  },
+
+  knobPressed: func( b ) 
+  {
+    if( b == 0 ) return; #ignore release
+
+    if( me.state == me.STATE_NORMAL ) {
+      me.state = me.STATE_CONFIG;
+      me.configScreen.init();
+      return 1; # event consumed, stay here
+
+    } elsif( me.state == me.STATE_CONFIG ) {
+
+      var reply = me.configScreen.knobPressed( b );
+      if( reply == 0 ) { #HSI
+        me.state = me.STATE_NORMAL;
+        return 0; # event not consumed (switch screen)
+      } elsif( reply == 1 ) { #QNH
+        me.state = me.STATE_QNH;
+        return 1; # event consumed (stay here)
+      }
+
+    } elsif( me.state == me.STATE_QNH ) {
+      me.state = me.STATE_NORMAL;
+      return 1; # event consumed
+    }
+
+    return 0; # event not consumed
+  },
 };
 
 append( EFISplugins, PFD );

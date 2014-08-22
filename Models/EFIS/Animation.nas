@@ -4,7 +4,11 @@ var Animation = {
     var m = { parents: [Animation] };
 
     m.f = f;
-    m.element = e.getElementById(id);
+    if( id == nil ) {
+      m.element = e;
+    } else {
+      m.element = e.getElementById(id);
+    }
     if( m.element == nil ) die(sprintf("missing mandatory element '%s'.",  id) );
     return m;
   },

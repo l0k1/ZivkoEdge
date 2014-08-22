@@ -240,7 +240,8 @@
     </ledstrip>
 
     <efis>
-      <current-screen type="int">0</current-screen>
+      <knob-position type="int">0</knob-position>
+      <knob-pressed type="bool">false</knob-pressed>
     </efis>
 
     <edm700>

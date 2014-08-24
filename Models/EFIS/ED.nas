@@ -90,14 +90,15 @@ var ED = {
         h: 256,
         table: [
           [ 0,     0*D2R ],
-          [ 2800, 90*D2R ]
+          [ 2900, 90*D2R ]
         ],
         indicator: { needle: "RPMNeedle", digits: "RPMDigits", getValue: func() { efis.readSensor("RPM"); } },
         stroke: 4,
         arc: [
-          { start:    0, end:  500, color: [ 1, 1, 0] },
-          { start:  500, end: 2750, color: [ 0, 1, 0] },
-          { start: 2750, end: 2800, color: [ 1, 0, 0] },
+          { start:    0, end:  700, color: [ 1, 1, 0] },
+          { start:  700, end: 2750, color: [ 0, 1, 0] },
+          { start: 2750, end: 2850, color: [ 1, 1, 0] },
+          { start: 2850, end: 2900, color: [ 1, 0, 0] },
         ],
       }),
 
@@ -125,15 +126,17 @@ var ED = {
         w: 291,
         h: 135,
         table: [
-          [ 10,  0*D2R ],
-          [ 35, 90*D2R ]
+          [   0,  0*D2R ],
+          [ 120, 90*D2R ]
         ],
         indicator: { needle: "OPNeedle", digits: "OPDigits", getValue: func() { efis.readSensor("OP"); } },
         stroke: 4,
         arc: [
-          { start: 10, end: 25, color: [ 1, 1, 0] },
-          { start: 25, end: 30, color: [ 0, 1, 0] },
-          { start: 30, end: 35, color: [ 1, 0, 0] },
+          { start:   0, end:   25, color: [ 1, 0, 0] },
+          { start:   25, end:  55, color: [ 1, 1, 0] },
+          { start:   55, end:  95, color: [ 0, 1, 0] },
+          { start:   95, end: 116, color: [ 1, 1, 0] },
+          { start:  116, end: 120, color: [ 1, 0, 0] },
         ],
       }),
 
@@ -143,15 +146,16 @@ var ED = {
         w: 291,
         h: 135,
         table: [
-          [ 10,  0*D2R ],
-          [ 35, 90*D2R ]
+          [ 15,  0*D2R ],
+          [ 70, 90*D2R ]
         ],
         indicator: { needle: "FPNeedle", digits: "FPDigits", getValue: func() { efis.readSensor("FP"); } },
         stroke: 4,
         arc: [
-          { start: 10, end: 25, color: [ 1, 1, 0] },
-          { start: 25, end: 30, color: [ 0, 1, 0] },
-          { start: 30, end: 35, color: [ 1, 0, 0] },
+          { start: 15, end: 29, color: [ 1, 1, 0] },
+          { start: 29, end: 55, color: [ 0, 1, 0] },
+          { start: 55, end: 65, color: [ 1, 1, 0] },
+          { start: 65, end: 70, color: [ 1, 0, 0] },
         ],
       }),
 
@@ -161,15 +165,15 @@ var ED = {
         w: 291,
         h: 135,
         table: [
-          [ 10,  0*D2R ],
-          [ 35, 90*D2R ]
+          [ 0,   0*D2R ],
+          [ 40, 90*D2R ]
         ],
         stroke: 4,
         indicator: { needle: "FFNeedle", digits: "FFDigits", getValue: func() { efis.readSensor("FF"); } },
         arc: [
-          { start: 10, end: 25, color: [ 1, 1, 0] },
-          { start: 25, end: 30, color: [ 0, 1, 0] },
-          { start: 30, end: 35, color: [ 1, 0, 0] },
+          { start: 0,  end:  2, color: [ 1, 1, 0] },
+          { start: 2,  end: 35, color: [ 0, 1, 0] },
+          { start: 35, end: 40, color: [ 1, 0, 0] },
         ],
       }),
 
@@ -179,17 +183,24 @@ var ED = {
         w: 291,
         h: 135,
         table: [
-          [ 10,  0*D2R ],
-          [ 35, 90*D2R ]
+          [ 100,  0*D2R ],
+          [ 280, 90*D2R ]
         ],
         stroke: 4,
         indicator: { needle: "OTNeedle", digits: "OTDigits", getValue: func() { efis.readSensor("OT"); } },
         arc: [
-          { start: 10, end: 25, color: [ 1, 1, 0] },
-          { start: 25, end: 30, color: [ 0, 1, 0] },
-          { start: 30, end: 35, color: [ 1, 0, 0] },
+          { start: 100, end: 140, color: [ 1, 1, 0] },
+          { start: 140, end: 212, color: [ 0, 1, 0] },
+          { start: 212, end: 250, color: [ 1, 1, 0] },
+          { start: 250, end: 280, color: [ 1, 0, 0] },
         ],
       }),
+
+#CHT 
+# Yellow: less than 64degc
+# Green: 65..225 degc
+# Yellow: 225..240degc
+# Red: 240
 
 
     ];

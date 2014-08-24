@@ -121,8 +121,8 @@ var EFIS = {
     MAP: props.globals.initNode("/engines/engine[0]/mp-inhg", 0, "DOUBLE" ),
     OP: props.globals.initNode("/engines/engine[0]/oil-pressure-psi", 0, "DOUBLE" ),
     OT: props.globals.initNode("/engines/engine[0]/oil-temperature-degf", 0, "DOUBLE" ),
-    FP: props.globals.initNode("/engines/engine[0]/fuel-flow_gph", 0, "DOUBLE" ),
-    FF: props.globals.initNode("/engines/engine[0]/fuel-flow_gph", 0, "DOUBLE" ),
+    FP: props.globals.initNode("/engines/engine[0]/fuel-pressure-psi", 0, "DOUBLE" ),
+    FF: props.globals.initNode("/engines/engine[0]/fuel-flow-gph", 0, "DOUBLE" ),
   },
 
   readSensor: func(name)

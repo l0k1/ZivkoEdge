@@ -83,4 +83,19 @@ var TextAnimation = {
   },
 };
 
+var PrintfTextAnimation = {
+  new: func(e,id,f)
+  {
+    var m = { parents: [ PrintfTextAnimation, Animation.new(e,id,f) ] };
+    m.format = m.element.get("text");
+    return m;
+  },
+
+  apply: func(o)
+  {
+    var t = me.f(o,me.element);
+    me.element.setText( sprintf(me.format, t) );
+  },
+};
+
 

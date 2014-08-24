@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1024px"
+   height="768px"
+   id="svg4451"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="ED.svg">
+  <title
+     id="title4639">FlightGear RBAR EFIS (ED)</title>
+  <defs
+     id="defs4453" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#000000"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="1"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.66992188"
+     inkscape:cx="614.99708"
+     inkscape:cy="347.52082"
+     inkscape:current-layer="layer1"
+     inkscape:document-units="px"
+     showgrid="false"
+     inkscape:window-width="1236"
+     inkscape:window-height="782"
+     inkscape:window-x="40"
+     inkscape:window-y="-1"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata4456">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>FlightGear RBAR EFIS (ED)</dc:title>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Torsten Dreyer</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:rights>
+          <cc:Agent>
+            <dc:title>Torsten Dreyer</dc:title>
+          </cc:Agent>
+        </dc:rights>
+        <dc:publisher>
+          <cc:Agent>
+            <dc:title>flightgear.org</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <cc:license
+           rdf:resource="http://www.gnu.org/licenses/gpl-2.0.html" />
+        <dc:date>2014-08-01</dc:date>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer">
+    <rect
+       style="opacity:0.98999999;fill:#000000;fill-opacity:1;stroke:none"
+       id="rect5094"
+       width="1024"
+       height="768"
+       x="0"
+       y="-7.6293954e-06" />
+    <path
+       id="path5029"
+       style="fill:none;stroke:#ffffff;stroke-width:4;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 6.009,692 1011.9828,0 M 6,504 1013.6596,504 M 6.009,316 l 1011.9828,0 m -338.5658,4.01574 0,441.96852 m -334.852,-441.96237 0,441.95625 M 512,10 512,315.45166 M 6,6 1018,6 1018,762 6,762 z" />
+    <text
+       transform="scale(1.1923203,0.83870081)"
+       sodipodi:linespacing="100%"
+       id="FPDigits"
+       y="552.01892"
+       x="501.60699"
+       style="font-size:50px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:end;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+       xml:space="preserve"><tspan
+         y="552.01892"
+         x="501.60699"
+         id="tspan5056"
+         sodipodi:role="line">%3d</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:50px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:end;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+       x="786.26697"
+       y="552.01892"
+       id="FFDigits"
+       sodipodi:linespacing="100%"
+       transform="scale(1.1923203,0.83870081)"><tspan
+         sodipodi:role="line"
+         id="tspan5060"
+         x="786.26697"
+         y="552.01892">%3.1f</tspan></text>
+    <text
+       transform="scale(1.1923203,0.83870081)"
+       sodipodi:linespacing="100%"
+       id="RPMDigits"
+       y="326.34058"
+       x="361.02045"
+       style="font-size:95.38562012px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:end;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+       xml:space="preserve"><tspan
+         y="326.34058"
+         x="361.02045"
+         id="tspan5064"
+         sodipodi:role="line">%4d</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:95.38562012px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:end;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+       x="782.4408"
+       y="326.34058"
+       id="MAPDigits"
+       sodipodi:linespacing="100%"
+       transform="scale(1.1923203,0.83870081)"><tspan
+         sodipodi:role="line"
+         id="tspan5068"
+         x="782.4408"
+         y="326.34058">%3.1f</tspan></text>
+    <text
+       transform="scale(1.1923203,0.83870081)"
+       sodipodi:linespacing="100%"
+       id="OPDigits"
+       y="552.01892"
+       x="222.94421"
+       style="font-size:50px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:end;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+       xml:space="preserve"><tspan
+         y="552.01892"
+         x="222.94421"
+         id="tspan5072"
+         sodipodi:role="line">%3d</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:50px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:end;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+       x="225.22833"
+       y="776.07367"
+       id="OTDigits"
+       sodipodi:linespacing="100%"
+       transform="scale(1.1923203,0.83870081)"><tspan
+         sodipodi:role="line"
+         id="tspan5076"
+         x="225.22833"
+         y="776.07367">%3d</tspan></text>
+    <text
+       transform="scale(1.1923203,0.83870081)"
+       sodipodi:linespacing="100%"
+       id="text5078"
+       y="878.3595"
+       x="276.62106"
+       style="font-size:50px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:end;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+       xml:space="preserve"><tspan
+         y="878.3595"
+         x="276.62106"
+         id="tspan5080"
+         sodipodi:role="line">%3d</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:50px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:end;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+       x="550.71564"
+       y="878.3595"
+       id="text5082"
+       sodipodi:linespacing="100%"
+       transform="scale(1.1923203,0.83870081)"><tspan
+         sodipodi:role="line"
+         id="tspan5084"
+         x="550.71564"
+         y="878.3595">%3d</tspan></text>
+    <text
+       transform="scale(1.1923203,0.83870081)"
+       sodipodi:linespacing="100%"
+       id="text5086"
+       y="878.3595"
+       x="836.23083"
+       style="font-size:50px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:end;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+       xml:space="preserve"><tspan
+         y="878.3595"
+         x="836.23083"
+         id="tspan5088"
+         sodipodi:role="line">%4.1f</tspan></text>
+    <path
+       style="opacity:0.98999999;fill:none;stroke:#ffffff;stroke-width:8;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0"
+       d="m 43.13636,4 0,24.41774 L 4,16.20887 z"
+       id="RPMNeedle"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccc" />
+    <path
+       sodipodi:nodetypes="cccc"
+       inkscape:connector-curvature="0"
+       id="MAPNeedle"
+       d="m 43.13636,4 0,24.41774 L 4,16.20887 z"
+       style="opacity:0.98999999;fill:none;stroke:#ffffff;stroke-width:8;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0" />
+    <path
+       style="opacity:0.98999999;fill:none;stroke:#ffffff;stroke-width:8;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0"
+       d="m 43.13636,4 0,24.41774 L 4,16.20887 z"
+       id="OPNeedle"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccc" />
+    <path
+       sodipodi:nodetypes="cccc"
+       inkscape:connector-curvature="0"
+       id="FPNeedle"
+       d="m 43.13636,4 0,24.41774 L 4,16.20887 z"
+       style="opacity:0.98999999;fill:none;stroke:#ffffff;stroke-width:8;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0" />
+    <path
+       style="opacity:0.98999999;fill:none;stroke:#ffffff;stroke-width:8;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0"
+       d="m 43.13636,4 0,24.41774 L 4,16.20887 z"
+       id="FFNeedle"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccc" />
+    <path
+       sodipodi:nodetypes="cccc"
+       inkscape:connector-curvature="0"
+       id="OTNeedle"
+       d="m 43.13636,4 0,24.41774 L 4,16.20887 z"
+       style="opacity:0.98999999;fill:none;stroke:#ffffff;stroke-width:8;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0" />
+    <path
+       style="opacity:0.98999999;fill:none;stroke:#ffffff;stroke-width:8;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0"
+       d="m 43.13636,4 0,24.41774 L 4,16.20887 z"
+       id="CHTNeedle0"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccc" />
+    <path
+       sodipodi:nodetypes="cccc"
+       inkscape:connector-curvature="0"
+       id="CHTNeedle1"
+       d="m 43.13636,4 0,24.41774 L 4,16.20887 z"
+       style="opacity:0.98999999;fill:none;stroke:#ffffff;stroke-width:8;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0" />
+    <path
+       style="opacity:0.98999999;fill:none;stroke:#ffffff;stroke-width:8;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0"
+       d="m 43.13636,4 0,24.41774 L 4,16.20887 z"
+       id="CHTNeedle2"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccc" />
+    <path
+       sodipodi:nodetypes="cccc"
+       inkscape:connector-curvature="0"
+       id="CHTNeedle3"
+       d="m 43.13636,4 0,24.41774 L 4,16.20887 z"
+       style="opacity:0.98999999;fill:none;stroke:#ffffff;stroke-width:8;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0" />
+    <path
+       sodipodi:nodetypes="cccc"
+       inkscape:connector-curvature="0"
+       id="EGTNeedle0"
+       d="m 43.13636,4 0,24.41774 L 4,16.20887 z"
+       style="opacity:0.98999999;fill:none;stroke:#ffffff;stroke-width:8;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0" />
+    <path
+       style="opacity:0.98999999;fill:none;stroke:#ffffff;stroke-width:8;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0"
+       d="m 43.13636,4 0,24.41774 L 4,16.20887 z"
+       id="EGTNeedle1"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccc" />
+    <path
+       sodipodi:nodetypes="cccc"
+       inkscape:connector-curvature="0"
+       id="EGTNeedle2"
+       d="m 43.13636,4 0,24.41774 L 4,16.20887 z"
+       style="opacity:0.98999999;fill:none;stroke:#ffffff;stroke-width:8;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0" />
+    <path
+       style="opacity:0.98999999;fill:none;stroke:#ffffff;stroke-width:8;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0"
+       d="m 43.13636,4 0,24.41774 L 4,16.20887 z"
+       id="EGTNeedle3"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccc" />
+    <text
+       xml:space="preserve"
+       style="font-size:60px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+       x="25.253906"
+       y="66.426003"
+       id="text5684"
+       sodipodi:linespacing="100%"><tspan
+         sodipodi:role="line"
+         id="tspan5686"
+         x="25.253906"
+         y="66.426003">RPM</tspan></text>
+    <text
+       sodipodi:linespacing="100%"
+       id="text5688"
+       y="66.426003"
+       x="537.25391"
+       style="font-size:60px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+       xml:space="preserve"><tspan
+         y="66.426003"
+         x="537.25391"
+         id="tspan5690"
+         sodipodi:role="line">MAP</tspan></text>
+    <text
+       sodipodi:linespacing="100%"
+       id="text5692"
+       y="375.41727"
+       x="27.011719"
+       style="font-size:60px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+       xml:space="preserve"><tspan
+         y="375.41727"
+         x="27.011719"
+         id="tspan5694"
+         sodipodi:role="line">OP</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:60px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+       x="364.0994"
+       y="375.41727"
+       id="text5696"
+       sodipodi:linespacing="100%"><tspan
+         sodipodi:role="line"
+         id="tspan5698"
+         x="364.0994"
+         y="375.41727">FP</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:60px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+       x="695.48132"
+       y="375.41727"
+       id="text5704"
+       sodipodi:linespacing="100%"><tspan
+         sodipodi:role="line"
+         id="tspan5706"
+         x="695.48132"
+         y="375.41727">FF</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:60px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+       x="27.011719"
+       y="563.4989"
+       id="text5708"
+       sodipodi:linespacing="100%"><tspan
+         sodipodi:role="line"
+         id="tspan5710"
+         x="27.011719"
+         y="563.4989">OT</tspan></text>
+    <text
+       sodipodi:linespacing="100%"
+       id="text5712"
+       y="563.4989"
+       x="359.62125"
+       style="font-size:60px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+       xml:space="preserve"><tspan
+         y="563.4989"
+         x="359.62125"
+         id="tspan5714"
+         sodipodi:role="line">CHT</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:60px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+       x="692.49591"
+       y="563.4989"
+       id="text5716"
+       sodipodi:linespacing="100%"><tspan
+         sodipodi:role="line"
+         id="tspan5718"
+         x="692.49591"
+         y="563.4989">EGT</tspan></text>
+  </g>
+</svg>

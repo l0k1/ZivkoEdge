@@ -89,9 +89,8 @@ var EFISSVGScreen =
 var EFISplugins = [];
 
 io.include("Aircraft/ZivkoEdge/Models/EFIS/PFD.nas");
-#io.include("Aircraft/ZivkoEdge/Models/EFIS/PFD-config.nas");
 io.include("Aircraft/ZivkoEdge/Models/EFIS/HSI.nas");
-#io.include("Aircraft/ZivkoEdge/Models/EFIS/ED.nas");
+io.include("Aircraft/ZivkoEdge/Models/EFIS/ED.nas");
 io.include("Aircraft/ZivkoEdge/Models/EFIS/PRD.nas");
 io.include("Aircraft/ZivkoEdge/Models/EFIS/RD.nas");
 #io.include("Aircraft/ZivkoEdge/Models/EFIS/ResultsDisplay.nas");
@@ -117,6 +116,13 @@ var EFIS = {
     track: props.globals.initNode("/orientation/track-deg", 0, "DOUBLE"),
     path: props.globals.initNode("/orientation/path-deg", 0, "DOUBLE"),
     headingBug: props.globals.initNode("/instrumentation/efis/heading-bug-deg", 0, "DOUBLE"),
+
+    RPM: props.globals.initNode("/engines/engine[0]/rpm", 0, "DOUBLE" ),
+    MAP: props.globals.initNode("/engines/engine[0]/mp-inhg", 0, "DOUBLE" ),
+    OP: props.globals.initNode("/engines/engine[0]/oil-pressure-psi", 0, "DOUBLE" ),
+    OT: props.globals.initNode("/engines/engine[0]/oil-temperature-degf", 0, "DOUBLE" ),
+    FP: props.globals.initNode("/engines/engine[0]/fuel-flow_gph", 0, "DOUBLE" ),
+    FF: props.globals.initNode("/engines/engine[0]/fuel-flow_gph", 0, "DOUBLE" ),
   },
 
   readSensor: func(name)

@@ -123,6 +123,7 @@ var EFIS = {
     OT: props.globals.initNode("/engines/engine[0]/oil-temperature-degf", 0, "DOUBLE" ),
     FP: props.globals.initNode("/engines/engine[0]/fuel-pressure-psi", 0, "DOUBLE" ),
     FF: props.globals.initNode("/engines/engine[0]/fuel-flow-gph", 0, "DOUBLE" ),
+    FQ: props.globals.initNode("/consumables/fuel/total-fuel-m3", 0, "DOUBLE" ),
   },
 
   readSensor: func(name)

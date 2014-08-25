@@ -2,47 +2,7 @@ var Gauge = {
   new: func( g, props )
   {
     var m = { parents: [ Gauge ] };
-
-    foreach( var arc; props.arc ) {
-      var a0 = m.interpolate( arc.start, props.table );
-      var a1 = m.interpolate( arc.end, props.table );
-      var x0 = props.x + props.w - props.w*math.cos(a0);
-      var y0 = props.h + props.y - props.h*math.sin(a0);
-      var x1 = props.x + props.w - props.w*math.cos(a1);
-      var y1 = props.h + props.y - props.h*math.sin(a1);
-
-      g.createChild("path")
-        .moveTo( x0, y0 )
-        .arcSmallCW( props.w, props.h, 0, x1-x0, y1-y0 )
-        .setStrokeLineWidth(props.stroke)
-        .setColor(arc.color);
-
-    }
-
-    m.animations = [
-      TranslateAnimation.new( g, props.indicator.needle, func(o) {
-        var a = m.interpolate( props.indicator.getValue(), props.table );
-        return { 
-          x: props.x + props.w - props.w*math.cos(a),
-          y: props.h + props.y - props.h*math.sin(a),
-        };
-      }),
-
-      RotateAnimation.new( g, props.indicator.needle, func(o) {
-        var a = m.interpolate( props.indicator.getValue(), props.table );
-        var x = props.x + props.w - props.w*math.cos(a);
-        var y = props.h + props.y - props.h*math.sin(a);
-        return { 
-          angle: a,
-          cy: y,
-          cx: x,
-        };
-      }),
-
-      PrintfTextAnimation.new( g, props.indicator.digits, func(o) {
-        return props.indicator.getValue();
-      }),
-    ];
+    m.animations = [];
 
     return m;
   },
@@ -72,7 +32,69 @@ var Gauge = {
   {
     foreach( var a; me.animations ) 
       a.apply(me);
-  }
+  },
+};
+
+var DigitGauge = {
+  new: func( g, props )
+  {
+    var m = { parents: [ DigitGauge, Gauge.new(g,props) ] };
+
+    append(m.animations,
+      PrintfTextAnimation.new( g, props.indicator.digits, func(o) {
+        return props.indicator.getValue();
+      }));
+
+    return m;
+  },
+
+};
+
+var ArcGauge = {
+  new: func( g, props )
+  {
+    var m = { parents: [ ArcGauge, DigitGauge.new(g,props) ] };
+
+    foreach( var arc; props.arc ) {
+      var a0 = m.interpolate( arc.start, props.table );
+      var a1 = m.interpolate( arc.end, props.table );
+      var x0 = props.x + props.w - props.w*math.cos(a0);
+      var y0 = props.h + props.y - props.h*math.sin(a0);
+      var x1 = props.x + props.w - props.w*math.cos(a1);
+      var y1 = props.h + props.y - props.h*math.sin(a1);
+
+      g.createChild("path")
+        .moveTo( x0, y0 )
+        .arcSmallCW( props.w, props.h, 0, x1-x0, y1-y0 )
+        .setStrokeLineWidth(props.stroke)
+        .setColor(arc.color);
+
+    }
+
+    append(m.animations,
+      TranslateAnimation.new( g, props.indicator.needle, func(o) {
+        var a = m.interpolate( props.indicator.getValue(), props.table );
+        return { 
+          x: props.x + props.w - props.w*math.cos(a),
+          y: props.h + props.y - props.h*math.sin(a),
+        };
+      }));
+
+    append(m.animations,
+      RotateAnimation.new( g, props.indicator.needle, func(o) {
+        var a = m.interpolate( props.indicator.getValue(), props.table );
+        var x = props.x + props.w - props.w*math.cos(a);
+        var y = props.h + props.y - props.h*math.sin(a);
+        return { 
+          angle: a,
+          cy: y,
+          cx: x,
+        };
+      }));
+
+    return m;
+  },
+
 };
 
 var ED = {
@@ -83,7 +105,7 @@ var ED = {
 
     m.gauges = [
 
-      Gauge.new(m.g, {
+      ArcGauge.new(m.g, {
         x: 25,
         y: 25, 
         w: 462,
@@ -102,7 +124,7 @@ var ED = {
         ],
       }),
 
-      Gauge.new(m.g, {
+      ArcGauge.new(m.g, {
         x: 512+25,
         y: 25, 
         w: 462,
@@ -120,7 +142,7 @@ var ED = {
         ],
       }),
 
-      Gauge.new(m.g, {
+      ArcGauge.new(m.g, {
         x: 25,
         y: 347, 
         w: 291,
@@ -140,7 +162,7 @@ var ED = {
         ],
       }),
 
-      Gauge.new(m.g, {
+      ArcGauge.new(m.g, {
         x: 25+1024/3,
         y: 347, 
         w: 291,
@@ -159,7 +181,7 @@ var ED = {
         ],
       }),
 
-      Gauge.new(m.g, {
+      ArcGauge.new(m.g, {
         x: 25+1024*2/3,
         y: 347, 
         w: 291,
@@ -177,7 +199,7 @@ var ED = {
         ],
       }),
 
-      Gauge.new(m.g, {
+      ArcGauge.new(m.g, {
         x: 25,
         y: 532, 
         w: 291,
@@ -194,6 +216,10 @@ var ED = {
           { start: 212, end: 250, color: [ 1, 1, 0] },
           { start: 250, end: 280, color: [ 1, 0, 0] },
         ],
+      }),
+
+      DigitGauge.new(m.g, {
+        indicator: { digits: "FQDigits", getValue: func() { efis.readSensor("FQ")*1000; } },
       }),
 
 #CHT 

@@ -15,8 +15,6 @@
    version="1.1"
    inkscape:version="0.48.3.1 r9886"
    sodipodi:docname="ED.svg">
-  <title
-     id="title4639">FlightGear RBAR EFIS (ED)</title>
   <defs
      id="defs4453" />
   <sodipodi:namedview
@@ -28,7 +26,7 @@
      inkscape:pageshadow="2"
      inkscape:zoom="0.66992188"
      inkscape:cx="614.99708"
-     inkscape:cy="347.52082"
+     inkscape:cy="206.16399"
      inkscape:current-layer="layer1"
      inkscape:document-units="px"
      showgrid="false"
@@ -45,25 +43,6 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title>FlightGear RBAR EFIS (ED)</dc:title>
-        <dc:creator>
-          <cc:Agent>
-            <dc:title>Torsten Dreyer</dc:title>
-          </cc:Agent>
-        </dc:creator>
-        <dc:rights>
-          <cc:Agent>
-            <dc:title>Torsten Dreyer</dc:title>
-          </cc:Agent>
-        </dc:rights>
-        <dc:publisher>
-          <cc:Agent>
-            <dc:title>flightgear.org</dc:title>
-          </cc:Agent>
-        </dc:publisher>
-        <cc:license
-           rdf:resource="http://www.gnu.org/licenses/gpl-2.0.html" />
-        <dc:date>2014-08-01</dc:date>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -157,7 +136,7 @@
     <text
        transform="scale(1.1923203,0.83870081)"
        sodipodi:linespacing="100%"
-       id="text5078"
+       id="FQDigits"
        y="878.3595"
        x="276.62106"
        style="font-size:50px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:end;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
@@ -171,7 +150,7 @@
        style="font-size:50px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:end;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
        x="550.71564"
        y="878.3595"
-       id="text5082"
+       id="CTDigits"
        sodipodi:linespacing="100%"
        transform="scale(1.1923203,0.83870081)"><tspan
          sodipodi:role="line"
@@ -181,7 +160,7 @@
     <text
        transform="scale(1.1923203,0.83870081)"
        sodipodi:linespacing="100%"
-       id="text5086"
+       id="TTDigits"
        y="878.3595"
        x="836.23083"
        style="font-size:50px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:end;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
@@ -362,5 +341,52 @@
          id="tspan5718"
          x="692.49591"
          y="563.4989">EGT</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:50px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:end;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+       x="80.385635"
+       y="878.3595"
+       id="text5720"
+       sodipodi:linespacing="100%"
+       transform="scale(1.1923203,0.83870081)"><tspan
+         sodipodi:role="line"
+         id="tspan5722"
+         x="80.385635"
+         y="878.3595">FQ</tspan></text>
+    <text
+       transform="scale(1.1923203,0.83870081)"
+       sodipodi:linespacing="100%"
+       id="text5724"
+       y="878.3595"
+       x="361.59332"
+       style="font-size:50px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:end;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+       xml:space="preserve"><tspan
+         y="878.3595"
+         x="361.59332"
+         id="tspan5726"
+         sodipodi:role="line">CT</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:50px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:end;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+       x="642.88287"
+       y="878.3595"
+       id="text5728"
+       sodipodi:linespacing="100%"
+       transform="scale(1.1923203,0.83870081)"><tspan
+         sodipodi:role="line"
+         id="tspan5730"
+         x="642.88287"
+         y="878.3595">TT</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+       x="734.414"
+       y="773.97083"
+       id="text5732"
+       sodipodi:linespacing="100%"><tspan
+         sodipodi:role="line"
+         id="tspan5734"
+         x="734.414"
+         y="773.97083" /></text>
   </g>
 </svg>

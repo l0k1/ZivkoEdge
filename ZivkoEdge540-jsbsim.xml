@@ -337,6 +337,87 @@
       <output>fcs/rudder-pos-rad</output>
    </pure_gain>
 
+   <sensor name="propulsion/engine/cylinder[0]/cht-sensor">
+     <input> propulsion/engine/cht-degF </input>
+     <lag> 1 </lag>
+     <bias> -6 </bias>
+     <output>propulsion/engine/cylinder[0]/cht-degf</output>
+   </sensor>
+
+   <sensor name="propulsion/engine/cylinder[1]/cht-sensor">
+     <input> propulsion/engine/cht-degF </input>
+     <lag> 0 </lag>
+     <bias> -8 </bias>
+     <output>propulsion/engine/cylinder[1]/cht-degf</output>
+   </sensor>
+
+   <sensor name="propulsion/engine/cylinder[2]/cht-sensor">
+     <input> propulsion/engine/cht-degF </input>
+     <lag> 4 </lag>
+     <output>propulsion/engine/cylinder[2]/cht-degf</output>
+   </sensor>
+
+   <sensor name="propulsion/engine/cylinder[3]/cht-sensor">
+     <input> propulsion/engine/cht-degF </input>
+     <lag> 6 </lag>
+     <output>propulsion/engine/cylinder[3]/cht-degf</output>
+   </sensor>
+
+   <sensor name="propulsion/engine/cylinder[4]/cht-sensor">
+     <input> propulsion/engine/cht-degF </input>
+     <lag> 8 </lag>
+     <bias> 10 </bias>
+     <output>propulsion/engine/cylinder[4]/cht-degf</output>
+   </sensor>
+
+   <sensor name="propulsion/engine/cylinder[5]/cht-sensor">
+     <input> propulsion/engine/cht-degF </input>
+     <lag> 5 </lag>
+     <bias> 12 </bias>
+     <output>propulsion/engine/cylinder[5]/cht-degf</output>
+   </sensor>
+
+   <sensor name="propulsion/engine/cylinder[0]/egt-sensor">
+     <input> propulsion/engine/egt-degF </input>
+     <lag> 4 </lag>
+     <bias> -6 </bias>
+     <output>propulsion/engine/cylinder[0]/egt-degf</output>
+   </sensor>
+
+   <sensor name="propulsion/engine/cylinder[1]/egt-sensor">
+     <input> propulsion/engine/egt-degF </input>
+     <lag> 3 </lag>
+     <bias> -8 </bias>
+     <output>propulsion/engine/cylinder[1]/egt-degf</output>
+   </sensor>
+
+   <sensor name="propulsion/engine/cylinder[2]/egt-sensor">
+     <input> propulsion/engine/egt-degF </input>
+     <lag> 6 </lag>
+     <output>propulsion/engine/cylinder[2]/egt-degf</output>
+   </sensor>
+
+   <sensor name="propulsion/engine/cylinder[3]/egt-sensor">
+     <input> propulsion/engine/egt-degF </input>
+     <lag> 5 </lag>
+     <output>propulsion/engine/cylinder[3]/egt-degf</output>
+   </sensor>
+
+   <sensor name="propulsion/engine/cylinder[4]/egt-sensor">
+     <input> propulsion/engine/egt-degF </input>
+     <lag> 8 </lag>
+     <bias> 10 </bias>
+     <output>propulsion/engine/cylinder[4]/egt-degf</output>
+   </sensor>
+
+   <sensor name="propulsion/engine/cylinder[5]/egt-sensor">
+     <input> propulsion/engine/egt-degF </input>
+     <lag> 7 </lag>
+     <bias> 12 </bias>
+     <output>propulsion/engine/cylinder[5]/egt-degf</output>
+   </sensor>
+
+
   </channel>
 
  </flight_control>

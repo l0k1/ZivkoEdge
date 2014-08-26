@@ -14,15 +14,8 @@ Sensor.new = func( sensorNode ) {
   obj.parents = [Sensor];
   obj.sensorNode = sensorNode;
   obj.inputNode = props.globals.getNode( sensorNode.getNode( "input", 1 ).getValue() );
-  obj.previousValue = 0.0;
   obj.outputNode = sensorNode.getNode( "output", 1 );
-  obj.elapsedTimeNode = props.globals.getNode( "/sim/time/elapsed-sec" );
-  obj.lastRun = obj.elapsedTimeNode.getValue();
-
-  obj.previousInput = 0;
-  obj.previousOutput = 0;
-  obj.dt = 0;
-
+  obj.outputNode.alias( obj.inputNode );;
   return obj;
 }
 
@@ -32,57 +25,6 @@ Sensor.getName = func {
 
 Sensor.getOutputValue = func {
   return me.outputNode.getValue();
-}
-
-Sensor.getInputValue = func {
-  return me.sensorNode.inputNode.getValue();
-}
-
-Sensor.Run = func {
-
-  var output = me.inputNode.getValue();
-  if( output == nil )
-    return;
-
-  me.dt = me.elapsedTimeNode.getValue() - me.lastRun;
-
-  output = me.doLag( output, me.sensorNode.getNode( "lag",1 ).getValue());
-  output = me.doNoise( output, me.sensorNode.getNode( "noise",1 ).getValue() );
-  output = me.doDrift( output, me.sensorNode.getNode( "drift",1 ).getValue() );
-  output = me.doBias( output, me.sensorNode.getNode( "bias",1 ).getValue() );
-  output = me.doScale( output, me.sensorNode.getNode( "scale",1 ).getValue() );
-  me.outputNode.setDoubleValue( output );
-  me.lastRun = me.elapsedTimeNode.getValue();
-}
-
-Sensor.doLag = func( output, lag ) {
-  if( lag == 0 )
-    return output;
-
-  var denom = 2.00 + me.dt*lag;
-  var ca = me.dt*lag / denom;
-  var cb = (2.00 - me.dt*lag) / denom;
-
-  output = ca * ( output + me.previousInput ) + me.previousOutput * cb;
-  me.previousInput = me.inputNode.getValue();
-  me.previousOutput = output;
-  return output;
-}
-
-Sensor.doNoise = func( output, noise ) {
-  return output;
-}
-
-Sensor.doDrift = func( output, drift ) {
-  return output;
-}
-
-Sensor.doBias = func( output, bias ) {
-  return output + bias;
-}
-
-Sensor.doScale = func( output, scale ) {
-  return output * scale;
 }
 
 var BarDisplay = {};
@@ -464,9 +406,6 @@ EDM700.Run = func {
   }
 
   var deltaT = me.elapsedTimeNode.getValue() - me.lastRun;
-
-  foreach( var sensorName; keys(me.sensors) )
-    me.sensors[sensorName].Run();
 
   me.modeFunctions[ me.modeNode.getValue() ]();
 

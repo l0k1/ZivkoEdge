@@ -50,14 +50,63 @@ var DigitGauge = {
 
 };
 
+var LineGauge = {
+  new: func( g, props )
+  {
+    var m = { parents: [ LineGauge, Gauge.new(g,props) ] };
+
+    # draw one line for each pair of indicators
+    var numLines = int(size(props.indicator)/2) + 1;
+
+    #draw each colored line-segment
+    foreach( var segment; props.segment ) {
+      var a0 = m.interpolate( segment.start, props.table );
+      var a1 = m.interpolate( segment.end, props.table );
+      var y0 = props.h + props.y - props.h*a0;
+      var y1 = props.h + props.y - props.h*a1;
+
+      for( var n = 1; n < numLines; n+=1  ) {
+        var x0 = props.x + (props.w*n/numLines);
+
+        g.createChild("path")
+          .moveTo( x0, y0 )
+          .lineTo( x0, y1 )
+          .setStrokeLineWidth(props.stroke)
+          .setColor(segment.color);
+        }
+    }
+
+    # create one animation for each indicator
+    for( var n = 0; n < size(props.indicator); n+=1 ) {
+
+      var indicator = props.indicator[n];
+      var lineNo = int(n/2)+1;
+
+
+      var translateAnimation = TranslateAnimation.new( g, indicator.needle, func(o) {
+        var a = m.interpolate( indicator.getValue(), props.table );
+        return { 
+          x: me.xTranslate,
+          y: props.y + props.h*(1 -a),
+        };
+      });
+      translateAnimation.xTranslate = props.x + props.w * lineNo/numLines;
+      append(m.animations, translateAnimation );
+    }
+
+    return m;
+  },
+
+};
+
 var ArcGauge = {
   new: func( g, props )
   {
     var m = { parents: [ ArcGauge, DigitGauge.new(g,props) ] };
 
-    foreach( var arc; props.arc ) {
-      var a0 = m.interpolate( arc.start, props.table );
-      var a1 = m.interpolate( arc.end, props.table );
+    foreach( var segment; props.segment ) {
+      var a0 = m.interpolate( segment.start, props.table );
+      var a1 = m.interpolate( segment.end, props.table );
       var x0 = props.x + props.w - props.w*math.cos(a0);
       var y0 = props.h + props.y - props.h*math.sin(a0);
       var x1 = props.x + props.w - props.w*math.cos(a1);
@@ -67,7 +116,7 @@ var ArcGauge = {
         .moveTo( x0, y0 )
         .arcSmallCW( props.w, props.h, 0, x1-x0, y1-y0 )
         .setStrokeLineWidth(props.stroke)
-        .setColor(arc.color);
+        .setColor(segment.color);
 
     }
 
@@ -116,7 +165,7 @@ var ED = {
         ],
         indicator: { needle: "RPMNeedle", digits: "RPMDigits", getValue: func() { efis.readSensor("RPM"); } },
         stroke: 4,
-        arc: [
+        segment: [
           { start:    0, end:  700, color: [ 1, 1, 0] },
           { start:  700, end: 2750, color: [ 0, 1, 0] },
           { start: 2750, end: 2850, color: [ 1, 1, 0] },
@@ -135,7 +184,7 @@ var ED = {
         ],
         indicator: { needle: "MAPNeedle", digits: "MAPDigits", getValue: func() { efis.readSensor("MAP"); } },
         stroke: 4,
-        arc: [
+        segment: [
           { start: 10, end: 25, color: [ 1, 1, 0] },
           { start: 25, end: 30, color: [ 0, 1, 0] },
           { start: 30, end: 35, color: [ 1, 0, 0] },
@@ -153,7 +202,7 @@ var ED = {
         ],
         indicator: { needle: "OPNeedle", digits: "OPDigits", getValue: func() { efis.readSensor("OP"); } },
         stroke: 4,
-        arc: [
+        segment: [
           { start:   0, end:   25, color: [ 1, 0, 0] },
           { start:   25, end:  55, color: [ 1, 1, 0] },
           { start:   55, end:  95, color: [ 0, 1, 0] },
@@ -173,7 +222,7 @@ var ED = {
         ],
         indicator: { needle: "FPNeedle", digits: "FPDigits", getValue: func() { efis.readSensor("FP"); } },
         stroke: 4,
-        arc: [
+        segment: [
           { start: 15, end: 29, color: [ 1, 1, 0] },
           { start: 29, end: 55, color: [ 0, 1, 0] },
           { start: 55, end: 65, color: [ 1, 1, 0] },
@@ -192,7 +241,7 @@ var ED = {
         ],
         stroke: 4,
         indicator: { needle: "FFNeedle", digits: "FFDigits", getValue: func() { efis.readSensor("FF"); } },
-        arc: [
+        segment: [
           { start: 0,  end:  2, color: [ 1, 1, 0] },
           { start: 2,  end: 35, color: [ 0, 1, 0] },
           { start: 35, end: 40, color: [ 1, 0, 0] },
@@ -210,7 +259,7 @@ var ED = {
         ],
         stroke: 4,
         indicator: { needle: "OTNeedle", digits: "OTDigits", getValue: func() { efis.readSensor("OT"); } },
-        arc: [
+        segment: [
           { start: 100, end: 140, color: [ 1, 1, 0] },
           { start: 140, end: 212, color: [ 0, 1, 0] },
           { start: 212, end: 250, color: [ 1, 1, 0] },
@@ -222,13 +271,57 @@ var ED = {
         indicator: { digits: "FQDigits", getValue: func() { efis.readSensor("FQ")*1000; } },
       }),
 
-#CHT 
-# Yellow: less than 64degc
-# Green: 65..225 degc
-# Yellow: 225..240degc
-# Red: 240
+      LineGauge.new(m.g, {
+        x: 1024/3,
+        y: 568, 
+        w: 1024/3,
+        h: 115,
+        table: [
+          [ 100,  0.0 ],
+          [ 500,  1.0 ]
+        ],
+        stroke: 4,
+        indicator:  [
+          { needle: "CHTNeedle0", getValue: func() { efis.readSensor("CHT0"); } },
+          { needle: "CHTNeedle1", getValue: func() { efis.readSensor("CHT1"); } },
+          { needle: "CHTNeedle2", getValue: func() { efis.readSensor("CHT2"); } },
+          { needle: "CHTNeedle3", getValue: func() { efis.readSensor("CHT3"); } },
+          { needle: "CHTNeedle4", getValue: func() { efis.readSensor("CHT4"); } },
+          { needle: "CHTNeedle5", getValue: func() { efis.readSensor("CHT5"); } },
+        ],
+        segment: [
+          { start: 100, end: 147, color: [ 1, 1, 0] },
+          { start: 147, end: 437, color: [ 0, 1, 0] },
+          { start: 437, end: 464, color: [ 1, 1, 0] },
+          { start: 464, end: 500, color: [ 1, 0, 0] },
+        ],
+      }),
 
-
+      LineGauge.new(m.g, {
+        x: 1024*2/3,
+        y: 568, 
+        w: 1024/3,
+        h: 115,
+        table: [
+          [ 1300,  0.0 ],
+          [ 1800,  1.0 ]
+        ],
+        stroke: 4,
+        indicator:  [
+          { needle: "EGTNeedle0", getValue: func() { efis.readSensor("EGT0"); } },
+          { needle: "EGTNeedle1", getValue: func() { efis.readSensor("EGT1"); } },
+          { needle: "EGTNeedle2", getValue: func() { efis.readSensor("EGT2"); } },
+          { needle: "EGTNeedle3", getValue: func() { efis.readSensor("EGT3"); } },
+          { needle: "EGTNeedle4", getValue: func() { efis.readSensor("EGT4"); } },
+          { needle: "EGTNeedle5", getValue: func() { efis.readSensor("EGT5"); } },
+        ],
+        segment: [
+          { start: 1300, end: 1350, color: [ 1, 1, 0] },
+          { start: 1350, end: 1550, color: [ 0, 1, 0] },
+          { start: 1550, end: 1700, color: [ 1, 1, 0] },
+          { start: 1700, end: 1800, color: [ 1, 0, 0] },
+        ],
+      }),
     ];
 
     return m;

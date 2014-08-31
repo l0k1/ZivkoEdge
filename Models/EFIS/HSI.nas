@@ -12,7 +12,27 @@ var HSI = {
 
     m.g.getElementById( "HeadingBug" ).setCenter( m.g.getElementById("Compass").getCenter() );
 
+    m.configScreen = Dialog.new( { 
+      svg: "/Aircraft/ZivkoEdge/Models/EFIS/Dialog.svg",
+      parent: m.g,
+      labels: [ "ENG", "ADF", "BUG", "HSI" ],
+    });
+
+    m.hsiConfigScreen = Dialog.new( { 
+      svg: "/Aircraft/ZivkoEdge/Models/EFIS/Dialog.svg",
+      parent: m.g,
+      labels: [ "ARPT", "NDB", "CDI", "VOR" ],
+    });
+
     m.animations = [
+      SelectAnimation.new( m.configScreen.overlay, nil, func(o) {
+        o.state == o.STATE_CONFIG;
+      }),
+
+      SelectAnimation.new( m.hsiConfigScreen.overlay, nil, func(o) {
+        o.state == o.STATE_HSI;
+      }),
+
       RotateAnimation.new( m.g, "Compass", func(o,e) {
         var c = e.getCenter();
         return { 
@@ -90,12 +110,78 @@ var HSI = {
     return "hsi";
   },
 
+  STATE_NORMAL: 0,
+  STATE_CONFIG: 1,
+  STATE_ADF:    2,
+  STATE_BUG:    3,
+  STATE_HSI:    4,
+  state: 0,
+
   knobPositionChanged: func( n ) 
   {
-    me.efis.writeSensor("headingBug", 
-      normalizePeriodic( 0, 360, me.efis.readSensor("headingBug") + n ) );
-  }
+    if( me.state == me.STATE_NORMAL ) {
 
+      # knob rotation turns heading bug
+      me.efis.writeSensor("headingBug", 
+        normalizePeriodic( 0, 360, me.efis.readSensor("headingBug") + n ) );
+
+    } elsif( me.state == me.STATE_HSI ) {
+
+      # forward knob rotation to the config screen
+      me.hsiConfigScreen.knobPositionChanged( n );
+
+    } elsif( me.state == me.STATE_CONFIG ) {
+
+      # forward knob rotation to the config screen
+      me.configScreen.knobPositionChanged( n );
+
+    } elsif( me.state == me.STATE_BUG ) {
+      # knob rotation changes heading bug
+      me.efis.writeSensor("headingBug", 
+        normalizePeriodic( 0, 360, me.efis.readSensor("headingBug") + n ) );
+    }
+  },
+
+  knobPressed: func( b ) 
+  {
+    if( b == 0 ) return; #ignore release
+
+    if( me.state == me.STATE_NORMAL ) {
+      me.state = me.STATE_CONFIG;
+      me.configScreen.init();
+      return 1; # event consumed, stay here
+
+    } elsif( me.state == me.STATE_CONFIG ) {
+
+      var reply = me.configScreen.knobPressed( b );
+      if( reply == 0 ) { #ENG
+        me.state = me.STATE_NORMAL;
+        return 0; # event not consumed (switch screen)
+      } elsif( reply == 1 ) { #ADF
+        me.state = me.STATE_ADF;
+        return 1; # event consumed (stay here)
+      } elsif( reply == 2 ) { #BUG
+        me.state = me.STATE_BUG;
+        return 1; # event consumed (stay here)
+      } elsif( reply == 3 ) { #HSI
+        me.state = me.STATE_HSI;
+        me.hsiConfigScreen.init();
+        return 1; # event consumed (stay here)
+      }
+
+    } elsif( me.state == me.STATE_ADF ) {
+      me.state = me.STATE_NORMAL;
+      return 1; # event consumed
+    } elsif( me.state == me.STATE_BUG ) {
+      me.state = me.STATE_NORMAL;
+      return 1; # event consumed
+    } elsif( me.state == me.STATE_HSI ) {
+      me.state = me.STATE_NORMAL;
+      return 1; # event consumed
+    }
+
+    return 0; # event not consumed
+  },
 };
 
 append( EFISplugins, HSI );

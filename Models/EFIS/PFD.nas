@@ -1,53 +1,3 @@
-var Dialog = 
-{
-  new: func( g )
-  {
-    var m = { parents: [ Dialog ] };
-
-    m.g = g;
-
-    m.animations = [
-      SelectAnimation.new( g, "Selector0", func(o) {
-        return o.focus == 0;
-      }),
-
-      SelectAnimation.new( g, "Selector1", func(o) {
-        return o.focus == 1;
-      }),
-    ];
-
-    return m;
-  },
-
-  init: func()
-  {
-    me.focus = 0;
-    me.applyAnimations();
-  },
-
-  applyAnimations: func()
-  {
-    foreach( var a; me.animations ) 
-      a.apply(me);
-  },
-
-  focus: 0,
-
-  knobPositionChanged: func( n ) 
-  {
-    me.focus += n;
-    if( me.focus >= 2 )
-      me.focus = 0;
-    me.applyAnimations();
-  },
-
-  knobPressed: func( b ) 
-  {
-    return me.focus;
-  },
-
-};
-
 var PFD = {
 
   new: func( efis )
@@ -56,17 +6,16 @@ var PFD = {
 
     var m = { parents: [ PFD, EFISSVGScreen.new(efis, "PFD.svg" ) ] };
 
-    m.overlay = m.g.createChild("group","overlaySVG");
-    canvas.parsesvg(m.overlay, 
-       "/Aircraft/ZivkoEdge/Models/EFIS/PFD-config.svg" );
-
     m.g.getElementById( "HeadingBug" ).setCenter( m.g.getElementById("Compass").getCenter() );
 
-    m.configScreen = Dialog.new(m.overlay);
-
+    m.configScreen = Dialog.new( { 
+      svg: "/Aircraft/ZivkoEdge/Models/EFIS/Dialog.svg",
+      parent: m.g,
+      labels: [ "HSI", "QNH" ],
+    });
 
     m.animations = [
-      SelectAnimation.new( m.overlay, nil, func(o) {
+      SelectAnimation.new( m.configScreen.overlay, nil, func(o) {
         o.state == o.STATE_CONFIG;
       }),
 

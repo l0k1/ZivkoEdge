@@ -15,6 +15,7 @@
 # General Public License for more details.
 #############################################################################
 io.include("Aircraft/ZivkoEdge/Models/EFIS/Animation.nas");
+io.include("Aircraft/ZivkoEdge/Models/EFIS/Dialog.nas");
 
 var SCREEN_WIDTH = 1024;
 var SCREEN_HEIGHT = 768;

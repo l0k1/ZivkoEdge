@@ -85,7 +85,7 @@ kids 0
 OBJECT poly
 name "Chassis"
 loc 0.059919 0.0408581 -0.29095
-texture "Labels.rgb"
+texture "Labels.png"
 crease 45.000000
 numvert 24
 -0.059919 -0.0576047 0.295497

@@ -39,6 +39,15 @@
    </model>
 
   <model>
+    <path>Aircraft/ZivkoEdge/Models/FrequencySticker.ac</path>
+     <offsets>
+       <x-m>0.001</x-m>
+       <y-m>0.10</y-m>
+       <z-m>-0.04</z-m>
+     </offsets>
+   </model>
+
+  <model>
     <path>Aircraft/ZivkoEdge/Models/LedStrip/LedStrip.xml</path>
     <offsets>
       <x-m>0.001</x-m>

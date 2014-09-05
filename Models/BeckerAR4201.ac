@@ -7,7 +7,7 @@ OBJECT world
 kids 7
 OBJECT poly
 name "Face"
-texture "BeckerAR4201.rgb"
+texture "BeckerAR4201.png"
 crease 45.000000
 numvert 4
 0 0.03 -0.03
@@ -30,7 +30,7 @@ kids 4
 OBJECT poly
 name "Switch4"
 loc 0.000375 0.0185572 0.00120765
-texture "BeckerAR4201.rgb"
+texture "BeckerAR4201.png"
 crease 45.000000
 numvert 8
 0.00289971 -0.0492343 0.00223259
@@ -88,7 +88,7 @@ kids 0
 OBJECT poly
 name "Switch3"
 loc 0.000375 0.0185572 0.0477941
-texture "BeckerAR4201.rgb"
+texture "BeckerAR4201.png"
 crease 45.000000
 numvert 8
 0.00289971 -0.0492343 0.00223259
@@ -146,7 +146,7 @@ kids 0
 OBJECT poly
 name "Switch2"
 loc 0.000375 -0.0184353 -0.0305009
-texture "BeckerAR4201.rgb"
+texture "BeckerAR4201.png"
 crease 45.000000
 numvert 8
 0.00289971 0.00223259 0.0492343
@@ -204,7 +204,7 @@ kids 0
 OBJECT poly
 name "Switch1"
 loc 0.000375 -0.0184353 -0.0185008
-texture "BeckerAR4201.rgb"
+texture "BeckerAR4201.png"
 crease 45.000000
 numvert 8
 0.00289971 0.00823259 0.0492343
@@ -1378,7 +1378,7 @@ kids 7
 OBJECT poly
 name "DigitB6"
 loc 0 0 0.00951583
-texture "BeckerLCD.rgb"
+texture "BeckerLCD.png"
 crease 45.000000
 numvert 4
 0 -0.00240211 0.00720632
@@ -1397,7 +1397,7 @@ kids 0
 OBJECT poly
 name "DigitB5"
 loc 0 0 -0.00158597
-texture "BeckerLCD.rgb"
+texture "BeckerLCD.png"
 crease 45.000000
 numvert 4
 0 0.00240211 0.00720632
@@ -1416,7 +1416,7 @@ kids 0
 OBJECT poly
 name "DigitB4"
 loc 0 0 -0.00158597
-texture "BeckerLCD.rgb"
+texture "BeckerLCD.png"
 crease 45.000000
 numvert 4
 0 -0.00240211 0.00368323
@@ -1435,7 +1435,7 @@ kids 0
 OBJECT poly
 name "DigitB3"
 loc 0 0 -0.00158597
-texture "BeckerLCD.rgb"
+texture "BeckerLCD.png"
 crease 45.000000
 numvert 4
 0 -0.00240211 0.000160141
@@ -1454,7 +1454,7 @@ kids 0
 OBJECT poly
 name "DigitB2"
 loc 0 0 -0.00158597
-texture "BeckerLCD.rgb"
+texture "BeckerLCD.png"
 crease 45.000000
 numvert 4
 0 0.00240211 -0.00336295
@@ -1473,7 +1473,7 @@ kids 0
 OBJECT poly
 name "DigitB1"
 loc 0 0 -0.00158597
-texture "BeckerLCD.rgb"
+texture "BeckerLCD.png"
 crease 45.000000
 numvert 4
 0 0.00240211 -0.00688604
@@ -1492,7 +1492,7 @@ kids 0
 OBJECT poly
 name "DigitB0"
 loc 0 0 -0.00158597
-texture "BeckerLCD.rgb"
+texture "BeckerLCD.png"
 crease 45.000000
 numvert 4
 0 -0.00240211 -0.0104091
@@ -1514,7 +1514,7 @@ loc 0 0.00410104 0.00227244
 kids 6
 OBJECT poly
 name "DigitA0"
-texture "BeckerLCD.rgb"
+texture "BeckerLCD.png"
 crease 45.000000
 numvert 4
 0 0.00375 -0.01625
@@ -1532,7 +1532,7 @@ refs 4
 kids 0
 OBJECT poly
 name "DigitA1"
-texture "BeckerLCD.rgb"
+texture "BeckerLCD.png"
 crease 45.000000
 numvert 4
 0 -0.00375 -0.01075
@@ -1550,7 +1550,7 @@ refs 4
 kids 0
 OBJECT poly
 name "DigitA2"
-texture "BeckerLCD.rgb"
+texture "BeckerLCD.png"
 crease 45.000000
 numvert 4
 0 -0.00375 -0.00525
@@ -1568,7 +1568,7 @@ refs 4
 kids 0
 OBJECT poly
 name "DigitA3"
-texture "BeckerLCD.rgb"
+texture "BeckerLCD.png"
 crease 45.000000
 numvert 4
 0 0.00375 0.000250001
@@ -1586,7 +1586,7 @@ refs 4
 kids 0
 OBJECT poly
 name "DigitA4"
-texture "BeckerLCD.rgb"
+texture "BeckerLCD.png"
 crease 45.000000
 numvert 4
 0 0.00375 0.00575
@@ -1604,7 +1604,7 @@ refs 4
 kids 0
 OBJECT poly
 name "DigitA5"
-texture "BeckerLCD.rgb"
+texture "BeckerLCD.png"
 crease 45.000000
 numvert 4
 0 -0.00375 0.01125

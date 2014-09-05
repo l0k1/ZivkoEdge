@@ -2588,7 +2588,7 @@ kids 0
 OBJECT poly
 name "Circuitbreaker6"
 loc 0.00663893 1.01794e-06 7.7486e-06
-texture "Labels.rgb"
+texture "Labels.png"
 crease 45.000000
 numvert 44
 0.00739701 -0.0276652 -0.134245
@@ -3260,7 +3260,7 @@ kids 0
 OBJECT poly
 name "Circuitbreaker5"
 loc 0.00663893 1.01794e-06 1.52588e-05
-texture "Labels.rgb"
+texture "Labels.png"
 crease 45.000000
 numvert 44
 0.00686139 -0.0286699 -0.136461
@@ -3932,7 +3932,7 @@ kids 0
 OBJECT poly
 name "Circuitbreaker4"
 loc 0.00663893 1.01794e-06 7.7486e-06
-texture "Labels.rgb"
+texture "Labels.png"
 crease 45.000000
 numvert 44
 0.00739701 -0.0276652 -0.134245
@@ -4604,7 +4604,7 @@ kids 0
 OBJECT poly
 name "Circuitbreaker3"
 loc 0.00663893 1.01794e-06 1.57654e-05
-texture "Labels.rgb"
+texture "Labels.png"
 crease 45.000000
 numvert 44
 0.00686139 -0.0286699 -0.136461
@@ -5276,7 +5276,7 @@ kids 0
 OBJECT poly
 name "Circuitbreaker2"
 loc 0.00663893 1.01794e-06 7.7486e-06
-texture "Labels.rgb"
+texture "Labels.png"
 crease 45.000000
 numvert 44
 0.00686139 -0.0286699 -0.136461
@@ -5948,7 +5948,7 @@ kids 0
 OBJECT poly
 name "Circuitbreaker1"
 loc 0.00663893 1.00071e-06 1.50204e-05
-texture "Labels.rgb"
+texture "Labels.png"
 crease 45.000000
 numvert 44
 0.00739701 -0.0276652 -0.134245
@@ -6237,7 +6237,7 @@ kids 0
 OBJECT poly
 name "Dashboard1"
 loc 0 0.0375939 1.51021
-texture "CarbonFiber.rgb"
+texture "CarbonFiber.png"
 crease 45.000000
 numvert 57
 0 -0.137594 -1.31057
@@ -7882,7 +7882,7 @@ kids 0
 OBJECT poly
 name "Label"
 loc 9.99978e-05 0.00232872 0.139448
-texture "Labels.rgb"
+texture "Labels.png"
 crease 45.000000
 numvert 46
 2.23372e-09 -0.0358059 0.177829
@@ -8020,7 +8020,7 @@ kids 0
 OBJECT poly
 name "Label.NoseDown"
 loc 9.99978e-05 0.00232872 0.139448
-texture "Labels.rgb"
+texture "Labels.png"
 crease 45.000000
 numvert 6
 2.23372e-09 0.0273571 0.142615
@@ -8048,7 +8048,7 @@ kids 0
 OBJECT poly
 name "Label.NoseUp"
 loc 9.99978e-05 0.00232872 0.139448
-texture "Labels.rgb"
+texture "Labels.png"
 crease 45.000000
 numvert 4
 2.23372e-09 0.00840318 0.143658
@@ -8067,7 +8067,7 @@ kids 0
 OBJECT poly
 name "Label.MasterOn"
 loc 9.99978e-05 0.00232872 0.139448
-texture "Labels.rgb"
+texture "Labels.png"
 crease 45.000000
 numvert 4
 2.23372e-09 -0.0476418 0.177964
@@ -8086,7 +8086,7 @@ kids 0
 OBJECT poly
 name "Label.MasterOff"
 loc 9.99978e-05 0.00232872 0.139448
-texture "Labels.rgb"
+texture "Labels.png"
 crease 45.000000
 numvert 4
 2.23372e-09 -0.0620933 0.175922
@@ -8105,7 +8105,7 @@ kids 0
 OBJECT poly
 name "Label.AltOn"
 loc 9.99978e-05 0.00232872 0.139448
-texture "Labels.rgb"
+texture "Labels.png"
 crease 45.000000
 numvert 4
 2.23372e-09 -0.0442681 0.158312
@@ -8124,7 +8124,7 @@ kids 0
 OBJECT poly
 name "Label.AltOff"
 loc 9.99978e-05 0.00232872 0.139448
-texture "Labels.rgb"
+texture "Labels.png"
 crease 45.000000
 numvert 4
 2.23372e-09 -0.0587196 0.158312
@@ -8143,7 +8143,7 @@ kids 0
 OBJECT poly
 name "Label.SmokeOn"
 loc 9.99978e-05 0.00232872 0.139448
-texture "Labels.rgb"
+texture "Labels.png"
 crease 45.000000
 numvert 4
 2.23372e-09 -0.0379523 -0.000935152
@@ -8162,7 +8162,7 @@ kids 0
 OBJECT poly
 name "Label.SmokeOff"
 loc 9.99978e-05 0.00232872 0.139448
-texture "Labels.rgb"
+texture "Labels.png"
 crease 45.000000
 numvert 6
 2.23372e-09 -0.0604284 0.011382
@@ -8190,7 +8190,7 @@ kids 0
 OBJECT poly
 name "Label.Comm2"
 loc 9.99978e-05 0.00232872 0.139448
-texture "Labels.rgb"
+texture "Labels.png"
 crease 45.000000
 numvert 6
 2.46655e-09 -0.0379524 -0.101978
@@ -8218,7 +8218,7 @@ kids 0
 OBJECT poly
 name "Label.Comm1"
 loc 9.99978e-05 0.00232872 0.139448
-texture "Labels.rgb"
+texture "Labels.png"
 crease 45.000000
 numvert 6
 2.46655e-09 -0.0527211 -0.0993982
@@ -8246,7 +8246,7 @@ kids 0
 OBJECT poly
 name "Label.RightWing"
 loc 9.99978e-05 0.00232872 0.139448
-texture "Labels.rgb"
+texture "Labels.png"
 crease 45.000000
 numvert 6
 -2.88856e-09 -0.0367819 -0.384221
@@ -8274,7 +8274,7 @@ kids 0
 OBJECT poly
 name "Label.LeftWing"
 loc 9.99978e-05 0.00232872 0.139448
-texture "Labels.rgb"
+texture "Labels.png"
 crease 45.000000
 numvert 6
 -2.93221e-09 -0.0630755 -0.375041

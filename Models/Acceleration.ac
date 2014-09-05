@@ -6,7 +6,7 @@ kids 3
 OBJECT poly
 name "Face"
 loc 0 -1.86265e-09 0
-texture "AccelerationFace.rgb"
+texture "AccelerationFace.png"
 crease 45.000000
 numvert 4
 0 -0.028 -0.028

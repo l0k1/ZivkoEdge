@@ -389,7 +389,7 @@ kids 0
 OBJECT poly
 name "Face"
 loc 0 -1.86265e-09 0
-texture "AltimeterFace.rgb"
+texture "AltimeterFace.png"
 crease 45.000000
 numvert 4
 0 -0.04 -0.04
@@ -410,7 +410,7 @@ name "subscale"
 loc -0.000615341 0.000194127 0.00701979
 data 12
 Cylinder.015
-texture "AltimeterSubscale-hpa.rgb"
+texture "AltimeterSubscale-hpa.png"
 crease 30.000000
 numvert 6
 0.000714011 0.00539351 -0.0271913

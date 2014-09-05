@@ -2062,7 +2062,7 @@ kids 2
 OBJECT poly
 name "Percentage"
 loc 0 0 -0.0095
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 0.00101554 0.020589
@@ -2081,7 +2081,7 @@ kids 0
 OBJECT poly
 name "Norm"
 loc 0 0 0.0095
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 -0.000769023 0.020589
@@ -2104,7 +2104,7 @@ kids 2
 OBJECT poly
 name "F"
 loc 0 -0.0007137 -0.0036236
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 0.00316734 0.0156908
@@ -2123,7 +2123,7 @@ kids 0
 OBJECT poly
 name "Degree"
 loc 0 0.0007137 0.0036236
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 -0.00130696 0.0127617
@@ -2146,7 +2146,7 @@ kids 21
 OBJECT poly
 name "Bar1"
 loc -3.66666e-05 -1.16415e-10 0.0166709
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 -0.0100276 0.0148186
@@ -2165,7 +2165,7 @@ kids 0
 OBJECT poly
 name "Bar2"
 loc -3.66666e-05 -1.16415e-10 0.011114
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 0.0100276 0.0148186
@@ -2184,7 +2184,7 @@ kids 0
 OBJECT poly
 name "Bar3"
 loc -3.66666e-05 -1.16415e-10 0.00555695
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 -0.0100276 0.0148186
@@ -2203,7 +2203,7 @@ kids 0
 OBJECT poly
 name "Bar4"
 loc -3.66666e-05 -1.16415e-10 5.40167e-08
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 0.0100276 0.0148186
@@ -2222,7 +2222,7 @@ kids 0
 OBJECT poly
 name "Bar5"
 loc -3.66666e-05 -1.16415e-10 -0.00555695
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 -0.0100276 0.0148186
@@ -2241,7 +2241,7 @@ kids 0
 OBJECT poly
 name "Bar6"
 loc -3.66666e-05 -1.16415e-10 -0.011114
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 0.0100276 0.0148186
@@ -2260,7 +2260,7 @@ kids 0
 OBJECT poly
 name "Bar7"
 loc -3.66666e-05 -1.16415e-10 -0.016671
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 -0.0100276 0.0148186
@@ -2279,7 +2279,7 @@ kids 0
 OBJECT poly
 name "Bar01"
 loc 1.33334e-05 1.16415e-10 0.0166709
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 0.0100276 0.0148186
@@ -2298,7 +2298,7 @@ kids 0
 OBJECT poly
 name "Bar02"
 loc 1.33334e-05 1.16415e-10 0.011114
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 -0.0100276 0.0148186
@@ -2317,7 +2317,7 @@ kids 0
 OBJECT poly
 name "Bar03"
 loc 1.33334e-05 1.16415e-10 0.00555695
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 0.0100276 0.0148186
@@ -2336,7 +2336,7 @@ kids 0
 OBJECT poly
 name "Bar04"
 loc 1.33334e-05 1.16415e-10 5.40167e-08
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 -0.0100276 0.0148186
@@ -2355,7 +2355,7 @@ kids 0
 OBJECT poly
 name "Bar05"
 loc 1.33334e-05 1.16415e-10 -0.00555695
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 0.0100276 0.0148186
@@ -2374,7 +2374,7 @@ kids 0
 OBJECT poly
 name "Bar06"
 loc 1.33334e-05 1.16415e-10 -0.011114
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 -0.0100276 0.0148186
@@ -2393,7 +2393,7 @@ kids 0
 OBJECT poly
 name "Bar07"
 loc 1.33334e-05 1.16415e-10 -0.016671
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 0.0100276 0.0148186
@@ -2412,7 +2412,7 @@ kids 0
 OBJECT poly
 name "Bar11"
 loc 2.33334e-05 -1.16415e-10 0.0166709
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 -0.0100276 0.0148186
@@ -2431,7 +2431,7 @@ kids 0
 OBJECT poly
 name "Bar12"
 loc 2.33334e-05 -3.49246e-10 0.0111141
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 0.0100276 0.0148186
@@ -2450,7 +2450,7 @@ kids 0
 OBJECT poly
 name "Bar13"
 loc 2.33334e-05 -3.49246e-10 0.00555695
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 -0.0100276 0.0148186
@@ -2469,7 +2469,7 @@ kids 0
 OBJECT poly
 name "Bar14"
 loc 2.33334e-05 -3.49246e-10 5.40167e-08
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 0.0100276 0.0148186
@@ -2488,7 +2488,7 @@ kids 0
 OBJECT poly
 name "Bar15"
 loc 2.33334e-05 -3.49246e-10 -0.00555695
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 -0.0100276 0.0148186
@@ -2507,7 +2507,7 @@ kids 0
 OBJECT poly
 name "Bar16"
 loc 2.33334e-05 -3.49246e-10 -0.0111139
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 0.0100276 0.0148186
@@ -2526,7 +2526,7 @@ kids 0
 OBJECT poly
 name "Bar17"
 loc 2.33334e-05 -3.49246e-10 -0.0166709
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 -0.0100276 0.0148186
@@ -2549,7 +2549,7 @@ kids 11
 OBJECT poly
 name "bat"
 loc -1.04774e-09 0 0
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 -0.00419245 0.0586785
@@ -2568,7 +2568,7 @@ kids 0
 OBJECT poly
 name "oil"
 loc -1.04774e-09 0 0
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 0.00419245 0.0586785
@@ -2587,7 +2587,7 @@ kids 0
 OBJECT poly
 name "cld"
 loc -1.04774e-09 0 0
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 -0.00419245 0.0586785
@@ -2606,7 +2606,7 @@ kids 0
 OBJECT poly
 name "oat"
 loc -1.04774e-09 0 0
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 0.00419245 0.0586785
@@ -2625,7 +2625,7 @@ kids 0
 OBJECT poly
 name "crb"
 loc -1.04774e-09 0 0
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 -0.00419245 0.0586785
@@ -2644,7 +2644,7 @@ kids 0
 OBJECT poly
 name "dif"
 loc -1.04774e-09 0 0
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 0.00419245 0.0586785
@@ -2663,7 +2663,7 @@ kids 0
 OBJECT poly
 name "r"
 loc -1.04774e-09 -3.91155e-08 0.0483891
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 0.00419245 0.0199365
@@ -2682,7 +2682,7 @@ kids 0
 OBJECT poly
 name "l"
 loc -1.04774e-09 -3.91155e-08 0.0483891
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 -0.00419245 0.0199365
@@ -2701,7 +2701,7 @@ kids 0
 OBJECT poly
 name "est"
 loc -1.04774e-09 -3.91155e-08 -0.000408001
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 0.00419245 0.0589742
@@ -2720,7 +2720,7 @@ kids 0
 OBJECT poly
 name "lean"
 loc 2.91038e-10 -3.91155e-08 -0.0040833
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 -0.00419245 0.0812406
@@ -2739,7 +2739,7 @@ kids 0
 OBJECT poly
 name "lf"
 loc 3.49246e-10 -3.91155e-08 0.0267161
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 0.00419245 0.0372925
@@ -2766,7 +2766,7 @@ kids 5
 OBJECT poly
 name "DigitAdp"
 loc 5.82077e-11 -0.0029189 0.00560752
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 0.000549998 0.00399995
@@ -2785,7 +2785,7 @@ kids 0
 OBJECT poly
 name "DigitA3"
 loc 5.82077e-11 0.000729725 -0.00973723
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 -0.00419245 0.0148186
@@ -2804,7 +2804,7 @@ kids 0
 OBJECT poly
 name "DigitA2"
 loc 5.82077e-11 0.000729725 -0.00418033
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 0.00419245 0.0148186
@@ -2823,7 +2823,7 @@ kids 0
 OBJECT poly
 name "DigitA1"
 loc 5.82077e-11 0.000729725 0.00137657
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 -0.00419245 0.0148186
@@ -2842,7 +2842,7 @@ kids 0
 OBJECT poly
 name "DigitA0"
 loc 5.82077e-11 0.000729725 0.00693347
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 0.00419245 0.0148186
@@ -2865,7 +2865,7 @@ kids 3
 OBJECT poly
 name "DigitB0"
 loc 0 -9.31323e-10 0.0055569
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 0.00419245 0.0148186
@@ -2884,7 +2884,7 @@ kids 0
 OBJECT poly
 name "DigitB1"
 loc 0 -9.31323e-10 -1.86265e-09
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 -0.00419245 0.0148186
@@ -2903,7 +2903,7 @@ kids 0
 OBJECT poly
 name "DigitB2"
 loc 0 -9.31323e-10 -0.0055569
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 0.00419245 0.0148186
@@ -2926,7 +2926,7 @@ kids 7
 OBJECT poly
 name "ColumnHeader1"
 loc 0 -1.11759e-08 0.0166709
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 0.00218214 0.0148186
@@ -2945,7 +2945,7 @@ kids 0
 OBJECT poly
 name "ColumnHeader3"
 loc 0 1.86265e-09 0.00555694
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 -0.00165244 0.0148186
@@ -2964,7 +2964,7 @@ kids 0
 OBJECT poly
 name "ColumnHeader4"
 loc 0 1.86265e-09 -7.45058e-09
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 0.00218214 0.0148186
@@ -2983,7 +2983,7 @@ kids 0
 OBJECT poly
 name "ColumnHeader5"
 loc 0 1.86265e-09 -0.00555696
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 -0.00165244 0.0148186
@@ -3002,7 +3002,7 @@ kids 0
 OBJECT poly
 name "ColumnHeader6"
 loc 0 1.86265e-09 -0.011114
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 -0.00165244 0.0148186
@@ -3021,7 +3021,7 @@ kids 0
 OBJECT poly
 name "ColumnHeader7"
 loc 0 1.86265e-09 -0.0166709
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 -0.00165244 0.0148186
@@ -3040,7 +3040,7 @@ kids 0
 OBJECT poly
 name "ColumnHeader2"
 loc 0 1.86265e-09 0.011114
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 0.00218214 0.0148186
@@ -3063,7 +3063,7 @@ kids 7
 OBJECT poly
 name "ColumnSelector1"
 loc 0 1.86265e-09 0.0166709
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 -0.00186625 0.0148186
@@ -3082,7 +3082,7 @@ kids 0
 OBJECT poly
 name "ColumnSelector2"
 loc 0 0 0.011114
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 -0.00430092 0.0148186
@@ -3101,7 +3101,7 @@ kids 0
 OBJECT poly
 name "ColumnSelector3"
 loc 0 0 0.00555694
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 -0.00186625 0.0148186
@@ -3120,7 +3120,7 @@ kids 0
 OBJECT poly
 name "ColumnSelector4"
 loc 0 0 -7.45058e-09
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 -0.00430092 0.0148186
@@ -3139,7 +3139,7 @@ kids 0
 OBJECT poly
 name "ColumnSelector5"
 loc 0 0 -0.00555696
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 -0.00186625 0.0148186
@@ -3158,7 +3158,7 @@ kids 0
 OBJECT poly
 name "ColumnSelector6"
 loc 0 0 -0.011114
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 -0.00430092 0.0148186
@@ -3177,7 +3177,7 @@ kids 0
 OBJECT poly
 name "ColumnSelector7"
 loc 0 0 -0.0166709
-texture "EDM700-2.rgb"
+texture "EDM700-2.png"
 crease 45.000000
 numvert 4
 0 -0.00186625 0.0148186
@@ -3196,7 +3196,7 @@ kids 0
 OBJECT poly
 name "Face"
 loc 0.001 -0.00268972 -4.44089e-16
-texture "EDM700-1.rgb"
+texture "EDM700-1.png"
 crease 45.000000
 numvert 4
 0 -0.0258103 -0.028

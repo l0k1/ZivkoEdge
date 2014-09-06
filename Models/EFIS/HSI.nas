@@ -1,3 +1,61 @@
+var SimpleGpsNavigator = {
+  new: func( gps )
+  {
+    var m = { parents: [ SimpleGpsNavigator ] };
+    m.gps = gps;
+
+    return m;
+  },
+
+  update: func() 
+  {
+  },
+
+  _destination: "",
+  setDestination: func(s)
+  {
+    me._destination = s;
+  },
+ 
+};
+
+var SimpleGps = {
+  new: func( efis )
+  {
+    var m = { parents: [ SimpleGps ] };
+
+    m.efis = efis;
+
+    m.navigator = [
+      SimpleGpsNavigator.new(m),
+      SimpleGpsNavigator.new(m),
+    ];
+
+    return m;
+  },
+
+  update: func() 
+  {
+    foreach( var n; navigator )
+      n.update();
+    settimer( me.update, 2 );
+  },
+
+  _enabled: 0,
+
+  enable: func(b)
+  {
+    if( b ) {
+      if( me._enabled ) return;
+      me._enabled = 1;
+      me.update();
+    } else {
+      if( !me._enabled ) return;
+    }
+
+  }
+};
+
 var normalizePeriodic = func( min, max, val )
 {
  var range = max - min;

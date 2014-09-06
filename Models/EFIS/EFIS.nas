@@ -114,7 +114,7 @@ var EFIS = {
     elapsedTime: props.globals.initNode("/sim/time/elapsed-sec", 0, "DOUBLE"),
     windDir: props.globals.initNode("/environment/wind-from-heading-deg", 0, "DOUBLE"),
     windSpeed: props.globals.initNode("/environment/wind-speed-kt", 0, "DOUBLE"),
-    track: props.globals.initNode("/orientation/track-deg", 0, "DOUBLE"),
+    track: props.globals.initNode("/orientation/track-magnetic-deg", 0, "DOUBLE"),
     path: props.globals.initNode("/orientation/path-deg", 0, "DOUBLE"),
     headingBug: props.globals.initNode("/instrumentation/efis/heading-bug-deg", 0, "DOUBLE"),
 

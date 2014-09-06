@@ -168,7 +168,8 @@ var PFD = {
         var hOffset = geo.normdeg180(o.efis.readSensor("track") - o.efis.readSensor("heading") );
         var vOffset = o.efis.readSensor("pitch") - o.efis.readSensor("path");
         if( o.efis.readSensor("gs") < 1.0 ) {
-          hOffset = vOffset = 0;
+          hOffset = 0;
+          vOffset = o.efis.readSensor("pitch");
         }
         return { 
           y: vOffset * 10,

@@ -1,0 +1,103 @@
+<?xml version = '1.0' encoding = 'UTF-8' ?>
+<PropertyList>
+
+  <path>Fuel.ac</path>
+
+  <animation>
+    <type>noshadow</type>
+  </animation>
+
+  <animation>
+    <type>range</type>
+    <min-m>0</min-m>
+    <max-m>30</max-m>
+  </animation>
+
+
+  <animation>
+    <type>range</type>
+    <object-name>Needle.Left</object-name>
+    <min-m>0</min-m>
+    <max-m>3</max-m>
+  </animation>
+
+  <animation>
+    <type>range</type>
+    <object-name>Needle.Right</object-name>
+    <min-m>0</min-m>
+    <max-m>3</max-m>
+  </animation>
+
+  <animation>
+    <type>range</type>
+    <object-name>Face</object-name>
+    <min-m>0</min-m>
+    <max-m>10</max-m>
+  </animation>
+
+<!-- 
+  tank0: right wing 125lbs
+  tank1: left wing 125lbs
+  tank2: fuselage wing 112lbs
+-->
+  <animation>
+    <type>rotate</type>
+    <condition>
+      <property>instrumentation/fuel-indicator/serviceable</property>
+      <property>instrumentation/fuel-indicator/power</property>
+    </condition>
+    <object-name>Needle.Left</object-name>
+    <property>consumables/fuel/tank[2]/level-lbs</property>
+    <interpolation>
+      <entry>
+        <ind>0</ind>
+        <dep>0</dep>
+      </entry>
+      <entry>
+        <ind>112</ind>
+        <dep>80</dep>
+      </entry>
+    </interpolation>
+    <center>
+      <x-m>0</x-m>
+      <y-m>-0.0247934</y-m>
+      <z-m>0</z-m>
+    </center>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <condition>
+      <property>instrumentation/fuel-indicator/serviceable</property>
+      <property>instrumentation/fuel-indicator/power</property>
+    </condition>
+    <object-name>Needle.Right</object-name>
+    <property>consumables/fuel/tank[0]/level-lbs</property>
+    <interpolation>
+      <entry>
+        <ind>0</ind>
+        <dep>0</dep>
+      </entry>
+      <entry>
+        <ind>125</ind>
+        <dep>80</dep>
+      </entry>
+    </interpolation>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0.0247934</y-m>
+      <z-m>0</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+</PropertyList>

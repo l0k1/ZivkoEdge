@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1024px"
+   height="768px"
+   id="svg3114"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="Dialog.svg">
+  <title
+     id="title4639">FlightGear RBAR EFIS (Dialog)</title>
+  <defs
+     id="defs3116" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.734375"
+     inkscape:cx="514.7234"
+     inkscape:cy="384"
+     inkscape:current-layer="layer1"
+     inkscape:document-units="px"
+     showgrid="false"
+     inkscape:window-width="1236"
+     inkscape:window-height="782"
+     inkscape:window-x="40"
+     inkscape:window-y="-1"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata3119">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>FlightGear RBAR EFIS (dialog)</dc:title>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Torsten Dreyer</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:rights>
+          <cc:Agent>
+            <dc:title>Torsten Dreyer</dc:title>
+          </cc:Agent>
+        </dc:rights>
+        <dc:publisher>
+          <cc:Agent>
+            <dc:title>flightgear.org</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <cc:license
+           rdf:resource="http://www.gnu.org/licenses/gpl-2.0.html" />
+        <dc:date>2014-08-01</dc:date>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer">
+    <g
+       id="Item0">
+      <path
+         inkscape:connector-curvature="0"
+         id="Selector0"
+         d="m 452,79.999998 120,0 c 27.7,0 50,22.300002 50,50.000002 l 0,28 c 0,27.7 -22.3,50 -50,50 l -120,0 c -27.7,0 -50,-22.3 -50,-50 l 0,-28 c 0,-27.7 22.3,-50.000002 50,-50.000002 z"
+         style="opacity:0.98999999;fill:none;stroke:#d541c0;stroke-width:10;stroke-miterlimit:4;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="sssssssss"
+         style="opacity:0.98999999;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-opacity:1"
+         d="m 453.31819,89.999998 117.99999,0 C 596.5,89.999998 612,105.6338 612,129.00568 l 0,29.35227 C 612,181.72982 596.5,198 571.31818,198 l -117.99999,0 C 428.13637,198 412,181.72982 412,158.35795 l 0,-29.35227 c 0,-23.37188 16.13637,-39.005682 41.31819,-39.005682 z"
+         id="Frame0"
+         inkscape:connector-curvature="0" />
+      <text
+         sodipodi:linespacing="100%"
+         id="Text0"
+         y="171.51953"
+         x="510.47656"
+         style="font-size:80px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Sans Narrow;-inkscape-font-specification:Liberation Sans Narrow Bold Condensed"
+         xml:space="preserve"><tspan
+           y="171.51953"
+           x="510.47656"
+           id="tspan3024"
+           sodipodi:role="line">BAR</tspan></text>
+    </g>
+    <g
+       id="Item1">
+      <path
+         style="opacity:0.98999999;fill:none;stroke:#d541c0;stroke-width:10;stroke-miterlimit:4;stroke-opacity:1"
+         d="m 720,320 120,0 c 27.7,0 50,22.3 50,50 l 0,28 c 0,27.7 -22.3,50 -50,50 l -120,0 c -27.7,0 -50,-22.3 -50,-50 l 0,-28 c 0,-27.7 22.3,-50 50,-50 z"
+         id="Selector1"
+         inkscape:connector-curvature="0" />
+      <path
+         inkscape:connector-curvature="0"
+         id="Frame1"
+         d="m 721.31819,330 117.99999,0 C 864.5,330 880,345.6338 880,369.00568 l 0,29.35227 C 880,421.72982 864.5,438 839.31818,438 l -117.99999,0 C 696.13637,438 680,421.72982 680,398.35795 l 0,-29.35227 C 680,345.6338 696.13637,330 721.31819,330 z"
+         style="opacity:0.98999999;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-opacity:1"
+         sodipodi:nodetypes="sssssssss" />
+      <text
+         sodipodi:linespacing="100%"
+         id="Text1"
+         y="411.51953"
+         x="778.71094"
+         style="font-size:80px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Sans Narrow;-inkscape-font-specification:Liberation Sans Narrow Bold Condensed"
+         xml:space="preserve"><tspan
+           y="411.51953"
+           x="778.71094"
+           id="tspan3028"
+           sodipodi:role="line">BAZ</tspan></text>
+    </g>
+    <g
+       id="Item2">
+      <path
+         inkscape:connector-curvature="0"
+         id="Selector2"
+         d="m 452,560 120,0 c 27.7,0 50,22.3 50,50 l 0,28 c 0,27.7 -22.3,50 -50,50 l -120,0 c -27.7,0 -50,-22.3 -50,-50 l 0,-28 c 0,-27.7 22.3,-50 50,-50 z"
+         style="opacity:0.98999999;fill:none;stroke:#d541c0;stroke-width:10;stroke-miterlimit:4;stroke-opacity:1" />
+      <path
+         Selector2="path3014"
+         sodipodi:nodetypes="sssssssss"
+         style="opacity:0.98999999;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-opacity:1"
+         d="m 453.31819,570 117.99999,0 C 596.5,570 612,585.6338 612,609.00568 l 0,29.35227 C 612,661.72982 596.5,678 571.31818,678 l -117.99999,0 C 428.13637,678 412,661.72982 412,638.35795 l 0,-29.35227 C 412,585.6338 428.13637,570 453.31819,570 z"
+         id="Frame2"
+         inkscape:connector-curvature="0" />
+      <text
+         sodipodi:linespacing="100%"
+         id="Text2"
+         y="651.51953"
+         x="510.10547"
+         style="font-size:80px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Sans Narrow;-inkscape-font-specification:Liberation Sans Narrow Bold Condensed"
+         xml:space="preserve"><tspan
+           y="651.51953"
+           x="510.10547"
+           id="tspan3032"
+           sodipodi:role="line">BAX</tspan></text>
+    </g>
+    <g
+       id="Item3">
+      <path
+         inkscape:connector-curvature="0"
+         id="Selector3"
+         d="m 184,320 120,0 c 27.7,0 50,22.3 50,50 l 0,28 c 0,27.7 -22.3,50 -50,50 l -120,0 c -27.7,0 -50,-22.3 -50,-50 l 0,-28 c 0,-27.7 22.3,-50 50,-50 z"
+         style="opacity:0.98999999;fill:none;stroke:#d541c0;stroke-width:10;stroke-miterlimit:4;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="sssssssss"
+         style="opacity:0.98999999;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-opacity:1"
+         d="m 185.31819,330 117.99999,0 C 328.5,330 344,345.6338 344,369.00568 l 0,29.35227 C 344,421.72982 328.5,438 303.31818,438 l -117.99999,0 C 160.13637,438 144,421.72982 144,398.35795 l 0,-29.35227 C 144,345.6338 160.13637,330 185.31819,330 z"
+         id="Frame3"
+         inkscape:connector-curvature="0" />
+      <text
+         sodipodi:linespacing="100%"
+         id="Text3"
+         y="411.53906"
+         x="243.21875"
+         style="font-size:80px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Sans Narrow;-inkscape-font-specification:Liberation Sans Narrow Bold Condensed"
+         xml:space="preserve"><tspan
+           y="411.53906"
+           x="243.21875"
+           id="tspan3036"
+           sodipodi:role="line">FOO</tspan></text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!--
+  File:     aeio540.xml
+  Author:   Ron Jensen
+
+AEIO-540: 300 hp
+specifications
+
+6-cylinder, horizontally-opposed, air-cooled piston engine
+Displacement: 540 cubic inches
+Bore x stroke: 5.125 x 4.375 inches
+used by
+
+Zivko Edge (uprated to 340 hp)
+
+Reference TCDS 1E4
+-->
+<piston_engine name="AEIO_540">
+  <minmp unit="INHG">10.0</minmp>
+  <maxmp unit="INHG">28.0</maxmp>
+  <displacement unit="IN3">540</displacement>
+  <maxhp>340.00</maxhp>
+  <cycles>4.0</cycles>
+  <idlerpm>700.0</idlerpm>
+  <maxrpm>2700.0</maxrpm>
+  
+  <bore unit="IN"> 5.125 </bore>
+  <stroke unit="IN">4.375 </stroke>
+  <compression-ratio> 8.7 </compression-ratio>
+  <cylinders> 6 </cylinders>
+  <sparkfaildrop> 0.1 </sparkfaildrop> 
+  <man-press-lag> 0.1 </man-press-lag> 
+
+  <volumetric-efficiency> 0.95 </volumetric-efficiency>
+ <!-- Defining <bsfc> over-rides the built-in horsepower calculations -->
+  <bsfc>  0.4 </bsfc>
+  
+</piston_engine>
+

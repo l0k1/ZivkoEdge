@@ -1,0 +1,66 @@
+<?xml version = '1.0' encoding = 'UTF-8' ?>
+<PropertyList>
+
+  <path>EFIS.ac</path>
+
+  <animation>
+    <type>noshadow</type>
+  </animation>
+
+  <animation>
+    <type>range</type>
+    <min-m>0</min-m>
+    <max-m>30</max-m>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>KnobUpper</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-assign</command>
+        <property>instrumentation/efis/knob-pressed</property>
+        <value type="bool">true</value>
+      </binding>
+      <mod-up>
+        <binding>
+          <command>property-assign</command>
+          <property>instrumentation/efis/knob-pressed</property>
+          <value type="bool">false</value>
+        </binding>
+      </mod-up>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>EFIS-Knob-Upper</tooltip-id>
+        <label>Press for next screen (drag lower half to twist knob)</label>
+     </binding>
+   </hovered>
+
+  </animation>
+
+  <animation>
+    <type>knob</type>
+    <object-name>KnobLower</object-name>
+    <visible>true</visible>
+    <action>
+      <binding>
+        <command>property-adjust</command>
+        <property>instrumentation/efis/knob-position</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>EFIS-Knob-Lower</tooltip-id>
+        <label>Drag left/right to twist knob (click upper half to press)</label>
+     </binding>
+   </hovered>
+  </animation>
+
+
+</PropertyList>

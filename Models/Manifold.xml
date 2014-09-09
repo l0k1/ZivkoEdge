@@ -1,0 +1,51 @@
+<?xml version = '1.0' encoding = 'UTF-8' ?>
+<PropertyList>
+
+  <path>Manifold.ac</path>
+
+  <animation>
+    <type>noshadow</type>
+  </animation>
+
+  <animation>
+    <type>range</type>
+    <min-m>0</min-m>
+    <max-m>30</max-m>
+  </animation>
+
+  <animation>
+    <type>range</type>
+    <object-name>Needle</object-name>
+    <min-m>0</min-m>
+    <max-m>3</max-m>
+  </animation>
+
+  <animation>
+    <type>range</type>
+    <object-name>Face</object-name>
+    <min-m>0</min-m>
+    <max-m>10</max-m>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>Needle</object-name>
+    <property>engines/engine[0]/mp-osi</property>
+    <interpolation>
+      <entry>
+        <ind>10</ind>
+        <dep>0</dep>
+      </entry>
+      <entry>
+        <ind>35</ind>
+        <dep>270</dep>
+      </entry>
+    </interpolation>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+</PropertyList>

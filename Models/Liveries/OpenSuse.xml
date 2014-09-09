@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+ <sim>
+  <model>
+   <livery>
+    <name type="string">Open Suse</name>
+    <fuselage>Liveries/Fuselage-OpenSuse.png</fuselage>
+    <wingtail>Liveries/WingTail-OpenSuse.png</wingtail>
+   </livery>
+  </model>
+ </sim>
+</PropertyList>

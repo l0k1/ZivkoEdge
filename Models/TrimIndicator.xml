@@ -1,0 +1,38 @@
+<PropertyList>
+
+  <path>TrimIndicator.ac</path>
+
+  <animation>
+    <type>noshadow</type>
+  </animation>
+
+  <animation>
+    <type>range</type>
+    <min-m>0</min-m>
+    <max-m>30</max-m>
+  </animation>
+
+  <animation>
+    <type>range</type>
+    <object-name>Needle</object-name>
+    <min-m>0</min-m>
+    <max-m>3</max-m>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>Needle</object-name>
+    <property>controls/flight/elevator-trim</property>
+    <factor>18</factor>
+    <center>
+      <x-m>-0.041326</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+</PropertyList>

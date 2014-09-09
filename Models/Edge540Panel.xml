@@ -1,0 +1,702 @@
+<PropertyList>
+
+  <path>Edge540Panel.ac</path>
+
+  <model>
+    <path>Aircraft/ZivkoEdge/Models/TrimIndicator.xml</path>
+    <offsets>
+      <x-m>0.002</x-m>
+      <y-m>-0.265815</y-m>
+      <z-m>0.0202551</z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/ZivkoEdge/Models/Airspeed.xml</path>
+    <offsets>
+      <x-m>0.001</x-m>
+      <y-m>-0.1967</y-m>
+      <z-m>0.0366</z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/ZivkoEdge/Models/Altimeter.xml</path>
+    <offsets>
+      <x-m>0.001</x-m>
+      <y-m>-0.10</y-m>
+      <z-m>0.0366</z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/ZivkoEdge/Models/EFIS/EFIS.xml</path>
+     <offsets>
+       <x-m>0.001</x-m>
+       <y-m>0</y-m>
+       <z-m>0.0450</z-m>
+     </offsets>
+   </model>
+
+  <model>
+    <path>Aircraft/ZivkoEdge/Models/FrequencySticker.ac</path>
+     <offsets>
+       <x-m>0.001</x-m>
+       <y-m>0.10</y-m>
+       <z-m>-0.04</z-m>
+     </offsets>
+   </model>
+
+  <model>
+    <path>Aircraft/ZivkoEdge/Models/LedStrip/LedStrip.xml</path>
+    <offsets>
+      <x-m>0.001</x-m>
+      <y-m>0</y-m>
+      <z-m>0.1050</z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/Instruments-3d/tach/tach.xml</path>
+    <offsets>
+      <x-m>0.001</x-m>
+      <y-m>0.10</y-m>
+      <z-m>0.0366</z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/ZivkoEdge/Models/Manifold.xml</path>
+    <offsets>
+      <x-m>0.001</x-m>
+      <y-m>0.1967</y-m>
+      <z-m>0.0366</z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/ZivkoEdge/Models/Fuel.xml</path>
+    <offsets>
+      <x-m>0.001</x-m>
+      <y-m>0.1967</y-m>
+      <z-m>-0.0467</z-m>
+    </offsets>
+  </model>
+
+
+  <model>
+    <path>Aircraft/ZivkoEdge/Models/EDM700.xml</path>
+    <offsets>
+      <x-m>0.001</x-m>
+      <y-m>0.2767</y-m>
+      <z-m>-0.0034</z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/ZivkoEdge/Models/MagnetoSwitch.xml</path>
+    <offsets>
+      <x-m>0.001</x-m>
+      <y-m>-0.2667</y-m>
+      <z-m>-0.0580</z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/ZivkoEdge/Models/Acceleration.xml</path>
+    <offsets>
+      <x-m>0.001</x-m>
+      <y-m>-0.1967</y-m>
+      <z-m>-0.0467</z-m>
+    </offsets>
+  </model>
+
+
+  <!-- com -->
+  <model>
+    <path>Aircraft/ZivkoEdge/Models/BeckerAR4201.xml</path>
+    <offsets>
+      <x-m>0.001</x-m>
+      <y-m>-0.0867</y-m>
+      <z-m>-0.0467</z-m>
+    </offsets>
+  </model>
+
+  <!-- com -->
+  <model>
+    <path>Aircraft/ZivkoEdge/Models/BeckerAR4201-1.xml</path>
+    <offsets>
+      <x-m>0.001</x-m>
+      <y-m>0</y-m>
+      <z-m>-0.0467</z-m>
+    </offsets>
+  </model>
+
+  <!-- transponder -->
+<!--
+  <model>
+    <path>Aircraft/ZivkoEdge/Models/BeckerAR4201.xml</path>
+    <offsets>
+      <x-m>0.001</x-m>
+      <y-m>0.0867</y-m>
+      <z-m>-0.0467</z-m>
+    </offsets>
+  </model>
+-->
+  <!-- oil pressure -->
+  <!-- oil temperature -->
+
+  <animation>
+    <type>rotate</type>
+    <object-name>TrimSwitch.Lever</object-name>
+    <property>controls/flight/elevator-trim-switch</property>
+    <factor>30</factor>
+    <center>
+      <x-m>0</x-m>
+      <y-m>-0.290482</y-m>
+      <z-m>0.0202506</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>Label.NoseDown</object-name>
+    <visible>true</visible>
+    <action>
+      <name>Trim Down</name>
+      <button>0</button>
+      <repeatable>true</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>controls.elevatorTrim(1)</script>
+      </binding>
+      <binding>
+        <command>property-assign</command>
+        <property>controls/flight/elevator-trim-switch</property>
+        <value>-1</value>
+      </binding>
+      <mod-up>
+        <binding>
+          <command>property-assign</command>
+          <property>controls/flight/elevator-trim-switch</property>
+          <value>0</value>
+        </binding>
+      </mod-up>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>Label.NoseUp</object-name>
+    <visible>true</visible>
+    <action>
+      <name>Trim Up</name>
+      <button>0</button>
+      <repeatable>true</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>controls.elevatorTrim(-1)</script>
+      </binding>
+      <binding>
+        <command>property-assign</command>
+        <property>controls/flight/elevator-trim-switch</property>
+        <value>1</value>
+      </binding>
+      <mod-up>
+        <binding>
+          <command>property-assign</command>
+          <property>controls/flight/elevator-trim-switch</property>
+          <value>0</value>
+        </binding>
+      </mod-up>
+    </action>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>MasterSwitch.Lever</object-name>
+    <property>controls/electric/battery-switch</property>
+    <factor>-60</factor>
+    <center>
+      <x-m>0</x-m>
+      <y-m>-0.320476</y-m>
+      <z-m>-0.0507311</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>MasterSwitch.Lever</object-name>
+    <visible>true</visible>
+    <action>
+      <name>Master Toggle</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/battery-switch</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>Label.MasterOn</object-name>
+    <visible>true</visible>
+    <action>
+      <name>Master On</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-assign</command>
+        <property>controls/electric/battery-switch</property>
+        <value>1</value>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>Label.MasterOff</object-name>
+    <visible>true</visible>
+    <action>
+      <name>Master Off</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-assign</command>
+        <property>controls/electric/battery-switch</property>
+        <value>0</value>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>AltSwitch.Lever</object-name>
+    <property>controls/electric/engine[0]/generator</property>
+    <factor>-60</factor>
+    <center>
+      <x-m>0</x-m>
+      <y-m>-0.300752</y-m>
+      <z-m>-0.0507311</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>AltSwitch.Lever</object-name>
+    <visible>true</visible>
+    <action>
+      <name>Alt Toggle</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/engine[0]/generator</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>Label.AltOn</object-name>
+    <visible>true</visible>
+    <action>
+      <name>Alt On</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-assign</command>
+        <property>controls/electric/engine[0]/generator</property>
+        <value>1</value>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>Label.AltOff</object-name>
+    <visible>true</visible>
+    <action>
+      <name>Alt Off</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-assign</command>
+        <property>controls/electric/engine[0]/generator</property>
+        <value>0</value>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>SmokeSwitch.Lever</object-name>
+    <property>controls/electric/smoke-switch</property>
+    <factor>-60</factor>
+    <center>
+      <x-m>0</x-m>
+      <y-m>-0.141695</y-m>
+      <z-m>-0.0448206</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>SmokeSwitch.Lever</object-name>
+    <visible>true</visible>
+    <action>
+      <name>Smoke Toggle</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/smoke-switch</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>Label.SmokeOn</object-name>
+    <visible>true</visible>
+    <action>
+      <name>Smoke On</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-assign</command>
+        <property>controls/electric/smoke-switch</property>
+        <value>1</value>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>Label.SmokeOff</object-name>
+    <visible>true</visible>
+    <action>
+      <name>Smoke Off</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-assign</command>
+        <property>controls/electric/smoke-switch</property>
+        <value>0</value>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>CommSwitch.Lever</object-name>
+    <property>controls/electric/comm-select</property>
+    <factor>-60</factor>
+    <center>
+      <x-m>0</x-m>
+      <y-m>-0.0433204</y-m>
+      <z-m>-0.0448206</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>CommSwitch.Lever</object-name>
+    <visible>true</visible>
+    <action>
+      <name>Comm Toggle</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/comm-select</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>Label.Comm2</object-name>
+    <visible>true</visible>
+    <action>
+      <name>Comm2</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-assign</command>
+        <property>controls/electric/comm-select</property>
+        <value>1</value>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>Label.Comm1</object-name>
+    <visible>true</visible>
+    <action>
+      <name>Comm1</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-assign</command>
+        <property>controls/electric/comm-select</property>
+        <value>0</value>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>FuelSwitch.Lever</object-name>
+    <property>controls/electric/fuel-select</property>
+    <factor>-60</factor>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0.24</y-m>
+      <z-m>-0.0479745</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>FuelSwitch.Lever</object-name>
+    <visible>true</visible>
+    <action>
+      <name>Fuel Toggle</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/fuel-select</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>Label.RightWing</object-name>
+    <visible>true</visible>
+    <action>
+      <name>FuelRightWing</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-assign</command>
+        <property>controls/electric/fuel-select</property>
+        <value>1</value>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>Label.LeftWing</object-name>
+    <visible>true</visible>
+    <action>
+      <name>FuelLeftWing</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-assign</command>
+        <property>controls/electric/fuel-select</property>
+        <value>0</value>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>Circuitbreaker1</object-name>
+    <property>controls/electric/circuitbreaker[0]</property>
+    <factor>-0.008</factor>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>Circuitbreaker1</object-name>
+    <visible>true</visible>
+    <action>
+      <name>CircuitBreaker1</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuitbreaker[0]</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>Circuitbreaker2</object-name>
+    <property>controls/electric/circuitbreaker[1]</property>
+    <factor>-0.008</factor>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>Circuitbreaker2</object-name>
+    <visible>true</visible>
+    <action>
+      <name>CircuitBreaker2</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuitbreaker[1]</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>Circuitbreaker3</object-name>
+    <property>controls/electric/circuitbreaker[2]</property>
+    <factor>-0.008</factor>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>Circuitbreaker3</object-name>
+    <visible>true</visible>
+    <action>
+      <name>CircuitBreaker3</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuitbreaker[2]</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>Circuitbreaker4</object-name>
+    <property>controls/electric/circuitbreaker[3]</property>
+    <factor>-0.008</factor>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>Circuitbreaker4</object-name>
+    <visible>true</visible>
+    <action>
+      <name>CircuitBreaker4</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuitbreaker[3]</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>Circuitbreaker5</object-name>
+    <property>controls/electric/circuitbreaker[4]</property>
+    <factor>-0.008</factor>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>Circuitbreaker5</object-name>
+    <visible>true</visible>
+    <action>
+      <name>CircuitBreaker5</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuitbreaker[4]</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>Circuitbreaker6</object-name>
+    <property>controls/electric/circuitbreaker[5]</property>
+    <factor>-0.008</factor>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>Circuitbreaker6</object-name>
+    <visible>true</visible>
+    <action>
+      <name>CircuitBreaker6</name>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuitbreaker[5]</property>
+      </binding>
+    </action>
+  </animation>
+
+</PropertyList>

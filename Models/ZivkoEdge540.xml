@@ -1,0 +1,317 @@
+<?xml version = '1.0' encoding = 'UTF-8' ?>
+<PropertyList>
+
+  <path>ZivkoEdge540.ac</path>
+
+  <nasal>
+    <load>
+      var self = cmdarg();
+      var livery_update = aircraft.livery_update.new("Aircraft/ZivkoEdge/Models/Liveries");
+      var aliases = [];
+      var n = self.getNode( "controls/electric/smoke-pump", 1 );
+      var generic = self.getNode( "sim/multiplay/generic/int[0]", 1 );
+      n.alias( generic );
+      append( aliases, n );
+    </load>
+    <unload>
+      livery_update.stop();
+      foreach( var a; aliases )
+        a.unalias();
+    </unload>
+  </nasal>
+
+  <model>
+    <path>Aircraft/ZivkoEdge/Models/Edge540Panel.xml</path>
+    <name>HiResInstrumentPanel</name>
+    <offsets>
+      <x-m>0.86</x-m>
+      <y-m>0.0</y-m>
+      <z-m>1.42</z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/ZivkoEdge/Models/SmokeTrail.xml</path>
+    <name>SmokeTrail</name>
+    <condition>
+      <property>controls/electric/smoke-pump</property>
+      <greater-than>
+        <property>engines/engine[0]/rpm</property>
+        <value>500</value>
+      </greater-than>
+    </condition>
+    <offsets>
+      <x-m>0.09</x-m>
+      <y-m>0.0</y-m>
+      <z-m>0.5</z-m>
+    </offsets>
+  </model>
+
+  <!-- Animations -->
+  <animation>
+    <type>select</type>
+    <object-name>Dashboard</object-name>
+  </animation>
+
+  <animation>
+    <type>range</type>
+    <min-m>0</min-m>
+    <max-m>8000</max-m>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>Pilot</object-name>
+    <condition>
+      <property>sim/current-view/view-number</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>Helmet</object-name>
+    <property>sim/model/pilot-view-heading/position-norm</property>
+    <factor>60</factor>
+    <center>
+     <x-m>1.40627</x-m>
+     <y-m>0</y-m>
+     <z-m>1.60476</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>0.0</y>
+      <z>1.0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>Helmet</object-name>
+    <property>sim/model/pilot-view-pitch-norm</property>
+    <factor>15</factor>
+    <center>
+     <x-m>1.40627</x-m>
+     <y-m>0</y-m>
+     <z-m>1.60476</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>1.0</y>
+      <z>0.0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>Stick</object-name>
+    <property>controls/flight/elevator</property>
+    <factor>-11.25</factor>
+    <center>
+     <x-m>0.988169</x-m>
+     <y-m>0</y-m>
+     <z-m>0.770673</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>1.0</y>
+      <z>0.0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>Stick</object-name>
+    <property>controls/flight/aileron</property>
+    <factor>-11.25</factor>
+    <center>
+     <x-m>0.988169</x-m>
+     <y-m>0</y-m>
+     <z-m>0.770673</z-m>
+    </center>
+    <axis>
+      <x>1.0</x>
+      <y>0.0</y>
+      <z>0.0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>Rudder</object-name>
+    <property>surface-positions/rudder-pos-norm</property>
+    <factor>45.0</factor>
+    <axis>
+      <x1-m>3.998</x1-m>
+      <y1-m>0</y1-m>
+      <z1-m>0.966</z1-m>
+      <x2-m>3.996</x2-m>
+      <y2-m>0</y2-m>
+      <z2-m>2.301</z2-m>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>Elevator.Left</object-name>
+    <property>surface-positions/elevator-pos-norm</property>
+    <factor>-19.5</factor>
+    <axis>
+      <x1-m>3.816</x1-m>
+      <y1-m>-0.07</y1-m>
+      <z1-m>1.424</z1-m>
+      <x2-m>3.811</x2-m>
+      <y2-m>-1.13</y2-m>
+      <z2-m>1.424</z2-m>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>Elevator.Right</object-name>
+    <property>surface-positions/elevator-pos-norm</property>
+    <factor>19.5</factor>
+    <axis>
+      <x1-m>3.816</x1-m>
+      <y1-m>0.07</y1-m>
+      <z1-m>1.424</z1-m>
+      <x2-m>3.811</x2-m>
+      <y2-m>1.13</y2-m>
+      <z2-m>1.424</z2-m>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>Aileron.Left</object-name>
+    <property>surface-positions/left-aileron-pos-norm</property>
+    <factor>-22.5</factor>
+    <axis>
+      <x1-m>1.23895</x1-m>
+      <y1-m>-1.21416</y1-m>
+      <z1-m>1.19566</z1-m>
+      <x2-m>0.750615</x2-m>
+      <y2-m>-3.56963</y2-m>
+      <z2-m>1.20962</z2-m>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>Aileron.Right</object-name>
+    <property>surface-positions/right-aileron-pos-norm</property>
+    <factor>-22.5</factor>
+    <axis>
+      <x1-m>1.23895</x1-m>
+      <y1-m>1.21416</y1-m>
+      <z1-m>1.19566</z1-m>
+      <x2-m>0.750615</x2-m>
+      <y2-m>3.56963</y2-m>
+      <z2-m>1.20962</z2-m>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>Gear.Left</object-name>
+    <property>gear/gear[0]/compression-norm</property>
+    <factor>-30</factor>
+    <axis>
+      <x1-m>-0.04132</x1-m>
+      <y1-m>-0.38505</y1-m>
+      <z1-m>0.671508</z1-m>
+      <x2-m>0.09011</x2-m>
+      <y2-m>-0.38505</y2-m>
+      <z2-m>0.671508</z2-m>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>Gear.Right</object-name>
+    <property>gear/gear[1]/compression-norm</property>
+    <factor>30</factor>
+    <axis>
+      <x1-m>-0.04132</x1-m>
+      <y1-m>0.38505</y1-m>
+      <z1-m>0.671508</z1-m>
+      <x2-m>0.09011</x2-m>
+      <y2-m>0.38505</y2-m>
+      <z2-m>0.671508</z2-m>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>Tailwheel</object-name>
+    <object-name>TailwheelArm</object-name>
+    <object-name>TailwheelCarrier</object-name>
+    <property>gear/gear[2]/compression-ft</property>
+    <factor>24.4</factor>
+    <center>
+     <x-m>3.710</x-m>
+     <y-m>0</y-m>
+     <z-m>1.007</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>-1.0</y>
+      <z>0.0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>spin</type>
+    <object-name>Propeller</object-name>
+    <object-name>Spinner</object-name>
+    <property>engines/engine[0]/rpm</property>
+    <factor>-1</factor>
+    <center>
+     <x-m>-1.07</x-m>
+     <y-m>0</y-m>
+     <z-m>1.18805</z-m>
+    </center>
+    <axis>
+      <x>1.0</x>
+      <y>0.0</y>
+      <z>0.0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>Propeller</object-name>
+    <condition>
+      <less-than>
+        <property>engines/engine[0]/rpm</property>
+        <value>350</value>
+      </less-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>Fuselage</object-name>
+    <object-name>Spinner</object-name>
+    <object-name>WheelFairing.Left</object-name>
+    <object-name>WheelFairing.Right</object-name>
+    <property-base>sim/model/livery</property-base>
+    <texture-prop>fuselage</texture-prop>
+    <texture>Liveries/Fuselage-OpenSuse.png</texture>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>Wing</object-name>
+    <object-name>Stabilizer</object-name>
+    <object-name>Elevator.Left</object-name>
+    <object-name>Elevator.Right</object-name>
+    <object-name>Rudder</object-name>
+    <object-name>Fin</object-name>
+    <object-name>Aileron.Left</object-name>
+    <object-name>Aileron.Right</object-name>
+    <property-base>sim/model/livery</property-base>
+    <texture-prop>wingtail</texture-prop>
+    <texture>Liveries/WingTail-OpenSuse.png</texture>
+  </animation>
+
+</PropertyList>

@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<PropertyList>
+  <sim>
+    <author>Torsten Dreyer (3D, FDM) Ron Jensen (FDM)</author>
+    <description>Zivko EDGE 540</description>
+    <aircraft-version>0.3</aircraft-version>
+    <status>beta</status>
+    <rating>
+     <FDM type="int">4</FDM>
+     <systems type="int">2</systems>
+     <cockpit type="int">5</cockpit>
+     <model type="int">4</model>
+    </rating>
+    <flight-model>jsb</flight-model>
+    <aero>ZivkoEdge540-jsbsim</aero>
+
+    <startup>
+      <splash-title>Zivko EDGE 540</splash-title>
+      <splash-texture>Aircraft/ZivkoEdge/Edge.png</splash-texture>
+    </startup>
+    <model>
+      <path>Aircraft/ZivkoEdge/Models/ZivkoEdge540.xml</path>
+      <livery>
+        <file type="string"/>
+       </livery>
+    </model>
+    <view n="0">
+      <name>Cockpit</name>
+      <type>lookfrom</type>
+      <internal type="bool">true</internal>
+      <config>
+        <x-offset-m type="double">0</x-offset-m>
+        <y-offset-m type="double">1.66</y-offset-m>
+        <z-offset-m type="double">1.50</z-offset-m>
+        <pitch-offset-deg>-9</pitch-offset-deg>
+      </config>
+    </view>
+    <view n="1">
+      <config>
+        <target-x-offset-m archive="y" type="double">0</target-x-offset-m>
+        <target-y-offset-m archive="y" type="double">1.18</target-y-offset-m>
+        <target-z-offset-m archive="y" type="double">0.88</target-z-offset-m>
+      </config>
+    </view>
+    <view n="2">
+      <config>
+        <target-x-offset-m archive="y" type="double">0</target-x-offset-m>
+        <target-y-offset-m archive="y" type="double">1.18</target-y-offset-m>
+        <target-z-offset-m archive="y" type="double">0.88</target-z-offset-m>
+      </config>
+    </view>
+    <view n="3">
+      <config>
+        <target-x-offset-m archive="y" type="double">0</target-x-offset-m>
+        <target-y-offset-m archive="y" type="double">1.18</target-y-offset-m>
+        <target-z-offset-m archive="y" type="double">0.88</target-z-offset-m>
+      </config>
+    </view>
+    <view n="4">
+      <config>
+        <target-x-offset-m archive="y" type="double">0</target-x-offset-m>
+        <target-y-offset-m archive="y" type="double">1.18</target-y-offset-m>
+        <target-z-offset-m archive="y" type="double">0.88</target-z-offset-m>
+      </config>
+    </view>
+    <view n="5">
+      <config>
+        <target-x-offset-m archive="y" type="double">0</target-x-offset-m>
+        <target-y-offset-m archive="y" type="double">1.18</target-y-offset-m>
+        <target-z-offset-m archive="y" type="double">0.88</target-z-offset-m>
+      </config>
+    </view>
+    <view n="6">
+      <config>
+        <target-x-offset-m archive="y" type="double">0</target-x-offset-m>
+        <target-y-offset-m archive="y" type="double">1.18</target-y-offset-m>
+        <target-z-offset-m archive="y" type="double">0.88</target-z-offset-m>
+      </config>
+    </view>
+
+    <view n="100">
+      <name>Tail Camera View</name>
+      <type>lookfrom</type>
+      <internal archive="y">true</internal>
+      <config>
+        <from-model type="bool">true</from-model>
+        <from-model-idx type="int">0</from-model-idx>
+        <ground-level-nearplane-m type="double">0.01</ground-level-nearplane-m>
+        <default-field-of-view-deg type="double">80</default-field-of-view-deg>
+        <pitch-offset-deg>-10</pitch-offset-deg>
+        <x-offset-m archive="y"> 0.000 </x-offset-m> <!--Right-->
+        <y-offset-m archive="y"> 2.590 </y-offset-m> <!--Up-->
+        <z-offset-m archive="y"> 3.670 </z-offset-m> <!--Back-->
+      </config>
+    </view>
+
+    <view n="101">
+      <name>Wing Camera View</name>
+      <type>lookfrom</type>
+      <internal archive="y">true</internal>
+      <config>
+        <from-model type="bool">true</from-model>
+        <from-model-idx type="int">0</from-model-idx>
+        <ground-level-nearplane-m type="double">0.01f</ground-level-nearplane-m>
+        <default-field-of-view-deg type="double">100</default-field-of-view-deg>
+        <heading-offset-deg>-98</heading-offset-deg>
+        <x-offset-m archive="y"> -3.900 </x-offset-m> <!--Right-->
+        <y-offset-m archive="y"> 1.450 </y-offset-m> <!--Up-->
+        <z-offset-m archive="y"> 0.530 </z-offset-m> <!--Back-->
+      </config>
+    </view>
+
+  <sound>
+   <path>Aircraft/Generic/generic-sound.xml</path>
+  </sound>
+
+  <instrumentation>
+    <path>Aircraft/ZivkoEdge/Systems/Edge540-instrumentation.xml</path>
+  </instrumentation>
+
+  <systems>
+    <path>Aircraft/ZivkoEdge/Systems/Edge540-systems.xml</path>
+    <property-rule n="101">
+      <name>RBAR EFIS/Peripheral Vision Indicator Controller</name>
+      <path>Aircraft/ZivkoEdge/Models/LedStrip/controller.xml</path>
+    </property-rule>
+  </systems>
+
+  <hud>
+    <enable3d>false</enable3d>
+  </hud>
+
+  <virtual-cockpit archive="y">true</virtual-cockpit>
+  <allow-toggle-cockpit>false</allow-toggle-cockpit>
+
+    <menubar>
+     <default>
+      <menu n="100">
+       <label>ZivkoEdge</label>
+       <enabled type="bool">true</enabled>
+       <item>
+        <label>Select Livery</label>
+        <binding>
+         <command>nasal</command>
+         <script>aircraft.livery.dialog.toggle()</script>
+        </binding>
+       </item>
+      </menu>
+     </default>
+    </menubar>
+
+    <multiplay>
+      <generic>
+        <int n="0" type="int">0</int> <!-- smoke switch -->
+      </generic>
+    </multiplay>
+
+    <help>
+      <title>Zivko EDGE 540</title>
+      <key>
+        <name>O</name>
+        <desc>toggle smOke on</desc>
+      </key>
+    </help>
+  </sim>
+
+  <input>
+    <keyboard>
+      <key n="111">
+        <name>o</name>
+        <desc>Toggle smoke system</desc>
+        <binding>
+          <command>property-toggle</command>
+          <property>controls/electric/smoke-switch</property>
+        </binding>
+      </key>
+    </keyboard>
+  </input>
+
+  <nasal>
+    <Edge540>
+      <file>Aircraft/ZivkoEdge/Nasal/MagnetoSwitch.nas</file>
+      <file>Aircraft/ZivkoEdge/Nasal/EDM700.nas</file>
+      <file>Aircraft/ZivkoEdge/Nasal/BeckerAR4201.nas</file>
+      <file>Aircraft/ZivkoEdge/Nasal/Edge540.nas</file>
+      <file>Aircraft/ZivkoEdge/Models/EFIS/EFIS.nas</file>
+    </Edge540>
+  </nasal>
+
+  <controls>
+    <gear>
+      <brake-parking>0</brake-parking>
+    </gear>
+
+    <engines>
+      <engine n="0">
+        <magnetos>0</magnetos>
+      </engine>
+    </engines>
+
+    <electric>
+      <battery-switch type="bool">1</battery-switch>
+      <engine n="0" type="bool">
+        <generator type="bool">1</generator>
+      </engine>
+      <circuitbreaker n="0" type="bool">1</circuitbreaker>
+      <circuitbreaker n="1" type="bool">1</circuitbreaker>
+      <circuitbreaker n="2" type="bool">1</circuitbreaker>
+      <circuitbreaker n="3" type="bool">1</circuitbreaker>
+      <circuitbreaker n="4" type="bool">1</circuitbreaker>
+      <circuitbreaker n="5" type="bool">1</circuitbreaker>
+    </electric>
+  </controls>
+
+  <consumables>
+    <fuel>
+      <tank n="0">
+        <level-gal_us>0.33</level-gal_us>
+        <capacity-gal_us>20.76</capacity-gal_us><!-- 78.6 Liter -->
+      </tank>
+      <tank n="1">
+        <level-gal_us>0.33</level-gal_us>
+        <capacity-gal_us>20.76</capacity-gal_us><!-- 78.6 Liter -->
+      </tank>
+      <tank n="2">
+        <level-gal_us>18.6</level-gal_us>
+        <capacity-gal_us>18.6</capacity-gal_us><!-- 70.4 Liter -->
+      </tank>
+    </fuel>
+  </consumables> 
+
+  <instrumentation>
+
+    <ledstrip>
+      <power type="bool">true</power>
+      <serviceable type="bool">true</serviceable>
+      <mode type="int">1</mode>
+      <linear type="bool">false</linear>
+      <test type="bool">false</test>
+    </ledstrip>
+
+    <efis>
+      <knob-position type="int">0</knob-position>
+      <knob-pressed type="bool">false</knob-pressed>
+    </efis>
+
+    <edm700>
+        <serviceable type="bool">1</serviceable>
+        <!-- the interval between each cylinder scan -->
+        <scan-interval-sec>4</scan-interval-sec>
+
+        <!-- the interval for the timer function -->
+        <!-- <timer>0.25</timer> -->
+
+        <sensor>
+          <name type="string">egt0</name>
+          <input type="string">/fdm/jsbsim/propulsion/engine/cylinder[0]/egt-degf</input>
+        </sensor>
+        <sensor>
+          <name type="string">egt1</name>
+          <input type="string">/fdm/jsbsim/propulsion/engine/cylinder[1]/egt-degf</input>
+        </sensor>
+        <sensor>
+          <name type="string">egt2</name>
+          <input type="string">/fdm/jsbsim/propulsion/engine/cylinder[2]/egt-degf</input>
+        </sensor>
+        <sensor>
+          <name type="string">egt3</name>
+          <input type="string">/fdm/jsbsim/propulsion/engine/cylinder[3]/egt-degf</input>
+        </sensor>
+        <sensor>
+          <name type="string">egt4</name>
+          <input type="string">/fdm/jsbsim/propulsion/engine/cylinder[4]/egt-degf</input>
+        </sensor>
+        <sensor>
+          <name type="string">egt5</name>
+          <input type="string">/fdm/jsbsim/propulsion/engine/cylinder[5]/egt-degf</input>
+        </sensor>
+        <sensor>
+          <name type="string">cht0</name>
+          <input type="string">/fdm/jsbsim/propulsion/engine/cylinder[0]/cht-degf</input>
+        </sensor>
+        <sensor>
+          <name type="string">cht1</name>
+          <input type="string">/fdm/jsbsim/propulsion/engine/cylinder[1]/cht-degf</input>
+        </sensor>
+        <sensor>
+          <name type="string">cht2</name>
+          <input type="string">/fdm/jsbsim/propulsion/engine/cylinder[2]/cht-degf</input>
+        </sensor>
+        <sensor>
+          <name type="string">cht3</name>
+          <input type="string">/fdm/jsbsim/propulsion/engine/cylinder[3]/cht-degf</input>
+        </sensor>
+        <sensor>
+          <name type="string">cht4</name>
+          <input type="string">/fdm/jsbsim/propulsion/engine/cylinder[4]/cht-degf</input>
+        </sensor>
+        <sensor>
+          <name type="string">cht5</name>
+          <input type="string">/fdm/jsbsim/propulsion/engine/cylinder[5]/cht-degf</input>
+        </sensor>
+        <sensor>
+          <name type="string">oil</name>
+          <input type="string">engines/engine[0]/oil-temperature-degf</input>
+        </sensor>
+        <sensor>
+          <name type="string">bat</name>
+          <input type="string">systems/electrical/outputs/bus</input>
+        </sensor>
+        <sensor>
+          <name type="string">oat</name>
+          <input type="string">environment/temperature-degf</input>
+        </sensor>
+        <sensor>
+          <name type="string">crb</name>
+          <input type="string">environment/temperature-degf</input>
+        </sensor>
+    </edm700>
+
+    <comm n="0">
+      <serviceable type="bool">1</serviceable>
+    </comm>
+    <comm n="1">
+      <serviceable type="bool">1</serviceable>
+    </comm>
+
+    <fuel-indicator>
+      <serviceable type="bool">true</serviceable>
+    </fuel-indicator>
+
+    <altimeter n="0">
+      <serviceable type="bool">true</serviceable>
+    </altimeter>
+
+    <altimeter n="1">
+      <serviceable type="bool">true</serviceable>
+    </altimeter>
+
+    <airspeed-indicator n="0">
+      <serviceable type="bool">true</serviceable>
+    </airspeed-indicator>
+
+    <airspeed-indicator n="1">
+      <serviceable type="bool">true</serviceable>
+    </airspeed-indicator>
+
+    <slip-skid-ball n="0">
+      <serviceable type="bool">true</serviceable>
+    </slip-skid-ball>
+
+    <slip-skid-ball n="1">
+      <serviceable type="bool">true</serviceable>
+    </slip-skid-ball>
+
+  </instrumentation>
+</PropertyList>

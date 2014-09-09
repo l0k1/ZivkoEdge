@@ -1,0 +1,96 @@
+<?xml version = '1.0' encoding = 'UTF-8' ?>
+<PropertyList>
+
+  <path>box.ac</path>
+
+  <animation>
+    <type>select</type>
+    <object-name>BoxSportsman</object-name>
+    <condition>
+      <and>
+        <property>aerobatics/show-box</property>
+        <equals>
+          <property>aerobatics/category</property>
+          <value type="string">sportsman</value>
+        </equals>
+      </and>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>BoxUnlimited</object-name>
+    <condition>
+      <and>
+        <property>aerobatics/show-box</property>
+        <equals>
+          <property>aerobatics/category</property>
+          <value type="string">unlimited</value>
+        </equals>
+      </and>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>BoxAdvanced</object-name>
+    <condition>
+      <and>
+        <property>aerobatics/show-box</property>
+        <equals>
+          <property>aerobatics/category</property>
+          <value type="string">advanced</value>
+        </equals>
+      </and>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>BoxIntermediate</object-name>
+    <condition>
+      <and>
+        <property>aerobatics/show-box</property>
+        <equals>
+          <property>aerobatics/category</property>
+          <value type="string">intermediate</value>
+        </equals>
+      </and>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>PenaltyZone</object-name>
+    <condition>
+      <property>aerobatics/show-penaltyzone</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>Marker</object-name>
+    <condition>
+      <property>aerobatics/show-marker</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>range</type>
+    <object-name>Marker</object-name>
+    <object-name>PenaltyZone</object-name>
+    <min-m>0</min-m>
+    <max-m>5000</max-m>
+  </animation>
+
+  <animation>
+    <enable-hot type="bool">false</enable-hot>
+  </animation>
+
+  <animation>
+    <type>range</type>
+    <min-m>0</min-m>
+    <max-m>10000</max-m>
+  </animation>
+
+</PropertyList>

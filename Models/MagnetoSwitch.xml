@@ -1,0 +1,71 @@
+<?xml version = '1.0' encoding = 'UTF-8' ?>
+<PropertyList>
+
+  <path>MagnetoSwitch.ac</path>
+
+  <animation>
+    <type>noshadow</type>
+  </animation>
+
+  <animation>
+    <type>range</type>
+    <min-m>0</min-m>
+    <max-m>10</max-m>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>Key</object-name>
+    <object-name>KeyHole</object-name>
+    <property>controls/engines/engine[0]/magneto-switch-position</property>
+    <factor>30</factor>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>Face.Right</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable type="bool">false</repeatable>
+      <name>IncreaseMagnetos</name>
+      <binding>
+        <command>nasal</command>
+        <script>controls.stepMagnetos(1)</script>
+      </binding>
+      <mod-up>
+        <binding>
+          <command>nasal</command>
+          <script>controls.stepMagnetos(0)</script>
+        </binding>
+      </mod-up> 
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>Face.Left</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable type="bool">false</repeatable>
+      <name>DecreaseMagnetos</name>
+      <binding>
+        <command>nasal</command>
+        <script>controls.stepMagnetos(-1)</script>
+      </binding>
+      <mod-up>
+        <binding>
+          <command>nasal</command>
+          <script>controls.stepMagnetos(0)</script>
+        </binding>
+      </mod-up> 
+    </action>
+  </animation>
+
+</PropertyList>

@@ -1,0 +1,182 @@
+<?xml version = '1.0' encoding = 'UTF-8' ?>
+<PropertyList>
+
+  <path>LedStrip.ac</path>
+
+  <animation>
+    <type>range</type>
+    <min-m>0</min-m>
+    <max-m>10</max-m>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>LED0.on</object-name>
+    <condition>
+      <property>instrumentation/ledstrip/power</property>
+      <property>instrumentation/ledstrip/serviceable</property>
+      <or>
+        <property>instrumentation/ledstrip/test</property>
+        <and>
+          <greater-than-equals>
+            <property>instrumentation/ledstrip/led</property>
+            <value type="double">1.0</value>
+          </greater-than-equals>
+          <less-than>
+            <property>instrumentation/ledstrip/led</property>
+            <value type="double">2.0</value>
+          </less-than>
+        </and>
+      </or>
+    </condition>
+  </animation>
+  <animation>
+    <type>select</type>
+    <object-name>LED1.on</object-name>
+    <condition>
+      <property>instrumentation/ledstrip/power</property>
+      <property>instrumentation/ledstrip/serviceable</property>
+      <or>
+        <property>instrumentation/ledstrip/test</property>
+        <and>
+          <greater-than-equals>
+            <property>instrumentation/ledstrip/led</property>
+            <value type="double">2.0</value>
+          </greater-than-equals>
+          <less-than>
+            <property>instrumentation/ledstrip/led</property>
+            <value type="double">3.0</value>
+          </less-than>
+        </and>
+      </or>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>LED2.on</object-name>
+    <condition>
+      <property>instrumentation/ledstrip/power</property>
+      <property>instrumentation/ledstrip/serviceable</property>
+      <or>
+        <property>instrumentation/ledstrip/test</property>
+        <and>
+          <greater-than-equals>
+            <property>instrumentation/ledstrip/led</property>
+            <value type="double">3.0</value>
+          </greater-than-equals>
+          <less-than>
+            <property>instrumentation/ledstrip/led</property>
+            <value type="double">4.0</value>
+          </less-than>
+        </and>
+      </or>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>LED3.on</object-name>
+    <condition>
+      <property>instrumentation/ledstrip/power</property>
+      <property>instrumentation/ledstrip/serviceable</property>
+      <or>
+        <property>instrumentation/ledstrip/test</property>
+        <and>
+          <greater-than-equals>
+            <property>instrumentation/ledstrip/led</property>
+            <value type="double">4.0</value>
+          </greater-than-equals>
+          <less-than>
+            <property>instrumentation/ledstrip/led</property>
+            <value type="double">5.0</value>
+          </less-than>
+        </and>
+      </or>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>LED4.on</object-name>
+    <condition>
+      <property>instrumentation/ledstrip/power</property>
+      <property>instrumentation/ledstrip/serviceable</property>
+      <or>
+        <property>instrumentation/ledstrip/test</property>
+        <and>
+          <greater-than-equals>
+            <property>instrumentation/ledstrip/led</property>
+            <value type="double">5.0</value>
+          </greater-than-equals>
+          <less-than>
+            <property>instrumentation/ledstrip/led</property>
+            <value type="double">6.0</value>
+          </less-than>
+        </and>
+      </or>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>LED5.on</object-name>
+    <condition>
+      <property>instrumentation/ledstrip/power</property>
+      <property>instrumentation/ledstrip/serviceable</property>
+      <or>
+        <property>instrumentation/ledstrip/test</property>
+        <and>
+          <greater-than-equals>
+            <property>instrumentation/ledstrip/led</property>
+            <value type="double">6.0</value>
+          </greater-than-equals>
+          <less-than>
+            <property>instrumentation/ledstrip/led</property>
+            <value type="double">7.0</value>
+          </less-than>
+        </and>
+      </or>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>LED6.on</object-name>
+    <condition>
+      <property>instrumentation/ledstrip/power</property>
+      <property>instrumentation/ledstrip/serviceable</property>
+      <or>
+        <property>instrumentation/ledstrip/test</property>
+        <greater-than-equals>
+          <property>instrumentation/ledstrip/led</property>
+          <value type="double">7.0</value>
+        </greater-than-equals>
+      </or>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>Button</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-assign</command>
+        <property>instrumentation/ledstrip/test</property>
+        <value type="bool">true</value>
+      </binding>
+      <mod-up>
+        <binding>
+          <command>property-assign</command>
+          <property>instrumentation/ledstrip/test</property>
+          <value type="bool">false</value>
+        </binding>
+      </mod-up>
+    </action>
+  </animation>
+
+
+</PropertyList>

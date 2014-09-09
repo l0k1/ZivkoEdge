@@ -1,0 +1,505 @@
+<?xml version = '1.0' encoding = 'UTF-8' ?>
+<PropertyList>
+
+  <params>
+    <power>instrumentation/comm[0]/power</power>
+    <serviceable>instrumentation/comm[0]/serviceable</serviceable>
+    <sql-button>instrumentation/comm[0]/sql-button</sql-button>
+    <mde-button>instrumentation/comm[0]/mde-button</mde-button>
+    <sto-button>instrumentation/comm[0]/sto-button</sto-button>
+    <set-button>instrumentation/comm[0]/set-btn</set-button>
+    <volume>instrumentation/comm[0]/volume</volume>
+    <frq-standby>instrumentation/comm[0]/frequencies/standby-mhz</frq-standby>
+    <frq-selected>instrumentation/comm[0]/frequencies/selected-mhz</frq-selected>
+
+    <digit-a0>instrumentation/comm[0]/display/digit-a[0]</digit-a0>
+    <digit-a1>instrumentation/comm[0]/display/digit-a[1]</digit-a1>
+    <digit-a2>instrumentation/comm[0]/display/digit-a[2]</digit-a2>
+    <digit-a3>instrumentation/comm[0]/display/digit-a[3]</digit-a3>
+    <digit-a4>instrumentation/comm[0]/display/digit-a[4]</digit-a4>
+    <digit-a5>instrumentation/comm[0]/display/digit-a[5]</digit-a5>
+
+    <digit-b0>instrumentation/comm[0]/display/digit-b[0]</digit-b0>
+    <digit-b1>instrumentation/comm[0]/display/digit-b[1]</digit-b1>
+    <digit-b2>instrumentation/comm[0]/display/digit-b[2]</digit-b2>
+    <digit-b3>instrumentation/comm[0]/display/digit-b[3]</digit-b3>
+    <digit-b4>instrumentation/comm[0]/display/digit-b[4]</digit-b4>
+    <digit-b5>instrumentation/comm[0]/display/digit-b[5]</digit-b5>
+    <digit-b6>instrumentation/comm[0]/display/digit-b[6]</digit-b6>
+  </params>
+
+  <path>BeckerAR4201.ac</path>
+
+  <animation>
+    <type>translate</type>
+    <object-name>Switch1</object-name>
+    <property alias="../../params/sql-button"/>
+    <factor>-0.0010</factor>
+    <axis>
+      <x>1.0</x>
+      <y>0.0</y>
+      <z>0.0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>Switch2</object-name>
+    <property alias="../../params/mde-button"/>
+    <factor>-0.0010</factor>
+    <axis>
+      <x>1.0</x>
+      <y>0.0</y>
+      <z>0.0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>Switch3</object-name>
+    <property alias="../../params/sto-button"/>
+    <factor>-0.0010</factor>
+    <axis>
+      <x>1.0</x>
+      <y>0.0</y>
+      <z>0.0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>Switch4</object-name>
+    <property alias="../../params/set-button"/>
+    <factor>-0.0010</factor>
+    <axis>
+      <x>1.0</x>
+      <y>0.0</y>
+      <z>0.0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>Switch1</object-name>
+    <visible type="bool">true</visible>
+    <action>
+      <name>SQLButton</name>
+      <button>0</button>
+      <repeatable type="bool">false</repeatable>
+      <binding>
+        <command>property-assign</command>
+        <property alias="../../../../params/sql-button"/>
+        <value>1</value>
+      </binding>
+      <mod-up>
+        <binding>
+          <command>property-assign</command>
+          <property alias="../../../../../params/sql-button"/>
+          <value>0</value>
+        </binding>
+      </mod-up>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>Switch2</object-name>
+    <visible type="bool">true</visible>
+    <action>
+      <name>MDEButton</name>
+      <button>0</button>
+      <repeatable type="bool">false</repeatable>
+      <binding>
+        <command>property-assign</command>
+        <property alias="../../../../params/mde-button"/>
+        <value>1</value>
+      </binding>
+      <mod-up>
+        <binding>
+          <command>property-assign</command>
+          <property alias="../../../../../params/mde-button"/>
+          <value>0</value>
+        </binding>
+      </mod-up>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>Switch3</object-name>
+    <visible type="bool">true</visible>
+    <action>
+      <name>STOButton</name>
+      <button>0</button>
+      <repeatable type="bool">false</repeatable>
+      <binding>
+        <command>property-assign</command>
+        <property alias="../../../../params/sto-button"/>
+        <value>1</value>
+      </binding>
+      <mod-up>
+        <binding>
+          <command>property-assign</command>
+          <property alias="../../../../../params/sto-button"/>
+          <value>0</value>
+        </binding>
+      </mod-up>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>Switch4</object-name>
+    <visible type="bool">true</visible>
+    <action>
+      <name>SETButton</name>
+      <button>0</button>
+      <repeatable type="bool">false</repeatable>
+      <binding>
+        <command>property-assign</command>
+        <property alias="../../../../params/set-button"/>
+        <value>1</value>
+      </binding>
+      <binding>
+        <command>property-swap</command>
+        <property alias="../../../../params/frq-selected"/>
+        <property alias="../../../../params/frq-standby"/>
+      </binding>
+      <mod-up>
+        <binding>
+          <command>property-assign</command>
+          <property alias="../../../../../params/set-button"/>
+          <value>0</value>
+        </binding>
+      </mod-up>
+    </action>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>LeftKnob</object-name>
+    <property alias="../../params/volume"/>
+    <factor>270</factor>
+    <center>
+     <x-m>0</x-m>
+     <y-m>-0.0133929</y-m>
+     <z-m>-0.0162946</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>LeftKnobPicker.L</object-name>
+    <visible>false</visible>
+    <action>
+      <button>0</button>
+      <repeatable>true</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property alias="../../../../params/volume"/>
+        <step>-0.1</step>
+        <min>0</min>
+        <max>1</max>
+        <wrap>0</wrap>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>LeftKnobPicker.R</object-name>
+    <visible>false</visible>
+    <action>
+      <button>0</button>
+      <repeatable>true</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property alias="../../../../params/volume"/>
+        <step>0.1</step>
+        <min>0</min>
+        <max>1</max>
+        <wrap>0</wrap>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>LeftKnobPicker</object-name>
+    <visible>false</visible>
+    <action>
+      <button>3</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property alias="../../../../params/volume"/>
+        <step>-0.1</step>
+        <min>0</min>
+        <max>1</max>
+        <wrap>0</wrap>
+      </binding>
+    </action>
+    <action>
+      <button>4</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property alias="../../../../params/volume"/>
+        <step>0.1</step>
+        <min>0</min>
+        <max>1</max>
+        <wrap>0</wrap>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>RightKnobPicker.L</object-name>
+    <visible>false</visible>
+    <action>
+      <button>0</button>
+      <repeatable>true</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property alias="../../../../params/frq-standby"/>
+        <step>-0.025</step>
+        <min>118.0</min>
+        <max>140.0</max>
+        <wrap>1</wrap>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>RightKnobPicker.R</object-name>
+    <visible>false</visible>
+    <action>
+      <button>0</button>
+      <repeatable>true</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property alias="../../../../params/frq-standby"/>
+        <step>0.025</step>
+        <min>118.0</min>
+        <max>140.0</max>
+        <wrap>1</wrap>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>RightKnobPicker</object-name>
+    <visible>false</visible>
+    <action>
+      <button>3</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property alias="../../../../params/frq-standby"/>
+        <step>-0.025</step>
+        <min>118.0</min>
+        <max>140.0</max>
+        <wrap>1</wrap>
+      </binding>
+    </action>
+    <action>
+      <button>4</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property alias="../../../../params/frq-standby"/>
+        <step>0.025</step>
+        <min>118.0</min>
+        <max>140.0</max>
+        <wrap>1</wrap>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>Display</object-name>
+    <condition>
+      <property alias="../../../params/power"/>
+      <property alias="../../../params/serviceable"/>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>DigitA0</object-name>
+    <property alias="../../params/digit-a0"/>
+    <step>1</step>
+    <factor>0.1</factor>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>DigitA1</object-name>
+    <property alias="../../params/digit-a1"/>
+    <step>1</step>
+    <factor>0.1</factor>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>DigitA2</object-name>
+    <property alias="../../params/digit-a2"/>
+    <step>1</step>
+    <factor>0.1</factor>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>DigitA3</object-name>
+    <property alias="../../params/digit-a3"/>
+    <step>1</step>
+    <factor>0.1</factor>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>DigitA4</object-name>
+    <property alias="../../params/digit-a4"/>
+    <step>1</step>
+    <factor>0.1</factor>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>DigitA5</object-name>
+    <property alias="../../params/digit-a5"/>
+    <step>1</step>
+    <factor>0.1</factor>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>DigitB0</object-name>
+    <property alias="../../params/digit-b0"/>
+    <step>1</step>
+    <factor>0.1</factor>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>DigitB1</object-name>
+    <property alias="../../params/digit-b1"/>
+    <step>1</step>
+    <factor>0.1</factor>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>DigitB2</object-name>
+    <property alias="../../params/digit-b2"/>
+    <step>1</step>
+    <factor>0.1</factor>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>DigitB3</object-name>
+    <property alias="../../params/digit-b3"/>
+    <step>1</step>
+    <factor>0.1</factor>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>DigitB4</object-name>
+    <property alias="../../params/digit-b4"/>
+    <step>1</step>
+    <factor>0.1</factor>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>DigitB5</object-name>
+    <property alias="../../params/digit-b5"/>
+    <step>1</step>
+    <factor>0.1</factor>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>DigitB6</object-name>
+    <property alias="../../params/digit-b6"/>
+    <step>1</step>
+    <factor>0.1</factor>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+</PropertyList>

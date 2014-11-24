@@ -1,34 +1,108 @@
 var SimpleGpsNavigator = {
-  new: func( gps )
+  new: func( gps, root )
   {
     var m = { parents: [ SimpleGpsNavigator ] };
-    m.gps = gps;
+    m._gps = gps;
+    m._root = root;
+
+    m._destination = {
+      id: m._root.initNode("id","","STRING"),
+      type: root.initNode("type","","STRING"),
+      name: root.initNode("name","","STRING"),
+      lat: root.initNode("lat",0,"DOUBLE"),
+      lon: root.initNode("lon",0,"DOUBLE"),
+      dist: root.initNode("dist",0,"DOUBLE"),
+      bearing: root.initNode("bearing",0,"DOUBLE"),
+      info1: root.initNode("info1","","STRING"),
+      info2: root.initNode("info2","","STRING"),
+      valid: root.initNode("valid","0","BOOL"),
+      coord: geo.aircraft_position(),
+      selected: root.initNode("selected-course",0,"DOUBLE"),
+    };
 
     return m;
   },
 
   update: func() 
   {
+    if( me._destination.valid.getValue() == 0 )
+      return;
+
+    var myPos = geo.aircraft_position();
+    me._destination.bearing.setValue( myPos.course_to( me._destination.coord ) );
+    me._destination.dist.setValue( myPos.distance_to( me._destination.coord ) * M2NM );
   },
 
-  _destination: "",
-  setDestination: func(s)
+  getFrequency: func( type, f )
   {
-    me._destination = s;
+    if( type == "vor" ) {
+      return f/100;
+    }
+    return f;
+  },
+
+  setDestination: func(type, id)
+  {
+    print("New destination: " ~ id ~ "(" ~ type ~ ")");
+    me._destination.name.setValue( id );
+    me._destination.type.setValue( type );
+
+    if( type == "airport" ) {
+      var info = airportinfo( id );
+      me._destination.id.setValue( info.id );
+      me._destination.name.setValue( info.name );
+      me._destination.coord.set_lat(info.lat);
+      me._destination.coord.set_lon(info.lon);
+      me._destination.lat.setValue( info.lat );
+      me._destination.lon.setValue( info.lon );
+      me._destination.dist.setValue( 999999 );
+      me._destination.bearing.setValue( 0 );
+      me._destination.name.setValue( info.name );
+      me._destination.info1.setValue( "TWR 118.00" );
+      me._destination.info2.setValue( "RWY 00/36" );
+      me._destination.valid.setValue( 1 );
+    } else {
+      var info = navinfo( type, id );
+      if( size(info) == 0 ) {
+        me._destination.id.setValue( id );
+        me._destination.name.setValue( "" );
+        me._destination.coord.set_lat(info.lat);
+        me._destination.coord.set_lon(info.lon);
+        me._destination.dist.setValue( 999999 );
+        me._destination.bearing.setValue( 0 );
+        me._destination.name.setValue( "" );
+        me._destination.info1.setValue( "" );
+        me._destination.info2.setValue( "" );
+        me._destination.valid .setValue( 0 );
+      } else {
+        var nav = info[0];
+        me._destination.id.setValue( nav.id );
+        me._destination.name.setValue( nav.name );
+        me._destination.coord.set_lat(nav.lat);
+        me._destination.coord.set_lon(nav.lon);
+        me._destination.dist.setValue( 999999 );
+        me._destination.bearing.setValue( 0 );
+        me._destination.name.setValue( nav.name );
+        me._destination.info1.setValue( "FRQ " ~ me.getFrequency( type, nav.frequency ) );
+        me._destination.info2.setValue( "" );
+        me._destination.valid .setValue( 1 );
+      }
+    }
   },
  
 };
 
 var SimpleGps = {
-  new: func( efis )
+  new: func( efis, root )
   {
     var m = { parents: [ SimpleGps ] };
 
     m.efis = efis;
+    m.root = root;
 
     m.navigator = [
-      SimpleGpsNavigator.new(m),
-      SimpleGpsNavigator.new(m),
+      SimpleGpsNavigator.new(m, root.getChild("gps",0,1) ),
+      SimpleGpsNavigator.new(m, root.getChild("gps",1,1) ),
     ];
 
     return m;
@@ -36,9 +110,10 @@ var SimpleGps = {
 
   update: func() 
   {
-    foreach( var n; navigator )
+    me._enabled or return;
+    foreach( var n; me.navigator )
       n.update();
-    settimer( me.update, 2 );
+    settimer( func() { me.update(); }, 0.1 );
   },
 
   _enabled: 0,
@@ -46,11 +121,11 @@ var SimpleGps = {
   enable: func(b)
   {
     if( b ) {
-      if( me._enabled ) return;
+      me._enabled and return;
       me._enabled = 1;
       me.update();
     } else {
-      if( !me._enabled ) return;
+      me._enabled or return;
     }
 
   }
@@ -74,13 +149,20 @@ var HSI = {
       svg: "/Aircraft/ZivkoEdge/Models/EFIS/Dialog.svg",
       parent: m.g,
       labels: [ "ENG", "ADF", "BUG", "HSI" ],
+      ontimeout: func(d) { m.screenTimeout(d); },
     });
 
     m.hsiConfigScreen = Dialog.new( { 
       svg: "/Aircraft/ZivkoEdge/Models/EFIS/Dialog.svg",
       parent: m.g,
       labels: [ "ARPT", "NDB", "CDI", "VOR" ],
+      ontimeout: func(d) { m.screenTimeout(d); },
     });
+
+    m.gps = SimpleGps.new( efis, props.globals.getNode("/instrumentation/efis/hsi",1) );
+    m.gps.navigator[0].setDestination("airport", "EDDH");
+    m.gps.navigator[1].setDestination("vor", "DHE");
+    m.gps.enable(1);
 
     m.animations = [
       SelectAnimation.new( m.configScreen.overlay, nil, func(o) {
@@ -136,11 +218,97 @@ var HSI = {
       }),
 
       SelectAnimation.new( m.g, "VOR", func(o) {
-        return 0;
+        return getprop("/instrumentation/efis/hsi/gps[0]/valid");
       }),
 
+      SelectAnimation.new( m.g, "To", func(o) {
+        var offsetDeg = geo.normdeg180(
+                  getprop("/instrumentation/efis/hsi/gps[0]/bearing")
+                  - getprop("/instrumentation/efis/hsi/gps[0]/selected-course"));
+        return offsetDeg > -90 and offsetDeg <= 90;
+      }),
+
+      SelectAnimation.new( m.g, "From", func(o) {
+        var offsetDeg = geo.normdeg180(
+                  getprop("/instrumentation/efis/hsi/gps[0]/bearing")
+                  - getprop("/instrumentation/efis/hsi/gps[0]/selected-course"));
+        return offsetDeg <= -90 or offsetDeg > 90;
+      }),
+
+      RotateAnimation.new( m.g, "VOR", func(o,e) {
+        var c = e.getCenter();
+        return { 
+          angle: getprop("/instrumentation/efis/hsi/gps[0]/selected-course")*D2R,
+          cy: c[1],
+          cx: c[0],
+        };
+      }),
+
+      TranslateAnimation.new( m.g, "CDIDeflectionBar", func(o) {
+        var offsetDeg = geo.normdeg180(
+                  getprop("/instrumentation/efis/hsi/gps[0]/bearing")
+                  - getprop("/instrumentation/efis/hsi/gps[0]/selected-course"));
+
+        offsetDeg = offsetDeg > 10 ? 10 : offsetDeg < -10 ? -10 : offsetDeg;
+        return { 
+          y: 0,
+          x: 52/5 * offsetDeg,
+        };
+      }),
+
+
       SelectAnimation.new( m.g, "GreenArrow", func(o) {
-        return 0;
+        return getprop("/instrumentation/efis/hsi/gps[1]/valid");
+      }),
+
+      RotateAnimation.new( m.g, "GreenArrow", func(o,e) {
+        var c = e.getCenter();
+        return { 
+          angle: getprop("/instrumentation/efis/hsi/gps[1]/bearing")*D2R,
+          cy: c[1],
+          cx: c[0],
+        };
+      }),
+
+
+      PrintfTextAnimation.new( m.g, "VORLine1", func(o) {
+        return getprop("/instrumentation/efis/hsi/gps[0]/id");
+      }),
+
+      PrintfTextAnimation.new( m.g, "VORLine2", func(o) {
+        return getprop("/instrumentation/efis/hsi/gps[0]/dist");
+      }),
+
+      PrintfTextAnimation.new( m.g, "VORLine3", func(o) {
+        return getprop("/instrumentation/efis/hsi/gps[0]/name");
+      }),
+
+      PrintfTextAnimation.new( m.g, "VORLine4", func(o) {
+        return getprop("/instrumentation/efis/hsi/gps[0]/info1");
+      }),
+
+      PrintfTextAnimation.new( m.g, "VORLine5", func(o) {
+        return getprop("/instrumentation/efis/hsi/gps[0]/info2");
+      }),
+
+      PrintfTextAnimation.new( m.g, "ADFLine1", func(o) {
+        return getprop("/instrumentation/efis/hsi/gps[1]/id");
+      }),
+
+      PrintfTextAnimation.new( m.g, "ADFLine2", func(o) {
+        return getprop("/instrumentation/efis/hsi/gps[1]/dist");
+      }),
+
+      PrintfTextAnimation.new( m.g, "ADFLine3", func(o) {
+        return getprop("/instrumentation/efis/hsi/gps[1]/name");
+      }),
+
+      PrintfTextAnimation.new( m.g, "ADFLine4", func(o) {
+        return getprop("/instrumentation/efis/hsi/gps[1]/info1");
+      }),
+
+      PrintfTextAnimation.new( m.g, "ADFLine5", func(o) {
+        return getprop("/instrumentation/efis/hsi/gps[1]/info2");
       }),
     ];
 
@@ -173,6 +341,7 @@ var HSI = {
   STATE_ADF:    2,
   STATE_BUG:    3,
   STATE_HSI:    4,
+  STATE_CDI:    5,
   state: 0,
 
   knobPositionChanged: func( n ) 
@@ -197,7 +366,23 @@ var HSI = {
       # knob rotation changes heading bug
       me.efis.writeSensor("headingBug", 
         normalizePeriodic( 0, 360, me.efis.readSensor("headingBug") + n ) );
+
+    } elsif( me.state == me.STATE_CDI ) {
+      # knob rotation changes cdi orientation
+      setprop( "/instrumentation/efis/hsi/gps[0]/selected-course",
+        normalizePeriodic( 0, 360, getprop("/instrumentation/efis/hsi/gps[0]/selected-course") + n ) );
     }
+  },
+
+  screenTimeout: func( dlg )
+  {
+    if( dlg == me.configScreen ) {
+      if( me.state == me.STATE_CONFIG )
+        me.state = me.STATE_NORMAL;
+    } elsif ( dlg == me.hsiConfigScreen ) {
+      if( me.state == me.STATE_HSI )
+        me.state = me.STATE_NORMAL;
+    } 
   },
 
   knobPressed: func( b ) 
@@ -230,10 +415,24 @@ var HSI = {
     } elsif( me.state == me.STATE_ADF ) {
       me.state = me.STATE_NORMAL;
       return 1; # event consumed
+
     } elsif( me.state == me.STATE_BUG ) {
       me.state = me.STATE_NORMAL;
       return 1; # event consumed
+
     } elsif( me.state == me.STATE_HSI ) {
+      var reply = me.hsiConfigScreen.knobPressed( b );
+      if( reply == 0 ) { #ARPT
+      } elsif( reply == 1 ) { #NDB
+      } elsif( reply == 2 ) { #CDI
+        me.state = me.STATE_CDI;
+        return 1;
+      } elsif( reply == 3 ) { #VOR
+      }
+      me.state = me.STATE_NORMAL;
+      return 1; # event consumed
+
+    } elsif( me.state == me.STATE_CDI ) {
       me.state = me.STATE_NORMAL;
       return 1; # event consumed
     }

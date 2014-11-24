@@ -22,10 +22,6 @@
             <property>instrumentation/ledstrip/led</property>
             <value type="double">1.0</value>
           </greater-than-equals>
-          <less-than>
-            <property>instrumentation/ledstrip/led</property>
-            <value type="double">2.0</value>
-          </less-than>
         </and>
       </or>
     </condition>
@@ -43,10 +39,6 @@
             <property>instrumentation/ledstrip/led</property>
             <value type="double">2.0</value>
           </greater-than-equals>
-          <less-than>
-            <property>instrumentation/ledstrip/led</property>
-            <value type="double">3.0</value>
-          </less-than>
         </and>
       </or>
     </condition>
@@ -65,10 +57,6 @@
             <property>instrumentation/ledstrip/led</property>
             <value type="double">3.0</value>
           </greater-than-equals>
-          <less-than>
-            <property>instrumentation/ledstrip/led</property>
-            <value type="double">4.0</value>
-          </less-than>
         </and>
       </or>
     </condition>
@@ -87,10 +75,6 @@
             <property>instrumentation/ledstrip/led</property>
             <value type="double">4.0</value>
           </greater-than-equals>
-          <less-than>
-            <property>instrumentation/ledstrip/led</property>
-            <value type="double">5.0</value>
-          </less-than>
         </and>
       </or>
     </condition>
@@ -109,10 +93,6 @@
             <property>instrumentation/ledstrip/led</property>
             <value type="double">5.0</value>
           </greater-than-equals>
-          <less-than>
-            <property>instrumentation/ledstrip/led</property>
-            <value type="double">6.0</value>
-          </less-than>
         </and>
       </or>
     </condition>
@@ -131,10 +111,6 @@
             <property>instrumentation/ledstrip/led</property>
             <value type="double">6.0</value>
           </greater-than-equals>
-          <less-than>
-            <property>instrumentation/ledstrip/led</property>
-            <value type="double">7.0</value>
-          </less-than>
         </and>
       </or>
     </condition>

@@ -149,12 +149,18 @@ var EFIS = {
     me.sensors[name].setValue(val);
   },
 
-  new: func()
+  new: func( root )
   {
     print("Creating Red Bull Air Race EFIS");
 
     var m = { parents: [EFIS] };
-    
+
+    m.root = props.globals.getNode(root,1);
+
+    m.config = {
+      pressureUnit: m.root.initNode("config/pressure-unit","inhg","STRING"),
+    };
+
     # create a new canvas...
     m.canvas = canvas.new({
       "name": "EFIS",
@@ -235,6 +241,6 @@ var EFIS = {
 };
 
 setlistener("/nasal/canvas/loaded", func {
-  var efis = EFIS.new();
+  var efis = EFIS.new("/instrumentation/efis");
   efis.update();
 }, 1);

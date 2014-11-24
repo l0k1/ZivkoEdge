@@ -1,3 +1,5 @@
+var INHG2HPA = 1013.25 / 29.92133;
+var HPA2INHG = 1 / INHG2HPA;
 var PFD = {
 
   new: func( efis )
@@ -22,20 +24,21 @@ var PFD = {
       SelectAnimation.new( m.g, "Field_BottomRight_Selector", func(o) {
         o.state == o.STATE_QNH;
       }),
-
-      TranslateAnimation.new( m.g, "Horizon", func(o) {
-        return { 
-          y: 10 * o.efis.readSensor( "pitch" ), 
-          x: 0 
-        };
-      }),
-
-      RotateAnimation.new( m.g, "Horizon", func(o) {
-        return { 
-          angle: -o.efis.readSensor("roll")*D2R,
-          cy: SCREEN_HEIGHT_2 - o.efis.readSensor( "pitch" ), 
-          cx: SCREEN_WIDTH_2, 
-        };
+      
+      CombinedAnimation.new( m.g, "Horizon", func(o) {
+        var pitch = 10 * o.efis.readSensor( "pitch" );
+        var roll = -o.efis.readSensor("roll")*D2R;
+        
+        return [{
+            type: "translate",
+            y: pitch, 
+            x: 0 
+          },{
+            type: "rotate",
+            angle: roll,
+            cy: SCREEN_HEIGHT_2 - pitch, 
+            cx: SCREEN_WIDTH_2, 
+          }]
       }),
 
       RotateAnimation.new( m.g, "Compass", func(o,e) {
@@ -76,7 +79,10 @@ var PFD = {
       }),
 
       TextAnimation.new( m.g, "Field_BottomRight", func(o) {
-        return sprintf("%4.2f", o.efis.readSensor("kollsmann"));
+        if( o.efis.config.pressureUnit.getValue() == "inhg" )
+          return sprintf("%4.2f", o.efis.readSensor("kollsmann"));
+        else
+          return sprintf("%4d", o.efis.readSensor("kollsmann") * INHG2HPA );
       }),
 
       TextAnimation.new( m.g, "AltimeterThousands", func(o) {
@@ -156,7 +162,7 @@ var PFD = {
         };
       }),
 
-      TranslateAnimation.new( m.g, "AltimeterLadder", func(o) {
+      TranslateAnimation.new( m.g, "ASILadder", func(o) {
         var v = o.efis.readSensor("ias");
         return { 
           y: v > 40 ?  38 * 8 + 76*math.fmod(v,10)/10 : 38 * v / 5,
@@ -236,8 +242,9 @@ var PFD = {
 
     } elsif( me.state == me.STATE_QNH ) {
       # knob rotation changes kollsmann
+      var step = me.efis.config.pressureUnit.getValue() == "inhg" ? 0.01 : HPA2INHG;
       me.efis.writeSensor("kollsmann", 
-          me.efis.readSensor("kollsmann") + n * 0.01 );
+          me.efis.readSensor("kollsmann") + n * step );
     }
   },
 

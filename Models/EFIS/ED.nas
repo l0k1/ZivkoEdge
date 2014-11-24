@@ -327,6 +327,12 @@ var ED = {
     return m;
   },
 
+  getName: func()
+  {
+    return "ed";
+  },
+
+
   update: func() 
   {
     foreach( var g; me.gauges ) 

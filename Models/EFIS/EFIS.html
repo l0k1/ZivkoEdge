@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="/img/FlightGear_logo.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link rel="shortcut icon" sizes="200x200" href="/img/FlightGear_logo.png">
+<link rel="icon" sizes="200x200" href="/img/FlightGear_logo.png">
+<title>FlightGear - RBAR EFIS</title>
+<style type="text/css" media="screen">
+html,body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	max-height: 100%;
+	width: 100%;
+	max-width: 100%;
+};
+
+.efis-screen {
+	position: absolute;
+	height: 100%;
+	max-height: 100%;
+	width: 100%;
+	max-width: 100%;
+	top: 0;
+	border: 0;
+	background-color: yellow;
+	display: inline;
+}
+
+</style>
+<link rel="stylesheet" type="text/css" href="/Fonts/LiberationFonts/LiberationFonts.css">
+
+<script type="text/javascript" charset="utf-8"
+	src="/gui/3rdparty/jquery/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" charset="utf-8"
+  src="jquery.fganimate.js"></script>
+<script type="text/javascript" charset="utf-8"
+  src="js/sprintf/sprintf.min.js"></script>
+<script src="/gui/lib/props.js" type="text/javascript"></script>
+
+<script type="text/javascript" charset="utf-8">
+var INHG2HPA = 1013.25 / 29.92133;
+var HPA2INHG = 1 / INHG2HPA;
+
+var props = {
+    heading: {
+      node: "/orientation/heading-magnetic-deg"
+    },
+    roll: {
+      node: "/orientation/roll-deg"
+    },
+    pitch: {
+      node: "/orientation/pitch-deg"
+    },
+    slipSkid: {
+      node: "/instrumentation/slip-skid-ball/indicated-slip-skid"
+    },
+    accel: {
+      node: "/accelerations/pilot/z-accel-fps_sec"
+    },
+    kollsmann: {
+      node: "/instrumentation/altimeter[1]/setting-inhg"
+    },
+    pressureUnit: {
+      node: "/instrumentation/efis/config/pressure-unit"
+    },
+    altitude: {
+      node: "/instrumentation/altimeter[1]/indicated-altitude-ft"
+    },
+    ias: {
+      node: "/instrumentation/airspeed-indicator[1]/indicated-speed-kt"
+    },
+    // keep this the last entry to make sure all other values were initialized before
+    selectedScreen: {
+      node: "/instrumentation/efis/current-screen-name",
+      value: 0,
+    },
+};
+
+PropertyChangeListener(function() {
+  Object.keys(props).forEach(function(key){
+    SetListener( props[key].node, function(n) {
+    if( typeof( n.value ) != 'undefined' )
+      props[key].value = n.value;
+    });
+  });
+});
+
+var SCREEN_HEIGHT=768;
+var SCREEN_WIDTH=1024;
+var SCREEN_HEIGHT_2=SCREEN_HEIGHT/2;
+var SCREEN_WIDTH_2=SCREEN_WIDTH/2;
+  
+var EFISScreen = {
+  name: "",
+  update: function() {
+    // lazy loading of the svg file
+    if( !this.hasOwnProperty("parentElement") ) {
+      // create the <div> for this screen as a child of <body>
+      this.parentElement = $("<div>").attr("id",this.name).attr("class","efis-screen");
+      $("body").append(this.parentElement);
+
+      var fileName = this.name.concat(".svg");
+      var parentElement = this.parentElement;
+      // load the svg via ajax and append <svg> as a child of the <div>
+      $.ajax({
+        type: "GET",
+        url: fileName,
+        dataType: "xml",
+        success: function (xml,status,xhr) {
+          $(xml).find("svg").each(function(){
+            parentElement.append(this);
+          });
+        }
+      });
+    }
+    
+    // wait until the svg element shows up (ajax loading is complete)
+    if( !this.hasOwnProperty("svgElement") ) {
+      var svg = this.parentElement.find("svg");
+      if( svg.length == 0 )
+        return;
+      this.svgElement = svg;
+
+      SCREEN_HEIGHT = svg.attr("height");
+      SCREEN_WIDTH = svg.attr("width");
+      SCREEN_HEIGHT_2=SCREEN_HEIGHT/2;
+      SCREEN_WIDTH_2=SCREEN_WIDTH/2;
+
+//      var viewbox = "0 0 ".concat(SCREEN_WIDTH.toString()).concat(" ").concat(SCREEN_HEIGHT.toString());
+//      svg.attr("viewBox",viewbox);
+//      svg.attr("preserveAspectRatio","xMinYMin meet");
+    }
+    
+    this.applyAnimations();
+  },
+  
+  applyAnimations: function() {},
+};
+
+var PFD = Object.create(EFISScreen);
+PFD.name = "PFD";
+
+PFD.getAltitudeLabel = function(n)
+{
+  // draw labels every 200ft
+  var v = Math.floor(props.altitude.value/200)*2-4;
+  v = (v+n*2)/10;
+  var negative = false;
+  // ouch - sprintf doesn't like negative numbers :-(
+  if( v < 0 ) {
+    negative = true;
+    v = -v;
+  }
+  var reply = sprintf("%2f", v);
+  if( negative ) reply = "-".concat(reply);
+  return reply;
+}
+
+PFD.getASILabel = function(n)
+{
+    // draw labels every 20kt
+    var v = Math.floor(props.ias.value/20)*20 - 40;
+    v = v < 0 ?  0 : v;
+    return sprintf("%3d", v+n*20 )
+}
+
+PFD.animateLadder = function( labelProp, labelSelector, 
+                              labelsProp, labelsSelector, 
+                              ladderProp, ladderSelector, 
+                              nLabels, getLabelText, getLabelsTranslate, getLadderTranslate )
+{
+  if( !this.hasOwnProperty(labelProp) ) {
+    this[labelProp] = [];
+    for( var i = 0; i < nLabels; i++ ) {
+      this[labelProp][i]=this.svgElement.find(labelSelector.concat(i));
+    }
+  }
+
+  for( var i = 0; i < nLabels; i++ ) {
+    this[labelProp][i].fgAnimateSVG({
+      type: "text",
+      text: getLabelText(i),
+    });
+  }
+
+  if( !this.hasOwnProperty(labelsProp) ) 
+    this[labelsProp]=this.svgElement.find(labelsSelector);
+
+  this[labelsProp].fgAnimateSVG({
+    type : "transform",
+    transforms : [ {
+      type : "translate",
+      props : {
+        y : getLabelsTranslate(),
+        x : 0,
+      }
+    }]
+  });
+
+  if( !this.hasOwnProperty(ladderProp) ) 
+    this[ladderProp]=this.svgElement.find(ladderSelector);
+
+  this[ladderProp].fgAnimateSVG({
+    type : "transform",
+    transforms : [ {
+      type : "translate",
+      props : {
+        y : getLadderTranslate(),
+        x : 0,
+      }
+    }]
+  });
+
+}
+
+/*
+Animation = function(base,selector) {
+  this.element = $(base).find(selector);
+
+  // compute center
+  var r = this.element.get()[0].getBoundingClientRect()
+  this.cx = r.left + r.width/2;
+  this.cy = r.top + r.height/2;
+
+  this.apply = function(props) {
+    this.element.fgAnimateSVG(props);
+  };
+}
+
+PFD.animations = [
+  new Animation("#Compass")
+];
+*/
+PFD.applyAnimations = function() 
+{
+  if( !this.hasOwnProperty("fieldBottomRightSelector") ) {
+    this.fieldBottomRightSelector=this.svgElement.find("#Field_BottomRight_Selector");
+    // for now, simply hide the marker for the QNH field
+    this.fieldBottomRightSelector.hide();
+  }
+
+  if( !this.hasOwnProperty("horizon") )
+    this.horizon=this.svgElement.find("#Horizon");
+
+  if( !this.hasOwnProperty("slipSkidBall") )
+    this.slipSkidBall=this.svgElement.find("#SlipSkidBall");
+  
+  if( !this.hasOwnProperty("compass") ) {
+    this.compass=this.svgElement.find("#Compass");
+    var r = this.compass.get()[0].getBoundingClientRect()
+    this.compass.cx = r.left + r.width/2;
+    this.compass.cy = r.top + r.height/2;
+  }
+  
+  if( !this.hasOwnProperty("heading") )
+    this.heading=this.svgElement.find("#Heading");
+  
+  if( !this.hasOwnProperty("fieldTopRight") )
+    this.fieldTopRight=this.svgElement.find("#Field_TopRight");
+
+  if( !this.hasOwnProperty("fieldBottomRight") )
+    this.fieldBottomRight=this.svgElement.find("#Field_BottomRight");
+  
+  if( !this.hasOwnProperty("altimeterThousands") )
+    this.altimeterThousands=this.svgElement.find("#AltimeterThousands");
+  
+  if( !this.hasOwnProperty("altimeterHundrets") )
+    this.altimeterHundrets=this.svgElement.find("#AltimeterHundrets");
+  
+  var pitch = 10*props.pitch.value;
+  var roll = -props.roll.value;
+  var heading = props.heading.value;
+  
+  this.horizon.fgAnimateSVG({
+    type : "transform",
+    transforms : [ {
+      type : "translate",
+      props : {
+        x : 0,
+        y : pitch,
+      }
+
+    }, {
+      type : "rotate",
+      props : {
+        a : roll,
+        x : SCREEN_WIDTH_2,
+        y : SCREEN_HEIGHT_2 - pitch,
+      }
+    }]
+  });
+
+
+  // returned value is approx angle in radians * 10
+  // convert to deg, max dev is 125px for 10 deg
+  // v * 5.729 * 125 / 10 = 71.6125
+  var v = props.slipSkid.value * -71.6125;
+
+  this.slipSkidBall.fgAnimateSVG({
+    
+    type : "transform",
+    transforms : [ {
+      type : "translate",
+      props : {
+        y: 0,
+        x: v < -125 ? -125 : v > 125 ? 125 : v,
+      }
+    }]
+  });
+
+  this.compass.fgAnimateSVG({
+    type: "transform",
+    transforms: [{
+      type: "rotate",
+      props: {
+        a: -heading,
+        x: this.compass.cx,
+        y: this.compass.cy,
+      }
+    }]
+  });
+  
+  this.heading.fgAnimateSVG({
+    type: "text",
+    text: sprintf("%03d", heading ),
+  });
+  
+  this.fieldTopRight.fgAnimateSVG({
+    type: "text",
+    text: sprintf("%+.1fG",  -0.0310810 * props.accel.value )
+  });
+
+  this.fieldBottomRight.fgAnimateSVG({
+    type: "text",
+    text: props.pressureUnit.value == "inhg" ? 
+          sprintf("%4.2f", props.kollsmann.value ) :
+          sprintf("%4d", props.kollsmann.value * INHG2HPA ),
+  });
+
+  this.altimeterThousands.fgAnimateSVG({
+    type: "text",
+    text: sprintf("%2d", props.altitude.value/1000)
+    
+  });
+  
+  Math.fmod = function (a,b) { return Number((a - (Math.floor(a / b) * b))); };
+
+  this.altimeterHundrets.fgAnimateSVG({
+    type: "text",
+    text: sprintf("%03d", Math.fmod(Math.abs(props.altitude.value),1000))
+  });
+
+  this.animateLadder( "altimeterLadderLabel", "#AltimeterLadderLabel",
+                    "altimeterLadderLabels","#AltimeterLadderLabels",
+                    "altimeterLadder","#AltimeterLadder",
+                     5, 
+                     function(n) { return PFD.getAltitudeLabel(n); },
+                     function() { return 152 * Math.fmod(props.altitude.value,200)/200; },
+                     function() { return 76 * Math.fmod(props.altitude.value,100)/100; });
+
+  if( !this.hasOwnProperty("asiDigits") ) 
+    this.asiDigits=this.svgElement.find("#ASIDigits");
+
+  this.asiDigits.fgAnimateSVG({
+    type: "text",
+    text: props.ias.value >= 1.0 ? sprintf("%3d", props.ias.value ) : "---"
+  });
+
+  this.animateLadder( "asiLadderLabel", "#ASILadderLabel",
+                    "asiLadderLabels","#ASILadderLabels",
+                    "asiLadder","#ASILadder",
+                     5, 
+                     function(n) { return PFD.getASILabel(n); },
+                     function() { return props.ias.value > 40 ?  38 * 8 + 152*Math.fmod(props.ias.value,20)/20 : 38 * v / 5; },
+                     function() { return props.ias.value > 40 ?  38 * 8 +  76*Math.fmod(props.ias.value,10)/10 : 38 * v / 5; });
+
+}
+
+var HSI = Object.create(EFISScreen);
+HSI.name = "HSI";
+
+var screens = {
+    "pfd": PFD,
+    "hsi": HSI,
+}
+
+var currentScreen = "-";
+
+$(document).ready(function() {
+  window.setInterval( function() {
+    // wait until properties are complete
+    if( 0 == props.selectedScreen.value )
+      return;
+    
+    if( currentScreen != props.selectedScreen.value ) {
+      if( currentScreen in screens ) {
+        $("#" + screens[currentScreen].name ).hide();
+      }
+      
+      currentScreen = props.selectedScreen.value;
+      if( currentScreen in screens ) {
+        console.log( "switching to screen", currentScreen );
+        $("#" + screens[currentScreen].name ).show();
+      } else {
+        console.log( "unhandled screen", currentScreen );
+        return;
+      }
+    }
+    screens[currentScreen].update();
+    
+  }, 50 );
+});
+</script>
+</head>
+<body>
+</body>
+</html>
+

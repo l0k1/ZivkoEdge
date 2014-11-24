@@ -18,6 +18,29 @@ var Animation = {
   },
 };
 
+var CombinedAnimation = {
+  new: func(e,id,f)
+  {
+    var m = { parents: [ CombinedAnimation, Animation.new(e,id,f) ] };
+    m.translate = m.element.createTransform();
+    m.rotate = m.element.createTransform();
+    return m;
+  },
+
+  apply: func(o)
+  {
+    var anims = me.f(o, me.element);
+    foreach( var anim; anims ) {
+      if( anim.type == "rotate" ) {
+        me.rotate.setRotation( anim.angle, anim.cx, anim.cy );
+      } elsif( anim.type == "translate" ) {
+        me.translate.setTranslation( anim.x, anim.y );
+      }
+    }
+  
+  },
+};
+
 var SelectAnimation = {
   new: func(e,id,f)
   {

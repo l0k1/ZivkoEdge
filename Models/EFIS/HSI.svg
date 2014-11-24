@@ -11,9 +11,9 @@
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="1024"
    height="768"
-   id="svg2985"
+   id="hsi"
    version="1.1"
-   inkscape:version="0.48.3.1 r9886"
+   inkscape:version="0.48.4 r9939"
    sodipodi:docname="HSI.svg">
   <title
      id="title4639">FlightGear RBAR EFIS (HSI)</title>
@@ -26,19 +26,24 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.85882353"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.734375"
-     inkscape:cx="512"
-     inkscape:cy="384"
+     inkscape:zoom="1.1506348"
+     inkscape:cx="664.78635"
+     inkscape:cy="197.52355"
      inkscape:document-units="px"
-     inkscape:current-layer="Compass"
+     inkscape:current-layer="FixedElements"
      showgrid="false"
-     inkscape:window-width="1236"
-     inkscape:window-height="782"
-     inkscape:window-x="40"
-     inkscape:window-y="-1"
+     inkscape:window-width="1920"
+     inkscape:window-height="1177"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
      showguides="true"
-     inkscape:guide-bbox="true" />
+     inkscape:guide-bbox="true">
+    <sodipodi:guide
+       orientation="1,0"
+       position="374.57584,353.50052"
+       id="guide3089" />
+  </sodipodi:namedview>
   <metadata
      id="metadata2990">
     <rdf:RDF>
@@ -119,7 +124,7 @@
          d="m 210.28379,440.77248 0,-121.91965"
          style="fill:none;stroke:#ffff00;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline" />
       <path
-         id="To"
+         id="From"
          d="m 261.08588,539.106 24.0918,43.68757 24.0918,-43.68757"
          style="fill:none;stroke:#ffff00;stroke-width:10;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline"
          inkscape:connector-curvature="0" />
@@ -129,7 +134,7 @@
          d="m 186.19226,209.68719 24.0918,-43.68757 24.0918,43.68757 m -24.09207,370.62589 0,-134.49968 m 0,-131.93488 0,-140.84075"
          inkscape:connector-curvature="0" />
       <path
-         id="From"
+         id="To"
          d="m 261.08588,582.79357 24.0918,-43.68757 24.0918,43.68757"
          style="fill:none;stroke:#ffff00;stroke-width:10;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline"
          inkscape:connector-curvature="0" />
@@ -237,114 +242,94 @@
          sodipodi:role="line">999</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:45px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#f9ff35;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
-       x="16.162319"
+       style="font-size:45px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr;text-anchor:end;fill:#f9ff35;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+       x="228.58784"
        y="551.44775"
        id="VORLine1"
        sodipodi:linespacing="100%"><tspan
          sodipodi:role="line"
-         id="tspan3826"
-         x="16.162319"
-         y="551.44775">----</tspan></text>
+         id="tspan3085">%.4s</tspan></text>
     <text
        sodipodi:linespacing="100%"
        id="VORLine2"
        y="599.90167"
-       x="16.162319"
-       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#f9ff35;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+       x="272.95529"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr;text-anchor:end;fill:#f9ff35;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
        xml:space="preserve"><tspan
-         y="599.90167"
-         x="16.162319"
-         id="tspan3830"
-         sodipodi:role="line">-nm</tspan></text>
+         sodipodi:role="line"
+         id="tspan3063">%4dnm</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:36px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#f9ff35;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
-       x="16.162319"
+       style="font-size:36px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr;text-anchor:end;fill:#f9ff35;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+       x="272.2756"
        y="648.35559"
        id="VORLine3"
        sodipodi:linespacing="100%"><tspan
          sodipodi:role="line"
-         id="tspan3834"
-         x="16.162319"
-         y="648.35559">------------</tspan></text>
+         id="tspan3081">%.12s</tspan></text>
     <text
        sodipodi:linespacing="100%"
        id="VORLine4"
        y="696.80945"
-       x="16.162319"
-       style="font-size:36px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#f9ff35;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+       x="272.2756"
+       style="font-size:36px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr;text-anchor:end;fill:#f9ff35;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
        xml:space="preserve"><tspan
-         y="696.80945"
-         x="16.162319"
-         id="tspan3838"
-         sodipodi:role="line">------------</tspan></text>
+         sodipodi:role="line"
+         id="tspan3079">%.12s</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:36px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#f9ff35;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
-       x="16.162319"
+       style="font-size:36px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr;text-anchor:end;fill:#f9ff35;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+       x="272.2756"
        y="745.26337"
        id="VORLine5"
        sodipodi:linespacing="100%"><tspan
          sodipodi:role="line"
-         id="tspan3842"
-         x="16.162319"
-         y="745.26337">------------</tspan></text>
+         id="tspan3077">%.12s</tspan></text>
     <text
        sodipodi:linespacing="100%"
        id="ADFLine1"
        y="551.44775"
        x="1011.7472"
-       style="font-size:45px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:end;fill:#1be900;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+       style="font-size:45px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr;text-anchor:end;fill:#1be900;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
        xml:space="preserve"><tspan
-         y="551.44775"
-         x="1011.7472"
-         id="tspan3846"
-         sodipodi:role="line">----</tspan></text>
+         sodipodi:role="line"
+         id="tspan3083">%.4s</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:end;fill:#1be900;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr;text-anchor:end;fill:#1be900;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
        x="1011.7472"
        y="599.90167"
        id="ADFLine2"
        sodipodi:linespacing="100%"><tspan
          sodipodi:role="line"
-         id="tspan3850"
-         x="1011.7472"
-         y="599.90167">-nm</tspan></text>
+         id="tspan3067">%4dnm</tspan></text>
     <text
        sodipodi:linespacing="100%"
        id="ADFLine3"
        y="648.35559"
        x="1011.7472"
-       style="font-size:36px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:end;fill:#1be900;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+       style="font-size:36px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr;text-anchor:end;fill:#1be900;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
        xml:space="preserve"><tspan
-         y="648.35559"
-         x="1011.7472"
-         id="tspan3854"
-         sodipodi:role="line">------------</tspan></text>
+         sodipodi:role="line"
+         id="tspan3073">%.12s</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:36px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:end;fill:#1be900;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+       style="font-size:36px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr;text-anchor:end;fill:#1be900;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
        x="1011.7472"
        y="696.80945"
        id="ADFLine4"
        sodipodi:linespacing="100%"><tspan
          sodipodi:role="line"
-         id="tspan3858"
-         x="1011.7472"
-         y="696.80945">------------</tspan></text>
+         id="tspan3071">%.12s</tspan></text>
     <text
        sodipodi:linespacing="100%"
        id="ADFLine5"
        y="745.26337"
        x="1011.7472"
-       style="font-size:36px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:end;fill:#1be900;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
+       style="font-size:36px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr;text-anchor:end;fill:#1be900;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"
        xml:space="preserve"><tspan
-         y="745.26337"
-         x="1011.7472"
-         id="tspan3862"
-         sodipodi:role="line">------------</tspan></text>
+         sodipodi:role="line"
+         id="tspan3075">%.12s</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:45px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Liberation Mono;-inkscape-font-specification:Liberation Mono"

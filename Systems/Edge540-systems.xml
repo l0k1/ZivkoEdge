@@ -16,7 +16,7 @@
   <static>
     <name>static</name>
     <number>0</number>
-    <tau>1</tau>
+    <tau>0</tau> <!-- no low-pass-filter -->
   </static>
 
   <vacuum>

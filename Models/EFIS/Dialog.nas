@@ -7,6 +7,8 @@ var Dialog =
     m.overlay = props.parent.createChild("group","overlaySVG");
     canvas.parsesvg(m.overlay, props.svg);
 
+    m.ontimeout = props['ontimeout'];
+
     m.size = size(props.labels);
     m.animations = [];
 
@@ -24,13 +26,27 @@ var Dialog =
       m.overlay.getElementById( "Item" ~ i ).setVisible( 0 );
     }
 
+    m.lastAction = getprop("/sim/time/elapsed-sec");
+
     return m;
+  },
+
+    
+  checkTimeout: func()
+  {
+    if( getprop("/sim/time/elapsed-sec") - me.lastAction > 5 ) {
+      if( me.ontimeout != nil )
+        me.ontimeout( me );
+    } else {
+      settimer( func() { me.checkTimeout(); }, 0.1 );
+    }
   },
 
   init: func()
   {
     me.focus = 0;
-    me.applyAnimations();
+    me.knobPositionChanged(0);
+    me.checkTimeout();
   },
 
   applyAnimations: func()
@@ -43,6 +59,7 @@ var Dialog =
 
   knobPositionChanged: func( n ) 
   {
+    me.lastAction = getprop("/sim/time/elapsed-sec");
     me.focus += n;
     if( me.focus >= me.size )
       me.focus = 0;

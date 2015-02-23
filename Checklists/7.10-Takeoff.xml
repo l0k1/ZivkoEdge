@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<PropertyList>
+  <title>Take-off</title>
+  <item>
+    <name><![CDATA[Throttle]]></name>
+    <value>SMOOTHLY ADVANCE TO FULL POWER</value>
+  </item>
+  <item>
+    <name><![CDATA[Rotate]]></name>
+    <value>65 KIAS</value>
+  </item>
+</PropertyList>
+

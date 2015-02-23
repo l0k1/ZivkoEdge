@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<PropertyList>
+  <title>Cruise</title>
+  <item>
+    <name><![CDATA[Throttle]]></name>
+    <value>SET AS REQUIRED</value>
+  </item>
+  <item>
+    <name><![CDATA[Mixture]]></name>
+    <value>SET AS REQUIRED</value>
+  </item>
+  <item>
+    <name><![CDATA[Prop]]></name>
+    <value>SET AS REQUIRED</value>
+  </item>
+  <item>
+    <name><![CDATA[Trim]]></name>
+    <value>SET AS REQUIRED</value>
+  </item>
+  <item>
+    <name><![CDATA[Fuel selector]]></name>
+    <value>SET AS REQUIRED</value>
+  </item>
+</PropertyList>
+

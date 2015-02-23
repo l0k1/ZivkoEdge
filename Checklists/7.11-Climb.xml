@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<PropertyList>
+  <title>Climb</title>
+  <item>
+    <name><![CDATA[Boost Pump]]></name>
+    <value>OFF</value>
+  </item>
+  <item>
+    <name><![CDATA[RPM]]></name>
+    <value>SET AS REQUIRED</value>
+  </item>
+  <item>
+    <name><![CDATA[Mixture]]></name>
+    <value>SET AS REQUIRED</value>
+  </item>
+  <item>
+    <name><![CDATA[Trim]]></name>
+    <value>SET AS REQUIRED</value>
+  </item>
+</PropertyList>
+

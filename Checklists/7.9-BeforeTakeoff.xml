@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<PropertyList>
+  <title>Before Take-off</title>
+  <item>
+    <name><![CDATA[Canopy]]></name>
+    <value>CHECK CLOSED AND LOCKED</value>
+  </item>
+  <item>
+    <name><![CDATA[Flight Control]]></name>
+    <value>CHECK FULL AND FREE MOVEMENT</value>
+  </item>
+  <item>
+    <name><![CDATA[Instruments]]></name>
+    <value>CHECK T's and P's. SET ALT, RADIO, TRANS.</value>
+  </item>
+  <item>
+    <name><![CDATA[Fuel selector]]></name>
+    <value>FUSELAGE TANK SELECTED</value>
+  </item>
+  <item>
+    <name><![CDATA[Boost Pump]]></name>
+    <value>ON</value>
+  </item>
+  <item>
+    <name><![CDATA[Trim]]></name>
+    <value>NEUTRAL. SET FOR T/O</value>
+  </item>
+  <item>
+    <name><![CDATA[Run-up]]></name>
+    <value>CHECK MAGS, PROP, T's and P's.</value>
+  </item>
+  <item>
+    <name><![CDATA[Safety]]></name>
+    <value>CHECK HARNESS and CANOPY SECURE</value>
+  </item>
+</PropertyList>

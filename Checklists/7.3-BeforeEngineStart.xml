@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<PropertyList>
+  <title>Before Engine Start</title>
+  <item>
+    <name><![CDATA[Preflight inspection complete]]></name>
+    <value>COMPLETE</value>
+  </item>
+  <item>
+    <name><![CDATA[Parachute handling briefing]]></name>
+    <value>COMPLETE</value>
+  </item>
+  <item>
+    <name><![CDATA[Seats, seatbelts and harness]]></name>
+    <value>ADJUST AND LOCK</value>
+  </item>
+  <item>
+    <name><![CDATA[Canopy]]></name>
+    <value>CLOSE AND LOCK</value>
+  </item>
+  <item>
+    <name><![CDATA[Brakes]]></name>
+    <value>CHECK ON</value>
+  </item>
+  <item>
+    <name><![CDATA[Electrical equipment]]></name>
+    <value>OFF</value>
+  </item>
+  <item>
+    <name><![CDATA[Alternator]]></name>
+    <value>OFF FOR START</value>
+  </item>
+  <item>
+    <name><![CDATA[Wingtip position/strobe lights]]></name>
+    <value>OFF FOR START</value>
+  </item>
+</PropertyList>

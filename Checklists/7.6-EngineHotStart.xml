@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<PropertyList>
+  <title>Engine Hot Start</title>
+  <item>
+    <name><![CDATA[Canopy]]></name>
+    <value>CLOSED AND LOCKED</value>
+  </item>
+  <item>
+    <name><![CDATA[Master Switch]]></name>
+    <value>ON</value>
+  </item>
+  <item>
+    <name><![CDATA[Radios]]></name>
+    <value>OFF</value>
+  </item>
+  <item>
+    <name><![CDATA[Mixture]]></name>
+    <value>RICH</value>
+  </item>
+  <item>
+    <name><![CDATA[Throttle]]></name>
+    <value>OPEN ONE INCH</value>
+  </item>
+  <item>
+    <name><![CDATA[Fuel boost pump]]></name>
+    <value>IF ANY REQUIRED</value>
+  </item>
+  <item>
+    <name><![CDATA[Mixture]]></name>
+    <value>FULL LEAN</value>
+  </item>
+  <item>
+    <name><![CDATA[Throttle]]></name>
+    <value>SLIGHTLY CRACKED</value>
+  </item>
+  <item>
+    <name><![CDATA[Left mag switch]]></name>
+    <value>ON</value>
+  </item>
+  <item>
+    <name><![CDATA[Prop]]></name>
+    <value>HIGH RPM AND CLEAR</value>
+  </item>
+  <item>
+    <name><![CDATA[Starter]]></name>
+    <value>ON</value>
+  </item>
+  <item>
+    <name><![CDATA[Mixture]]></name>
+    <value>FULL RICH WHEN ENGINE FIRES</value>
+  </item>
+  <item>
+    <name><![CDATA[Throttle]]></name>
+    <value>AS REQUIRED</value>
+  </item>
+  <item>
+    <name><![CDATA[Right mag switch]]></name>
+    <value>ON</value>
+  </item>
+  <item>
+    <name><![CDATA[Radios]]></name>
+    <value>On</value>
+  </item>
+  <item>
+    <name><![CDATA[Instruments]]></name>
+    <value>CHECK</value>
+  </item>
+</PropertyList>

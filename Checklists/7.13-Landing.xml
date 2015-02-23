@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<PropertyList>
+  <title>Landing</title>
+  <item>
+    <name><![CDATA[Boost pump]]></name>
+    <value>ON</value>
+  </item>
+  <item>
+    <name><![CDATA[Mixture]]></name>
+    <value>FULL RICH</value>
+  </item>
+  <item>
+    <name><![CDATA[Prop]]></name>
+    <value>HIGH RPM</value>
+  </item>
+  <item>
+    <name><![CDATA[Trim]]></name>
+    <value>SET AS REQUIRED</value>
+  </item>
+  <item>
+    <name><![CDATA[Approach Speed]]></name>
+    <value>100 KIAS RECOMMENDED</value>
+  </item>
+  <item>
+    <name><![CDATA[Touchdown Speed]]></name>
+    <value>70 KIAS RECOMMENDED</value>
+  </item>
+  <item>
+    <name><![CDATA[Boost pump]]></name>
+    <value>OFF</value>
+  </item>
+</PropertyList>
+

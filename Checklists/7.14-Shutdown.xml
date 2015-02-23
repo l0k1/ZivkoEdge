@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<PropertyList>
+  <title>Shutdown</title>
+  <item>
+    <name><![CDATA[Mixture]]></name>
+    <value>CUT-OFF</value>
+  </item>
+  <item>
+    <name><![CDATA[Mag switches]]></name>
+    <value>OFF</value>
+  </item>
+  <item>
+    <name><![CDATA[Fuel]]></name>
+    <value>OFF</value>
+  </item>
+  <item>
+    <name><![CDATA[Master switch]]></name>
+    <value>OFF</value>
+  </item>
+  <item>
+    <name><![CDATA[Alternator switch]]></name>
+    <value>OFF</value>
+  </item>
+  <item>
+    <name><![CDATA[Controls]]></name>
+    <value>SECURED AD LOCKED</value>
+  </item>
+</PropertyList>
+

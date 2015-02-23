@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<PropertyList>
+  <title>Taxiing the Airplane</title>
+  <item>
+    <name><![CDATA[Brake]]></name>
+    <value>CHECK</value>
+  </item>
+  <item>
+    <name><![CDATA[Altimeter]]></name>
+    <value>SET</value>
+  </item>
+  <item>
+    <name><![CDATA[Avionics]]></name>
+    <value>ON</value>
+  </item>
+  <item>
+    <name><![CDATA[Electrical systems]]></name>
+    <value>ON</value>
+  </item>
+  <item>
+    <name><![CDATA[Mixture]]></name>
+    <value>FULL RICH</value>
+  </item>
+</PropertyList>

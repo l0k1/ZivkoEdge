@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<PropertyList>
+  <title>Engine Failure During Take-off Roll</title>
+  <type>abnormal</type>
+  <item>
+    <name><![CDATA[Throttle]]></name>
+    <value>IDLE</value>
+  </item>
+  <item>
+    <name><![CDATA[Brakes]]></name>
+    <value>APPLY</value>
+  </item>
+  <item>
+    <name><![CDATA[Mixture]]></name>
+    <value>IDLE CUT OFF</value>
+  </item>
+  <item>
+    <name><![CDATA[Ignition]]></name>
+    <value>OFF</value>
+  </item>
+  <item>
+    <name><![CDATA[Master Switch]]></name>
+    <value>OFF</value>
+  </item>
+</PropertyList>
+

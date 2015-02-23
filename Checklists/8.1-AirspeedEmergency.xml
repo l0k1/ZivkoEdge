@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<PropertyList>
+  <title>Airspeeds for Emergency Operations</title>
+  <type>abnormal</type>
+  <item>
+    <name><![CDATA[Stall Speed]]></name>
+    <value>58 KIAS</value>
+  </item>
+  <item>
+    <name><![CDATA[Engine Failure after take-off]]></name>
+    <value>80 KIAS</value>
+  </item>
+  <item>
+    <name><![CDATA[Best recommended Glide]]></name>
+    <value>80 KIAS</value>
+  </item>
+  <item>
+    <name><![CDATA[Cautionary landing]]></name>
+    <value>80 KIAS</value>
+  </item>
+  <item>
+    <name><![CDATA[Landing without engine power]]></name>
+    <value>80 KIAS</value>
+  </item>
+  <item>
+    <name><![CDATA[Max. Demonstrated crosswind]]></name>
+    <value>15 Knots</value>
+  </item>
+</PropertyList>
+

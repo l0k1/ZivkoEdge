@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<PropertyList>
+  <title>Engine Failure Immediately Afer Take-off </title>
+  <type>abnormal</type>
+  <item>
+    <name><![CDATA[Airspeed]]></name>
+    <value>80 KIAS</value>
+  </item>
+  <item>
+    <name><![CDATA[Mixture]]></name>
+    <value>IDLE CUT OFF</value>
+  </item>
+  <item>
+    <name><![CDATA[Fuel Selector]]></name>
+    <value>OFF</value>
+  </item>
+  <item>
+    <name><![CDATA[Ignition]]></name>
+    <value>OFF</value>
+  </item>
+  <item>
+    <name><![CDATA[Master Switch]]></name>
+    <value>OFF</value>
+  </item>
+  <item>
+    <name><![CDATA[Forced landing]]></name>
+    <value>PERFORM AS PRACTICAL</value>
+  </item>
+</PropertyList>
+

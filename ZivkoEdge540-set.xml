@@ -189,6 +189,9 @@
       <checklist include="Checklists/7.12-Cruise.xml"/>
       <checklist include="Checklists/7.13-Landing.xml"/>
       <checklist include="Checklists/7.14-Shutdown.xml"/>
+      <checklist include="Checklists/8.1-AirspeedEmergency.xml"/>
+      <checklist include="Checklists/8.2-EngineFailureDuringTakeoffRoll.xml"/>
+      <checklist include="Checklists/8.3-EngineFailureAfterTakeoff.xml"/>
     </checklists>
 
   </sim>

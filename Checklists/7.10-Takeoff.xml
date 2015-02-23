@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <PropertyList>
   <title>Take-off</title>
+  <type>normal</type>
   <item>
     <name><![CDATA[Throttle]]></name>
     <value>SMOOTHLY ADVANCE TO FULL POWER</value>

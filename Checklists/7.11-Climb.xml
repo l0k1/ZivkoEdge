@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <PropertyList>
   <title>Climb</title>
+  <type>normal</type>
   <item>
     <name><![CDATA[Boost Pump]]></name>
     <value>OFF</value>

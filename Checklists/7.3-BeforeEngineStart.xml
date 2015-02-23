@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <PropertyList>
   <title>Before Engine Start</title>
+  <type>normal</type>
   <item>
     <name><![CDATA[Preflight inspection complete]]></name>
     <value>COMPLETE</value>

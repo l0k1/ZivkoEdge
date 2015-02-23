@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <PropertyList>
   <title>Engine Alternate Hot Start (Flood Start)</title>
+  <type>normal</type>
   <item>
     <name><![CDATA[Canopy]]></name>
     <value>CLOSED AND LOCKED</value>

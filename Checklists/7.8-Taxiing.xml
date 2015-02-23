@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <PropertyList>
   <title>Taxiing the Airplane</title>
+  <type>normal</type>
   <item>
     <name><![CDATA[Brake]]></name>
     <value>CHECK</value>

@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <PropertyList>
   <title>Shutdown</title>
+  <type>normal</type>
   <item>
     <name><![CDATA[Mixture]]></name>
     <value>CUT-OFF</value>

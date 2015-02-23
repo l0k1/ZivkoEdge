@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <PropertyList>
   <title>Landing</title>
+  <type>normal</type>
   <item>
     <name><![CDATA[Boost pump]]></name>
     <value>ON</value>

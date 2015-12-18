@@ -189,6 +189,10 @@ var EFIS = {
       m.knobPositionChanged( n.getValue() ); 
     }, 0);
 
+    setlistener("/instrumentation/efis/selected-screen", func(n) { 
+      m.changeScreen( n.getValue() ); 
+    }, 0, 0);
+
     m.changeScreen(0);
 
     return m;
@@ -232,6 +236,7 @@ var EFIS = {
       me.currentScreen = n;
       ledstripMode = me.screens[n].getLedstripMode();
       me.screenName.setValue( me.screens[n].getName() );
+      setprop("/instrumentation/efis/selected-screen", n );
     } else {
       me.screenName.setValue( "" );
     }

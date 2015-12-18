@@ -12,7 +12,7 @@ var RD = {
        .setColor(0,0,0)
        .setAlignment("center-top")
        .setFont("LiberationFonts/LiberationMono-Regular.ttf")
-       .setFontSize(40, 1.0)
+       .setFontSize(96, 1.0)
        .setTranslation(SCREEN_WIDTH_2, 30)
        .setText("RACE DISPLAY");
 

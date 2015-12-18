@@ -94,7 +94,7 @@ io.include("Aircraft/ZivkoEdge/Models/EFIS/HSI.nas");
 io.include("Aircraft/ZivkoEdge/Models/EFIS/ED.nas");
 io.include("Aircraft/ZivkoEdge/Models/EFIS/PRD.nas");
 io.include("Aircraft/ZivkoEdge/Models/EFIS/RD.nas");
-#io.include("Aircraft/ZivkoEdge/Models/EFIS/ResultsDisplay.nas");
+io.include("Aircraft/ZivkoEdge/Models/EFIS/ResultsDisplay.nas");
 
 var EFIS = {
 

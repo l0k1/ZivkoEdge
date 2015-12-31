@@ -94,7 +94,7 @@ io.include("Aircraft/ZivkoEdge/Models/EFIS/HSI.nas");
 io.include("Aircraft/ZivkoEdge/Models/EFIS/ED.nas");
 io.include("Aircraft/ZivkoEdge/Models/EFIS/PRD.nas");
 io.include("Aircraft/ZivkoEdge/Models/EFIS/RD.nas");
-#io.include("Aircraft/ZivkoEdge/Models/EFIS/ResultsDisplay.nas");
+io.include("Aircraft/ZivkoEdge/Models/EFIS/ResultsDisplay.nas");
 
 var EFIS = {
 
@@ -189,6 +189,10 @@ var EFIS = {
       m.knobPositionChanged( n.getValue() ); 
     }, 0);
 
+    setlistener("/instrumentation/efis/selected-screen", func(n) { 
+      m.changeScreen( n.getValue() ); 
+    }, 0, 0);
+
     m.changeScreen(0);
 
     return m;
@@ -232,6 +236,7 @@ var EFIS = {
       me.currentScreen = n;
       ledstripMode = me.screens[n].getLedstripMode();
       me.screenName.setValue( me.screens[n].getName() );
+      setprop("/instrumentation/efis/selected-screen", n );
     } else {
       me.screenName.setValue( "" );
     }

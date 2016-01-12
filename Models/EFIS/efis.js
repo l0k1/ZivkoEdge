@@ -13,7 +13,7 @@ require.config({
 }); 
         
 require([   
-        'knockout', 'jquery', 'text!efis.svg', 'sprintf', 'knockprops'
+        'knockout', 'jquery', 'text!PFD.svg', 'sprintf', 'knockprops'
 ], function(ko, jquery, pfdSvg, sprintf ) {
                 
     ko.utils.knockprops.setAliases({
@@ -158,6 +158,18 @@ require([
             var x = v < -125 ? -125 : v > 125 ? 125 : v;
             return "translate(" + x + " 0)";
         });
+
+        this.topRightVisible = ko.pureComputed(function() {
+            return false;
+        });
+
+        this.bottomRightSelectorVisible = ko.pureComputed(function() {
+            return false;
+        });
+
+        this.bottomRightVisible = ko.pureComputed(function() {
+            return false;
+        });
     }
 
     ViewModel.prototype._getAsiLadderLabel = function(n) {
@@ -173,7 +185,12 @@ require([
         return sprintf.sprintf("%2.1f", (v + n * 2) / 10);
     }
 
-    jquery('#wrapper').html(pfdSvg);
+    jquery('#content').html(
+        jquery('<div>') // wrap into detached <div> to get it's innerHTML
+           .append(
+           jquery(pfdSvg) // parse the file content
+           .filter(":first")[0]) // get root element
+           .html());
 
     ko.applyBindings(new ViewModel(), document.getElementById('wrapper'));
 });

@@ -39,5 +39,5 @@
     }   
   ],
   "start_url": "EFIS.html",
-  "display": "fullscreen"
+  "display": "standalone"
 }      

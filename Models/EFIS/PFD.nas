@@ -8,9 +8,6 @@ var PFD = {
 
     var m = { parents: [ PFD, EFISSVGScreen.new(efis, "PFD.svg" ) ] };
 
-debug.dump("bub", m.g.getElementById( "HeadingBug" ));
-debug.dump("comp", m.g.getElementById( "Compass" ));
-
     m.g.getElementById( "HeadingBug" ).setCenter( m.g.getElementById("Compass").getCenter() );
 
     m.configScreen = Dialog.new( { 

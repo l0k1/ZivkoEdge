@@ -1,69 +1,25 @@
-require.config({
-    baseUrl : '.',
-    paths : {
-        jquery : '/3rdparty/jquery/jquery-1.11.2.min',
-        knockout : '/3rdparty/knockout/knockout-3.2.0',
-        sprintf : '/3rdparty/sprintf/sprintf.min',
-        text : '/3rdparty/require/text',
-        fgcommand : '/lib/fgcommand',
-        props : '/lib/props2',
-        knockprops : '/lib/knockprops',
-    },
-    waitSeconds : 30,
-}); 
-        
-require([   
-        'knockout', 'jquery', 'text!PFD.svg', 'sprintf', 'knockprops'
-], function(ko, jquery, pfdSvg, sprintf ) {
-                
-    ko.utils.knockprops.setAliases({
-      heading: "/orientation/heading-magnetic-deg",
-      roll: "/orientation/roll-deg",
-      pitch: "/orientation/pitch-deg",
-      slip: "/instrumentation/slip-skid-ball/indicated-slip-skid",
-      accel: "/accelerations/pilot/z-accel-fps_sec",
-      kollsmann: "/instrumentation/altimeter[1]/setting-inhg",
-      pressureUnit: "/instrumentation/efis/config/pressure-unit",
-      altitude: "/instrumentation/altimeter[1]/indicated-altitude-ft",
-      airspeed: "/instrumentation/airspeed-indicator[1]/indicated-speed-kt",
-      // keep this the last entry to make sure all other values were initialized before
-      selectedScreen: "/instrumentation/efis/current-screen-name",
-    });
+define([
+        'knockout', 'text!Models/EFIS/PFD.svg', 'sprintf', 
+], function(ko, svgString, sprintf ) {
 
     function ViewModel(params) {
         var self = this;
         params = params||{}
         
-        self.rateLimit = params.rateLimit || 100;
-
-        self.propertyMap = {
+        var propertyMap = {
             pitch : 'pitch',
             roll : 'roll',
             airspeed : 'airspeed',
             altitude : 'altitude',
             heading : 'heading',
-            slip : 'slip'
+            slip : 'slip',
         }
-
-        this.pitch = ko.observable(0).extend({
-            fgprop : self.propertyMap.pitch
-        }).extend({rateLimit: self.rateLimit });
-        this.roll = ko.observable(0).extend({
-            fgprop : self.propertyMap.roll
-        }).extend({rateLimit: self.rateLimit });
-        this.airspeed = ko.observable(0).extend({
-            fgprop : self.propertyMap.airspeed
-        }).extend({rateLimit: self.rateLimit });
-        this.altitude = ko.observable(0).extend({
-            fgprop : self.propertyMap.altitude
-        }).extend({rateLimit: self.rateLimit });
-        this.heading = ko.observable(0).extend({
-            fgprop : self.propertyMap.heading
-        }).extend({rateLimit: self.rateLimit });
         
-        this.slip = ko.observable(0).extend({
-            fgprop : self.propertyMap.slip
-        }).extend({rateLimit: self.rateLimit });
+        for( var k in propertyMap ) {
+          self[k]= ko.observable(0).extend({
+              fgprop : propertyMap[k]
+          }).extend({rateLimit: params.rateLimit || 100 });
+        }
 
         this.horizonAnimation = ko.pureComputed(function() {
             return "rotate(" + (-self.roll()) + " 512 384) translate(0 " + (self.pitch() * 20) + ")";
@@ -185,12 +141,14 @@ require([
         return sprintf.sprintf("%2.1f", (v + n * 2) / 10);
     }
 
-    jquery('#content').html(
-        jquery('<div>') // wrap into detached <div> to get it's innerHTML
-           .append(
-           jquery(pfdSvg) // parse the file content
-           .filter(":first")[0]) // get root element
-           .html());
-
-    ko.applyBindings(new ViewModel(), document.getElementById('wrapper'));
-});
+    
+    // Return component definition
+    return {
+        viewModel : {
+            createViewModel : function(params, componentInfo) {
+                return new ViewModel(params, componentInfo);
+            },
+        },
+        template : ko.utils.getXMLRootElement(svgString)
+    };
+}); 

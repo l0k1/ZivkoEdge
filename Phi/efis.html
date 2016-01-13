@@ -37,15 +37,38 @@ html,body, #wrapper {
 	border: 0;
 	margin: 0;
 	padding: 0;
-	height: 100%;
-	max-height: 100%;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	overflow: hidden;
+	background: #333;
+}
+
+#sidebar {
+	background: yellow;
+}
+
+#content {
+	height: 20%;
+	background: blue;
+}
+
+#ledstrip {
 	width: 100%;
-	max-width: 100%;
+	height: 14%;
+    overflow: hidden;
+    position: relative;
+}
+
+#efis {
+	background: cyan;
+	width: 100%;
+	height: 86%;
 }
 
 @media screen and (orientation:landscape) {
-
-  /* ...larger screen styles go here... */
 
   #sidebar, #content {
       float: left;
@@ -78,7 +101,7 @@ box-sizing: border-box;
 -moz-appearance: none;
 width: 100%;
 font-size: 16px;
-margin: 0.5em;
+margin: 0.5em 0;
 padding: 0.7em 1em;
 display: block;
 position: relative;
@@ -103,15 +126,24 @@ border-radius: 0.5em;
 <body>
   <div id="wrapper">
     <div id="content">
-      <div id="screen"></div>
+      <div id="ledstrip">
+        <div data-bind="component: 'LedStrip'"></div>
+      </div>
+      <div id="efis">
+        <div data-bind="visible: selectedScreen() == 0, component: 'PFD'"></div>
+        <div data-bind="visible: selectedScreen() == 1, component: 'HSI'"></div>
+        <div data-bind="visible: selectedScreen() == 2, component: 'ED'"></div>
+        <div data-bind="visible: selectedScreen() == 3, component: 'PRD'"></div>
+        <div data-bind="visible: selectedScreen() == 4, component: 'RD'"></div>
+      </div>
     </div>
     <div id="sidebar">
-      <button id="EFIS">PFD</button>
-      <button id="EFIS">HSI</button>
-      <button id="EFIS">Engine</button>
-      <button id="EFIS">Pre-Race</button>
-      <button id="EFIS">Race</button>
-      <button id="EFIS">Results</button>
+      <button data-bind="click: clickPFD">PFD</button>
+      <button data-bind="click: clickHSI">HSI</button>
+      <button data-bind="click: clickED">Engine</button>
+      <button data-bind="click: clickPRD">Pre-Race</button>
+      <button data-bind="click: clickRD">Race</button>
+      <button data-bind="">Results</button>
     </div>
     <div style="display: block; clear: both;"></div>
   </div>

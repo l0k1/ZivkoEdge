@@ -4,7 +4,7 @@
     <author>Torsten Dreyer (3D, FDM) Ron Jensen (FDM)</author>
     <description>Zivko EDGE 540</description>
     <long-description>
-    The Zivko Edge 540 is a highly aerobatic aircraft. It is capable of a 
+    The Zivko Edge 540 is a highly aerobatic aircraft. It is capable of a
     420 degree per second roll rate and climbs at up to 3,700 fpm. It is the
     most common used aircraft used in the Red Bull Air Race.
     This Model is used by the RBAR team to simulate races during the track
@@ -13,7 +13,7 @@
     <tags>
       <tag>single-engine</tag>
       <tag>aerobatic</tag>
-      <tag>general aviation</tag>
+      <tag>ga</tag>
     </tags>
     <aircraft-version>1.0</aircraft-version>
     <status>beta</status>
@@ -271,7 +271,7 @@
         <capacity-gal_us>18.6</capacity-gal_us><!-- 70.4 Liter -->
       </tank>
     </fuel>
-  </consumables> 
+  </consumables>
 
   <instrumentation>
 

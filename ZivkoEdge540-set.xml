@@ -3,10 +3,22 @@
   <sim>
     <author>Torsten Dreyer (3D, FDM) Ron Jensen (FDM)</author>
     <description>Zivko EDGE 540</description>
-    <aircraft-version>0.3</aircraft-version>
+    <long-description>
+    The Zivko Edge 540 is a highly aerobatic aircraft. It is capable of a
+    420 degree per second roll rate and climbs at up to 3,700 fpm. It is the
+    most common used aircraft used in the Red Bull Air Race.
+    This Model is used by the RBAR team to simulate races during the track
+    planning process.
+    </long-description>
+    <tags>
+      <tag>single-engine</tag>
+      <tag>aerobatic</tag>
+      <tag>ga</tag>
+    </tags>
+    <aircraft-version>1.0</aircraft-version>
     <status>beta</status>
     <rating>
-     <FDM type="int">4</FDM>
+     <FDM type="int">5</FDM>
      <systems type="int">2</systems>
      <cockpit type="int">5</cockpit>
      <model type="int">4</model>
@@ -154,7 +166,7 @@
              if( props.globals.getNode("/").getValue("sim/http/running",0) != 1 ) {
                gui.popupTip("Internal webserver not running. Restart FlightGear with -httpd=8080", 5.0);
              } else {
-               var _url = "http://localhost:" ~ getprop("/sim/http/options/listening-port") ~ "/aircraft-dir/Models/EFIS/EFIS.html";
+               var _url = "http://localhost:" ~ getprop("/sim/http/options/listening-port") ~ "/aircraft-dir/Phi/efis.html";
                fgcommand("open-browser", props.Node.new({ "url": _url }));
              }
            </script>
@@ -259,7 +271,7 @@
         <capacity-gal_us>18.6</capacity-gal_us><!-- 70.4 Liter -->
       </tank>
     </fuel>
-  </consumables> 
+  </consumables>
 
   <instrumentation>
 

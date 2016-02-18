@@ -6,7 +6,7 @@
   <particlesystem>
     <type>normal</type>
     <name>SmokeTrail</name>
-    <texture>smoke.rgb</texture>
+    <texture>smoke.png</texture>
     <emissive type="bool">false</emissive>
     <lighting type="bool">true</lighting>
     <align>billboard</align>

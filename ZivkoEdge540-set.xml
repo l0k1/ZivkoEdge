@@ -229,6 +229,9 @@
       <file>Aircraft/ZivkoEdge/Nasal/Edge540.nas</file>
       <file>Aircraft/ZivkoEdge/Models/EFIS/EFIS.nas</file>
     </Edge540>
+    <blackout>
+      <file>Aircraft/ZivkoEdge/Nasal/blackout.nas</file>
+    </blackout>
   </nasal>
 
   <controls>

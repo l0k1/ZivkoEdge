@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+ <sim>
+  <model>
+   <livery>
+    <name type="string">88th AS</name>
+    <fuselage>Liveries/Fuselage-88th.png</fuselage>
+    <wingtail>Liveries/WingTail-88th.png</wingtail>
+   </livery>
+  </model>
+ </sim>
+</PropertyList>

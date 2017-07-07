@@ -48,7 +48,7 @@
     <counter>
       <particles-per-sec>
         <property>engines/engine[0]/rpm</property>
-        <factor>0.02</factor>
+        <factor>0.009</factor>
       </particles-per-sec>
     </counter>
 
@@ -60,10 +60,10 @@
             <value>0.8</value>
           </red>
           <green>
-            <value>0.0</value>
+            <value>0.8</value>
           </green>
           <blue>
-            <value>0.0</value>
+            <value>0.8</value>
           </blue>
           <alpha>
             <value>1.0</value>
@@ -77,20 +77,20 @@
       <end>
         <color>
           <red>
-            <value>0.0</value>
+            <value>0.8</value>
           </red>
           <green>
             <value>0.8</value>
           </green>
           <blue>
-            <value>0.0</value>
+            <value>0.8</value>
           </blue>
           <alpha>
             <value>0.003</value>
           </alpha>
         </color>
         <size>
-          <value>50</value>
+          <value>5</value>
         </size>
       </end>
       <life-sec>

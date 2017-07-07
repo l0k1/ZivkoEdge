@@ -57,7 +57,7 @@
   </model>
 
   <model>
-    <path>Aircraft/Instruments-3d/tach/tach.xml</path>
+    <path>Aircraft/ZivkoEdge/Models/tach.xml</path>
     <offsets>
       <x-m>0.001</x-m>
       <y-m>0.10</y-m>

@@ -31,8 +31,8 @@ var invert = func (acc) {
 # At 5G it will take 300 seconds.
 #
 
-var blackout_onset      =    9;
-var blackout_fast       =    12;
+var blackout_onset      =    7;
+var blackout_fast       =    10;
 var redout_onset        =   -2;
 var redout_fast         =   -4;
 

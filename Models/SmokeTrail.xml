@@ -27,10 +27,10 @@
     </placer>
 
     <shooter>
-      <theta-min-deg>89</theta-min-deg>
-      <theta-max-deg>91</theta-max-deg>
-      <phi-min-deg>-1</phi-min-deg>
-      <phi-max-deg>1</phi-max-deg>
+      <theta-min-deg>85</theta-min-deg>
+      <theta-max-deg>95</theta-max-deg>
+      <phi-min-deg>-3</phi-min-deg>
+      <phi-max-deg>3</phi-max-deg>
       <speed-mps>
         <property>engines/engine[0]/rpm</property>
         <factor>0.01</factor>
@@ -66,7 +66,7 @@
             <value>0.9</value>
           </blue>
           <alpha>
-            <value>0.8</value>
+            <value>0.6</value>
           </alpha>
         </color>
         <size>
@@ -86,7 +86,7 @@
             <value>0.7</value>
           </blue>
           <alpha>
-            <value>0.003</value>
+            <value>0.0001</value>
           </alpha>
         </color>
         <size>
@@ -94,7 +94,7 @@
         </size>
       </end>
       <life-sec>
-        <value>30.0</value>
+        <value>10.0</value>
       </life-sec>
       <mass-kg>5.5</mass-kg>
       <radius-m>1.0</radius-m>

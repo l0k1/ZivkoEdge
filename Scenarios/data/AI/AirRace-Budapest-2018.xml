@@ -1,0 +1,100 @@
+<PropertyList>
+  <scenario>
+  <name>AirRace-Budapest-2018</name>
+  <description>
+     Red Bull Air Race Budapest 2018 Course
+  </description>
+  
+  <nasal>
+	<load><![CDATA[
+		print("squeeeeeeeeeeeeeeee!");
+	]]>
+	</load>
+  </nasal>
+
+	<entry>
+		<name>Start</name>
+		<callsign>Start</callsign>
+		<type>static</type>
+		<class>gate</class>
+		<model type="string">AI/AirRace/pylon-startfinish.xml</model>
+		<latitude type="double">47.500905</latitude>
+		<longitude type="double">19.042892</longitude>
+		<altitude type="double">315</altitude>
+		<heading type="double">355</heading>
+	</entry>
+
+	<entry>
+		<name>1|Single</name>
+		<callsign>1|Single</callsign>
+		<type>static</type>
+		<class>gate</class>
+		<model type="string">AI/AirRace/pylon-single.xml</model>
+		<latitude type="double">47.503235</latitude>
+		<longitude type="double">19.042541</longitude>
+		<altitude type="double">315</altitude>
+		<heading type="double">90</heading>
+	</entry>
+
+	<entry>
+		<name>2|Double</name>
+		<callsign>2|Double</callsign>
+		<type>static</type>
+		<class>gate</class>
+		<model type="string">AI/AirRace/pylon-double.xml</model>
+		<latitude type="double">47.505191</latitude>
+		<longitude type="double">19.042533</longitude>
+		<altitude type="double">315</altitude>
+		<heading type="double">360</heading>
+	</entry>
+
+	<entry>
+		<name>3|Single</name>
+		<callsign>3|Single</callsign>
+		<type>static</type>
+		<class>gate</class>
+		<model type="string">AI/AirRace/pylon-single.xml</model>
+		<latitude type="double">47.507085</latitude>
+		<longitude type="double">19.042951</longitude>
+		<altitude type="double">315</altitude>
+		<heading type="double">90</heading>
+	</entry>
+
+	<entry>
+		<name>4|Single</name>
+		<callsign>4|Single</callsign>
+		<type>static</type>
+		<class>gate</class>
+		<model type="string">AI/AirRace/pylon-single.xml</model>
+		<latitude type="double">47.509115</latitude>
+		<longitude type="double">19.042463</longitude>
+		<altitude type="double">315</altitude>
+		<heading type="double">55</heading>
+	</entry>
+
+	<entry>
+		<name>5|Double</name>
+		<callsign>5|Double</callsign>
+		<type>static</type>
+		<class>gate</class>
+		<model type="string">AI/AirRace/pylon-double.xml</model>
+		<latitude type="double">47.510895</latitude>
+		<longitude type="double">19.042019</longitude>
+		<altitude type="double">315</altitude>
+		<heading type="double">355</heading>
+	</entry>
+
+	<entry>
+		<name>6|Double</name>
+		<callsign>6|Double</callsign>
+		<type>static</type>
+		<class>gate</class>
+		<model type="string">AI/AirRace/pylon-double.xml</model>
+		<latitude type="double">47.512753</latitude>
+		<longitude type="double">19.041532</longitude>
+		<altitude type="double">315</altitude>
+		<heading type="double">355</heading>
+	</entry>
+
+ </scenario>315
+</PropertyList>

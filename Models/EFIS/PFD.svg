@@ -20,11 +20,7 @@
   <title
      id="title4639">FlightGear RBAR EFIS (PFD)</title>
   <defs
-     id="defs4">
-      <clipPath id="outer-clip">
-          <rect x="0" y="0" width="1024" height="768" />
-      </clipPath>
-  </defs>
+     id="defs4" />
   <sodipodi:namedview
      id="base"
      pagecolor="#337cf8"

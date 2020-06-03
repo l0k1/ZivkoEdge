@@ -23,7 +23,7 @@ var SimpleGpsNavigator = {
     return m;
   },
 
-  update: func() 
+  update: func()
   {
     if( me._destination.valid.getValue() == 0 )
       return;
@@ -89,7 +89,7 @@ var SimpleGpsNavigator = {
       }
     }
   },
- 
+
 };
 
 var SimpleGps = {
@@ -108,7 +108,7 @@ var SimpleGps = {
     return m;
   },
 
-  update: func() 
+  update: func()
   {
     me._enabled or return;
     foreach( var n; me.navigator )
@@ -134,7 +134,7 @@ var SimpleGps = {
 var normalizePeriodic = func( min, max, val )
 {
  var range = max - min;
- return val - range*geo.floor((val - min)/range);
+ return val - range*math.floor((val - min)/range);
 }
 
 var HSI = {
@@ -145,14 +145,14 @@ var HSI = {
 
     m.g.getElementById( "HeadingBug" ).setCenter( m.g.getElementById("Compass").getCenter() );
 
-    m.configScreen = Dialog.new( { 
+    m.configScreen = Dialog.new( {
       svg: "/Aircraft/ZivkoEdge/Models/EFIS/Dialog.svg",
       parent: m.g,
       labels: [ "ENG", "ADF", "BUG", "HSI" ],
       ontimeout: func(d) { m.screenTimeout(d); },
     });
 
-    m.hsiConfigScreen = Dialog.new( { 
+    m.hsiConfigScreen = Dialog.new( {
       svg: "/Aircraft/ZivkoEdge/Models/EFIS/Dialog.svg",
       parent: m.g,
       labels: [ "ARPT", "NDB", "CDI", "VOR" ],
@@ -175,7 +175,7 @@ var HSI = {
 
       RotateAnimation.new( m.g, "Compass", func(o,e) {
         var c = e.getCenter();
-        return { 
+        return {
           angle: -o.efis.readSensor("heading")*D2R,
           cy: c[1],
           cx: c[0],
@@ -184,7 +184,7 @@ var HSI = {
 
       RotateAnimation.new( m.g, "HeadingBug", func(o,e) {
         var c = e.getCenter();
-        return { 
+        return {
           angle: o.efis.readSensor("headingBug")*D2R,
           cy: c[1],
           cx: c[0],
@@ -212,7 +212,7 @@ var HSI = {
       }),
 
       TextAnimation.new( m.g, "Wind", func(o) {
-        return sprintf("%02d/%02d", 
+        return sprintf("%02d/%02d",
           o.efis.readSensor("windDir"),
           o.efis.readSensor("windSpeed") );
       }),
@@ -237,7 +237,7 @@ var HSI = {
 
       RotateAnimation.new( m.g, "VOR", func(o,e) {
         var c = e.getCenter();
-        return { 
+        return {
           angle: getprop("/instrumentation/efis/hsi/gps[0]/selected-course")*D2R,
           cy: c[1],
           cx: c[0],
@@ -250,7 +250,7 @@ var HSI = {
                   - getprop("/instrumentation/efis/hsi/gps[0]/selected-course"));
 
         offsetDeg = offsetDeg > 10 ? 10 : offsetDeg < -10 ? -10 : offsetDeg;
-        return { 
+        return {
           y: 0,
           x: 52/5 * offsetDeg,
         };
@@ -263,7 +263,7 @@ var HSI = {
 
       RotateAnimation.new( m.g, "GreenArrow", func(o,e) {
         var c = e.getCenter();
-        return { 
+        return {
           angle: getprop("/instrumentation/efis/hsi/gps[1]/bearing")*D2R,
           cy: c[1],
           cx: c[0],
@@ -329,7 +329,7 @@ var HSI = {
     var deg = int(v);
     var min = (v - deg) * 60;
     return sprintf( format[idx1], NSEW[idx1][idx2], deg, min );
-  }, 
+  },
 
   getName: func()
   {
@@ -344,12 +344,12 @@ var HSI = {
   STATE_CDI:    5,
   state: 0,
 
-  knobPositionChanged: func( n ) 
+  knobPositionChanged: func( n )
   {
     if( me.state == me.STATE_NORMAL ) {
 
       # knob rotation turns heading bug
-      me.efis.writeSensor("headingBug", 
+      me.efis.writeSensor("headingBug",
         normalizePeriodic( 0, 360, me.efis.readSensor("headingBug") + n ) );
 
     } elsif( me.state == me.STATE_HSI ) {
@@ -364,7 +364,7 @@ var HSI = {
 
     } elsif( me.state == me.STATE_BUG ) {
       # knob rotation changes heading bug
-      me.efis.writeSensor("headingBug", 
+      me.efis.writeSensor("headingBug",
         normalizePeriodic( 0, 360, me.efis.readSensor("headingBug") + n ) );
 
     } elsif( me.state == me.STATE_CDI ) {
@@ -382,10 +382,10 @@ var HSI = {
     } elsif ( dlg == me.hsiConfigScreen ) {
       if( me.state == me.STATE_HSI )
         me.state = me.STATE_NORMAL;
-    } 
+    }
   },
 
-  knobPressed: func( b ) 
+  knobPressed: func( b )
   {
     if( b == 0 ) return; #ignore release
 

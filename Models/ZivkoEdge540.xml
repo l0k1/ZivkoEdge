@@ -296,7 +296,7 @@
     <object-name>WheelFairing.Right</object-name>
     <property-base>sim/model/livery</property-base>
     <texture-prop>fuselage</texture-prop>
-    <texture>Liveries/Fuselage-OpenSuse.png</texture>
+    <texture>Aircraft/ZivkoEdge/Models/Liveries/Fuselage-OpenSuse.png</texture>
   </animation>
 
   <animation>
@@ -311,7 +311,7 @@
     <object-name>Aileron.Right</object-name>
     <property-base>sim/model/livery</property-base>
     <texture-prop>wingtail</texture-prop>
-    <texture>Liveries/WingTail-OpenSuse.png</texture>
+    <texture>Aircraft/ZivkoEdge/Models/Liveries/WingTail-OpenSuse.png</texture>
   </animation>
 
 </PropertyList>

@@ -736,7 +736,7 @@
           <property>metrics/Sw-sqft</property>
           <property>metrics/bw-ft</property>
           <property>fcs/left-aileron-pos-rad</property>
-          <value>0.28</value>
+          <value>0.33</value>
           <property>aero/function/cos-alpha</property>
        </product>
     </function>

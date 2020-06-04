@@ -1,0 +1,125 @@
+<PropertyList>
+  <!-- all latitudes have been increased by 0.01 to compensate for FG scenery -->
+  <scenario>
+  <name>AirRace-AbuDhabi-2017</name>
+  <description>
+     Red Bull Air Race Abu Dhabi 2017 Course
+  </description>
+
+  <nasal>
+	<load><![CDATA[
+		print("squeeeeeeeeeeeeeeee!");
+	]]>
+	</load>
+  </nasal>
+
+	<entry>
+		<name>Start</name>
+		<callsign>Start</callsign>
+		<type>static</type>
+		<class>gate</class>
+		<model type="string">AI/AirRace/pylon-startfinish.xml</model>
+		<latitude type="double">24.483826</latitude>
+		<longitude type="double">54.331156</longitude>
+		<altitude type="double">0</altitude>
+		<heading type="double">250</heading>
+	</entry>
+
+	<entry>
+		<name>1|SingleRight</name>
+		<callsign>1|SingleRight</callsign>
+		<type>static</type>
+		<class>gate</class>
+		<model type="string">AI/AirRace/pylon-single.xml</model>
+		<latitude type="double">24.482630</latitude>
+		<longitude type="double">54.329134</longitude>
+		<altitude type="double">0</altitude>
+		<heading type="double">45</heading>
+	</entry>
+
+	<entry>
+		<name>2|SingleLeft</name>
+		<callsign>2|SingleLeft</callsign>
+		<type>static</type>
+		<class>gate</class>
+		<model type="string">AI/AirRace/pylon-single.xml</model>
+		<latitude type="double">24.481794</latitude>
+		<longitude type="double">54.328328</longitude>
+		<altitude type="double">0</altitude>
+		<heading type="double">225</heading>
+	</entry>
+
+	<entry>
+		<name>3|SingleRight</name>
+		<callsign>3|SingleRight</callsign>
+		<type>static</type>
+		<class>gate</class>
+		<model type="string">AI/AirRace/pylon-single.xml</model>
+		<latitude type="double">24.480992</latitude>
+		<longitude type="double">54.327418</longitude>
+		<altitude type="double">0</altitude>
+		<heading type="double">45</heading>
+	</entry>
+
+	<entry>
+		<name>4|Double</name>
+		<callsign>4|Double</callsign>
+		<type>static</type>
+		<class>gate</class>
+		<model type="string">AI/AirRace/pylon-double.xml</model>
+		<latitude type="double">24.478602</latitude>
+		<longitude type="double">54.326241</longitude>
+		<altitude type="double">0</altitude>
+		<heading type="double">230</heading>
+	</entry>
+
+	<entry>
+		<name>5|Double</name>
+		<callsign>5|Double</callsign>
+		<type>static</type>
+		<class>gate</class>
+		<model type="string">AI/AirRace/pylon-double.xml</model>
+		<latitude type="double">24.479915</latitude>
+		<longitude type="double">54.328849</longitude>
+		<altitude type="double">0</altitude>
+		<heading type="double">240</heading>
+	</entry>
+
+	<entry>
+		<name>6|SingleLeft</name>
+		<callsign>6|Single</callsign>
+		<type>static</type>
+		<class>gate</class>
+		<model type="string">AI/AirRace/pylon-single.xml</model>
+		<latitude type="double">24.480759</latitude>
+		<longitude type="double">54.330229</longitude>
+		<altitude type="double">0</altitude>
+		<heading type="double">50</heading>
+	</entry>
+
+	<entry>
+		<name>7|SingleRight</name>
+		<callsign>7|Single</callsign>
+		<type>static</type>
+		<class>gate</class>
+		<model type="string">AI/AirRace/pylon-single.xml</model>
+		<latitude type="double">24.481245</latitude>
+		<longitude type="double">54.331701</longitude>
+		<altitude type="double">0</altitude>
+		<heading type="double">235</heading>
+	</entry>
+
+	<entry>
+		<name>8|Double</name>
+		<callsign>8|Double</callsign>
+		<type>static</type>
+		<class>gate</class>
+		<model type="string">AI/AirRace/pylon-double.xml</model>
+		<latitude type="double">24.483148</latitude>
+		<longitude type="double">54.333781</longitude>
+		<altitude type="double">0</altitude>
+		<heading type="double">350</heading>
+	</entry>
+
+ </scenario>
+</PropertyList>

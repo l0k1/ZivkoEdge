@@ -185,8 +185,12 @@
     <help>
       <title>Zivko EDGE 540</title>
       <key>
-        <name>O</name>
+        <name>o</name>
         <desc>toggle smOke on</desc>
+      </key>
+      <key>
+        <name>k</name>
+        <desc>Next EFIS screen</desc>
       </key>
     </help>
     <checklists>
@@ -218,6 +222,22 @@
           <property>controls/electric/smoke-switch</property>
         </binding>
       </key>
+      <key n="107">
+        <name>k</name>
+        <desc>Next EFIS Screen</desc>
+        <binding>
+          <command>property-assign</command>
+          <property>instrumentation/efis/knob-pressed</property>
+          <value type="bool">true</value>
+        </binding>
+        <mod-up>
+          <binding>
+            <command>property-assign</command>
+            <property>instrumentation/efis/knob-pressed</property>
+            <value type="bool">false</value>
+          </binding>
+        </mod-up>
+      </key>
     </keyboard>
   </input>
 
@@ -229,6 +249,9 @@
       <file>Aircraft/ZivkoEdge/Nasal/Edge540.nas</file>
       <file>Aircraft/ZivkoEdge/Models/EFIS/EFIS.nas</file>
     </Edge540>
+    <blackout>
+      <file>Aircraft/ZivkoEdge/Nasal/blackout.nas</file>
+    </blackout>
   </nasal>
 
   <controls>

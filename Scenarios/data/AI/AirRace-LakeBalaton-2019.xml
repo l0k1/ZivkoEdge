@@ -1,0 +1,116 @@
+<PropertyList>
+  <scenario>
+  <name>AirRace-LakeBalaton-2019</name>
+  <description>
+     Red Bull Air Race Lake Balaton 2019 Course
+  </description>
+  
+  <nasal>
+	<load><![CDATA[
+		print("squeeeeeeeeeeeeeeee!");
+	]]>
+	</load>
+  </nasal>
+
+	<entry>
+		<name>Start</name>
+		<callsign>Start</callsign>
+		<type>static</type>
+		<class>gate</class>
+		<model type="string">AI/AirRace/pylon-double.xml</model>
+		<latitude type="double">46.889723</latitude>
+		<longitude type="double">17.946561</longitude>
+		<altitude type="double">328</altitude>
+		<heading type="double">258</heading>
+	</entry>
+
+	<entry>
+		<name>1|SingleLeft</name>
+		<callsign>1|SingleLeft</callsign>
+		<type>static</type>
+		<class>gate</class>
+		<model type="string">AI/AirRace/pylon-single.xml</model>
+		<latitude type="double">46.889945</latitude>
+		<longitude type="double">17.943093</longitude>
+		<altitude type="double">328</altitude>
+		<heading type="double">258</heading>
+	</entry>
+
+	<!-- chicane -->
+
+	<entry>
+		<name>2|SingleRight</name>
+		<callsign>2|SingleRight</callsign>
+		<type>static</type>
+		<class>gate</class>
+		<model type="string">AI/AirRace/pylon-single.xml</model>
+		<latitude type="double">46.888152</latitude>
+		<longitude type="double">17.939078</longitude>
+		<altitude type="double">328</altitude>
+		<heading type="double">78</heading>
+	</entry>
+
+	<entry>
+		<name>3|SingleLeft</name>
+		<callsign>3|SingleLeft</callsign>
+		<type>static</type>
+		<class>gate</class>
+		<model type="string">AI/AirRace/pylon-single.xml</model>
+		<latitude type="double">46.888004</latitude>
+		<longitude type="double">17.937083</longitude>
+		<altitude type="double">328</altitude>
+		<heading type="double">258</heading>
+	</entry>
+
+	<entry>
+		<name>4|SingleRight</name>
+		<callsign>4|SingleRight</callsign>
+		<type>static</type>
+		<class>gate</class>
+		<model type="string">AI/AirRace/pylon-single.xml</model>
+		<latitude type="double">46.887870</latitude>
+		<longitude type="double">17.935223</longitude>
+		<altitude type="double">328</altitude>
+		<heading type="double">78</heading>
+	</entry>
+
+	<!-- end chicane -->
+
+	<entry>
+		<name>5|StartFinish</name>
+		<callsign>5|StartFinish</callsign>
+		<type>static</type>
+		<class>gate</class>
+		<model type="string">AI/AirRace/pylon-startfinish.xml</model>
+		<latitude type="double">46.888242</latitude>
+		<longitude type="double">17.931930</longitude>
+		<altitude type="double">328</altitude>
+		<heading type="double">280</heading>
+	</entry>
+
+	<entry>
+		<name>6|Double</name>
+		<callsign>6|Double</callsign>
+		<type>static</type>
+		<class>gate</class>
+		<model type="string">AI/AirRace/pylon-double.xml</model>
+		<latitude type="double">46.889044</latitude>
+		<longitude type="double">17.927947</longitude>
+		<altitude type="double">328</altitude>
+		<heading type="double">280</heading>
+	</entry>
+
+	<entry>
+		<name>7|Double</name>
+		<callsign>7|Double</callsign>
+		<type>static</type>
+		<class>gate</class>
+		<model type="string">AI/AirRace/pylon-double.xml</model>
+		<latitude type="double">46.889027</latitude>
+		<longitude type="double">17.942817</longitude>
+		<altitude type="double">328</altitude>
+		<heading type="double">258</heading>
+	</entry>
+
+ </scenario>
+</PropertyList>

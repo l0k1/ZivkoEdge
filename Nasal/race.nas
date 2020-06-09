@@ -10,7 +10,7 @@ var pylon = {
     new: func(ident, lat,lon,alt,hdg,type) {
         # nodes getting initialized to the wrong lat/lon, timer so that nodes can get initialized
         var m = {parents: [pylon]};
-        print("pylon " ~ type ~ " created");
+        #print("pylon " ~ type ~ " created");
         m.type = type;
         m.lat = lat;
         m.lon = lon;
@@ -29,7 +29,7 @@ var pylon = {
             m.align = geo.Coord.new().set_latlon(m.coord.lat(), m.coord.lon(), m.coord.alt()).apply_course_distance(m.hdg, 100);
         }
         m.load_n = ident;
-        print("setting up pylon " ~ m.load_n);
+        #print("setting up pylon " ~ m.load_n);
         return m;
     },
     is_between_bounds: func() {

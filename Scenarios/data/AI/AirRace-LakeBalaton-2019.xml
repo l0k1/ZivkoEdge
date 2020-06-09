@@ -7,9 +7,65 @@
   
   <nasal>
 	<load><![CDATA[
-		print("squeeeeeeeeeeeeeeee!");
-	]]>
-	</load>
+		if (race != nil) {
+			if (race.registered != "") {
+				screen.log.write("Another air race scenario is already active, please deselect that one first!");
+				return;
+			}
+
+			screen.log.write("Loading up the Lake Balaton 2019 Course.");
+			race.registered = "balaton2019";
+
+			# ident, lat, lon, altm, heading, type
+			race.create_track([
+				[0, 46.889723, 17.946561, 328, 258, race.DOUBLE],
+				[1, 46.889945, 17.943093, 328, 258, race.SINGLE],
+				[2, 46.888152, 17.939078, 328,  78, race.SINGLE],
+				[3, 46.888004, 17.937083, 328, 258, race.SINGLE],
+				[4, 46.887870, 17.935223, 328,  78, race.SINGLE],
+				[5, 46.888242, 17.931930, 328, 280, race.STARTFINISH],
+				[6, 46.889044, 17.927947, 328, 280, race.DOUBLE],
+				[7, 46.889027, 17.942817, 328, 258, race.DOUBLE],
+			]);
+
+			# the order in which to run the above pylons
+			race.race_wps = [
+				race.wp.new(0),
+				race.wp.new(1),
+				race.wp.new(2),
+				race.wp.new(3),
+				race.wp.new(4),
+				race.wp.new(5),
+				race.wp.new(6),
+				race.wp.new(5),
+				race.wp.new(4),
+				race.wp.new(3),
+				race.wp.new(2),
+				race.wp.new(1),
+				race.wp.new(0),
+				race.wp.new(7),
+				race.wp.new(2),
+				race.wp.new(3),
+				race.wp.new(4),
+				race.wp.new(5),
+				race.wp.new(6),
+				race.wp.new(5),
+			];
+			race.splits = [6,12,-1];
+			screen.log.write("Lake Balaton 2019 loading complete!");
+			race.t_main.start();
+		}
+	]]></load>
+	<unload>
+		<![CDATA[
+		if (race != nil) {
+			if (race.registered == "balaton2019") {
+				race.t_main.stop();
+				race.registered = "";
+			}
+		}
+		]]>
+	</unload>
   </nasal>
 
 	<entry>

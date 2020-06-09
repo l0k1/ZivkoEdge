@@ -94,6 +94,13 @@ setlistener("sim/signals/fdm-initialized", func {
   aircraft.livery.init("Aircraft/ZivkoEdge/Models/Liveries");
 
   update();
+
+
+  setlistener("/controls/armament/pickle", func {
+    if (getprop("/controls/armament/pickle")) {
+      setprop("controls/electric/smoke-switch",!getprop("controls/electric/smoke-switch"));
+    }
+  },0,1);
 });
 
 ##############################

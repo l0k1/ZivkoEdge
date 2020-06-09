@@ -245,7 +245,15 @@ var EFIS = {
 
 };
 
+var efis = "";
+
 setlistener("/nasal/canvas/loaded", func {
-  var efis = EFIS.new("/instrumentation/efis");
+  efis = EFIS.new("/instrumentation/efis");
   efis.update();
+  setlistener("/controls/armament/trigger", func {
+    if (getprop("/controls/armament/trigger")) {
+      efis.knobPressed(1);
+    }
+  },0,1);
 }, 1);
+

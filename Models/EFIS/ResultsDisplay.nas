@@ -23,16 +23,16 @@ var ResultsDisplay = {
        .setTranslation(SCREEN_WIDTH_2, 20 + 1*110)
        .setText("(1.0  -- 1.00s) G");
 
-    m.g.createChild("text", "line-speed")
+    m.entryinfo = m.g.createChild("text", "line-speed")
        .setDrawMode(canvas.Text.TEXT)
        .setColor(0,0,0)
        .setAlignment("center-top")
        .setFont("LiberationFonts/LiberationMono-Regular.ttf")
        .setFontSize(96, 1.0)
        .setTranslation(SCREEN_WIDTH_2, 20 + 2*110)
-       .setText("Entry 201.75kt+1s");
+       .setText("Entry 000.00kt+0s");
 
-    m.g.createChild("text", "line-split1")
+    m.split1 = m.g.createChild("text", "line-split1")
        .setDrawMode(canvas.Text.TEXT)
        .setColor(0,0,0)
        .setAlignment("center-top")
@@ -41,7 +41,7 @@ var ResultsDisplay = {
        .setTranslation(SCREEN_WIDTH_2, 20 + 3*110)
        .setText("split1 0:00.000+0");
 
-    m.g.createChild("text", "line-split2")
+    m.split2 = m.g.createChild("text", "line-split2")
        .setDrawMode(canvas.Text.TEXT)
        .setColor(0,0,0)
        .setAlignment("center-top")
@@ -50,16 +50,16 @@ var ResultsDisplay = {
        .setTranslation(SCREEN_WIDTH_2, 20 + 4*110)
        .setText("split2 0:00.000+0");
 
-    m.g.createChild("text", "line-split3")
+    m.split3 = m.g.createChild("text", "line-split3")
        .setDrawMode(canvas.Text.TEXT)
        .setColor(0,0,0)
        .setAlignment("center-top")
        .setFont("LiberationFonts/LiberationMono-Regular.ttf")
        .setFontSize(96, 1.0)
        .setTranslation(SCREEN_WIDTH_2, 20 + 5*110)
-       .setText("split1 0:00.000+0");
+       .setText("split3 0:00.000+0");
 
-    m.g.createChild("text", "line-finish")
+    m.finishtime = m.g.createChild("text", "line-finish")
        .setDrawMode(canvas.Text.TEXT)
        .setColor(0,0,0)
        .setAlignment("center-top")

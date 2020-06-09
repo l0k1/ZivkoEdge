@@ -242,6 +242,7 @@
   </input>
 
   <nasal>
+    <vector><file>Aircraft/ZivkoEdge/Nasal/vector.nas</file></vector>
     <Edge540>
       <file>Aircraft/ZivkoEdge/Nasal/MagnetoSwitch.nas</file>
       <file>Aircraft/ZivkoEdge/Nasal/EDM700.nas</file>
@@ -252,6 +253,7 @@
     <blackout>
       <file>Aircraft/ZivkoEdge/Nasal/blackout.nas</file>
     </blackout>
+    <race><file>Aircraft/ZivkoEdge/Nasal/race.nas</file></race>
   </nasal>
 
   <controls>

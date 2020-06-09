@@ -121,7 +121,7 @@ var wp = {
             screen.log.write("Incorrect level flying (roll)! +2 second penalty.");
             penaltime = penaltime + 2;
         }
-        if (me.pylon.type != SINGLE and math.abs(vspeed_node.getValue()) > 20) {
+        if (me.pylon.type != SINGLE and math.abs(vspeed_node.getValue()) > 25) {
             # too much climb/dive
             screen.log.write("Incorrect level flying (vertical speed)! +2 second penalty.");
             penaltime = penaltime + 2;

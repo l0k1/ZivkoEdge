@@ -19,10 +19,10 @@
 			# ident, lat, lon, altm, heading, type
 			race.create_track([
 				[0, 46.889723, 17.946561, 328, 258, race.DOUBLE],
-				[1, 46.889945, 17.943093, 328, 258, race.SINGLE],
-				[2, 46.888152, 17.939078, 328,  78, race.SINGLE],
-				[3, 46.888004, 17.937083, 328, 258, race.SINGLE],
-				[4, 46.887870, 17.935223, 328,  78, race.SINGLE],
+				[1, 46.889945, 17.943093, 328,  78, race.SINGLE],
+				[2, 46.888152, 17.939078, 328, 258, race.SINGLE],
+				[3, 46.888004, 17.937083, 328,  78, race.SINGLE],
+				[4, 46.887870, 17.935223, 328, 258, race.SINGLE],
 				[5, 46.888242, 17.931930, 328, 280, race.STARTFINISH],
 				[6, 46.889044, 17.927947, 328, 280, race.DOUBLE],
 				[7, 46.889027, 17.942817, 328, 258, race.DOUBLE],
@@ -89,7 +89,7 @@
 		<latitude type="double">46.889945</latitude>
 		<longitude type="double">17.943093</longitude>
 		<altitude type="double">328</altitude>
-		<heading type="double">258</heading>
+		<heading type="double">78</heading>
 	</entry>
 
 	<!-- chicane -->
@@ -103,7 +103,7 @@
 		<latitude type="double">46.888152</latitude>
 		<longitude type="double">17.939078</longitude>
 		<altitude type="double">328</altitude>
-		<heading type="double">78</heading>
+		<heading type="double">258</heading>
 	</entry>
 
 	<entry>
@@ -115,7 +115,7 @@
 		<latitude type="double">46.888004</latitude>
 		<longitude type="double">17.937083</longitude>
 		<altitude type="double">328</altitude>
-		<heading type="double">258</heading>
+		<heading type="double">78</heading>
 	</entry>
 
 	<entry>
@@ -127,7 +127,7 @@
 		<latitude type="double">46.887870</latitude>
 		<longitude type="double">17.935223</longitude>
 		<altitude type="double">328</altitude>
-		<heading type="double">78</heading>
+		<heading type="double">258</heading>
 	</entry>
 
 	<!-- end chicane -->

@@ -4,8 +4,6 @@ var STARTFINISH = 0;
 var DOUBLE = 1;
 var SINGLE = 2;
 
-# at 20 frames per second and 200kts groundspeed, the plane will move roughly 5 meters per frame
-
 var pylon = {
     new: func(ident, lat,lon,alt,hdg,type) {
         # nodes getting initialized to the wrong lat/lon, timer so that nodes can get initialized
@@ -24,8 +22,8 @@ var pylon = {
             m.rightbound = geo.Coord.new().set_latlon(m.coord.lat(), m.coord.lon(), m.coord.alt()).apply_course_distance(m.hdg + 90, 8.7);
             m.align = geo.Coord.new().set_latlon(m.coord.lat(), m.coord.lon(), m.coord.alt()).apply_course_distance(m.hdg, 100);
         } else {
-            m.leftbound = geo.Coord.new().set_latlon(m.coord.lat(), m.coord.lon(), m.coord.alt()).apply_course_distance(m.hdg - 90, 3.5);
-            m.rightbound = geo.Coord.new().set_latlon(m.coord.lat(), m.coord.lon(), m.coord.alt()).apply_course_distance(m.hdg + 90, 100);
+            m.leftbound = geo.Coord.new().set_latlon(m.coord.lat(), m.coord.lon(), m.coord.alt()).apply_course_distance(m.hdg + 90, 3.5);
+            m.rightbound = geo.Coord.new().set_latlon(m.coord.lat(), m.coord.lon(), m.coord.alt()).apply_course_distance(m.hdg - 90, 100);
             m.align = geo.Coord.new().set_latlon(m.coord.lat(), m.coord.lon(), m.coord.alt()).apply_course_distance(m.hdg, 100);
         }
         m.load_n = ident;
@@ -37,7 +35,8 @@ var pylon = {
         me.phead = heading_node.getValue();
         me.leftbearing = geo.normdeg180(me.phead - me.planecoord.course_to(me.leftbound));
         me.rightbearing = geo.normdeg180(me.phead - me.planecoord.course_to(me.rightbound));
-        if (math.abs(me.forwardbackdist()) < 8) {
+        # at 20 frames per second and 200kts groundspeed, the plane will move roughly 5 meters per frame
+        if (math.abs(me.forwardbackdist()) < 3) {
             if ((me.leftbearing > 0 and me.rightbearing < 0) or (me.leftbearing < 0 and me.rightbearing > 0)) {
                 return 1;
             } elsif (!missedflag and starttime) {
@@ -101,29 +100,35 @@ var wp = {
         if (me.plane_altm < (me.pylon.alt - 6)) {
             # too low
             screen.log.write("Too low! +2 second penalty.");
+            tofile("too low, +2 penalty");
             penaltime = penaltime + 2;
         } elsif (me.plane_altm > (me.pylon.alt + 5.5)) {
             # too high
             screen.log.write("Too high! +2 second penalty.");
+            tofile("too high, +2 penalty");
             penaltime = penaltime + 2;
         }
         if (me.planecoord.distance_to(me.pylon.leftbound) < 4) {
             # collision w/ left pylon or pylon
             screen.log.write("Pylon collision! +3 second penalty.");
+            tofile("pylon collision, +3 penalty");
             penaltime = penaltime + 3;
         } elsif (me.pylon.type != SINGLE and me.planecoord.distance_to(me.pylon.rightbound) < 4) {
             # collision w/ right pylon
             screen.log.write("Pylon collision! +3 second penalty.");
+            tofile("pylon collision, +3 penalty");
             penaltime = penaltime + 3;
         }
         if (me.pylon.type != SINGLE and math.abs(roll_node.getValue()) > 10) {
             # too much roll
             screen.log.write("Incorrect level flying (roll)! +2 second penalty.");
+            tofile("level flying(roll), +2 penalty");
             penaltime = penaltime + 2;
         }
         if (me.pylon.type != SINGLE and math.abs(vspeed_node.getValue()) > 25) {
             # too much climb/dive
             screen.log.write("Incorrect level flying (vertical speed)! +2 second penalty.");
+            tofile("level flying(vspeed), +2 penalty");
             penaltime = penaltime + 2;
         }
     }
@@ -150,15 +155,22 @@ var gflag_12 = 0;
 var smokeflag = 0;
 var missedflag = 0;
 var ftime = 0;
+var ctime = 0;
 var _m = 0;
 var _s = 0;
 var _gs = 0;
+
+var outstr = "";
 
 var raceloop = func() {
     for (i = 0; i < size(race_wps); i = i + 1) {
         if (!race_wps[i].passed) {
             break;
         }
+    }
+
+    if (i == size(race_wps)) {
+        return;
     }
 
     # check g force
@@ -170,12 +182,14 @@ var raceloop = func() {
         } elsif (g >= 11 and g < 12) {
             if (!gflag_11) {
                 screen.log.write("Over G! +1 second penalty.");
+                tofile("over g, +1 second");
                 penaltime = penaltime + 1;
                 gflag_11 = 1;
             }
         } elsif (g > 12) {
             if (!gflag_12) {
                 screen.log.write("Over max G! DNF!");
+                tofile("over max g, dnf!");
                 dnf = 1;
                 gflag_12 = 1;
             }
@@ -191,6 +205,7 @@ var raceloop = func() {
         }
     }
 
+
     if (i == 0) {
         if (race_wps[i].pylon.is_between_bounds()) {
             race_wps[i].check_penalties();
@@ -201,12 +216,16 @@ var raceloop = func() {
             if (screen_node.getValue() == "prd") {
                 Edge540.efis.knobPressed(1);
             }
+            tofile("starting race!");
+            tofile("entry speed of " ~ _gs);
             if (_gs > 202) {
                 screen.log.write("Maximum start speed exceeded! DNF!");
                 dnf = 1;
+                tofile("dnf!");
             } elsif (_gs > 200) {
                 screen.log.write("Start speed exceeds 200kts! +1 second penalty.");
                 penaltime = penaltime + 1;
+                tofile("+1 second penalty due to entry speed");
             }
             foreach(var s; Edge540.efis.screens) {
                 if (s.getName() == "result") {
@@ -217,7 +236,9 @@ var raceloop = func() {
     } elsif ( i == (size(race_wps) - 1) ) {
         if (race_wps[i].pylon.is_between_bounds()) {
             race_wps[i].check_penalties();
+            race_wps[i].passed = 1;
             ftime = (systime() - starttime + penaltime);
+            tofile("race over! final time is " ~ ftime);
             screen.log.write("Race over!");
             screen.log.write(sprintf("Your time was: %3.2f", ftime));
             if (penaltime > 0) {
@@ -232,18 +253,22 @@ var raceloop = func() {
                 }
             }
             print("racetime: " ~ ftime);
+            writefile();
             penaltime = 0;
             gflag_11 = 0;
             gflag_12 = 0;
             smokeflag = 0;
             starttime = 0;
-            foreach (var w; race_wps) {
-                w.passed = 0;
-            }
+            settimer(func() {
+                foreach (var w; race_wps) {
+                    w.passed = 0;
+                }
+            },3);
         }
     } elsif (race_wps[i].pylon.is_between_bounds()) {
         race_wps[i].passed = 1;
         race_wps[i].check_penalties();
+        tofile("passed wp " ~ i ~ " with speed " ~ gs_node.getValue());
         ftime = systime() - starttime;
         if (i == splits[0]) {
             foreach(var s; Edge540.efis.screens) {
@@ -268,13 +293,30 @@ var raceloop = func() {
     }
 }
 
+var tofile = func(line) {
+    outstr = outstr ~ "\n" ~ systime() ~ "|" ~ line;
+}
+
+var writefile = func() {
+    timestamp = getprop("/sim/time/utc/year") ~ "-" ~ getprop("/sim/time/utc/month") ~ "-" ~ getprop("/sim/time/utc/day") ~ "T";
+    timestamp = timestamp ~ getprop("/sim/time/utc/hour") ~ ":" ~ getprop("/sim/time/utc/minute") ~ ":" ~ getprop("/sim/time/utc/second") ~ "Z";
+    filetimestamp = string.replace(timestamp,":","-");
+    output_file = getprop("/sim/fg-home") ~ "/Export/flightgearairrace-" ~ filetimestamp ~ ".txt";
+    outstr = outstr ~ "\n" ~ md5(outstr);
+    f = io.open(output_file, "w");
+    io.write(f, outstr);
+    io.close(f);
+
+    outstr = "";
+}
+
 var format_time_text = func(time) {
         _m = int(ftime/60);
         _s = math.mod(ftime, 60);
         if (_s < 10) {
             return _m~":0"~sprintf("%2.3f",_s);
         } else {
-            return _m~":0"~sprintf("%2.3f",_s);
+            return _m~":"~sprintf("%2.3f",_s);
         }
 }
 

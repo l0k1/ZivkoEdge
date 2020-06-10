@@ -8,11 +8,66 @@
 
   <nasal>
 	<load><![CDATA[
-		print("squeeeeeeeeeeeeeeee!");
-	]]>
-	</load>
-  </nasal>
+		if (race != nil) {
+			if (race.registered != "") {
+				screen.log.write("Another air race scenario is already active, please deselect that one first!");
+				return;
+			}
 
+			screen.log.write("Loading up the Abu Dhabi 2017 Course.");
+			race.registered = "abudhabi2017";
+
+			# ident, lat, lon, altm, heading, type
+			race.create_track([
+				[0, 24.483826, 54.331156, 0, 250, race.STARTFINISH],
+				[1, 24.482630, 54.329134, 0,  45, race.SINGLE],
+				[2, 24.481794, 54.328328, 0, 225, race.SINGLE],
+				[3, 24.480992, 54.327418, 0,  45, race.SINGLE],
+				[4, 24.478602, 54.326241, 0, 230, race.DOUBLE],
+				[5, 24.479915, 54.328849, 0, 240, race.DOUBLE],
+				[6, 24.480759, 54.330229, 0,  50, race.SINGLE],
+				[7, 24.481245, 54.331701, 0, 235, race.SINGLE],
+				[8, 24.483148, 54.333781, 0, 350, race.DOUBLE],
+			]);
+
+			# the order in which to run the above pylons
+			race.race_wps = [
+				race.wp.new(0),
+				race.wp.new(1),
+				race.wp.new(2),
+				race.wp.new(3),
+				race.wp.new(4),
+				race.wp.new(5),
+				race.wp.new(6),
+				race.wp.new(7),
+				race.wp.new(8),
+				race.wp.new(0),
+				race.wp.new(1),
+				race.wp.new(2),
+				race.wp.new(3),
+				race.wp.new(4),
+				race.wp.new(5),
+				race.wp.new(6),
+				race.wp.new(7),
+				race.wp.new(8),
+				race.wp.new(0),
+			];
+			race.splits = [5,10,15];
+			screen.log.write("Abu Dhabi 2017 loading complete!");
+			race.t_main.start();
+		}
+	]]></load>
+	<unload>
+		<![CDATA[
+		if (race != nil) {
+			if (race.registered == "abudhabi2017") {
+				race.t_main.stop();
+				race.registered = "";
+			}
+		}
+		]]>
+	</unload>
+  </nasal>
 	<entry>
 		<name>Start</name>
 		<callsign>Start</callsign>

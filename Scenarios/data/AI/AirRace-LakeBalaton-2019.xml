@@ -51,7 +51,7 @@
 				race.wp.new(6),
 				race.wp.new(5),
 			];
-			race.splits = [6,12,-1];
+			race.splits = [5, 10, 15];
 			screen.log.write("Lake Balaton 2019 loading complete!");
 			race.t_main.start();
 		}

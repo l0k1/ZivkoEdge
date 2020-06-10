@@ -108,16 +108,18 @@ var wp = {
             tofile("too high, +2 penalty");
             penaltime = penaltime + 2;
         }
-        if (me.planecoord.distance_to(me.pylon.leftbound) < 4) {
+        if (me.planecoord.distance_to(me.pylon.leftbound) < 4 and me.plane_altm < (me.pylon.alt + 6.5)) {
             # collision w/ left pylon or pylon
             screen.log.write("Pylon collision! +3 second penalty.");
             tofile("pylon collision, +3 penalty");
             penaltime = penaltime + 3;
-        } elsif (me.pylon.type != SINGLE and me.planecoord.distance_to(me.pylon.rightbound) < 4) {
+            pcol = pcol + 1;
+        } elsif (me.pylon.type != SINGLE and me.planecoord.distance_to(me.pylon.rightbound) < 4 and me.plane_altm < (me.pylon.alt + 6.5)) {
             # collision w/ right pylon
             screen.log.write("Pylon collision! +3 second penalty.");
             tofile("pylon collision, +3 penalty");
             penaltime = penaltime + 3;
+            pcol = pcol + 1;
         }
         if (me.pylon.type != SINGLE and math.abs(roll_node.getValue()) > 10) {
             # too much roll
@@ -159,6 +161,7 @@ var ctime = 0;
 var _m = 0;
 var _s = 0;
 var _gs = 0;
+var pcol = 0;
 
 var outstr = "";
 
@@ -203,6 +206,27 @@ var raceloop = func() {
                 penaltime = penaltime + 1;
             }
         }
+    }
+
+    if (pcol == 3) {
+        screen.log.write("3 pylon collisions! DNF!");
+        dnf = 1;
+    }
+
+    if (dnf) {
+        screen.log.write("Race over!");
+        writefile();
+        penaltime = 0;
+        gflag_11 = 0;
+        gflag_12 = 0;
+        smokeflag = 0;
+        pcol = 0;
+        starttime = 0;
+        settimer(func() {
+            foreach (var w; race_wps) {
+                w.passed = 0;
+            }
+        },3);
     }
 
 
@@ -257,6 +281,7 @@ var raceloop = func() {
             penaltime = 0;
             gflag_11 = 0;
             gflag_12 = 0;
+            pcol = 0;
             smokeflag = 0;
             starttime = 0;
             settimer(func() {
@@ -306,7 +331,6 @@ var writefile = func() {
     f = io.open(output_file, "w");
     io.write(f, outstr);
     io.close(f);
-
     outstr = "";
 }
 

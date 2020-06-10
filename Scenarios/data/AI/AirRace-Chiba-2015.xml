@@ -4,6 +4,70 @@
   <description>
      Red Bull Air Race Chiba 2015 Course
   </description>
+  
+    <nasal>
+	<load><![CDATA[
+		if (race != nil) {
+			if (race.registered != "") {
+				screen.log.write("Another air race scenario is already active, please deselect that one first!");
+				return;
+			}
+
+			screen.log.write("Loading up the Chiba 2015 Course.");
+			race.registered = "chiba2015";
+
+			# ident, lat, lon, altm, heading, type
+			# pylon single heading - reversed is right, with is left
+			race.create_track([
+				[0,  35.632453, 140.037075, 0, 315, race.STARTFINISH],
+				[1,  35.634943, 140.034839, 0, 135, race.SINGLE],
+				[2,  35.635959, 140.033623, 0, 315, race.SINGLE],
+				[3,  35.636998, 140.032379, 0, 135, race.SINGLE],
+				[4,  35.638784, 140.029046, 0, 315, race.DOUBLE],
+				[5,  35.641403, 140.027155, 0, 315, race.DOUBLE],
+				[6,  35.643594, 140.024499, 0, 315, race.DOUBLE],
+				[7,  35.639753, 140.030259, 0, 135, race.SINGLE],
+
+				[8,  35.636998, 140.032379, 0, 315, race.SINGLE],
+				[9,  35.635959, 140.033623, 0, 135, race.SINGLE],
+				[10, 35.634943, 140.034839, 0, 315, race.SINGLE],
+				[11, 35.630302, 140.040379, 0, 315, race.DOUBLE],
+			]);
+
+			# the order in which to run the above pylons
+			race.race_wps = [
+				race.wp.new(0),
+				race.wp.new(1),
+				race.wp.new(2),
+				race.wp.new(3),
+				race.wp.new(4),
+				race.wp.new(5),
+				race.wp.new(6),
+				race.wp.new(5),
+				race.wp.new(7),
+				race.wp.new(8),
+				race.wp.new(9),
+				race.wp.new(10),
+				race.wp.new(0),
+				race.wp.new(11),
+				race.wp.new(0),
+			];
+			race.splits = [4,8,12];
+			screen.log.write("Chiba 2015 loading complete!");
+			race.t_main.start();
+		}
+	]]></load>
+	<unload>
+		<![CDATA[
+		if (race != nil) {
+			if (race.registered == "chiba2015") {
+				race.t_main.stop();
+				race.registered = "";
+			}
+		}
+		]]>
+	</unload>
+  </nasal>
 
 	<entry>
 		<name>Start</name>
@@ -98,7 +162,7 @@
 		<latitude type="double">35.639753</latitude>
 		<longitude type="double">140.030259</longitude>
 		<altitude type="double">0</altitude>
-		<heading type="double">315</heading>
+		<heading type="double">135</heading>
 	</entry>
 	
 	<entry>

@@ -5,11 +5,71 @@
      Red Bull Air Race Budapest 2018 Course
   </description>
   
-  <nasal>
+    <nasal>
 	<load><![CDATA[
-		print("squeeeeeeeeeeeeeeee!");
-	]]>
-	</load>
+		if (race != nil) {
+			if (race.registered != "") {
+				screen.log.write("Another air race scenario is already active, please deselect that one first!");
+				return;
+			}
+
+			screen.log.write("Loading up the Budapest 2018 Course.");
+			race.registered = "budapest2018";
+
+			# ident, lat, lon, altm, heading, type
+			race.create_track([
+				[0, 47.500905, 19.042892, 315, 355, race.STARTFINISH],
+				[1, 47.503235, 19.042541, 315, 355, race.SINGLE],
+				[2, 47.505191, 19.042533, 315, 360, race.DOUBLE],
+				[3, 47.507085, 19.042951, 315, 175, race.SINGLE],
+				[4, 47.509115, 19.042463, 315, 355, race.SINGLE],
+				[5, 47.510895, 19.042019, 315, 355, race.DOUBLE],
+				[6, 47.512753, 19.041532, 315, 355, race.DOUBLE],
+			]);
+
+			# the order in which to run the above pylons
+			race.race_wps = [
+				race.wp.new(0),
+				race.wp.new(1),
+				race.wp.new(2),
+				race.wp.new(3),
+				race.wp.new(4),
+				race.wp.new(5),
+				race.wp.new(6),
+				race.wp.new(5),
+				race.wp.new(4),
+				race.wp.new(3),
+				race.wp.new(2),
+				race.wp.new(1),
+				race.wp.new(0),
+				race.wp.new(1),
+				race.wp.new(2),
+				race.wp.new(3),
+				race.wp.new(4),
+				race.wp.new(5),
+				race.wp.new(6),
+				race.wp.new(5),
+				race.wp.new(4),
+				race.wp.new(3),
+				race.wp.new(2),
+				race.wp.new(1),
+				race.wp.new(0),
+			];
+			race.splits = [6,12,18];
+			screen.log.write("Budapest 2018 loading complete!");
+			race.t_main.start();
+		}
+	]]></load>
+	<unload>
+		<![CDATA[
+		if (race != nil) {
+			if (race.registered == "budapest2018") {
+				race.t_main.stop();
+				race.registered = "";
+			}
+		}
+		]]>
+	</unload>
   </nasal>
 
 	<entry>
@@ -96,5 +156,5 @@
 		<heading type="double">355</heading>
 	</entry>
 
- </scenario>315
+ </scenario>
 </PropertyList>

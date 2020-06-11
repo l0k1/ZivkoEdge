@@ -1,9 +1,9 @@
 <PropertyList>
   <!-- all latitudes have been increased by 0.01 to compensate for FG scenery -->
   <scenario>
-  <name>AirRace-AbuDhabi-2017</name>
+  <name>AirRace-AbuDhabi-2016</name>
   <description>
-     Red Bull Air Race Abu Dhabi 2017 Course
+     Red Bull Air Race Abu Dhabi 2016 Course
   </description>
 
   <nasal>
@@ -14,8 +14,8 @@
 				return;
 			}
 
-			screen.log.write("Loading up the Abu Dhabi 2017 Course.");
-			race.registered = "abudhabi2017";
+			screen.log.write("Loading up the Abu Dhabi 2016 Course.");
+			race.registered = "abudhabi2016";
 
 			# ident, lat, lon, altm, heading, type
 			race.create_track([
@@ -53,14 +53,14 @@
 				race.wp.new(0),
 			];
 			race.splits = [5,10,15];
-			screen.log.write("Abu Dhabi 2017 loading complete!");
+			screen.log.write("Abu Dhabi 2016 loading complete!");
 			race.t_main.start();
 		}
 	]]></load>
 	<unload>
 		<![CDATA[
 		if (race != nil) {
-			if (race.registered == "abudhabi2017") {
+			if (race.registered == "abudhabi2016") {
 				race.t_main.stop();
 				race.registered = "";
 			}

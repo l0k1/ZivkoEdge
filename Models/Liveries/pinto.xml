@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+ <sim>
+  <model>
+   <livery>
+    <name type="string">Pinto</name>
+    <fuselage>Liveries/Fuselage-pinto.png</fuselage>
+    <wingtail>Liveries/WingTail-pinto.png</wingtail>
+   </livery>
+  </model>
+ </sim>
+</PropertyList>

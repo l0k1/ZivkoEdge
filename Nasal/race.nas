@@ -216,6 +216,7 @@ var raceloop = func() {
     if (dnf) {
         screen.log.write("Race over!");
         writefile();
+        dnf = 0;
         penaltime = 0;
         gflag_11 = 0;
         gflag_12 = 0;

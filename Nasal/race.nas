@@ -294,6 +294,7 @@ var raceloop = func() {
     } elsif (race_wps[i].pylon.is_between_bounds()) {
         race_wps[i].passed = 1;
         race_wps[i].check_penalties();
+        #screen.log.write("passed gate " ~ i);
         tofile("passed wp " ~ i ~ " with speed " ~ gs_node.getValue());
         ftime = systime() - starttime;
         if (i == splits[0]) {
@@ -324,8 +325,8 @@ var tofile = func(line) {
 }
 
 var writefile = func() {
-    timestamp = getprop("/sim/time/utc/year") ~ "-" ~ getprop("/sim/time/utc/month") ~ "-" ~ getprop("/sim/time/utc/day") ~ "T";
-    timestamp = timestamp ~ getprop("/sim/time/utc/hour") ~ ":" ~ getprop("/sim/time/utc/minute") ~ ":" ~ getprop("/sim/time/utc/second") ~ "Z";
+    timestamp = getprop("/sim/time/real/year") ~ "-" ~ getprop("/sim/time/real/month") ~ "-" ~ getprop("/sim/time/real/day") ~ "T";
+    timestamp = timestamp ~ getprop("/sim/time/real/hour") ~ ":" ~ getprop("/sim/time/real/minute") ~ ":" ~ getprop("/sim/time/real/second") ~ "Z";
     filetimestamp = string.replace(timestamp,":","-");
     output_file = getprop("/sim/fg-home") ~ "/Export/flightgearairrace-" ~ filetimestamp ~ ".txt";
     outstr = outstr ~ "\n" ~ md5(outstr);

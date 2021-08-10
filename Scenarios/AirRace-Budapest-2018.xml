@@ -77,7 +77,7 @@
 		<callsign>Start</callsign>
 		<type>static</type>
 		<class>gate</class>
-		<model type="string">AI/AirRace/pylon-startfinish.xml</model>
+		<model type="string">Aircraft/ZivkoEdge/Scenarios/AirRace/pylon-startfinish.xml</model>
 		<latitude type="double">47.500905</latitude>
 		<longitude type="double">19.042892</longitude>
 		<altitude type="double">315</altitude>
@@ -89,7 +89,7 @@
 		<callsign>1|Single</callsign>
 		<type>static</type>
 		<class>gate</class>
-		<model type="string">AI/AirRace/pylon-single.xml</model>
+		<model type="string">Aircraft/ZivkoEdge/Scenarios/AirRace/pylon-single.xml</model>
 		<latitude type="double">47.503235</latitude>
 		<longitude type="double">19.042541</longitude>
 		<altitude type="double">315</altitude>
@@ -101,7 +101,7 @@
 		<callsign>2|Double</callsign>
 		<type>static</type>
 		<class>gate</class>
-		<model type="string">AI/AirRace/pylon-double.xml</model>
+		<model type="string">Aircraft/ZivkoEdge/Scenarios/AirRace/pylon-double.xml</model>
 		<latitude type="double">47.505191</latitude>
 		<longitude type="double">19.042533</longitude>
 		<altitude type="double">315</altitude>
@@ -113,7 +113,7 @@
 		<callsign>3|Single</callsign>
 		<type>static</type>
 		<class>gate</class>
-		<model type="string">AI/AirRace/pylon-single.xml</model>
+		<model type="string">Aircraft/ZivkoEdge/Scenarios/AirRace/pylon-single.xml</model>
 		<latitude type="double">47.507085</latitude>
 		<longitude type="double">19.042951</longitude>
 		<altitude type="double">315</altitude>
@@ -125,7 +125,7 @@
 		<callsign>4|Single</callsign>
 		<type>static</type>
 		<class>gate</class>
-		<model type="string">AI/AirRace/pylon-single.xml</model>
+		<model type="string">Aircraft/ZivkoEdge/Scenarios/AirRace/pylon-single.xml</model>
 		<latitude type="double">47.509115</latitude>
 		<longitude type="double">19.042463</longitude>
 		<altitude type="double">315</altitude>
@@ -137,7 +137,7 @@
 		<callsign>5|Double</callsign>
 		<type>static</type>
 		<class>gate</class>
-		<model type="string">AI/AirRace/pylon-double.xml</model>
+		<model type="string">Aircraft/ZivkoEdge/Scenarios/AirRace/pylon-double.xml</model>
 		<latitude type="double">47.510895</latitude>
 		<longitude type="double">19.042019</longitude>
 		<altitude type="double">315</altitude>
@@ -149,7 +149,7 @@
 		<callsign>6|Double</callsign>
 		<type>static</type>
 		<class>gate</class>
-		<model type="string">AI/AirRace/pylon-double.xml</model>
+		<model type="string">Aircraft/ZivkoEdge/Scenarios/AirRace/pylon-double.xml</model>
 		<latitude type="double">47.512753</latitude>
 		<longitude type="double">19.041532</longitude>
 		<altitude type="double">315</altitude>

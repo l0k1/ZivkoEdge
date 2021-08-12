@@ -32,7 +32,7 @@
 				[8, 54.511600, 18.557695, 0, 165, race.SINGLE],
 				# final turn
 				[9, 54.513663, 18.555412, 0, 160, race.DOUBLE],
-				[10, 54.515500, 18.557504, 0,  90, race.SINGLE],
+				[10, 54.51580, 18.557504, 0,  90, race.SINGLE],
 			]);
 
 			# the order in which to run the above pylons
@@ -170,7 +170,7 @@
 		<type>static</type>
 		<class>gate</class>
 		<model type="string">Aircraft/ZivkoEdge/Scenarios/AirRace/pylon-single.xml</model>
-		<latitude type="double">54.515500</latitude>
+		<latitude type="double">54.515800</latitude>
 		<longitude type="double">18.557504</longitude>
 		<altitude type="double">0</altitude>
 		<heading type="double">90</heading>

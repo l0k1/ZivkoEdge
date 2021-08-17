@@ -4,6 +4,8 @@ var STARTFINISH = 0;
 var DOUBLE = 1;
 var SINGLE = 2;
 
+var DEBUG = 0;
+
 var pylon = {
     new: func(ident, lat,lon,alt,hdg,type) {
         # nodes getting initialized to the wrong lat/lon, timer so that nodes can get initialized
@@ -36,6 +38,7 @@ var pylon = {
         me.leftbearing = geo.normdeg180(me.phead - me.planecoord.course_to(me.leftbound));
         me.rightbearing = geo.normdeg180(me.phead - me.planecoord.course_to(me.rightbound));
         # at 20 frames per second and 200kts groundspeed, the plane will move roughly 5 meters per frame
+        p_dbg("left: " ~ me.leftbearing ~ "::: right: " ~ me.rightbearing);
         if (math.abs(me.forwardbackdist()) < 3) {
             if ((me.leftbearing > 0 and me.rightbearing < 0) or (me.leftbearing < 0 and me.rightbearing > 0)) {
                 return 1;
@@ -230,6 +233,11 @@ var raceloop = func() {
         },3);
     }
 
+    if (DEBUG) {
+        print("on pylon: " ~ i);
+        print("dist: " ~ geo.aircraft_position().distance_to(race_wps[i].pylon.coord));
+    }
+
 
     if (i == 0) {
         if (race_wps[i].pylon.is_between_bounds()) {
@@ -355,5 +363,10 @@ var find_next_pos = func() {
     }
 }
 
+var p_dbg = func(msg) {
+    if (DEBUG) {
+        print(p_dbg);
+    }
+}
 
 var t_main = maketimer(0.0, func() {raceloop();});

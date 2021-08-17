@@ -1,0 +1,169 @@
+<PropertyList>
+  <scenario>
+  <name>AirRace-Rovinj-2014</name>
+  <description>
+     Red Bull Air Race Rovinj 2014 Course
+  </description>
+  
+    <nasal>
+	<load><![CDATA[
+		if (race != nil) {
+			if (race.registered != "") {
+				screen.log.write("Another air race scenario is already active, please deselect that one first!");
+				return;
+			}
+
+			screen.log.write("Loading up the Rovinj 2014 Course.");
+			race.registered = "rovinj2014";
+
+			# ident, lat, lon, altm, heading, type
+			# for headings:
+			# double gates should be the heading a pilot will fly through (forwards/backwards doesnt matter)
+			# for single gates, heading should be whatever will have the pylon on the left of the plane
+			# single gate waypoint heading is the same as the model heading
+			race.create_track([
+				[0, 45.086285, 13.630753, 0, 70,  race.STARTFINISH],
+				[1, 45.088740, 13.636269, 0, 200, race.SINGLE],
+				[2, 45.090334, 13.637091, 0, 20, race.SINGLE],
+				[3, 45.091883, 13.637853, 0, 200, race.SINGLE],
+				[4, 45.094878, 13.636655, 0, 135, race.DOUBLE],
+				[5, 45.092665, 13.632613, 0, 35, race.DOUBLE],
+				[6, 45.090605, 13.631432, 0, 10, race.DOUBLE],
+				[7, 45.088365, 13.632145, 0, 345, race.DOUBLE],
+			]);
+
+			# the order in which to run the above pylons
+			race.race_wps = [
+				race.wp.new(0),
+				race.wp.new(1),
+				race.wp.new(2),
+				race.wp.new(3),
+				race.wp.new(4),
+				race.wp.new(5),
+				race.wp.new(6),
+				race.wp.new(7),
+				race.wp.new(0),
+				race.wp.new(7),
+				race.wp.new(6),
+				race.wp.new(5),
+				race.wp.new(4),
+				race.wp.new(3),
+				race.wp.new(2),
+				race.wp.new(1),
+				race.wp.new(0),
+			];
+			race.splits = [4,8,12];
+			screen.log.write("Rovinj 2014 loading complete!");
+			race.t_main.start();
+		}
+	]]></load>
+	<unload>
+		<![CDATA[
+		if (race != nil) {
+			if (race.registered == "gdynia2014") {
+				race.t_main.stop();
+				race.registered = "";
+			}
+		}
+		]]>
+	</unload>
+  </nasal>
+
+	<entry>
+		<name>Start</name>
+		<callsign>Start</callsign>
+		<type>static</type>
+		<class>gate</class>
+		<model type="string">Aircraft/ZivkoEdge/Scenarios/AirRace/pylon-startfinish.xml</model>
+		<latitude type="double">45.086285</latitude>
+		<longitude type="double">13.630753</longitude>
+		<altitude type="double">0</altitude>
+		<heading type="double">70</heading>
+	</entry>
+
+	<entry>
+		<name>1|Single</name>
+		<callsign>1|Single</callsign>
+		<type>static</type>
+		<class>gate</class>
+		<model type="string">Aircraft/ZivkoEdge/Scenarios/AirRace/pylon-single.xml</model>
+		<latitude type="double">45.088740</latitude>
+		<longitude type="double">13.636269</longitude>
+		<altitude type="double">0</altitude>
+		<heading type="double">200</heading>
+	</entry>
+
+	<entry>
+		<name>2|Single</name>
+		<callsign>2|Single</callsign>
+		<type>static</type>
+		<class>gate</class>
+		<model type="string">Aircraft/ZivkoEdge/Scenarios/AirRace/pylon-single.xml</model>
+		<latitude type="double">45.090334</latitude>
+		<longitude type="double">13.637091</longitude>
+		<altitude type="double">0</altitude>
+		<heading type="double">20</heading>
+	</entry>
+
+	<entry>
+		<name>3|Single</name>
+		<callsign>3|Single</callsign>
+		<type>static</type>
+		<class>gate</class>
+		<model type="string">Aircraft/ZivkoEdge/Scenarios/AirRace/pylon-single.xml</model>
+		<latitude type="double">45.091883</latitude>
+		<longitude type="double">13.637853</longitude>
+		<altitude type="double">0</altitude>
+		<heading type="double">200</heading>
+	</entry>
+
+	<entry>
+		<name>4|Double</name>
+		<callsign>4|Double</callsign>
+		<type>static</type>
+		<class>gate</class>
+		<model type="string">Aircraft/ZivkoEdge/Scenarios/AirRace/pylon-double.xml</model>
+		<latitude type="double">45.094878</latitude>
+		<longitude type="double">13.636655</longitude>
+		<altitude type="double">0</altitude>
+		<heading type="double">135</heading>
+	</entry>
+
+	<entry>
+		<name>5|Double</name>
+		<callsign>5|Double</callsign>
+		<type>static</type>
+		<class>gate</class>
+		<model type="string">Aircraft/ZivkoEdge/Scenarios/AirRace/pylon-double.xml</model>
+		<latitude type="double">45.092665</latitude>
+		<longitude type="double">13.632613</longitude>
+		<altitude type="double">0</altitude>
+		<heading type="double">35</heading>
+	</entry>
+
+	<entry>
+		<name>6|Double</name>
+		<callsign>6|Double</callsign>
+		<type>static</type>
+		<class>gate</class>
+		<model type="string">Aircraft/ZivkoEdge/Scenarios/AirRace/pylon-double.xml</model>
+		<latitude type="double">45.090605</latitude>
+		<longitude type="double">13.631432</longitude>
+		<altitude type="double">0</altitude>
+		<heading type="double">10</heading>
+	</entry>
+
+	<entry>
+		<name>7|Double</name>
+		<callsign>7|Double</callsign>
+		<type>static</type>
+		<class>gate</class>
+		<model type="string">Aircraft/ZivkoEdge/Scenarios/AirRace/pylon-double.xml</model>
+		<latitude type="double">45.088365</latitude>
+		<longitude type="double">13.632145</longitude>
+		<altitude type="double">0</altitude>
+		<heading type="double">345</heading>
+	</entry>
+
+ </scenario>
+</PropertyList>

@@ -209,6 +209,12 @@ var raceloop = func() {
                 penaltime = penaltime + 1;
             }
         }
+
+        if ( getprop("/sim/speed-up") != 1 ) {
+                screen.log.write("Nice try.");
+                tofile("Warped time, DNF!");
+                dnf = 1;
+        }
     }
 
     if (pcol == 3) {
@@ -231,6 +237,8 @@ var raceloop = func() {
                 w.passed = 0;
             }
         },3);
+        external_write("DNF, race over");
+        tacview.stop();
     }
 
     if (DEBUG) {
@@ -241,6 +249,7 @@ var raceloop = func() {
 
     if (i == 0) {
         if (race_wps[i].pylon.is_between_bounds()) {
+            tacview.start();
             race_wps[i].check_penalties();
             starttime = systime();
             screen.log.write("Race started!");
@@ -276,6 +285,7 @@ var raceloop = func() {
             screen.log.write(sprintf("Your time was: %3.2f", ftime));
             if (penaltime > 0) {
                 screen.log.write("You had " ~ int(penaltime) ~ " seconds of penalty time.");
+                tacview.external_write("You had " ~ int(penaltime) ~ " seconds of penalty time.");
             }
             if (screen_node.getValue() == "rd") {
                 Edge540.efis.knobPressed(1);
@@ -286,6 +296,7 @@ var raceloop = func() {
                 }
             }
             print("racetime: " ~ ftime);
+            tacview.stop();
             writefile();
             penaltime = 0;
             gflag_11 = 0;
@@ -303,7 +314,7 @@ var raceloop = func() {
         race_wps[i].passed = 1;
         race_wps[i].check_penalties();
         #screen.log.write("passed gate " ~ i);
-        tofile("passed wp " ~ i ~ " with speed " ~ gs_node.getValue());
+        tofile("passed wp " ~ i ~ " with speed " ~ tacview.rounder(gs_node.getValue(),0.1));
         ftime = systime() - starttime;
         if (i == splits[0]) {
             foreach(var s; Edge540.efis.screens) {
@@ -329,6 +340,7 @@ var raceloop = func() {
 }
 
 var tofile = func(line) {
+    tacview.external_write(line);
     outstr = outstr ~ "\n" ~ systime() ~ "|" ~ line;
 }
 

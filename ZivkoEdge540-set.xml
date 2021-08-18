@@ -254,6 +254,7 @@
       <file>Aircraft/ZivkoEdge/Nasal/blackout.nas</file>
     </blackout>
     <race><file>Aircraft/ZivkoEdge/Nasal/race.nas</file></race>
+    <tacview><file>Aircraft/ZivkoEdge/Nasal/tacview.nas</file></tacview>
   </nasal>
 
   <controls>

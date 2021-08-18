@@ -31,6 +31,8 @@ var tacobj = {
     valid: 0,
 };
 
+var myplaneID = 0;
+
 var lat = 0;
 var lon = 0;
 var alt = 0;
@@ -43,7 +45,7 @@ var stop_on_prop = 0;
 
 var startwrite = func() {
 
-    var myplaneID = 1000+(math.floor(rand() * 100002));
+    myplaneID = 1000+(math.floor(rand() * 100002));
     timestamp = getprop("/sim/time/utc/year") ~ "-" ~ getprop("/sim/time/utc/month") ~ "-" ~ getprop("/sim/time/utc/day") ~ "T";
     timestamp = timestamp ~ getprop("/sim/time/utc/hour") ~ ":" ~ getprop("/sim/time/utc/minute") ~ ":" ~ getprop("/sim/time/utc/second") ~ "Z";
     filetimestamp = string.replace(timestamp,":","-");

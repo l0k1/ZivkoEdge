@@ -237,7 +237,7 @@ var raceloop = func() {
                 w.passed = 0;
             }
         },3);
-        external_write("DNF, race over");
+        tacview.external_write("DNF, race over");
         tacview.stop();
     }
 
